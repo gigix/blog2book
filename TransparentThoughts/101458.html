@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<title>Eclipse的异常处理--透明思考</title>
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache"> 
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache"> 
+<META HTTP-EQUIV="Expires" CONTENT="0"> 
+<META CONTENT="不完美的XP实践Eclipse的异常处理关于敏捷方法的以讹传讹  博客 博客动力 blog blogdriver blogger 中国" NAME="description"> 
+<META NAME="keywords" CONTENT="透明思考 不完美的XP实践Eclipse的异常处理关于敏捷方法的以讹传讹 博客 博客动力 blog blogdriver blogger 中国"> 
+<link href="diary.css" rel="stylesheet" type="text/css">
+<script language="JavaScript" src="/jsp/js/UBB.js"></script>
+<script type="text/javascript" src="/jsp/js/blog.js"></script>	
+</head>
+<body>
+  <div id="container">
+    <div id="header"><h1 class="title"><a href="index.html">透明思考</a></h1></div>
+	<div id="category">	<a href="101302.html" title="上一篇">不完美的XP实践</a>- -|
+		<a href="index.html">回首页</a> | <a href="catalog_2004.html">2004年索引</a>
+	| - -<a href="101505.html" title="下一篇">关于敏捷方法的以讹传讹</a></div>
+ <div class="entity">
+			    <h2 class="diaryTitle">Eclipse的异常处理- -</h2> 
+				 <p/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				 <p><DIV>（以下内容摘自<EM>Contributing to Eclipse</EM>第20章）</DIV>
+<DIV><STRONG></STRONG>&nbsp;</DIV>
+<DIV><STRONG><SPAN class=docemphstrong1><SPAN style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-size: 12.0pt; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0pt; mso-ansi-language: EN-US; mso-fareast-language: ZH-CN; mso-bidi-language: AR-SA"><STRONG>原则</STRONG></SPAN></SPAN></STRONG></DIV>
+<DIV><FONT size=2><SPAN class=docemphstrong1><SPAN style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-size: 12.0pt; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0pt; mso-ansi-language: EN-US; mso-fareast-language: ZH-CN; mso-bidi-language: AR-SA"><STRONG>责任法则：</STRONG></SPAN></SPAN><SPAN class=docemphstrong1><SPAN style="FONT-WEIGHT: normal; FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-size: 12.0pt; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0pt; mso-ansi-language: EN-US; mso-fareast-language: ZH-CN; mso-bidi-language: AR-SA">明确指出你开发的插件是问题的源头。</SPAN></SPAN></FONT></DIV><SPAN class=docemphstrong1><SPAN style="FONT-WEIGHT: normal; FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-size: 12.0pt; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0pt; mso-ansi-language: EN-US; mso-fareast-language: ZH-CN; mso-bidi-language: AR-SA"><SPAN style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-size: 12.0pt; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0pt; mso-ansi-language: EN-US; mso-fareast-language: ZH-CN; mso-bidi-language: AR-SA">
+<P class=doctext style="MARGIN: 6pt 0cm"><SPAN style="FONT-FAMILY: 宋体; mso-ascii-font-family: Verdana; mso-hansi-font-family: Verdana"><FONT size=2>告诉用户“这是我的错”，反倒会降低提供支持服务的成本？怎么会这样？那是因为：</FONT></SPAN></P>
+<P class=doclist style="MARGIN: 6pt 0cm 6pt 36pt; TEXT-INDENT: -18pt; mso-list: l0 level1 lfo2; tab-stops: list 36.0pt"><SPAN lang=EN-US style="FONT-FAMILY: Symbol"><FONT size=2>·</FONT><SPAN style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN></SPAN><FONT size=2><SPAN style="FONT-FAMILY: 宋体; mso-ascii-font-family: Verdana; mso-hansi-font-family: Verdana">如果你的插件是开放源码的，整个</SPAN><SPAN lang=EN-US><FONT face=Verdana>Eclipse</FONT></SPAN><SPAN style="FONT-FAMILY: 宋体; mso-ascii-font-family: Verdana; mso-hansi-font-family: Verdana">社群会为它提供一流的服务。如果你在日志条目和错误对话框中提供了必要的信息，大多数问题甚至在你知道之前就已经被别人解决掉了。</SPAN></FONT></P>
+<P class=doclist style="MARGIN: 6pt 0cm 6pt 36pt; TEXT-INDENT: -18pt; mso-list: l0 level1 lfo2; tab-stops: list 36.0pt"><SPAN lang=EN-US style="FONT-FAMILY: Symbol"><FONT size=2>·</FONT><SPAN style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN></SPAN><SPAN style="FONT-FAMILY: 宋体; mso-ascii-font-family: Verdana; mso-hansi-font-family: Verdana"><FONT size=2>当你知道别人可以从出错信息一直追踪到你的插件时，你就会加倍小心，写出坚固的代码。……如果细心运用这些[测试驱动的]技巧，你可以从源头上杜绝大多数问题。</FONT></SPAN></P><SPAN style="FONT-FAMILY: 宋体; mso-ascii-font-family: Verdana; mso-hansi-font-family: Verdana"><FONT size=2>
+<DIV><SPAN class=docemphstrong1><SPAN style="FONT-WEIGHT: normal; FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-size: 12.0pt; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0pt; mso-ansi-language: EN-US; mso-fareast-language: ZH-CN; mso-bidi-language: AR-SA"><STRONG>异常结构</STRONG></SPAN></SPAN></DIV>
+<DIV><SPAN class=docemphstrong1><SPAN style="FONT-WEIGHT: normal; FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-size: 12.0pt; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0pt; mso-ansi-language: EN-US; mso-fareast-language: ZH-CN; mso-bidi-language: AR-SA">
+<P class=doctext style="MARGIN: 6pt 0cm"><FONT size=2><SPAN style="FONT-FAMILY: 宋体; mso-ascii-font-family: Verdana; mso-hansi-font-family: Verdana">按照“责任法则”，插件抛出的异常必须携带一个</SPAN><SPAN lang=EN-US style="COLOR: maroon; FONT-FAMILY: 'Courier New'; mso-bidi-font-family: 'Times New Roman'">IStatus</SPAN><SPAN style="FONT-FAMILY: 宋体; mso-ascii-font-family: Verdana; mso-hansi-font-family: Verdana">对象，其中包含了插件标识符、问题严重程度、状态代码、错误信息等内容，也可以包含另一个异常。包含在</SPAN><SPAN lang=EN-US style="COLOR: maroon; FONT-FAMILY: 'Courier New'; mso-bidi-font-family: 'Times New Roman'">IStatus</SPAN><SPAN style="FONT-FAMILY: 宋体; mso-ascii-font-family: Verdana; mso-hansi-font-family: Verdana">对象中的异常通常来自较低的层次，不适于直接暴露给使用者。</SPAN><SPAN lang=EN-US style="COLOR: maroon; FONT-FAMILY: 'Courier New'; mso-bidi-font-family: 'Times New Roman'">CoreException</SPAN><SPAN style="FONT-FAMILY: 宋体; mso-ascii-font-family: Verdana; mso-hansi-font-family: Verdana">是</SPAN><SPAN lang=EN-US><FONT face=Verdana>Eclipse</FONT></SPAN><SPAN style="FONT-FAMILY: 宋体; mso-ascii-font-family: Verdana; mso-hansi-font-family: Verdana">异常体系的根[，它继承<SPAN lang=EN-US style="COLOR: maroon; FONT-FAMILY: 'Courier New'; mso-bidi-font-family: 'Times New Roman'">Exception</SPAN>类]，其中就携带了一个</SPAN><SPAN lang=EN-US style="COLOR: maroon; FONT-FAMILY: 'Courier New'; mso-bidi-font-family: 'Times New Roman'">IStatus</SPAN><SPAN style="FONT-FAMILY: 宋体; mso-ascii-font-family: Verdana; mso-hansi-font-family: Verdana">对象。</SPAN></FONT></P>
+<P class=doctext style="MARGIN: 6pt 0cm"><FONT size=2><SPAN style="FONT-FAMILY: 宋体; mso-ascii-font-family: Verdana; mso-hansi-font-family: Verdana"><SPAN class=docemphstrong1><SPAN style="FONT-WEIGHT: normal; FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-size: 12.0pt; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0pt; mso-ansi-language: EN-US; mso-fareast-language: ZH-CN; mso-bidi-language: AR-SA"><STRONG>处理方式</STRONG></SPAN></SPAN></SPAN></FONT></P><FONT size=2><SPAN style="FONT-FAMILY: 宋体; mso-ascii-font-family: Verdana; mso-hansi-font-family: Verdana"><SPAN class=docemphstrong1><SPAN style="FONT-WEIGHT: normal; FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-size: 12.0pt; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0pt; mso-ansi-language: EN-US; mso-fareast-language: ZH-CN; mso-bidi-language: AR-SA"><SPAN style="FONT-FAMILY: 宋体; mso-ascii-font-family: Verdana; mso-hansi-font-family: Verdana">
+<P class=doctext style="MARGIN: 6pt 0cm"><FONT size=2><SPAN style="FONT-FAMILY: 宋体; mso-ascii-font-family: Verdana; mso-hansi-font-family: Verdana">当有</SPAN><SPAN lang=EN-US style="COLOR: maroon; FONT-FAMILY: 'Courier New'; mso-bidi-font-family: 'Times New Roman'">CoreException</SPAN><SPAN style="FONT-FAMILY: 宋体; mso-ascii-font-family: Verdana; mso-hansi-font-family: Verdana">出现时，你首先需要决定如何处理它：是否用一个对话框通知用户？或者只是在日志文件中记录这个问题。如果你所处的环境允许你显示对话框，就应该始终这样做；反之，你就应该将问题写入日志。如果已经用对话框告知了用户，就没必要同时记录日志，除非你认为这有助于日后提供支持服务。无论你选择哪种处理方式，千万不要直接将异常消化掉，因为这会使你很难判断真正的问题所在。</SPAN></FONT></P></SPAN></SPAN></SPAN></SPAN></FONT></SPAN></SPAN></DIV></FONT></SPAN></SPAN></SPAN></SPAN></p>				  
+             <p class="diaryFoot">- 作者： <a href="javascript:void(0);" onClick="window.open('/control/postMessage.b?receiverName=gigix&receiver=25249','发送短消息','width=310,height=265')" title="gigix">gigix</a>  2004年04月1日, 星期四 21:46  </p>
+				</div>
+ <div class="operation"> 
+    <a name="trackback"><H3>Trackback</H3></a>
+      <p class="trackback">你可以使用这个链接引用该篇日志 http://publishblog.blogdriver.com/blog/tb.b?diaryID=101458
+ </p>
+ </div>				
+<div class="operation">
+     <a name="comment"><H3>回复</H3></a>
+ </div>
+  <div class="operation"> 
+    <table width="700" border="0" cellpadding="0" cellspacing="0" class="comment">
+      <form id="replyForm" method="POST">
+        <input type="hidden" name="blogID" value="18254">
+        <input type="hidden" name="diaryID" value="101458">
+        <input type="hidden" name="blogDomino" value="gigix">
+<script>
+if(getCookie('userID') == null){        
+document.write('<tr><td width="70">发布人：</td>');
+document.write('<td width="150"> <input name="remark.authorNameFUI" type="text" size="20" class="inputStyle" maxlength="20"></td>');
+document.write('<td width="70">邮箱：</td>');
+document.write('<td width="435"> <input name="remark.authorEmail" type="text" size="20" class="inputStyle" maxlength="40"></td>');
+document.write('</tr><tr><td>主　页：</td>');
+document.write('<td colspan="3"> <input name="remark.authorURL" type="text" class="inputStyle" value="HTTP://" size="63" maxlength="40"></td></tr>');
+}else{
+document.write('<input type="hidden" name="remark.authorNameFUI" value="Blogdriver">');
+}
+</script>        
+        <tr align="left"> 
+          <td colspan="4">评论内容：<br/> <textarea name="remark.remarkFUI" id="remark" cols="60" rows="8" class="textStyle" >
+          </textarea> 
+          </td> 
+        </tr>
+        <tr align="left"> 
+          <td colspan="4"> 　　　　　　 　　　　　　 
+            <input type="button" value="提交" onClick="reply()" >
+            　 
+            <input type="reset" value="重置" > </td>
+        </tr>
+      </form>
+    </table>
+  </div>
+</div>	
+<script type="text/javascript" src="http://gigix.blogdriver/gigix/extend3.js"></script> 
+<div id="footer"><a href="http://www.blogdriver.com/jsp/reg/register.jsp"><img class="logo" src="http://www.blogdriver.com/template/common/img/logo3.gif" border="0"></a><a href="http://www.blogdriver.com/">2003-2004 BLOGDRIVER.COM All rights reserved</a></div>
+</body>
+</html>

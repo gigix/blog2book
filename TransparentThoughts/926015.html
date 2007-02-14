@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<title>Annotation vs. Configuration--透明思考</title>
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache"> 
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache"> 
+<META HTTP-EQUIV="Expires" CONTENT="0"> 
+<META CONTENT="谁受益，谁负责Annotation vs. ConfigurationJ2EE Development without EJB样章试读  博客 博客动力 blog blogdriver blogger 中国" NAME="description"> 
+<META NAME="keywords" CONTENT="透明思考 谁受益，谁负责Annotation vs. ConfigurationJ2EE Development without EJB样章试读 博客 博客动力 blog blogdriver blogger 中国"> 
+<link href="diary.css" rel="stylesheet" type="text/css">
+<script language="JavaScript" src="http://statices.blogdriver.com/jsp/js/UBB.js"></script>
+<script type="text/javascript" src="http://statices.blogdriver.com/jsp/js/blog.js"></script>	
+</head>
+<body>
+  <div id="container">
+    <div id="header"><h1 class="title"><a href="index.html">透明思考</a></h1></div>
+	<div id="category">	<a href="891459.html" title="上一篇">谁受益，谁负责</a>- -|
+		<a href="index.html">回首页</a> | <a href="catalog_2005.html">2005年索引</a>
+	| - -<a href="926553.html" title="下一篇">J2EE Development without EJB样章试读</a></div>
+ <div class="entity">
+			    <h2 class="diaryTitle">Annotation vs. Configuration- -</h2> 
+				 <p/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				 <p><p>透明思考：<a href="http://publishblog.blogdriver.com/blog/tb.b?diaryID=800873">Annotation Sucks?!</a>，以及猛禽：<a href="http://borland.mblogger.cn/raptor/posts/23056.aspx">闲扯Annotation</a></p><p>我得说，在这个问题上，目前Robbin、我以及猛禽都是扯着一头就开跑，还是<a href="http://www.bjug.org/">BJUG</a>的<a href="http://www.cnblogs.com/raimundo">徐X</a>看得比较正。上上周的交流活动上，徐X提出一个观点：annotation和configuration是两种不同的东西，前者用来描述metadata，后者用来描述系统的一些??通常是易变的??参数。譬如说，这个Business Object应该和那个Data Access Object配搭起来用，这就是进行<a href="http://gigix.blogdriver.com/diary/gigix/inc/DependencyInjection.pdf">Dependency Injection</a>时候需要的metadata，这个信息第一是和code密切相关的，第二是不易变的，因此适合用annotation。再譬如说，remote service的URL是什么，数据库连接的用户名密码是什么，这信息是与code本身不相关的，而是与系统的外部行为相关的，并且是易变的，因此适合用XML configuration。</p><p>（详情请参阅徐X的<a href="http://www.bjug.org/go.php?http://www.bjug.org/party/2005.08.06/2005.08.06.AnnotationBasedProgramming.pdf">PPT讲稿</a>和<a href="http://www.bjug.org/go.php?http://www.bjug.org/party/2005.08.06/2005.08.06.AnnotationBasedProgramming.rar">演讲录音</a>。）</p><p>所以，annotation未必sucks。更多的时候，可能是因为对新技术的热昏头，把它用来做configuration，所以感觉它sucks。不过，对于Hibernate，映射描述符究竟应该算metadata还是configuration呢？可能这里并没有一条明确无二的界限，仍旧需要一些经验的判断。或者，可能在某些特定的情况下，映射描述符同时具有这两种意味。</p></p>				  
+             <p class="diaryFoot">- 作者： <a href="javascript:void(0);" onClick="window.open('http://publishblog.blogdriver.com/blog/postMessage.b?receiver=25249','发送短消息','width=520, height=455')">透明</a> 2005年08月17日, 星期三 11:03  </p>
+				</div>
+ <div class="operation"> 
+    <a name="trackback"><H3>Trackback</H3></a>
+      <p class="trackback">你可以使用这个链接引用该篇日志 http://publishblog.blogdriver.com/blog/tb.b?diaryID=926015
+ </p>
+ </div>				
+ 
+ <div class="operation">
+   <a name="relatedDiary"><H3>博客手拉手</H3></a>
+   <table width=90%>
+          </table>
+ </div>
+ 
+<div class="operation">
+     <a name="comment"><H3>回复</H3></a>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：oztxjhvw </H4></a> 
+    <H5>Thu Oct 12 05:56:34 CST 2006　 
+        <a href="mailto:nxxwxwmezd@163.com"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="http://www.iuvod.com" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">yoxwxwmest[url=http://www.koolpages.com/kkjlehl/index.html]推广技巧[/url][url=http://www.koolpages.com/kkjlehl/26198047.htm]网站建设策划方案[/url][url=http://www.koolpages.com/kkjlehl/47348973.htm]引擎排名[/url][url=http://www.koolpages.com/kkjlehl/00157846.htm]网站推广mail[/url][url=http://www.koolpages.com/kkjlehl/95187597.htm]网站推广工具下载[/url][url=http://www.powow.com/oxvhseh/index.html]网站推广的方法[/url][url=http://www.powow.com/oxvhseh/80303016.htm]网站推广群发软件[/url][url=http://www.powow.com/oxvhseh/63576814.htm]网站排名榜[/url][url=http://www.powow.com/oxvhseh/46504715.htm]电子邮件群发[/url][url=http://www.powow.com/oxvhseh/90790388.htm]qq无限群发器[/url][url=http://www.pagerealm.com/qoitojq/index.html]如何建立网站[/url][url=http://www.pagerealm.com/qoitojq/40480876.htm]什么网站赚钱[/url][url=http://www.pagerealm.com/qoitojq/93765714.htm]qq消息群发工具[/url][url=http://www.pagerealm.com/qoitojq/13671137.htm]论坛自动发帖工具[/url][url=http://www.pagerealm.com/qoitojq/45301112.htm]进出口企业名录[/url]<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：养眼美女 </H4></a> 
+    <H5>Thu Sep 01 09:02:00 CST 2005　 
+        <a href="mailto:laozuishidai@163.com"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="http://laozuishidai.blogdriver.com/" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">同意<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：taowen </H4></a> 
+    <H5>Fri Aug 19 17:42:26 CST 2005　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">Annotation应该用做多维语义签名的实现手段。作为一种附加语义的手段，结合AOP来做software composition.<br>
+      <br>
+    </P>
+ </div>
+  <div class="operation"> 
+    <table width="700" border="0" cellpadding="0" cellspacing="0" class="comment">
+      <form id="replyForm" method="POST">
+        <input type="hidden" name="blogID" value="18254">
+        <input type="hidden" name="diaryID" value="926015">
+        <input type="hidden" name="blogDomino" value="gigix">
+<script>
+if(getCookie('userID') == null){        
+document.write('<tr><td width="70">发布人：</td>');
+document.write('<td width="150"> <input name="remark.authorNameFUI" type="text" size="20" class="inputStyle" maxlength="20"></td>');
+document.write('<td width="70">邮箱：</td>');
+document.write('<td width="435"> <input name="remark.authorEmail" type="text" size="20" class="inputStyle" maxlength="40"></td>');
+document.write('</tr><tr><td>主　页：</td>');
+document.write('<td colspan="3"> <input name="remark.authorURL" type="text" class="inputStyle" value="HTTP://" size="63" maxlength="40"></td></tr>');
+}else{
+document.write('<input type="hidden" name="remark.authorNameFUI" value="Blogdriver">');
+}
+</script>        
+        <tr align="left"> 
+          <td colspan="4">评论内容：<br/> <textarea name="remark.remarkFUI" id="remark" cols="60" rows="8" class="textStyle" >
+          </textarea> 
+          </td> 
+        </tr>
+        <tr align="left"> 
+          <td colspan="4"> 　　　　　　 　　　　　　 
+            <input type="button" value="提交" onClick="reply()" >
+            　 
+            <input type="reset" value="重置" > </td>
+        </tr>
+      </form>
+    </table>
+  </div>
+</div>	
+<script type="text/javascript" src="http://gigix.blogdriver/gigix/extend3.js"></script> 
+<div id="footer"><a href="http://statices.blogdriver.com/jsp/reg/register.jsp"><img class="logo" src="http://statices.blogdriver.com/template/common/img/logo3.gif" border="0"></a><a href="http://www.blogdriver.com/">2003-2004 BLOGDRIVER.COM All rights reserved</a></div>
+</body>
+</html>

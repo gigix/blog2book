@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<title>浅尝Groovy：GroovyMarkup--透明思考</title>
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache"> 
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache"> 
+<META HTTP-EQUIV="Expires" CONTENT="0"> 
+<META CONTENT="与熊共舞浅尝Groovy：GroovyMarkupTo EJB Or Not To EJB, That Is A Question  博客 博客动力 blog blogdriver blogger 中国" NAME="description"> 
+<META NAME="keywords" CONTENT="透明思考 与熊共舞浅尝Groovy：GroovyMarkupTo EJB Or Not To EJB, That Is A Question 博客 博客动力 blog blogdriver blogger 中国"> 
+<link href="diary.css" rel="stylesheet" type="text/css">
+<script language="JavaScript" src="/jsp/js/UBB.js"></script>
+<script type="text/javascript" src="/jsp/js/blog.js"></script>	
+</head>
+<body>
+  <div id="container">
+    <div id="header"><h1 class="title"><a href="index.html">透明思考</a></h1></div>
+	<div id="category">	<a href="87888.html" title="上一篇">与熊共舞</a>- -|
+		<a href="index.html">回首页</a> | <a href="catalog_2004.html">2004年索引</a>
+	| - -<a href="88855.html" title="下一篇">To EJB Or Not To EJB, That Is A Question</a></div>
+ <div class="entity">
+			    <h2 class="diaryTitle">浅尝Groovy：GroovyMarkup- -</h2> 
+				 <p/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				 <p><DIV>GroovyMarkup可以很方便地生成XML标记串，我觉得是最方便的一种方式了，比模板填充、Castor映射等方式都要直观易懂。譬如一个Person类：</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>class Person {<BR>&nbsp;_name;<BR>&nbsp;_age;<BR>&nbsp;_sex;</DIV>
+<DIV>...</DIV>
+<DIV>}</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>下列方法可以生成XML标记串：</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>import groovy.xml.MarkupBuilder </DIV>
+<DIV>class Person {<BR>...</DIV>
+<DIV>&nbsp;toXml() {<BR>&nbsp;&nbsp;xml = new MarkupBuilder();<BR>&nbsp;&nbsp;xml.person(name:_name){<BR>&nbsp;&nbsp;&nbsp;age(_age)<BR>&nbsp;&nbsp;&nbsp;sex(_sex)<BR>&nbsp;&nbsp;}<BR>&nbsp;}<BR>}</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>调用toXml()方法，得到下列字符串：</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>&lt;person name='Gigix'&gt;<BR>&nbsp; &lt;age&gt;24&lt;/age&gt;<BR>&nbsp; &lt;sex&gt;male&lt;/sex&gt;<BR>&lt;/person&gt;</DIV></p>				  
+             <p class="diaryFoot">- 作者： <a href="javascript:void(0);" onClick="window.open('/control/postMessage.b?receiverName=gigix&receiver=25249','发送短消息','width=310,height=265')" title="gigix">gigix</a>  2004年03月22日, 星期一 14:31  </p>
+				</div>
+ <div class="operation"> 
+    <a name="trackback"><H3>Trackback</H3></a>
+      <p class="trackback">你可以使用这个链接引用该篇日志 http://publishblog.blogdriver.com/blog/tb.b?diaryID=88112
+ </p>
+ </div>				
+<div class="operation">
+     <a name="comment"><H3>回复</H3></a>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：Quake </H4></a> 
+    <H5>Wed Mar 24 12:43:07 CST 2004　 
+        </H5> 
+    <BR/>
+    <P class="comment">try XStream<br><br>http://xstream.codehaus.org/tutorial.html<br><br>XStream does not care about the visibility of the fields. No getters or setters are needed. Also, XStream does not limit you to having a default constructor.<br>
+      <br>
+    </P>
+ </div>
+  <div class="operation"> 
+    <table width="700" border="0" cellpadding="0" cellspacing="0" class="comment">
+      <form id="replyForm" method="POST">
+        <input type="hidden" name="blogID" value="18254">
+        <input type="hidden" name="diaryID" value="88112">
+        <input type="hidden" name="blogDomino" value="gigix">
+<script>
+if(getCookie('userID') == null){        
+document.write('<tr><td width="70">发布人：</td>');
+document.write('<td width="150"> <input name="remark.authorNameFUI" type="text" size="20" class="inputStyle" maxlength="20"></td>');
+document.write('<td width="70">邮箱：</td>');
+document.write('<td width="435"> <input name="remark.authorEmail" type="text" size="20" class="inputStyle" maxlength="40"></td>');
+document.write('</tr><tr><td>主　页：</td>');
+document.write('<td colspan="3"> <input name="remark.authorURL" type="text" class="inputStyle" value="HTTP://" size="63" maxlength="40"></td></tr>');
+}else{
+document.write('<input type="hidden" name="remark.authorNameFUI" value="Blogdriver">');
+}
+</script>        
+        <tr align="left"> 
+          <td colspan="4">评论内容：<br/> <textarea name="remark.remarkFUI" id="remark" cols="60" rows="8" class="textStyle" >
+          </textarea> 
+          </td> 
+        </tr>
+        <tr align="left"> 
+          <td colspan="4"> 　　　　　　 　　　　　　 
+            <input type="button" value="提交" onClick="reply()" >
+            　 
+            <input type="reset" value="重置" > </td>
+        </tr>
+      </form>
+    </table>
+  </div>
+</div>	
+<script type="text/javascript" src="http://gigix.blogdriver/gigix/extend3.js"></script> 
+<div id="footer"><a href="http://www.blogdriver.com/jsp/reg/register.jsp"><img class="logo" src="http://www.blogdriver.com/template/common/img/logo3.gif" border="0"></a><a href="http://www.blogdriver.com/">2003-2004 BLOGDRIVER.COM All rights reserved</a></div>
+</body>
+</html>

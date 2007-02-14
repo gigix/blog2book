@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<title>[收藏]The three kinds of aspect configuration--透明思考</title>
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache"> 
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache"> 
+<META HTTP-EQUIV="Expires" CONTENT="0"> 
+<META CONTENT="工程化的迷思与现实[收藏]The three kinds of aspect configuration循证潮流的引领者  博客 博客动力 blog blogdriver blogger 中国" NAME="description"> 
+<META NAME="keywords" CONTENT="透明思考 工程化的迷思与现实[收藏]The three kinds of aspect configuration循证潮流的引领者 博客 博客动力 blog blogdriver blogger 中国"> 
+<link href="diary.css" rel="stylesheet" type="text/css">
+<script language="JavaScript" src="/jsp/js/UBB.js"></script>
+<script type="text/javascript" src="/jsp/js/blog.js"></script>	
+</head>
+<body>
+  <div id="container">
+    <div id="header"><h1 class="title"><a href="index.html">透明思考</a></h1></div>
+	<div id="category">	<a href="737969.html" title="上一篇">工程化的迷思与现实</a>- -|
+		<a href="index.html">回首页</a> | <a href="catalog_2005.html">2005年索引</a>
+	| - -<a href="742131.html" title="下一篇">循证潮流的引领者</a></div>
+ <div class="entity">
+			    <h2 class="diaryTitle">[收藏]The three kinds of aspect configuration- -</h2> 
+				 <p/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				 <p><p>原文：<a href="http://jroller.com/page/rickard/20050605#the_three_kinds_of_aspect">http://jroller.com/page/rickard/20050605#the_three_kinds_of_aspect</a></p><p>As I look through our aspect configuration I notice that there is a distinct pattern throughout. The configuration, some of which is XML and some of which is provided by Java source code, can be divided into three kinds. </p><p>The first kind is the configuration about a single aspect. It defines the aspect, be it an advice or introduction, and declares its relationship with the world. Its dependencies and what it provides. What goes in and what comes out. </p><p>The second kind is the configuration that declares how different aspects should relate in a specific system. It imports aspects, declares precedence between them, and how they should be grouped depending on annotations and what interfaces specific objects implement. What goes in and what comes out. But on a higher level. </p><p>The third kind is the configuration that describes specific classes, or &quot;sets of objects&quot;. It defines the introductions applied to particular classes, which in a cascading fashion will also determine to some degree what advice will be added. Introductions can be added on a very granular basis, i.e. to a specific class, or to sets of classes, like a package. </p><p>The first kind forms the atoms of an AOP application. The smallest lego blocks available. The second kind determines the rules for how the atoms form together into molecules; the natural laws so to speak. These become the building blocks of real structures, and depending on how they are formulated you get different orders of stability, flexibility and/or chaos. The third kind is the actual application, as it is perceived by clients of it, and hence it can be extremely varied. </p><p>In terms of reusability the first kind of configuration is extremely reusable as each individual aspect make minimal assumptions about how they are used, even though &quot;minimal&quot; can be quite substantial in some cases. The second kind is less reusable since it imposes assumptions about what set of aspects need to be available for its &quot;laws&quot; to function properly. This is because the second kind is what it responsible for describing how aspects interact, and if some of them cannot be used for some reason the laws suddenly don't behave as they were intended. The third kind is even less reusable as it makes a lot of assumptions about what is available, and the configuration is rather specific in terms of what the end result is supposed to do. </p><p>The resulting components adhere to a strictly defined behaviour (depending on the quality of the second kind of configuration, of course), which can be used by other components, and even individual aspects. In this sense, even though everything is separate, they are also inherently intertwined in a symbiotic fashion where it is difficult to separate one from the other. </p><p>By acknowledging that there are different kinds of configuration it is possible to introduce a degree of order into an AOP application. Everything is not equal, everything is not the same, which is what gives the developer a possibility to ensure that any new aspect (s)he creates fits into an existing system in a non-disruptive manner. </p><p>Harmony follows and everyone is happy. </p><p>The End.</p></p>				  
+             <p class="diaryFoot">- 作者： <a href="javascript:void(0);" onClick="window.open('http://publishblog.blogdriver.com/blog/postMessage.b?receiver=25249','发送短消息','width=520, height=455')">透明</a> 2005年06月6日, 星期一 11:21  </p>
+				</div>
+ <div class="operation"> 
+    <a name="trackback"><H3>Trackback</H3></a>
+      <p class="trackback">你可以使用这个链接引用该篇日志 http://publishblog.blogdriver.com/blog/tb.b?diaryID=739285
+ </p>
+ </div>				
+<div class="operation">
+     <a name="comment"><H3>回复</H3></a>
+ </div>
+  <div class="operation"> 
+    <table width="700" border="0" cellpadding="0" cellspacing="0" class="comment">
+      <form id="replyForm" method="POST">
+        <input type="hidden" name="blogID" value="18254">
+        <input type="hidden" name="diaryID" value="739285">
+        <input type="hidden" name="blogDomino" value="gigix">
+<script>
+if(getCookie('userID') == null){        
+document.write('<tr><td width="70">发布人：</td>');
+document.write('<td width="150"> <input name="remark.authorNameFUI" type="text" size="20" class="inputStyle" maxlength="20"></td>');
+document.write('<td width="70">邮箱：</td>');
+document.write('<td width="435"> <input name="remark.authorEmail" type="text" size="20" class="inputStyle" maxlength="40"></td>');
+document.write('</tr><tr><td>主　页：</td>');
+document.write('<td colspan="3"> <input name="remark.authorURL" type="text" class="inputStyle" value="HTTP://" size="63" maxlength="40"></td></tr>');
+}else{
+document.write('<input type="hidden" name="remark.authorNameFUI" value="Blogdriver">');
+}
+</script>        
+        <tr align="left"> 
+          <td colspan="4">评论内容：<br/> <textarea name="remark.remarkFUI" id="remark" cols="60" rows="8" class="textStyle" >
+          </textarea> 
+          </td> 
+        </tr>
+        <tr align="left"> 
+          <td colspan="4"> 　　　　　　 　　　　　　 
+            <input type="button" value="提交" onClick="reply()" >
+            　 
+            <input type="reset" value="重置" > </td>
+        </tr>
+      </form>
+    </table>
+  </div>
+</div>	
+<script type="text/javascript" src="http://gigix.blogdriver/gigix/extend3.js"></script> 
+<div id="footer"><a href="http://www.blogdriver.com/jsp/reg/register.jsp"><img class="logo" src="http://www.blogdriver.com/template/common/img/logo3.gif" border="0"></a><a href="http://www.blogdriver.com/">2003-2004 BLOGDRIVER.COM All rights reserved</a></div>
+</body>
+</html>

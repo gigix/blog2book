@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<title>关于“Unclosed Connection”：把client当白痴？--透明思考</title>
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache"> 
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache"> 
+<META HTTP-EQUIV="Expires" CONTENT="0"> 
+<META CONTENT="X档案：基于XML的Java持久化方案关于“Unclosed Connection”：把client当白痴？江南春  博客 博客动力 blog blogdriver blogger 中国" NAME="description"> 
+<META NAME="keywords" CONTENT="透明思考 X档案：基于XML的Java持久化方案关于“Unclosed Connection”：把client当白痴？江南春 博客 博客动力 blog blogdriver blogger 中国"> 
+<link href="diary.css" rel="stylesheet" type="text/css">
+<script language="JavaScript" src="/jsp/js/UBB.js"></script>
+<script type="text/javascript" src="/jsp/js/blog.js"></script>	
+</head>
+<body>
+  <div id="container">
+    <div id="header"><h1 class="title"><a href="index.html">透明思考</a></h1></div>
+	<div id="category">	<a href="82654.html" title="上一篇">X档案：基于XML的Java持久化方案</a>- -|
+		<a href="index.html">回首页</a> | <a href="catalog_2004.html">2004年索引</a>
+	| - -<a href="82960.html" title="下一篇">江南春</a></div>
+ <div class="entity">
+			    <h2 class="diaryTitle">关于“Unclosed Connection”：把client当白痴？- -</h2> 
+				 <p/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				 <p><DIV>“真水无香”：Unclosed Connection</DIV>
+<DIV><A href="http://gigix.blogdriver.com/showBlog.do?bloggerID=18558&amp;diaryID=81931" target=_blank>http://gigix.blogdriver.com/showBlog.do?bloggerID=18558&amp;diaryID=81931</A></DIV>
+<DIV>&nbsp;</DIV>
+<DIV>真水无香说，“只要可能，我们都要在程序里面避免一切可能造成错误的地方”。Charon说，“这个错误只能说是接口设计者的错误，搞了一个糖果饼干机界面”。我说，“我们要把client当白痴，只要有机会犯错，他们一定会犯错”——这是在昨天的Hibernate中文论坛聚会上说的。</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>但这次的事故，犯错误的是我，设计接口的是potian，看来两边都不是白痴。那么问题在哪里呢？我觉得就像孟岩在Design by Contract里面说的，Java对contract的描述能力太弱了，以至于我们大多数时候是在猜一个API的功能和side-effect。为了尽量减轻client那边猜的难度，所以我们要尽量在library这端做更多的安全检查。譬如我后来做的基础框架，就用了一个引用计数器来统计service组件嵌套的层数，并在最外层负责事务管理和session释放。但是，无限增加library这端的责任，有时也并不是一个好办法，尤其是很多时候library并不知道该怎么处理一个出错的情形。</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>而且，对于一个程序模块来说，出错的情形包括两种：（1）调用者没有遵循契约；（2）其他非正常情况。举个例子，对于一个DAO，如果数据库连接断掉了，那是非正常情况；如果调用者拿一个null来做“按ID查询”，那就是调用者违背契约。但是在Java里面，这两种情况都要用exception来表现，或者由library端主动检查，无形中就增加了library端的压力和复杂度。所以，我觉得assert（或者类似的手段）是一种很好的机制，它清楚地把“违背契约”和“异常情况”区分开了。</DIV></p>				  
+             <p class="diaryFoot">- 作者： <a href="javascript:void(0);" onClick="window.open('/control/postMessage.b?receiverName=gigix&receiver=25249','发送短消息','width=310,height=265')" title="gigix">gigix</a>  2004年03月14日, 星期日 17:47  </p>
+				</div>
+ <div class="operation"> 
+    <a name="trackback"><H3>Trackback</H3></a>
+      <p class="trackback">你可以使用这个链接引用该篇日志 http://publishblog.blogdriver.com/blog/tb.b?diaryID=82692
+ </p>
+ </div>				
+<div class="operation">
+     <a name="comment"><H3>回复</H3></a>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：charon </H4></a> 
+    <H5>Mon Mar 15 15:10:44 CST 2004　 
+        </H5> 
+    <BR/>
+    <P class="comment">你在这里要用的是assert而不是exception.<br>因为没有释放连接是一个程序错误，在你的成品系统运行中是不应该出现的。我看不出在正式运行中抛出一个谁也解决不了的exception有什么意义，只能说在混淆视听。<br>如果你对测试覆盖率没有足够的信心，在成品系统中finalize中也应当有释放连接的代码(在那条assert之后)，不过就像gigix说得那样，不到垃圾收集的时候连接池很可能就已经暴了<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：wintereagle </H4></a> 
+    <H5>Mon Mar 15 14:47:31 CST 2004　 
+        </H5> 
+    <BR/>
+    <P class="comment">你没有看懂我的代码，我不需要finalize来关闭connection.而是要让虚拟机知道，如果运行到finalize还没有关闭connection那么就是一种异常，必须停止程序的运行。因此你可以<br>finalize()<br>{<br> if(this.isClose()==false)<br>   throw new Exception();   <br>}<br>或者更为严厉<br>finalize()<br>{<br> if(this.isClose()==false)<br>    system.exit();<br> }<br>这个方法并不保证程序的正常运行，他只保证会检查出泄漏的资源。一个没有及时关闭的资源，一定会导致程序的中断。如果你要求更加好的资源管理，在C#,C++中都有相对的解决之道在java中恐怕除了小心的编写代码并无太好的办法。<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：gigix </H4></a> 
+    <H5>Mon Mar 15 12:38:10 CST 2004　 
+        <a href="mailto:xiongjie@csdn.net"><img src="http://www.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+        </H5> 
+    <BR/>
+    <P class="comment">Hibernate本身就做了这层管理，到垃圾回收的时候自然会关闭连接。但是就因为垃圾回收的非即时性，就已经足以把连接池灌爆了。要是依赖finalize的话，我们什么都不做都可以，压根就不会有这个话题。<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：wintereagle </H4></a> 
+    <H5>Mon Mar 15 12:00:28 CST 2004　 
+        </H5> 
+    <BR/>
+    <P class="comment">请参看http://www.allaboutprogram.com/<br>这里的C++论坛，我，elminster,ajoo对resource leak有过充分的讨论。<br>解决这种问题最为简单的方法就是:<br>class MyConnection: extends Connection<br>{<br>  finalize()<br>{<br>  throw new UnCloseException(); <br>}<br>}<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：charon </H4></a> 
+    <H5>Sun Mar 14 22:38:37 CST 2004　 
+        </H5> 
+    <BR/>
+    <P class="comment">我觉得这个问题和契约或者原本意义上的契约也没什么关系，而应当是一种协议，协议这个东西用契约很难表述出来或者说用契约表示就会看不到big picture。契约更多的是一个在调用点前后的横切视图，而不是一个动态的约束。<br>library搞得太复杂确实没有必要，可以弄一大堆assert来判断，但是这仅限于检查调用方是否合法，出现失败是要回头去改程序的，由调用方去确保其合法性。在最终的成品中，这些assert是不起作用的<br>
+      <br>
+    </P>
+ </div>
+  <div class="operation"> 
+    <table width="700" border="0" cellpadding="0" cellspacing="0" class="comment">
+      <form id="replyForm" method="POST">
+        <input type="hidden" name="blogID" value="18254">
+        <input type="hidden" name="diaryID" value="82692">
+        <input type="hidden" name="blogDomino" value="gigix">
+<script>
+if(getCookie('userID') == null){        
+document.write('<tr><td width="70">发布人：</td>');
+document.write('<td width="150"> <input name="remark.authorNameFUI" type="text" size="20" class="inputStyle" maxlength="20"></td>');
+document.write('<td width="70">邮箱：</td>');
+document.write('<td width="435"> <input name="remark.authorEmail" type="text" size="20" class="inputStyle" maxlength="40"></td>');
+document.write('</tr><tr><td>主　页：</td>');
+document.write('<td colspan="3"> <input name="remark.authorURL" type="text" class="inputStyle" value="HTTP://" size="63" maxlength="40"></td></tr>');
+}else{
+document.write('<input type="hidden" name="remark.authorNameFUI" value="Blogdriver">');
+}
+</script>        
+        <tr align="left"> 
+          <td colspan="4">评论内容：<br/> <textarea name="remark.remarkFUI" id="remark" cols="60" rows="8" class="textStyle" >
+          </textarea> 
+          </td> 
+        </tr>
+        <tr align="left"> 
+          <td colspan="4"> 　　　　　　 　　　　　　 
+            <input type="button" value="提交" onClick="reply()" >
+            　 
+            <input type="reset" value="重置" > </td>
+        </tr>
+      </form>
+    </table>
+  </div>
+</div>	
+<script type="text/javascript" src="http://gigix.blogdriver/gigix/extend3.js"></script> 
+<div id="footer"><a href="http://www.blogdriver.com/jsp/reg/register.jsp"><img class="logo" src="http://www.blogdriver.com/template/common/img/logo3.gif" border="0"></a><a href="http://www.blogdriver.com/">2003-2004 BLOGDRIVER.COM All rights reserved</a></div>
+</body>
+</html>

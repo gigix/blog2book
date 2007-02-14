@@ -1,0 +1,213 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<title>OSWorkflow基本概念--透明思考</title>
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache"> 
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache"> 
+<META HTTP-EQUIV="Expires" CONTENT="0"> 
+<META CONTENT="春，风，回忆OSWorkflow基本概念怎么Groovy也有中文问题呀？  博客 博客动力 blog blogdriver blogger 中国" NAME="description"> 
+<META NAME="keywords" CONTENT="透明思考 春，风，回忆OSWorkflow基本概念怎么Groovy也有中文问题呀？ 博客 博客动力 blog blogdriver blogger 中国"> 
+<link href="diary.css" rel="stylesheet" type="text/css">
+<script language="JavaScript" src="http://statices.blogdriver.com/jsp/js/UBB.js"></script>
+<script type="text/javascript" src="http://statices.blogdriver.com/jsp/js/blog.js"></script>	
+</head>
+<body>
+  <div id="container">
+    <div id="header"><h1 class="title"><a href="index.html">透明思考</a></h1></div>
+	<div id="category">	<a href="112891.html" title="上一篇">春，风，回忆</a>- -|
+		<a href="index.html">回首页</a> | <a href="catalog_2004.html">2004年索引</a>
+	| - -<a href="113399.html" title="下一篇">怎么Groovy也有中文问题呀？</a></div>
+ <div class="entity">
+			    <h2 class="diaryTitle">OSWorkflow基本概念- -</h2> 
+				 <p/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				 <p><DIV><STRONG><FONT size=4>Step</FONT></STRONG></DIV>
+<DIV>大致相当于<STRONG>流程所在的位置</STRONG>。譬如企业年检，年检报告书在企业端算一个step，在工商局算第二个step，在复核窗口算第三个step。每个step可以有多种状态（status）和多个动作（action），用Workflow.getCurrentSteps()可以获得所有当前的step（如果有并列流程，则可能同时有多个step，例如一次年检可能同时位于“初审”step和“广告经营资格审查”step）。</DIV>
+<DIV>&nbsp;</DIV>
+<DIV><STRONG><FONT size=4>Status</FONT></STRONG></DIV>
+<DIV><STRONG>流程在某个step中的状态</STRONG>。很容易理解，譬如“待认领”、“审核不通过”之类的。OSWorkflow中的状态完全是由开发者自定义的，状态判别纯粹是字符串比对，灵活性相当强，而且可以把定义文件做得很好看。</DIV>
+<DIV>&nbsp;</DIV>
+<DIV><STRONG><FONT size=4>Action</FONT></STRONG></DIV>
+<DIV><STRONG>导致流程状态变迁的动作</STRONG>。一个action典型地由两部分组成：可以执行此动作的条件（conditions），以及执行此动作的结果（results）。条件可以用BeanShell脚本来判断，因此具有很大的灵活性，几乎任何与流程相关的东西都可以用来做判断。</DIV>
+<DIV>&nbsp;</DIV>
+<DIV><FONT size=4><STRONG>Result</STRONG></FONT></DIV>
+<DIV><STRONG>执行动作后的结果</STRONG>。这是个比较重要的概念。result分为两种，conditional-result和unconditional-result。执行一个动作之后，首先判断所有conditional-result的条件是否满足，满足则使用该结果；如果没有任何contidional-result满足条件，则使用unconditional-result。unconditional-result需要指定两部分信息：old-status，表示“当前step的状态变成什么”；后续状态，可能是用step+status指定一个新状态，也可能进入split或者join。</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>conditional-result非常有用。还是以年检为例，同样是提交年检报告书，“未提交”和“被退回”是不同的状态，在这两个状态基础上执行“提交”动作，结果分别是“初次提交”和“退回之后再次提交”。这时可以考虑在“提交”动作上用conditional-result。</DIV>
+<DIV>&nbsp;</DIV>
+<DIV><STRONG><FONT size=4>Split/Join</FONT></STRONG></DIV>
+<DIV><STRONG>流程的切分和融合</STRONG>。很简单的概念，split提供多个result；join则判断多个current step的状态，提供一个result。</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>*&nbsp;&nbsp;&nbsp;&nbsp; *&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>熟悉这些概念，在流程定义中尽量使用中文，可以给业务代码和表现层带来很多方便。</DIV></p>				  
+             <p class="diaryFoot">- 作者： <a href="javascript:void(0);" onClick="window.open('http://publishblog.blogdriver.com/blog/postMessage.b?receiver=25249','发送短消息','width=520, height=455')">gigix</a> 2004年04月12日, 星期一 14:24  </p>
+				</div>
+ <div class="operation"> 
+    <a name="trackback"><H3>Trackback</H3></a>
+      <p class="trackback">你可以使用这个链接引用该篇日志 http://publishblog.blogdriver.com/blog/tb.b?diaryID=113138
+ </p>
+ </div>				
+ 
+ <div class="operation">
+   <a name="relatedDiary"><H3>博客手拉手</H3></a>
+   <table width=90%>
+          </table>
+ </div>
+ 
+<div class="operation">
+     <a name="comment"><H3>回复</H3></a>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：随风飘 </H4></a> 
+    <H5>Sat Dec 23 09:48:01 CST 2006　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">我是一个杂家，什么都看，什么都不太懂，单什么都想了解，再细致点就好了，不好意思。谢谢<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：oqcfjyfe </H4></a> 
+    <H5>Thu Oct 12 05:02:04 CST 2006　 
+        <a href="mailto:moxwxwmeql@163.com"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="http://www.iuvod.com" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">ygxwxwmecu[url=http://www.koolpages.com/kkjlehl/index.html]推广技巧[/url][url=http://www.koolpages.com/kkjlehl/26198047.htm]网站建设策划方案[/url][url=http://www.koolpages.com/kkjlehl/47348973.htm]引擎排名[/url][url=http://www.koolpages.com/kkjlehl/00157846.htm]网站推广mail[/url][url=http://www.koolpages.com/kkjlehl/95187597.htm]网站推广工具下载[/url][url=http://www.powow.com/oxvhseh/index.html]网站推广的方法[/url][url=http://www.powow.com/oxvhseh/80303016.htm]网站推广群发软件[/url][url=http://www.powow.com/oxvhseh/63576814.htm]网站排名榜[/url][url=http://www.powow.com/oxvhseh/46504715.htm]电子邮件群发[/url][url=http://www.powow.com/oxvhseh/90790388.htm]qq无限群发器[/url][url=http://www.pagerealm.com/qoitojq/index.html]如何建立网站[/url][url=http://www.pagerealm.com/qoitojq/40480876.htm]什么网站赚钱[/url][url=http://www.pagerealm.com/qoitojq/93765714.htm]qq消息群发工具[/url][url=http://www.pagerealm.com/qoitojq/13671137.htm]论坛自动发帖工具[/url][url=http://www.pagerealm.com/qoitojq/45301112.htm]进出口企业名录[/url]<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：gpf </H4></a> 
+    <H5>Mon Sep 12 10:07:14 CST 2005　 
+        <a href="mailto:guopengfei_8218@163.com"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">gigix兄，小弟是一个刚大学毕业的科班生，现在的职业也是程序员，不过水平比较菜，以前在JAVAEYE经常拜读你的文章，现在我想学习以下工作流方面的东东，能否给给小弟一些帮助？感谢你这篇文章，让我明白了OSWORKFLOW里的好多概念！<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：jennyjordan </H4></a> 
+    <H5>Fri Mar 11 23:07:08 CST 2005　 
+        <a href="mailto:ly_jenny@sohu.com"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">我觉得只要对有限状态机有了解，就很容易理解这些概念，可要真正配置好一切让自己的工作流运转起来就难了。我现在就头疼怎么让osworkflow在tomcat里运行起来，我现在连它自带的例子都没运行起来呢：（55<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：yu </H4></a> 
+    <H5>Tue Jan 18 15:50:13 CST 2005　 
+        <a href="mailto:sdyjmc@163.com"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">我还是搞不懂step之间怎样运转，呵呵msn：sdyjmc@163.com<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：匿名 </H4></a> 
+    <H5>Wed Nov 24 09:14:55 CST 2004　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">bu&nbsp;cuo<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：j2ee </H4></a> 
+    <H5>Wed Nov 10 09:32:24 CST 2004　 
+        <a href="mailto:armedwith-j2ee@yahoo.com"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">非常不错，感谢。&nbsp;这个应该是工作流的运转中的概念吧，有没有类似Petri网方法实现的开源项目呢？<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：孤帆一日程 </H4></a> 
+    <H5>Tue Sep 07 18:58:14 CST 2004　 
+        <a href="mailto:zbj_304@163.com"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">不久前，用osworkflow开发了几个流程，总觉得这个东东还可以，希望和大家一起交流。<BR>msn：zbj_304@163.com<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：jerry </H4></a> 
+    <H5>Tue Jun 15 17:22:05 CST 2004　 
+        </H5> 
+    <BR/>
+    <P class="comment">“后续状态，可能是用step+status指定一个新状态，也可能进入split或者join。”这一句不太懂，能不能解释一下？<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：zjxhz </H4></a> 
+    <H5>Tue Apr 20 23:03:48 CST 2004　 
+        <a href="mailto:zjxhz@hotmail.com"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+        </H5> 
+    <BR/>
+    <P class="comment">我对osworkflow 正在研究，我们一起研究如和啊。。我也正打算用呢，一开始，看不是很懂，而且他哪个文档很简单。我现在有个困惑，不知道在我的系统如何使用osworkflow<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：yooyoo </H4></a> 
+    <H5>Mon Apr 19 13:13:24 CST 2004　 
+        <a href="mailto:yandy_ah@hotmail.com"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="http://yooyoo.blogone.net" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">我对osworkflow也有过研究，现在正在准备二次开发和完善，不知道阁下是否有兴趣？<br>我的联系方式：<br>                       msn ：yandy_ah@hotmail.com<br>                       常用邮件：yaoyuan@hnisi.com.cn<br>                                            yandy_ah@hotmail.com<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：匿名 </H4></a> 
+    <H5>Tue Apr 13 18:14:15 CST 2004　 
+        </H5> 
+    <BR/>
+    <P class="comment">是开发公司还是企业，企业的话找个IBM或者别的什么的<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：weihello </H4></a> 
+    <H5>Tue Apr 13 17:41:17 CST 2004　 
+        </H5> 
+    <BR/>
+    <P class="comment">有没有中肯的work flow对比文章，公司在选型.......<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：冰云 </H4></a> 
+    <H5>Mon Apr 12 22:01:57 CST 2004　 
+            <a href="http://icecloud.51.net" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">太好了~~ 有用<br>
+      <br>
+    </P>
+ </div>
+  <div class="operation"> 
+    <table width="700" border="0" cellpadding="0" cellspacing="0" class="comment">
+      <form id="replyForm" method="POST">
+        <input type="hidden" name="blogID" value="18254">
+        <input type="hidden" name="diaryID" value="113138">
+        <input type="hidden" name="blogDomino" value="gigix">
+<script>
+if(getCookie('userID') == null){        
+document.write('<tr><td width="70">发布人：</td>');
+document.write('<td width="150"> <input name="remark.authorNameFUI" type="text" size="20" class="inputStyle" maxlength="20"></td>');
+document.write('<td width="70">邮箱：</td>');
+document.write('<td width="435"> <input name="remark.authorEmail" type="text" size="20" class="inputStyle" maxlength="40"></td>');
+document.write('</tr><tr><td>主　页：</td>');
+document.write('<td colspan="3"> <input name="remark.authorURL" type="text" class="inputStyle" value="HTTP://" size="63" maxlength="40"></td></tr>');
+}else{
+document.write('<input type="hidden" name="remark.authorNameFUI" value="Blogdriver">');
+}
+</script>        
+        <tr align="left"> 
+          <td colspan="4">评论内容：<br/> <textarea name="remark.remarkFUI" id="remark" cols="60" rows="8" class="textStyle" >
+          </textarea> 
+          </td> 
+        </tr>
+        <tr align="left"> 
+          <td colspan="4"> 　　　　　　 　　　　　　 
+            <input type="button" value="提交" onClick="reply()" >
+            　 
+            <input type="reset" value="重置" > </td>
+        </tr>
+      </form>
+    </table>
+  </div>
+</div>	
+<script type="text/javascript" src="http://gigix.blogdriver/gigix/extend3.js"></script> 
+<div id="footer"><a href="http://statices.blogdriver.com/jsp/reg/register.jsp"><img class="logo" src="http://statices.blogdriver.com/template/common/img/logo3.gif" border="0"></a><a href="http://www.blogdriver.com/">2003-2004 BLOGDRIVER.COM All rights reserved</a></div>
+</body>
+</html>

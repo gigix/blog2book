@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<title>整合MVNForum与Roller的用户--透明思考</title>
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache"> 
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache"> 
+<META HTTP-EQUIV="Expires" CONTENT="0"> 
+<META CONTENT="高速公路上的电动车整合MVNForum与Roller的用户又发现一个不错的CMS  博客 博客动力 blog blogdriver blogger 中国" NAME="description"> 
+<META NAME="keywords" CONTENT="透明思考 高速公路上的电动车整合MVNForum与Roller的用户又发现一个不错的CMS 博客 博客动力 blog blogdriver blogger 中国"> 
+<link href="diary.css" rel="stylesheet" type="text/css">
+<script language="JavaScript" src="/jsp/js/UBB.js"></script>
+<script type="text/javascript" src="/jsp/js/blog.js"></script>	
+</head>
+<body>
+  <div id="container">
+    <div id="header"><h1 class="title"><a href="index.html">透明思考</a></h1></div>
+	<div id="category">	<a href="400804.html" title="上一篇">高速公路上的电动车</a>- -|
+		<a href="index.html">回首页</a> | <a href="catalog_2004.html">2004年索引</a>
+	| - -<a href="420159.html" title="下一篇">又发现一个不错的CMS</a></div>
+ <div class="entity">
+			    <h2 class="diaryTitle">整合MVNForum与Roller的用户- -</h2> 
+				 <p/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				 <p><DIV>MVNForum的用户信息多于Roller，我想到的整合策略是只使用MVN的用户库，在MVN这里提供一个RPC API，让Roller来调用。这样Roller就不需要保存自己的用户信息了。</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>Roller关于用户信息的操作都在<FONT face="Courier New,Courier,Monospace">org.roller.model.UserManager</FONT>背后，现在用的实现是<FONT face="Courier New,Courier,Monospace">org.roller.business.hibernate.UserManagerImpl</FONT>，工厂是<FONT face="Courier New,Courier,Monospace">org.roller.business.hibernate.RollerImpl。</FONT>只要新建一个<FONT face="Courier New,Courier,Monospace">UserManager</FONT>的实现类，在这里整合RPC，将部分操作delegate给<FONT face="Courier New,Courier,Monospace">UserManagerImpl</FONT>，再修改<FONT face="Courier New,Courier,Monospace">RollerImpl</FONT>即可。另一方面，Roller这边也要暴露<FONT face="Courier New,Courier,Monospace">UserManager</FONT>的部分RPC接口，MVN需要在用户注册之后调用它的<FONT face="Courier New,Courier,Monospace">addUser()</FONT>方法添加相关数据、用户销毁之后调用<FONT face="Courier New,Courier,Monospace">deleteUser()</FONT>方法删除相关数据。</DIV></p>				  
+             <p class="diaryFoot">- 作者： <a href="javascript:void(0);" onClick="window.open('/control/postMessage.b?receiverName=gigix&receiver=25249','发送短消息','width=310,height=265')" title="gigix">gigix</a>  2004年11月12日, 星期五 10:31  </p>
+				</div>
+ <div class="operation"> 
+    <a name="trackback"><H3>Trackback</H3></a>
+      <p class="trackback">你可以使用这个链接引用该篇日志 http://publishblog.blogdriver.com/blog/tb.b?diaryID=404281
+ </p>
+ </div>				
+<div class="operation">
+     <a name="comment"><H3>回复</H3></a>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：maven </H4></a> 
+    <H5>Mon Nov 15 19:27:48 CST 2004　 
+            <a href="HTTP://cn-java.com" target="_blank"><img src="http://www.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">我已经整合了一部分了,目前关于member的东西是交给MVNForum来做的，用户界面的整合必须要考虑到,MVNForum基本还都是传统的，没有采用很多的opensource框架。<P>我refactorying了MVNForum的会员注册部分，在MemberWebHandler&nbsp;.processAdd(HttpServletRequest&nbsp;request)方法中添加了对我现在系统所需要的部分信息的initial;,还有需要考虑的就是搜索，两者采用的都是lucene.<P>状态保持从MVNForum中来<BR><br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：pushad </H4></a> 
+    <H5>Sun Nov 14 09:26:28 CST 2004　 
+        <a href="mailto:sodawater@gmail.com"><img src="http://www.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://markzhong.com/roller" target="_blank"><img src="http://www.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">roller对中文的支持也还存在一些BUG。<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：Rover </H4></a> 
+    <H5>Fri Nov 12 19:11:25 CST 2004　 
+            <a href="HTTP://" target="_blank"><img src="http://www.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">把他做的强一点，做成单点登陆<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：Gelu </H4></a> 
+    <H5>Fri Nov 12 13:31:39 CST 2004　 
+        <a href="mailto:kaibaggio@21cn.com"><img src="http://www.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://www.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">Roller&nbsp;is&nbsp;the&nbsp;open&nbsp;source&nbsp;blog&nbsp;server&nbsp;&nbsp;......不好意思,重复submit了<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：Gelu </H4></a> 
+    <H5>Fri Nov 12 13:23:35 CST 2004　 
+        <a href="mailto:kaibaggio@21cn.com"><img src="http://www.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://www.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">MVNForum?你在研究mvnForum吗?我一直在项目中想整合一个比较好的open&nbsp;source的论坛,基于j2ee架构的.长久以来,基于j2ee的开源论坛一直都没有能让我满意的,自己写一个时间上有些不允许了,能给点建议吗?roller是什么?等我google一下~mvnForum对中文的支持不好,毕竟我不想让我的客户来使用那个e文的管理员界面啊<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：Gelu </H4></a> 
+    <H5>Fri Nov 12 13:21:44 CST 2004　 
+        <a href="mailto:kaibaggio@21cn.com"><img src="http://www.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://www.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">MVNForum?你在研究mvnForum吗?我一直在项目中想整合一个比较好的open&nbsp;source的论坛,基于j2ee架构的.长久以来,基于j2ee的开源论坛一直都没有能让我满意的,自己写一个时间上有些不允许了,能给点建议吗?roller是什么?等我google一下~mvnForum对中文的支持不好,毕竟我不想让我的客户来使用那个e文的管理员界面啊<br>
+      <br>
+    </P>
+ </div>
+  <div class="operation"> 
+    <table width="700" border="0" cellpadding="0" cellspacing="0" class="comment">
+      <form id="replyForm" method="POST">
+        <input type="hidden" name="blogID" value="18254">
+        <input type="hidden" name="diaryID" value="404281">
+        <input type="hidden" name="blogDomino" value="gigix">
+<script>
+if(getCookie('userID') == null){        
+document.write('<tr><td width="70">发布人：</td>');
+document.write('<td width="150"> <input name="remark.authorNameFUI" type="text" size="20" class="inputStyle" maxlength="20"></td>');
+document.write('<td width="70">邮箱：</td>');
+document.write('<td width="435"> <input name="remark.authorEmail" type="text" size="20" class="inputStyle" maxlength="40"></td>');
+document.write('</tr><tr><td>主　页：</td>');
+document.write('<td colspan="3"> <input name="remark.authorURL" type="text" class="inputStyle" value="HTTP://" size="63" maxlength="40"></td></tr>');
+}else{
+document.write('<input type="hidden" name="remark.authorNameFUI" value="Blogdriver">');
+}
+</script>        
+        <tr align="left"> 
+          <td colspan="4">评论内容：<br/> <textarea name="remark.remarkFUI" id="remark" cols="60" rows="8" class="textStyle" >
+          </textarea> 
+          </td> 
+        </tr>
+        <tr align="left"> 
+          <td colspan="4"> 　　　　　　 　　　　　　 
+            <input type="button" value="提交" onClick="reply()" >
+            　 
+            <input type="reset" value="重置" > </td>
+        </tr>
+      </form>
+    </table>
+  </div>
+</div>	
+<script type="text/javascript" src="http://gigix.blogdriver/gigix/extend3.js"></script> 
+<div id="footer"><a href="http://www.blogdriver.com/jsp/reg/register.jsp"><img class="logo" src="http://www.blogdriver.com/template/common/img/logo3.gif" border="0"></a><a href="http://www.blogdriver.com/">2003-2004 BLOGDRIVER.COM All rights reserved</a></div>
+</body>
+</html>

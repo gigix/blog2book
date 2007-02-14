@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<title>Sun JAF，以及概念完整性--透明思考</title>
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache"> 
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache"> 
+<META HTTP-EQUIV="Expires" CONTENT="0"> 
+<META CONTENT="Tom DeMarco的三本书Sun JAF，以及概念完整性Windy姐，我应该开心吗？  博客 博客动力 blog blogdriver blogger 中国" NAME="description"> 
+<META NAME="keywords" CONTENT="透明思考 Tom DeMarco的三本书Sun JAF，以及概念完整性Windy姐，我应该开心吗？ 博客 博客动力 blog blogdriver blogger 中国"> 
+<link href="diary.css" rel="stylesheet" type="text/css">
+<script language="JavaScript" src="/jsp/js/UBB.js"></script>
+<script type="text/javascript" src="/jsp/js/blog.js"></script>	
+</head>
+<body>
+  <div id="container">
+    <div id="header"><h1 class="title"><a href="index.html">透明思考</a></h1></div>
+	<div id="category">	<a href="80628.html" title="上一篇">Tom DeMarco的三本书</a>- -|
+		<a href="index.html">回首页</a> | <a href="catalog_2004.html">2004年索引</a>
+	| - -<a href="80887.html" title="下一篇">Windy姐，我应该开心吗？</a></div>
+ <div class="entity">
+			    <h2 class="diaryTitle">Sun JAF，以及概念完整性- -</h2> 
+				 <p/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				 <p><DIV>Sun Java Application Framework是Sun向JCOE（Java Center of Excellence，Sun的技术型合作伙伴）主推的应用框架。我没有看到这个框架的实体，从Sun公司讲师的介绍来看，这是一个从底至顶无所不包的“all-in-one”解决方案。persistence、business component lookup/populate、messaging、logging、MVC、exception hierachy、unit test……你能想到的东西，在JAF的那幅big picture上都能看到。听他们介绍完JAF，我再介绍我们自己的业务框架时相当不好意思——想来想去不过是对Hibernate和Spring做了一点包装而已。</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>但是回过头来看我做的笔记，发现一个很有趣的现象：JAF里面的东西其实我们大多都用到，不过都是作为一个功能组件来用的。譬如JUnit，我把它理解为开发流程的一部分；譬如logging，我们直接用了Log4J和Apache commons-logging，没有再做包装；譬如MVC，我们的业务框架（也就是G-Roller框架）只管到业务层为止，Web层直接在Struts Action里面调用Service Locator；譬如messaging，我用拦截器的方式实现了Observer模式，可以为任何业务组件动态添加监听器，JavaMail或者JMS在我看来只是监听器内部的实现细节而已。我在做G-Roller框架的时候，考虑得最多的就是DAO和business service层的概念清晰，如何以直观的方式实现DAO和service组件、并以灵活的方式装配它们。至于其他的功能，我愿意把它们看作系统的另一个aspect，用AOP的态度来对待它们。如果把这么多的概念都拢在一个framework里面，概念完整性是不是会受到影响呢？这大概就是open source和商业产品在理念上的差异吧？</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>另外还有两件有趣的事。第一，Sun（至少是中国这边）对AOP的认知相当落后，JAF没有提供任何与AOP相关的概念（如果不算servlet filter的话），而照我现在的想法，一个业务框架不提供AOP（至少是interception）是很难接受的，因为那就意味着新的crosscutting concern会对既有代码造成难以估量的影响。第二，Sun现在给合作伙伴主推的解决方案相当lightweight，JAF已经极度淡化EJB的概念，可以看到Sun的主流观念已经是“EJB仅仅是一种可选的实现方式”——和Rod Johnson的观点不谋而合。Sun JAF选择的默认persistence方案是LiDO JDO，这是非常值得玩味的一个现象。</DIV></p>				  
+             <p class="diaryFoot">- 作者： <a href="javascript:void(0);" onClick="window.open('/control/postMessage.b?receiverName=gigix&receiver=25249','发送短消息','width=310,height=265')" title="gigix">gigix</a>  2004年03月12日, 星期五 22:25  </p>
+				</div>
+ <div class="operation"> 
+    <a name="trackback"><H3>Trackback</H3></a>
+      <p class="trackback">你可以使用这个链接引用该篇日志 http://publishblog.blogdriver.com/blog/tb.b?diaryID=80855
+ </p>
+ </div>				
+<div class="operation">
+     <a name="comment"><H3>回复</H3></a>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：wabby </H4></a> 
+    <H5>Fri Nov 26 09:21:20 CST 2004　 
+        <a href="mailto:wabbycao@yahoo.com.cn"><img src="http://www.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://www.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">JAF支持任何JDO实现，无须代码修改，只是配置几个参数而已！<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：potian </H4></a> 
+    <H5>Sun Mar 14 13:53:58 CST 2004　 
+        </H5> 
+    <BR/>
+    <P class="comment">Sun对轻量容器的认识如何，我没有怎么看到过官方的报道<br>但从EJB Specification本身的发展来看,Sun已经慢慢明白什么才是EJB容器真正擅长和真正应该提供的设施。<br>至于LiDO，我想如果是Sun这个体系结构中除EntityBean之外唯一的持久选择的话，我现在就可以判它死刑了，：-)<br>
+      <br>
+    </P>
+ </div>
+  <div class="operation"> 
+    <table width="700" border="0" cellpadding="0" cellspacing="0" class="comment">
+      <form id="replyForm" method="POST">
+        <input type="hidden" name="blogID" value="18254">
+        <input type="hidden" name="diaryID" value="80855">
+        <input type="hidden" name="blogDomino" value="gigix">
+<script>
+if(getCookie('userID') == null){        
+document.write('<tr><td width="70">发布人：</td>');
+document.write('<td width="150"> <input name="remark.authorNameFUI" type="text" size="20" class="inputStyle" maxlength="20"></td>');
+document.write('<td width="70">邮箱：</td>');
+document.write('<td width="435"> <input name="remark.authorEmail" type="text" size="20" class="inputStyle" maxlength="40"></td>');
+document.write('</tr><tr><td>主　页：</td>');
+document.write('<td colspan="3"> <input name="remark.authorURL" type="text" class="inputStyle" value="HTTP://" size="63" maxlength="40"></td></tr>');
+}else{
+document.write('<input type="hidden" name="remark.authorNameFUI" value="Blogdriver">');
+}
+</script>        
+        <tr align="left"> 
+          <td colspan="4">评论内容：<br/> <textarea name="remark.remarkFUI" id="remark" cols="60" rows="8" class="textStyle" >
+          </textarea> 
+          </td> 
+        </tr>
+        <tr align="left"> 
+          <td colspan="4"> 　　　　　　 　　　　　　 
+            <input type="button" value="提交" onClick="reply()" >
+            　 
+            <input type="reset" value="重置" > </td>
+        </tr>
+      </form>
+    </table>
+  </div>
+</div>	
+<script type="text/javascript" src="http://gigix.blogdriver/gigix/extend3.js"></script> 
+<div id="footer"><a href="http://www.blogdriver.com/jsp/reg/register.jsp"><img class="logo" src="http://www.blogdriver.com/template/common/img/logo3.gif" border="0"></a><a href="http://www.blogdriver.com/">2003-2004 BLOGDRIVER.COM All rights reserved</a></div>
+</body>
+</html>

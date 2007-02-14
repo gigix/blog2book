@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<title>Entity Bean的依赖注入--透明思考</title>
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache"> 
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache"> 
+<META HTTP-EQUIV="Expires" CONTENT="0"> 
+<META CONTENT="以美的名义Entity Bean的依赖注入XMLSPY 2004 HE  博客 博客动力 blog blogdriver blogger 中国" NAME="description"> 
+<META NAME="keywords" CONTENT="透明思考 以美的名义Entity Bean的依赖注入XMLSPY 2004 HE 博客 博客动力 blog blogdriver blogger 中国"> 
+<link href="diary.css" rel="stylesheet" type="text/css">
+<script language="JavaScript" src="/jsp/js/UBB.js"></script>
+<script type="text/javascript" src="/jsp/js/blog.js"></script>	
+</head>
+<body>
+  <div id="container">
+    <div id="header"><h1 class="title"><a href="index.html">透明思考</a></h1></div>
+	<div id="category">	<a href="234110.html" title="上一篇">以美的名义</a>- -|
+		<a href="index.html">回首页</a> | <a href="catalog_2004.html">2004年索引</a>
+	| - -<a href="238366.html" title="下一篇">XMLSPY 2004 HE</a></div>
+ <div class="entity">
+			    <h2 class="diaryTitle">Entity Bean的依赖注入- -</h2> 
+				 <p/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				 <p><DIV>entity bean本身是一个轻量级的领域对象。它的生命周期开始时，是由使用者将它<FONT face="Courier New,Courier,Monospace">new</FONT>出来，并填充初始数据，然后调用<FONT face="Courier New,Courier,Monospace">EntityManager.create()</FONT>方法持久化到数据库。然而，这一阶段之后，使用者再次接触到的就是一个拥有了全部EJB context的entity bean。entity bean同样可以要求容器进行依赖注入，这对于实现Domain Model模式来说是太有利了：把<FONT face="Courier New,Courier,Monospace">EntityManager</FONT>注入entity bean，那是一个典型的Database Mapper，entity bean不需要从任何另外的途径去获得它，实现业务逻辑时可以随便调用一下持久化操作，又不会污染接口。单从这一点来说，entity bean就比Hibernate要来得好用。</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>比如，这样的一个entity bean：</DIV>
+<DIV>&nbsp;</DIV>
+<DIV><FONT face="Courier New,Courier,Monospace">@Entity public class User {</FONT></DIV>
+<DIV><FONT face="Courier New,Courier,Monospace">&nbsp; @Inject protected EntityManager _em;</FONT></DIV>
+<DIV><FONT face="Courier New,Courier,Monospace">&nbsp; </FONT></DIV>
+<DIV><FONT face="Courier New,Courier,Monospace">&nbsp; public boolean isValid(String loginName, String password) {</FONT></DIV>
+<DIV><FONT face="Courier New,Courier,Monospace">&nbsp;&nbsp;&nbsp; // 这里不仅检查用户名密码，还调用_em做一些别的持久化操作</FONT></DIV>
+<DIV><FONT face="Courier New,Courier,Monospace">&nbsp; }</FONT></DIV>
+<DIV><FONT face="Courier New,Courier,Monospace">}</FONT></DIV>
+<DIV>&nbsp;</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>多么清晰而自然的Domain Model模式。</DIV></p>				  
+             <p class="diaryFoot">- 作者： <a href="javascript:void(0);" onClick="window.open('/control/postMessage.b?receiverName=gigix&receiver=25249','发送短消息','width=310,height=265')" title="gigix">gigix</a>  2004年07月11日, 星期日 16:46  </p>
+				</div>
+ <div class="operation"> 
+    <a name="trackback"><H3>Trackback</H3></a>
+      <p class="trackback">你可以使用这个链接引用该篇日志 http://publishblog.blogdriver.com/blog/tb.b?diaryID=236653
+ </p>
+ </div>				
+<div class="operation">
+     <a name="comment"><H3>回复</H3></a>
+ </div>
+  <div class="operation"> 
+    <table width="700" border="0" cellpadding="0" cellspacing="0" class="comment">
+      <form id="replyForm" method="POST">
+        <input type="hidden" name="blogID" value="18254">
+        <input type="hidden" name="diaryID" value="236653">
+        <input type="hidden" name="blogDomino" value="gigix">
+<script>
+if(getCookie('userID') == null){        
+document.write('<tr><td width="70">发布人：</td>');
+document.write('<td width="150"> <input name="remark.authorNameFUI" type="text" size="20" class="inputStyle" maxlength="20"></td>');
+document.write('<td width="70">邮箱：</td>');
+document.write('<td width="435"> <input name="remark.authorEmail" type="text" size="20" class="inputStyle" maxlength="40"></td>');
+document.write('</tr><tr><td>主　页：</td>');
+document.write('<td colspan="3"> <input name="remark.authorURL" type="text" class="inputStyle" value="HTTP://" size="63" maxlength="40"></td></tr>');
+}else{
+document.write('<input type="hidden" name="remark.authorNameFUI" value="Blogdriver">');
+}
+</script>        
+        <tr align="left"> 
+          <td colspan="4">评论内容：<br/> <textarea name="remark.remarkFUI" id="remark" cols="60" rows="8" class="textStyle" >
+          </textarea> 
+          </td> 
+        </tr>
+        <tr align="left"> 
+          <td colspan="4"> 　　　　　　 　　　　　　 
+            <input type="button" value="提交" onClick="reply()" >
+            　 
+            <input type="reset" value="重置" > </td>
+        </tr>
+      </form>
+    </table>
+  </div>
+</div>	
+<script type="text/javascript" src="http://gigix.blogdriver/gigix/extend3.js"></script> 
+<div id="footer"><a href="http://www.blogdriver.com/jsp/reg/register.jsp"><img class="logo" src="http://www.blogdriver.com/template/common/img/logo3.gif" border="0"></a><a href="http://www.blogdriver.com/">2003-2004 BLOGDRIVER.COM All rights reserved</a></div>
+</body>
+</html>

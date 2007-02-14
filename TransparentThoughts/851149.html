@@ -1,0 +1,180 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<title>without EJB，一年间--透明思考</title>
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache"> 
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache"> 
+<META HTTP-EQUIV="Expires" CONTENT="0"> 
+<META CONTENT="J2EE without EJB中文版即将面世without EJB，一年间函数式编程的一大好处  博客 博客动力 blog blogdriver blogger 中国" NAME="description"> 
+<META NAME="keywords" CONTENT="透明思考 J2EE without EJB中文版即将面世without EJB，一年间函数式编程的一大好处 博客 博客动力 blog blogdriver blogger 中国"> 
+<link href="diary.css" rel="stylesheet" type="text/css">
+<script language="JavaScript" src="http://statices.blogdriver.com/jsp/js/UBB.js"></script>
+<script type="text/javascript" src="http://statices.blogdriver.com/jsp/js/blog.js"></script>	
+</head>
+<body>
+  <div id="container">
+    <div id="header"><h1 class="title"><a href="index.html">透明思考</a></h1></div>
+	<div id="category">	<a href="851015.html" title="上一篇">J2EE without EJB中文版即将面世</a>- -|
+		<a href="index.html">回首页</a> | <a href="catalog_2005.html">2005年索引</a>
+	| - -<a href="852970.html" title="下一篇">函数式编程的一大好处</a></div>
+ <div class="entity">
+			    <h2 class="diaryTitle">without EJB，一年间- -</h2> 
+				 <p/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				 <p><p>第一次在这个blog上提到这本书，是去年的8月19日：<a href="http://gigix.blogdriver.com/gigix/289587.html">J2EE Development without EJB</a>。直到今天7月28日，第二书店放出<a href="http://www.dearbook.com.cn/book/viewbook.aspx?pno=TS0029741">预订</a>，几乎是整整一年过去了。刚才<a href="http://www.broadview.com.cn/">博文视点</a>的<a href="http://yeka.blogdriver.com/yeka/index.html">yeka</a>在问我有没有兴趣再做书，答曰“没有”。一本书要做整整一年啊，有多少兴趣都被磨去了，单剩下自己不肯敷衍的习惯在这里磨，实在是很累的事情。</p><p>04年8月，撺掇BV拿到版权，本来计划我、<a href="http://spring.jactiongroup.net/">yanger</a>、<a href="http://forum.javaeye.com/">robbin</a>和<a href="http://aopalliance.sourceforge.net/">potian</a>一起翻译。把消息放出来，又有人感兴趣，4天之后加入了<a href="http://moxie.blogdriver.com/">moxie</a>和<a href="http://www.redsaga.com/">曹老师</a>。再过4天，dlee和Jacques也加入。于是大家打着JavaEye的名号，共襄盛举。任务是在8月27日分配出去。当时联系的编辑方舟，如今已然离开IT圈了吧？</p><p>原定计划10月译好，赶新年前后即可完工出书。大家干劲也很足，国庆后陆续有稿交来。Jacques就说很忙，定要推到元旦时才开工，不得已只好等他。robbin喊得很厉害，国庆中打电话给他便说已经七七八八，谁知道后来拖得最久的也是他。国庆后换工作，从杭州回到北京，杂事乱多，看稿子、翻译的事情都只好拖一拖。</p><p>这样转眼就到了05年，Jacques的稿子也交了过来，质量自然是一如既往的没话说。但其他几位的翻译功夫，恕我直言，除了曹老师之外，拿出去都会被人骂到死。从一开始决定合译，我便想到会有参差，却没想到会有这么大的参差。于是春节里就自己改稿子，一句句改过来。不过好在，这几位的技术都是精湛的，虽然话说得磕巴点，意思大致不差，改起来也不太困难。后来交给出版社的稿子，每句话每个词都是我看过改过，如果有错漏，责任就是我一人的了。春节里给robbin又打了几通电话，每次都说“快了快了”，只是没想到，这一快就一直快到了五一才总算完成。</p><p>在等待robbin稿子的中间，《程序员》杂志也做了一期“J2EE without EJB”的技术专题，大体就是把书上的内容改巴改巴，让很多期盼的读者先睹了一下。其中我写的那篇“<a href="http://www.csdn.net/news/newstopic/20/20457.shtml">EJB的七年之痒</a>”被到处转载，也就是所谓大实话的力量吧。这篇文章是从书中“EJB，五年间”一章改写而成的，从标题上就能看到光阴似箭日月如梭，书还没出来，日子就不得不加上两年了。</p><p>而到这个时候，原本争论得很厉害的“EJB vs. without EJB”，却就有点盖棺论定的味道了。春节前写了一篇“<a href="http://blog.csdn.net/gigix/archive/2005/02/01/2786.aspx">开源项目经验谈</a>”，似乎让banq有点挂不住面子，也不再搭理我。整个社群里，<a href="http://www.springframework.org/">Spring</a>和<a href="http://www.hibernate.org/">Hibernate</a>日渐成为主流，EJB慢慢的就没人提起。这也可以看出时间的厉害：原本很张扬的一句“without EJB”，如今看起来无非是大白话一句，除了维护遗留系统之外，事实上就已经几乎没有人再用EJB 2.x来做新系统了。原本吵架意味很浓的这本书，现在看起来平和了很多，也未尝不是一件好事。</p><p>尽管yeka认为用一年时间精心打造一本好书很有其必要（她还打算拿这书去评奖），但在我看来，这本书经过“了解-翻译-制作-出版”的整个长达一年多的流程之后，味道已然是比当初掉了不少。不过还好，它的内容比曹老师等人的《<a href="http://www.dearbook.com.cn/book/viewbook.aspx?pno=TS0028982">深入浅出Hibernate</a>》等书要高一点层次，基于IoC和AOP的light-weight架构看起来至少两年内还不会过时??虽然Hibernate看起来很有可能会被<a href="http://www.jcp.org/en/jsr/detail?id=220">某个突然出现的事件</a>彻底打败。所以，我想我还是可以放心地说，这本书，在你能看到它的时间里，它仍旧会是一本好书。虽然，它在出版之前的这整整一年时间并不是完全用来“精心打造”。</p></p>				  
+             <p class="diaryFoot">- 作者： <a href="javascript:void(0);" onClick="window.open('http://publishblog.blogdriver.com/blog/postMessage.b?receiver=25249','发送短消息','width=520, height=455')">透明</a> 2005年07月28日, 星期四 18:17  </p>
+				</div>
+ <div class="operation"> 
+    <a name="trackback"><H3>Trackback</H3></a>
+      <p class="trackback">你可以使用这个链接引用该篇日志 http://publishblog.blogdriver.com/blog/tb.b?diaryID=851149
+ </p>
+ </div>				
+ 
+ <div class="operation">
+   <a name="relatedDiary"><H3>博客手拉手</H3></a>
+   <table width=90%>
+          </table>
+ </div>
+ 
+<div class="operation">
+     <a name="comment"><H3>回复</H3></a>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：pxzawixm </H4></a> 
+    <H5>Thu Oct 12 04:06:07 CST 2006　 
+        <a href="mailto:ecxwxwmewh@163.com"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="http://www.iuvod.com" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">cxxwxwmeej[url=http://www.koolpages.com/kkjlehl/index.html]推广技巧[/url][url=http://www.koolpages.com/kkjlehl/26198047.htm]网站建设策划方案[/url][url=http://www.koolpages.com/kkjlehl/47348973.htm]引擎排名[/url][url=http://www.koolpages.com/kkjlehl/00157846.htm]网站推广mail[/url][url=http://www.koolpages.com/kkjlehl/95187597.htm]网站推广工具下载[/url][url=http://www.powow.com/oxvhseh/index.html]网站推广的方法[/url][url=http://www.powow.com/oxvhseh/80303016.htm]网站推广群发软件[/url][url=http://www.powow.com/oxvhseh/63576814.htm]网站排名榜[/url][url=http://www.powow.com/oxvhseh/46504715.htm]电子邮件群发[/url][url=http://www.powow.com/oxvhseh/90790388.htm]qq无限群发器[/url][url=http://www.pagerealm.com/qoitojq/index.html]如何建立网站[/url][url=http://www.pagerealm.com/qoitojq/40480876.htm]什么网站赚钱[/url][url=http://www.pagerealm.com/qoitojq/93765714.htm]qq消息群发工具[/url][url=http://www.pagerealm.com/qoitojq/13671137.htm]论坛自动发帖工具[/url][url=http://www.pagerealm.com/qoitojq/45301112.htm]进出口企业名录[/url]<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：阿木欢 </H4></a> 
+    <H5>Wed Aug 10 13:58:49 CST 2005　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">"虽然Hibernate看起来很有可能会被某个突然出现的事件彻底打败"<br>其他的话就不说了，这句话明显是谬论，hibernate会被打败嘛？EJB3.0的Spec.里面指出它的实体bean实现就是用Hibernate或者TopLink，打败从何说起？把Hibernate推向一个更高的层次还差不多吧。何况hibernate的author就是EJB3.0的leader吧，他会打败自己吗？呵呵<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：对付萨达姆 </H4></a> 
+    <H5>Mon Aug 08 14:24:42 CST 2005　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">什么时候出来中文的阿<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：某人 </H4></a> 
+    <H5>Fri Aug 05 14:36:40 CST 2005　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">banq的框架还是坚持下来<br>文档、版本更新<br>banq也挺不容易的<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：TheIncredibleBoy </H4></a> 
+    <H5>Tue Aug 02 18:19:27 CST 2005　 
+        <a href="mailto:ethonsmith@hotmail.com"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">看来我又土了一把，Rails听说过，听5楼的兄弟说这个更轻量级，，我实在<br>没看过，，不过我更喜欢“正道”，大道，就是官方的产品，hibernate,spring, EJB3<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：o </H4></a> 
+    <H5>Mon Aug 01 12:20:27 CST 2005　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">本来说是去年12月，结果到了今年8月．好慢啊～～～<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：bailang71 </H4></a> 
+    <H5>Sat Jul 30 19:44:15 CST 2005　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">等的花儿也谢了，不过还的看看中文版。<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：femto </H4></a> 
+    <H5>Fri Jul 29 12:54:30 CST 2005　 
+        <a href="mailto:femto@etang.com"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="http://femto.blogdriver.com/" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">说真的，一年过去，如今新的竞争者已经出来，就是rails这种快速开发框架，如果不是因为ruby世界缺少比较好的IDE的话，java这些庞大而臃肿的东东早就被kill掉了.(一年以前我以为webwork+spring+hibernate是轻量级框架，现在比起rails仍然是太重量级了)<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：Xiaohanne </H4></a> 
+    <H5>Fri Jul 29 09:05:16 CST 2005　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">强烈谴责Robbin<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：jason </H4></a> 
+    <H5>Fri Jul 29 09:05:02 CST 2005　 
+        <a href="mailto:z_jordon@163.com"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">只有我这个英文巨烂者还在期待这本书啊，想想，我居然也等了将近一年。<br>很想知道您所说的“某个突然事件”是什么？点链接过去是EJB3.0？<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：阿敏总司令 </H4></a> 
+    <H5>Fri Jul 29 08:27:46 CST 2005　 
+        <a href="mailto:Yu_Limin@163.net"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="http://iamin.blogdriver.com/" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">我想很多人跟我一样，就看英文的电子书：（<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：过客冲 </H4></a> 
+    <H5>Fri Jul 29 08:24:17 CST 2005　 
+        <a href="mailto:dobest5@163.com"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="http://guokezhong.blogdriver.com/" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">..........<br>
+      <br>
+    </P>
+ </div>
+  <div class="operation"> 
+    <table width="700" border="0" cellpadding="0" cellspacing="0" class="comment">
+      <form id="replyForm" method="POST">
+        <input type="hidden" name="blogID" value="18254">
+        <input type="hidden" name="diaryID" value="851149">
+        <input type="hidden" name="blogDomino" value="gigix">
+<script>
+if(getCookie('userID') == null){        
+document.write('<tr><td width="70">发布人：</td>');
+document.write('<td width="150"> <input name="remark.authorNameFUI" type="text" size="20" class="inputStyle" maxlength="20"></td>');
+document.write('<td width="70">邮箱：</td>');
+document.write('<td width="435"> <input name="remark.authorEmail" type="text" size="20" class="inputStyle" maxlength="40"></td>');
+document.write('</tr><tr><td>主　页：</td>');
+document.write('<td colspan="3"> <input name="remark.authorURL" type="text" class="inputStyle" value="HTTP://" size="63" maxlength="40"></td></tr>');
+}else{
+document.write('<input type="hidden" name="remark.authorNameFUI" value="Blogdriver">');
+}
+</script>        
+        <tr align="left"> 
+          <td colspan="4">评论内容：<br/> <textarea name="remark.remarkFUI" id="remark" cols="60" rows="8" class="textStyle" >
+          </textarea> 
+          </td> 
+        </tr>
+        <tr align="left"> 
+          <td colspan="4"> 　　　　　　 　　　　　　 
+            <input type="button" value="提交" onClick="reply()" >
+            　 
+            <input type="reset" value="重置" > </td>
+        </tr>
+      </form>
+    </table>
+  </div>
+</div>	
+<script type="text/javascript" src="http://gigix.blogdriver/gigix/extend3.js"></script> 
+<div id="footer"><a href="http://statices.blogdriver.com/jsp/reg/register.jsp"><img class="logo" src="http://statices.blogdriver.com/template/common/img/logo3.gif" border="0"></a><a href="http://www.blogdriver.com/">2003-2004 BLOGDRIVER.COM All rights reserved</a></div>
+</body>
+</html>

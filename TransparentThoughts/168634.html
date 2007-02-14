@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<title>有点开窍了--透明思考</title>
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache"> 
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache"> 
+<META HTTP-EQUIV="Expires" CONTENT="0"> 
+<META CONTENT="谁能给我一个DDD的例子？有点开窍了一个体系结构重构模式  博客 博客动力 blog blogdriver blogger 中国" NAME="description"> 
+<META NAME="keywords" CONTENT="透明思考 谁能给我一个DDD的例子？有点开窍了一个体系结构重构模式 博客 博客动力 blog blogdriver blogger 中国"> 
+<link href="diary.css" rel="stylesheet" type="text/css">
+<script language="JavaScript" src="/jsp/js/UBB.js"></script>
+<script type="text/javascript" src="/jsp/js/blog.js"></script>	
+</head>
+<body>
+  <div id="container">
+    <div id="header"><h1 class="title"><a href="index.html">透明思考</a></h1></div>
+	<div id="category">	<a href="168486.html" title="上一篇">谁能给我一个DDD的例子？</a>- -|
+		<a href="index.html">回首页</a> | <a href="catalog_2004.html">2004年索引</a>
+	| - -<a href="169972.html" title="下一篇">一个体系结构重构模式</a></div>
+ <div class="entity">
+			    <h2 class="diaryTitle">有点开窍了- -</h2> 
+				 <p/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				 <p><DIV>Potian几句话说得我好象有点开窍了。原来，采用什么体系结构模式取决于我的实体（领域对象）干什么、我要持久化什么。如果像Pluto、OSUser，领域对象本身有复杂的功能，持久化的是一个功能组件的状态，Domain Model就比较合适。而我们做的很多web应用，实体代表的是简单的数据（比如“用户”，甚至是某种公文），业务操作大多是对领域对象的CRUD操作，Transaction Script就挺合理。我感觉桌面应用和这种web应用好象有点区别，原来就是这个区别：它们的业务操作是做了不同的事。</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>刚才对G-Roller做了一点修改，取消了DTO（<A href="http://www.aspectoriented.org:9080//space/2004-04-22#DTO" target=_blank>http://www.aspectoriented.org:9080//space/2004-04-22#DTO?_我需要吗？</A>），直接把实体传到表现层，感觉除了让程序变简单之外，并没有什么影响。不过有一点：接口上好象不那么漂亮。比如说，User有个getPosts()方法，但User和Post的关联是lazy的，如果直接在表现层调用User.getPosts()方法，就有可能来一个LazyInitializationException。当然，表现层本来就不应该这样获得Post对象，但这个接口是不是会给使用者造成困惑呢？好象又有点不开窍了。</DIV></p>				  
+             <p class="diaryFoot">- 作者： <a href="javascript:void(0);" onClick="window.open('/control/postMessage.b?receiverName=gigix&receiver=25249','发送短消息','width=310,height=265')" title="gigix">gigix</a>  2004年05月23日, 星期日 20:58  </p>
+				</div>
+ <div class="operation"> 
+    <a name="trackback"><H3>Trackback</H3></a>
+      <p class="trackback">你可以使用这个链接引用该篇日志 http://publishblog.blogdriver.com/blog/tb.b?diaryID=168634
+ </p>
+ </div>				
+<div class="operation">
+     <a name="comment"><H3>回复</H3></a>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：匿名 </H4></a> 
+    <H5>Wed Sep 08 12:18:59 CST 2004　 
+            <a href="HTTP://" target="_blank"><img src="http://www.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment"><img src=/jsp/images/emot/em36.gif border=0 align=middle><br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：gmark </H4></a> 
+    <H5>Wed May 26 11:40:08 CST 2004　 
+        <a href="mailto:citynews@eyou.com"><img src="http://www.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+        </H5> 
+    <BR/>
+    <P class="comment">不考虑分布式的情况，只有在view层需要的数据来自多个对象，或者需要转义的时候，我才会考虑DTO。<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：partech </H4></a> 
+    <H5>Mon May 24 14:58:19 CST 2004　 
+        </H5> 
+    <BR/>
+    <P class="comment">potian我觉得你混淆概念。你所说的文件结构等等都是<BR>windows暴露给我们的接口部分。至于说是FAT32还是NTFS的结构。我们还需要知道吗？而且他们的程序结构我敢说肯定是相当复杂的，我们需要了解吗？<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：partech </H4></a> 
+    <H5>Mon May 24 13:20:59 CST 2004　 
+        <a href="mailto:szberry@126.com"><img src="http://www.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="http://partech.blogdriver.com" target="_blank"><img src="http://www.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">DTO我们不需要吗？<BR><img align=absmiddle src=pic/url.gif><a target=_blank href=http://www.blogdriver.com/showBlog.do?diaryID=169401>http://www.blogdriver.com/showBlog.do?diaryID=169401</a><br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：UltraFool </H4></a> 
+    <H5>Mon May 24 11:37:59 CST 2004　 
+        </H5> 
+    <BR/>
+    <P class="comment">也许可以把getPosts之类改成private或者protected吧，只用来维护关系，不过这样感觉似乎仅仅是在迎合hibernate了<P>如果domain&nbsp;model可以自己访问持久的话方法又可以自己定制了<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：potian </H4></a> 
+    <H5>Mon May 24 04:58:27 CST 2004　 
+        </H5> 
+    <BR/>
+    <P class="comment">模型的复杂性是问题域本身决定的，而不应该有采用何种体系结构来决定。<BR>至于模型的持久有谁来负责还是由模型的复杂性来决定的，一个简单的没有多少行为的模型实际上就是一个实体模型（关系模型），它们的持久可以通过O/Rmapping（或者JDBC)完全解决，因此我们可以通过DAO完全解决掉，这样就成了Service-&gt;Manager-&gt;DAO-&gt;Entity(这时候领域对象退化为简单的实体对象），但是如果简单的关系模型不足以反映领域内部对象的复杂性，那么这些领域对象还需要依赖于多个管理其他领域对象的Manager来处理。在这种情况下，出于对方便利用IOC考虑，一般并不是在领域对象内部持有这个Manager属性，而是领域对象的某些方法里面可能会有Manager这样的参数，它们来自IOC到Service的注入，或者来自客户端通过IOC容器得到，然后显式地在调用该方法的时候传入。<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：potian </H4></a> 
+    <H5>Mon May 24 04:34:04 CST 2004　 
+        </H5> 
+    <BR/>
+    <P class="comment">有了这些基本的前提，就可以看到，如果领域模型并不复杂，基本的操作都是CRUD，那么我们可能会选择第一种方式，因为这个时候Service不会复杂到无法起到Service本身作用的程度，这个时候也没有多少东西可以复用。复用是以行为为核心，而不是状态。<P>如果是领域模型比较复杂，那么完全通过Service就可能导致Service非常复杂，这个时候Service层就作用不大了。我们会提供一些简洁的Service方法来获取不同的领域对象，然后把领域对象直接暴露给客户端使用。<P>还有一个影响使用何种Service的情况就是客户端的状态问题，假设我们的领域对象比较复杂，但客户端和领域对象处于不同的JVM，那么一种方式利用Remote对象存取领域对象，例如EJB里面的远程对象，这种方式可以直接操作领域对象，但是却会造成性能上的问题，所以就会产生DTO这样的模式。<P><P><br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：potian </H4></a> 
+    <H5>Mon May 24 04:09:02 CST 2004　 
+        </H5> 
+    <BR/>
+    <P class="comment">这两种情况下,service的作用和范围就大大的不同了<BR>第一种方式下，所有的工作必须经过Service，好处是接口简单，很少需要直接和背后的对象打交道，但坏处则是Service代码经常需要随着客户界面或行为的变化而变化，去实现新的接口方法，新的对象交互方式<P>第二种方式,service的主要作用是能够新建和获取（包括查询方法，通常用来统计和查询跨领域对象的数据和对象<BR>）到领域对象，绝大部分的操作度直接在领域对象上进行，坏处是需要知道很多后面对象的接口和行为，但好处是客户端的变化通常不影响到服务端的变化。<P><BR><br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：potian </H4></a> 
+    <H5>Mon May 24 03:24:32 CST 2004　 
+        </H5> 
+    <BR/>
+    <P class="comment">没有例外，因为Session一直还在<P>在Web应用程序中出现很多疑惑的原因是HTTP的无状态,在一个桌面应用程序中，我们可以一直在客户代码中持有这个领域对象，不断地对这个对象进行操作，但在Web应用程序中，这个就很难,因此通常必须依赖service来进行“一记头“的操作。传递的数据通常是简单的数据类型或者是简单的数据类型组装起来的Bean对象。<P>而WebWork&quot;官方“宣称有两种方式，一种把Action作为简单的控制器，这是“传统“的方式，这种方式就可能直接导致必须使用service，而存取的数据通常是原始类型的数据。而另外一种方式则是所谓的领域丰富的Action，因为Xwork的ognlstack和Xwork的action不需要象struts一样依赖于任何其它（例如serlvet)，因此可以（在Action方法或者在Interceptor)中通过Service得到领域对象，然后直接在界面上存取领域对象，这种方式比较象传统的桌面应用程序。另外Xwork可以直接把界面上的简单数据类型转换为对象。<BR><br>
+      <br>
+    </P>
+ </div>
+  <div class="operation"> 
+    <table width="700" border="0" cellpadding="0" cellspacing="0" class="comment">
+      <form id="replyForm" method="POST">
+        <input type="hidden" name="blogID" value="18254">
+        <input type="hidden" name="diaryID" value="168634">
+        <input type="hidden" name="blogDomino" value="gigix">
+<script>
+if(getCookie('userID') == null){        
+document.write('<tr><td width="70">发布人：</td>');
+document.write('<td width="150"> <input name="remark.authorNameFUI" type="text" size="20" class="inputStyle" maxlength="20"></td>');
+document.write('<td width="70">邮箱：</td>');
+document.write('<td width="435"> <input name="remark.authorEmail" type="text" size="20" class="inputStyle" maxlength="40"></td>');
+document.write('</tr><tr><td>主　页：</td>');
+document.write('<td colspan="3"> <input name="remark.authorURL" type="text" class="inputStyle" value="HTTP://" size="63" maxlength="40"></td></tr>');
+}else{
+document.write('<input type="hidden" name="remark.authorNameFUI" value="Blogdriver">');
+}
+</script>        
+        <tr align="left"> 
+          <td colspan="4">评论内容：<br/> <textarea name="remark.remarkFUI" id="remark" cols="60" rows="8" class="textStyle" >
+          </textarea> 
+          </td> 
+        </tr>
+        <tr align="left"> 
+          <td colspan="4"> 　　　　　　 　　　　　　 
+            <input type="button" value="提交" onClick="reply()" >
+            　 
+            <input type="reset" value="重置" > </td>
+        </tr>
+      </form>
+    </table>
+  </div>
+</div>	
+<script type="text/javascript" src="http://gigix.blogdriver/gigix/extend3.js"></script> 
+<div id="footer"><a href="http://www.blogdriver.com/jsp/reg/register.jsp"><img class="logo" src="http://www.blogdriver.com/template/common/img/logo3.gif" border="0"></a><a href="http://www.blogdriver.com/">2003-2004 BLOGDRIVER.COM All rights reserved</a></div>
+</body>
+</html>

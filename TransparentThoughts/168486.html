@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<title>谁能给我一个DDD的例子？--透明思考</title>
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache"> 
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache"> 
+<META HTTP-EQUIV="Expires" CONTENT="0"> 
+<META CONTENT="PolyBloodyHardReuse谁能给我一个DDD的例子？有点开窍了  博客 博客动力 blog blogdriver blogger 中国" NAME="description"> 
+<META NAME="keywords" CONTENT="透明思考 PolyBloodyHardReuse谁能给我一个DDD的例子？有点开窍了 博客 博客动力 blog blogdriver blogger 中国"> 
+<link href="diary.css" rel="stylesheet" type="text/css">
+<script language="JavaScript" src="/jsp/js/UBB.js"></script>
+<script type="text/javascript" src="/jsp/js/blog.js"></script>	
+</head>
+<body>
+  <div id="container">
+    <div id="header"><h1 class="title"><a href="index.html">透明思考</a></h1></div>
+	<div id="category">	<a href="167145.html" title="上一篇">PolyBloodyHardReuse</a>- -|
+		<a href="index.html">回首页</a> | <a href="catalog_2004.html">2004年索引</a>
+	| - -<a href="168634.html" title="下一篇">有点开窍了</a></div>
+ <div class="entity">
+			    <h2 class="diaryTitle">谁能给我一个DDD的例子？- -</h2> 
+				 <p/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				 <p><DIV>下午Jacques Lebrun帮忙找到了Domain Driven Design，还没来得及看。Martin Fowler说应该由Domain Model负责访问持久化逻辑，并借助Data Mapper封装持久化的实现细节。但是，我竟然找不到这样的一个例子。Spring JPetstore细看之下原来也是Transaction Script，只不过service的方法都非常非常简单，前天乍一看还以为和我们做的Transaction Script有什么不同呢。看JPetstore唯一的收获是：不要使用DTO，用轻量级持久化框架（例如Hibernate或者iBatis），直接把实体对象到处传。</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>Domain Model模式看了仍然是半懂不懂，很多细节上的问题想不清楚。比如说，领域对象（或者说，实体）的创建和查找（对应于DAO的create方法和load方法）由谁来调用？仍然在service里调用吗？如果要放到实体类，在创建/查找操作之前，没有一个具体的实体对象存在的，那么就只能放在一个static方法里了，这是一个好的做法吗？</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>到哪里可以找到一个Domain Model体系结构的例子？我想看看究竟应该怎样去做。如果到明天晚上还没有进展，我就写信去问Martin Fowler本人。</DIV></p>				  
+             <p class="diaryFoot">- 作者： <a href="javascript:void(0);" onClick="window.open('/control/postMessage.b?receiverName=gigix&receiver=25249','发送短消息','width=310,height=265')" title="gigix">gigix</a>  2004年05月23日, 星期日 19:03  </p>
+				</div>
+ <div class="operation"> 
+    <a name="trackback"><H3>Trackback</H3></a>
+      <p class="trackback">你可以使用这个链接引用该篇日志 http://publishblog.blogdriver.com/blog/tb.b?diaryID=168486
+ </p>
+ </div>				
+<div class="operation">
+     <a name="comment"><H3>回复</H3></a>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：Windy </H4></a> 
+    <H5>Mon May 24 20:09:22 CST 2004　 
+            <a href="http://DeDream.blogbus.com" target="_blank"><img src="http://www.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">领域对象（etc.）调用finder调用mapper调用领域对象的构造函数创建原来已经存储在数据库里的领域对象，看起来好像是绕口令，实际上可以这么做，如果你真的想用DomainModal+DataMapper的话&nbsp;：P<img src=/jsp/images/emot/em40.gif border=0 align=middle><br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：partech </H4></a> 
+    <H5>Mon May 24 13:31:58 CST 2004　 
+        <a href="mailto:szberry@126.com"><img src="http://www.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="http://partech.blogdriver.com" target="_blank"><img src="http://www.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">领域对象（或者说，实体）的创建由业务控制对象，其他领域对象创建或者在查找时自动创建。<BR>领域对象的查找同样可以由业务控制对象，其他领域对象或者其他查找方法调用。<BR>服务层最好调用业务控制对象，而不是直接调用实体对象。<BR>DDD里面的Repository可以回答你余下的问题。<BR><br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：potian </H4></a> 
+    <H5>Mon May 24 03:05:15 CST 2004　 
+        </H5> 
+    <BR/>
+    <P class="comment">我没有仔细看过P&nbsp;of&nbsp;EAA&nbsp;,也没有仔细看过DDD，所以不知道我们说的是不是一回事。我已经好长时间不看书了，虽然当时一直跟踪着这两本书的每一章。和几年前动则引用别人的观点，心态上有很多变化。<P>个人粗略的感觉，POEAA有点江郎才尽的意思,DDD看起来有点观点不是很清楚，混合了分析模式和其他一些人的观点。<P><P><br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：potian </H4></a> 
+    <H5>Sun May 23 20:14:27 CST 2004　 
+        </H5> 
+    <BR/>
+    <P class="comment">模型不复杂的情况这样做就足够了，典型的CRUD<P>Sevice层在WEB应用中的作用特别明显，我以前很多桌面程序没有这样一个明显的service层，而如果只需要CRUD，DTO－》Service－》DTOFactory－》DAO就足够了，并且确实是最佳的方安。<P>但当模型复杂的时候，Service就需要通过模型来完成工作，或者从Service得到合适的领域对象，直接利用这些对象的行为进行操作<P>我在绍兴、兰亭玩<BR><br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：gigix </H4></a> 
+    <H5>Sun May 23 20:05:35 CST 2004　 
+        <a href="mailto:xiongjie@csdn.net"><img src="http://www.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+        </H5> 
+    <BR/>
+    <P class="comment">但是OSUser和Delphi程序和web应用，我觉得有点不同，也说不上来究竟是哪里不同。恰恰是web应用，我发现好多人都是照我们现在这个做法来做的，比如spring&nbsp;jpetstore和appfuse。<BR>今天下午本来想到你家去问你这个问题顺便蹭饭的，可惜你不在。<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：potian </H4></a> 
+    <H5>Sun May 23 19:59:25 CST 2004　 
+        </H5> 
+    <BR/>
+    <P class="comment">gigix，不要这样大惊小怪好不好，这样的例子到处都是，譬如OSUser。或者我以前写过的任何一个delphi程序，或者我写过的任何复杂一点的程序<P>而事实上没有一个纯粹的什么Domain或者纯粹的Transaction&nbsp;Script，（我对这些名词越来越讨厌了），很多时候需要混合,&nbsp;&nbsp;譬如service－》model－》〔Manager〕DAO，或者是直接的service－》manager－》DAO<BR><br>
+      <br>
+    </P>
+ </div>
+  <div class="operation"> 
+    <table width="700" border="0" cellpadding="0" cellspacing="0" class="comment">
+      <form id="replyForm" method="POST">
+        <input type="hidden" name="blogID" value="18254">
+        <input type="hidden" name="diaryID" value="168486">
+        <input type="hidden" name="blogDomino" value="gigix">
+<script>
+if(getCookie('userID') == null){        
+document.write('<tr><td width="70">发布人：</td>');
+document.write('<td width="150"> <input name="remark.authorNameFUI" type="text" size="20" class="inputStyle" maxlength="20"></td>');
+document.write('<td width="70">邮箱：</td>');
+document.write('<td width="435"> <input name="remark.authorEmail" type="text" size="20" class="inputStyle" maxlength="40"></td>');
+document.write('</tr><tr><td>主　页：</td>');
+document.write('<td colspan="3"> <input name="remark.authorURL" type="text" class="inputStyle" value="HTTP://" size="63" maxlength="40"></td></tr>');
+}else{
+document.write('<input type="hidden" name="remark.authorNameFUI" value="Blogdriver">');
+}
+</script>        
+        <tr align="left"> 
+          <td colspan="4">评论内容：<br/> <textarea name="remark.remarkFUI" id="remark" cols="60" rows="8" class="textStyle" >
+          </textarea> 
+          </td> 
+        </tr>
+        <tr align="left"> 
+          <td colspan="4"> 　　　　　　 　　　　　　 
+            <input type="button" value="提交" onClick="reply()" >
+            　 
+            <input type="reset" value="重置" > </td>
+        </tr>
+      </form>
+    </table>
+  </div>
+</div>	
+<script type="text/javascript" src="http://gigix.blogdriver/gigix/extend3.js"></script> 
+<div id="footer"><a href="http://www.blogdriver.com/jsp/reg/register.jsp"><img class="logo" src="http://www.blogdriver.com/template/common/img/logo3.gif" border="0"></a><a href="http://www.blogdriver.com/">2003-2004 BLOGDRIVER.COM All rights reserved</a></div>
+</body>
+</html>

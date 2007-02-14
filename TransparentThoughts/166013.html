@@ -1,0 +1,174 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<title>J2EE应用的典型架构--透明思考</title>
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache"> 
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache"> 
+<META HTTP-EQUIV="Expires" CONTENT="0"> 
+<META CONTENT="如芒在背J2EE应用的典型架构PolyBloodyHardReuse  博客 博客动力 blog blogdriver blogger 中国" NAME="description"> 
+<META NAME="keywords" CONTENT="透明思考 如芒在背J2EE应用的典型架构PolyBloodyHardReuse 博客 博客动力 blog blogdriver blogger 中国"> 
+<link href="diary.css" rel="stylesheet" type="text/css">
+<script language="JavaScript" src="/jsp/js/UBB.js"></script>
+<script type="text/javascript" src="/jsp/js/blog.js"></script>	
+</head>
+<body>
+  <div id="container">
+    <div id="header"><h1 class="title"><a href="index.html">透明思考</a></h1></div>
+	<div id="category">	<a href="165060.html" title="上一篇">如芒在背</a>- -|
+		<a href="index.html">回首页</a> | <a href="catalog_2004.html">2004年索引</a>
+	| - -<a href="167145.html" title="下一篇">PolyBloodyHardReuse</a></div>
+ <div class="entity">
+			    <h2 class="diaryTitle">J2EE应用的典型架构- -</h2> 
+				 <p/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				 <p><DIV>我们现在的做法是Transaction Script模式（<A href="http://www.martinfowler.com/eaaCatalog/transactionScript.html" target=_blank>http://www.martinfowler.com/eaaCatalog/transactionScript.html</A>）。实体（也就是需要持久化的对象，有时我们也说它们就是领域对象）只是原始数据的对象形式，或者加上一些最简单的操作（只涉及本身数据的简单处理）。DAO负责将数据转化为实体对象，我们通常用Hibernate来实现。业务逻辑放在service里，每个service方法是一个Transaction Script。AppFuse（<A href="http://https://appfuse.dev.java.net/" target=_blank>http://https://appfuse.dev.java.net/</A>）也是按这种方式架构的。</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>Martin Fowler更倾向于Domain Model模式（<A href="http://www.martinfowler.com/eaaCatalog/domainModel.html" target=_blank>http://www.martinfowler.com/eaaCatalog/domainModel.html</A>）。领域对象不仅是原始数据的对象形式封装，而且包含几乎所有重要的业务逻辑。领域对象可以直接访问数据库，因此DAO不是必要的，而是通过一个他称为“mapper”的东西提供O/R映射。由于领域对象封装了业务逻辑，service只是一个很薄的facade，提供面向服务的接口。Spring的JPetstore范例就是按照这种方式架构的。但是，JPetstore的业务逻辑相当简单，我草草看了一下，似乎领域对象没有直接操作持久化逻辑，因此这并不是一个很有说服力的例子。或许更有说服力的是Pluto（<A href="http://jakarta.apache.org/pluto/" target=_blank>http://jakarta.apache.org/pluto/</A>）。在Pluto这里，需要持久化的大多是些配置信息（包括portal本身的配置、portlet的配置和用户配置），它并没有使用DAO，而是直接通过XML binding持久化到XML文件。</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>我不知道应该如何选择这两个体系结构模式。我不知道Transaction Script模式的缺点在哪里。我不知道Domain Model模式用起来会有什么困难。我不知道Martin Fowler为什么如此激烈地批评“贫血的领域对象”。这让我感到困惑和苦恼。我要首先再看一遍PoEAA的相关章节，再想想，再问问。我不喜欢感觉自己像个白痴。</DIV></p>				  
+             <p class="diaryFoot">- 作者： <a href="javascript:void(0);" onClick="window.open('/control/postMessage.b?receiverName=gigix&receiver=25249','发送短消息','width=310,height=265')" title="gigix">gigix</a>  2004年05月21日, 星期五 21:20  </p>
+				</div>
+ <div class="operation"> 
+    <a name="trackback"><H3>Trackback</H3></a>
+      <p class="trackback">你可以使用这个链接引用该篇日志 http://publishblog.blogdriver.com/blog/tb.b?diaryID=166013
+ </p>
+ </div>				
+<div class="operation">
+     <a name="comment"><H3>回复</H3></a>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：canonical </H4></a> 
+    <H5>Thu Mar 10 16:32:46 CST 2005　 
+            <a href="HTTP://" target="_blank"><img src="http://www.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">在不需要重用的时候，使用transaction script<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：thugf </H4></a> 
+    <H5>Fri Dec 24 15:34:13 CST 2004　 
+        <a href="mailto:gfhfgh"><img src="http://www.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://www.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">fghfgh<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：魔之眼 </H4></a> 
+    <H5>Tue May 25 11:09:38 CST 2004　 
+        </H5> 
+    <BR/>
+    <P class="comment">如果我没记错，ｏｏ不是目的，而只是一个手段，基本上传说中的＂复用＂．<BR>这个＂transaction&nbsp;script＂虽然看上去＂不太ｏｏ＂，但其实在我们的某些项目，比方说无复杂逻辑等等，还是蛮好用的，起码对开发来说．但的确有ｓｅｒｖｉｃｅ层复杂的问题，我发现了一个１ｋ多行代码的ｓｅｒｖｉｃｅ，唉．<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：charon </H4></a> 
+    <H5>Sun May 23 15:08:51 CST 2004　 
+        <a href="mailto:wangyc@nbjyc.com.cn"><img src="http://www.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+        </H5> 
+    <BR/>
+    <P class="comment">hehe,tell和ask有区别吗？<BR>在agent交互的讨论中，一个一致的结论是实际上只需要tell就能把所有东西表达出来(虽然每个基于speech-act的语言不仅仅有tell原语)。而实际上，tell也好，ask也好，或者别的什么东西，一个动作或者交互的目的都是对接收方产生影响，所谓的原语是从影响的角度来划分的。<BR>tell或者ask和是不是oo一点关系都没有。<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：Ronald Matt </H4></a> 
+    <H5>Sun May 23 13:27:38 CST 2004　 
+            <a href="http://ronaldmatt.blogone.net/" target="_blank"><img src="http://www.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">&nbsp;感觉上blog来blog去都只是些fancy&nbsp;words，对什么是OO都还没搞清楚。<P>推荐一篇Dave&nbsp;Thomas的文章《Tell&nbsp;Don&#39;t&nbsp;Ask》<BR>http://www.pragmaticprogrammer.com/ppllc/papers/1998_05.html<BR>Transaction&nbsp;Script是Ask方式，<BR>而Domain&nbsp;Model是Tell方式——真正的OO。<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：Ronald Matt </H4></a> 
+    <H5>Sat May 22 23:21:35 CST 2004　 
+        </H5> 
+    <BR/>
+    <P class="comment">去读Domain&nbsp;Driven&nbsp;Design吧，Martin&nbsp;Fowler，Ward&nbsp;Cunningham，Kent&nbsp;Beck等人都对它赞叹到无以复加。<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：charon </H4></a> 
+    <H5>Sat May 22 19:19:06 CST 2004　 
+        </H5> 
+    <BR/>
+    <P class="comment">我感觉大家对service的定义有点太狭义了。<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：potian </H4></a> 
+    <H5>Sat May 22 13:49:04 CST 2004　 
+        </H5> 
+    <BR/>
+    <P class="comment">我说了一万遍了，service层的目的两个：<BR>1&nbsp;一般是客户代码，随客户而变<BR>2&nbsp;一般是服务代码，封装内部模型的复杂性<P>在分布式程序中的一个副作用是提高效率（通过DTO)<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：partech </H4></a> 
+    <H5>Sat May 22 11:53:35 CST 2004　 
+            <a href="http://partech.blogdriver.com" target="_blank"><img src="http://www.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">补充一下，关于Transaction&nbsp;Script，Table&nbsp;Module，Domain&nbsp;Model&nbsp;的选择从martin&nbsp;Fowler的那张图可以<BR>看出他的选择。我没有系统的研究过三者的差异，我感觉这对的。<BR>按照图上的含义，对于小型项目首选应该是Table&nbsp;Module，随着业务逻辑的复杂程度的增加Domain&nbsp;Model&nbsp;将是首选。<BR>在.NET环境中因为有ADO.NET类似“内存数据库”的支持使得使用Table&nbsp;Module很自然。<BR>Java环境中也可以通过组合纪录集的形式实现Table&nbsp;Module。<BR>对于批量类型的对象操作可以考虑Transaction&nbsp;Script，因为单个记录或者单个对象操作效率可能太低。<P>服务层本质上是facade，确实不应该包含业务逻辑。<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：partech </H4></a> 
+    <H5>Sat May 22 11:24:22 CST 2004　 
+            <a href="http://partech.blogdriver.com/" target="_blank"><img src="http://www.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">按照你们现在的做法，业务层还不能说是面向对象，因为对象的数据和操作这些数据的行为不是封装的而是分离的。<BR>要发挥面向对象的所有威力需要将整个Domain层对象化，行为和数据必须封装，这是最基本的，然后还要考虑分层，对业务层进行抽象等等。<P>你们的做法我说一个缺点，不知道你们的应用同参与者是否只有一种交互形式？比如只通过WEB。然而参与者进行业务<BR>可能有很多种方式，拿银行来说吧，可以通过柜台，也可以通过ATM,还有电话，和网上银行。很明显这些应用后台都需要服务，而且这些服务的交互方式是不同的，也就是用例不同。所以Service层会不同，DTO会不同。但是如果我在这些<BR>应用中都进行转账业务，那么不管我使用的是哪一种途径，<BR>负责转账的代码都该只有一份。Service层的代码没多少复用<BR>价值，真正需要考虑的是Domain层的复用。<BR>领域对象不单包含实体对象，还应该包含控制对象。很明显<BR>转账的整个操作没法划给单个对象，但是分解出的转出和转入操作还是可以作为帐户实体的方法的。<BR>不过我感觉有人常常将领域层的控制对象同应用层的服务对象混淆。区分两者很简单，一个是不针对特定应用的，一个是针对特定应用的，也就是系统中烟囱的部分。<BR>服务层充当的是系统中烟囱的部分，所以在不同应用中不考虑复用。或者说尽量避免进行复用，这样各应用就可以独立演化了。<BR>可以看看下面的网站，作者的书里提到了很多如何进行<BR>领域层开发的方法。<BR>http://domaindrivendesign.org<BR><br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：taowen </H4></a> 
+    <H5>Sat May 22 02:15:12 CST 2004　 
+        <a href="mailto:mo2mo@163.com"><img src="http://www.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+        </H5> 
+    <BR/>
+    <P class="comment">是不是一些经典的模式将成为反模式？<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：匿名 </H4></a> 
+    <H5>Fri May 21 22:07:51 CST 2004　 
+        </H5> 
+    <BR/>
+    <P class="comment">好了好了，原来有大师支持哦们了。商业对象一定应该包含商业逻辑，只是简单封装数据库数据的算什么商业对象啊，session&nbsp;bean+DAO算什么OO啊。<BR>现在还很土的用javabean，因为OO得自然。<BR><br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：曹晓钢 </H4></a> 
+    <H5>Fri May 21 21:38:50 CST 2004　 
+        </H5> 
+    <BR/>
+    <P class="comment">我很早就在hibernate中文论坛说过，我反对使用DAO,因为在使用or&nbsp;mapping之后，不应该再有data&nbsp;access的概念。<BR>只不过很惭愧的是，我的论断大多只是自己的工程做出来的一些小经验，远远无法提高到模式的地步。<P>service加上transaction&nbsp;script的问题之一就是难以重用。<br>
+      <br>
+    </P>
+ </div>
+  <div class="operation"> 
+    <table width="700" border="0" cellpadding="0" cellspacing="0" class="comment">
+      <form id="replyForm" method="POST">
+        <input type="hidden" name="blogID" value="18254">
+        <input type="hidden" name="diaryID" value="166013">
+        <input type="hidden" name="blogDomino" value="gigix">
+<script>
+if(getCookie('userID') == null){        
+document.write('<tr><td width="70">发布人：</td>');
+document.write('<td width="150"> <input name="remark.authorNameFUI" type="text" size="20" class="inputStyle" maxlength="20"></td>');
+document.write('<td width="70">邮箱：</td>');
+document.write('<td width="435"> <input name="remark.authorEmail" type="text" size="20" class="inputStyle" maxlength="40"></td>');
+document.write('</tr><tr><td>主　页：</td>');
+document.write('<td colspan="3"> <input name="remark.authorURL" type="text" class="inputStyle" value="HTTP://" size="63" maxlength="40"></td></tr>');
+}else{
+document.write('<input type="hidden" name="remark.authorNameFUI" value="Blogdriver">');
+}
+</script>        
+        <tr align="left"> 
+          <td colspan="4">评论内容：<br/> <textarea name="remark.remarkFUI" id="remark" cols="60" rows="8" class="textStyle" >
+          </textarea> 
+          </td> 
+        </tr>
+        <tr align="left"> 
+          <td colspan="4"> 　　　　　　 　　　　　　 
+            <input type="button" value="提交" onClick="reply()" >
+            　 
+            <input type="reset" value="重置" > </td>
+        </tr>
+      </form>
+    </table>
+  </div>
+</div>	
+<script type="text/javascript" src="http://gigix.blogdriver/gigix/extend3.js"></script> 
+<div id="footer"><a href="http://www.blogdriver.com/jsp/reg/register.jsp"><img class="logo" src="http://www.blogdriver.com/template/common/img/logo3.gif" border="0"></a><a href="http://www.blogdriver.com/">2003-2004 BLOGDRIVER.COM All rights reserved</a></div>
+</body>
+</html>

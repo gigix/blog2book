@@ -1,0 +1,156 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<title>Shark第一印象--透明思考</title>
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache"> 
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache"> 
+<META HTTP-EQUIV="Expires" CONTENT="0"> 
+<META CONTENT="缓存也会出毛病Shark第一印象信息系统的中心  博客 博客动力 blog blogdriver blogger 中国" NAME="description"> 
+<META NAME="keywords" CONTENT="透明思考 缓存也会出毛病Shark第一印象信息系统的中心 博客 博客动力 blog blogdriver blogger 中国"> 
+<link href="diary.css" rel="stylesheet" type="text/css">
+<script language="JavaScript" src="/jsp/js/UBB.js"></script>
+<script type="text/javascript" src="/jsp/js/blog.js"></script>	
+</head>
+<body>
+  <div id="container">
+    <div id="header"><h1 class="title"><a href="index.html">透明思考</a></h1></div>
+	<div id="category">	<a href="104552.html" title="上一篇">缓存也会出毛病</a>- -|
+		<a href="index.html">回首页</a> | <a href="catalog_2004.html">2004年索引</a>
+	| - -<a href="106491.html" title="下一篇">信息系统的中心</a></div>
+ <div class="entity">
+			    <h2 class="diaryTitle">Shark第一印象- -</h2> 
+				 <p/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				 <p><DIV>试了一下Enhydra Shark工作流引擎，暂时还不知道如何编程使用，只有一些肤浅的印象。</DIV>
+<DIV>&nbsp;</DIV>
+<DIV><STRONG>庞大</STRONG>——比OSWorkflow和Werkflow都大了许多，概念非常完整，一时间还很难完全理解这些概念。对于OSWorkflow和Werkflow这种轻量级工作流来说，要管理的唯一目标就是流程实例（process instance），操纵流程实例的状态变迁，至于如何使用流程实例、状态如何发展，都在工作流引擎之外。Shark管理的目标要宽泛得多，比如有User和UserGroup的概念，用户必须有此角色（即group）才能涉足此流程。不知道这会不会和统一用户管理平台冲突。</DIV>
+<DIV>&nbsp;</DIV>
+<DIV><STRONG>标准</STRONG>——完全符合WfMC参考模型，并且没有任何额外扩展，采用XPDL作为工作流定义语言。标准是好事，但是对于一些比较特殊的流程，我担心它的扩展能力。比如电子政务中经常会出现一种“无序流程”（只要领导插手，就可以随便到任何位置），WfMC是否能支持呢？另外，Enhydra提供JaWE编辑器，可能是最好的XPDL可视化编辑器。</DIV>
+<DIV>&nbsp;</DIV>
+<DIV><STRONG>支持多语言插件</STRONG>——对于需要自动执行的流程，Shark允许插入多种语言的运行单元，包括Java、JavaScript、BeanShell、Python等等，相信提供对Groovy的支持也会很简单。我们自己的工作流不支持自动执行，OSWorkflow只支持简单的BeanShell（语句直接写在配置文件中）。</DIV>
+<DIV>&nbsp;</DIV>
+<DIV><STRONG>持久化</STRONG>——默认的持久化方式是DODS，这是Enhydra自己做的一个O/R mapping。原来用的数据库是HSQL，我今天尝试迁移到MySQL还没有成功，因此也不知道这个持久化机制究竟如何。另外还提供LDAP的持久化，持久化方式的移植也不知道是否困难。我相信O/R mapping基础上移植不会太难。</DIV>
+<DIV>&nbsp;</DIV>
+<DIV><STRONG>服务接口</STRONG>——可以作为应用程序的一部分在代码级集成，也可以作为外部服务通过RPC集成。Shark很重视CORBA接口，对于异构环境的集成应该是很有帮助的。这里也有一点性能上的顾虑：应用内集成时，工作流引擎和工作流实例会不会带来太大的性能开销？毕竟它给我一种重量级的感觉。</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>明天如果有空就继续尝试，先把应用内集成搞明白，那么RPC集成也就简单了。</DIV></p>				  
+             <p class="diaryFoot">- 作者： <a href="javascript:void(0);" onClick="window.open('/control/postMessage.b?receiverName=gigix&receiver=25249','发送短消息','width=310,height=265')" title="gigix">gigix</a>  2004年04月6日, 星期二 20:48  </p>
+				</div>
+ <div class="operation"> 
+    <a name="trackback"><H3>Trackback</H3></a>
+      <p class="trackback">你可以使用这个链接引用该篇日志 http://publishblog.blogdriver.com/blog/tb.b?diaryID=106028
+ </p>
+ </div>				
+<div class="operation">
+     <a name="comment"><H3>回复</H3></a>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：xy </H4></a> 
+    <H5>Fri Apr 29 20:22:29 CST 2005　 
+            <a href="HTTP://" target="_blank"><img src="http://www.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">哎~,我实在是没有心情,为什么大多数中国人不认真地思考一些问题呢?<br><br><br>----不要叫唤, 不要不动脑筋乱开腔,也不要顶我.<br>我只是在认真地做,而且就在认真地做,而且还要做出来<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：leopold </H4></a> 
+    <H5>Wed Mar 23 17:58:16 CST 2005　 
+            <a href="HTTP://" target="_blank"><img src="http://www.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">我现在就在用SHARK开发一个系统，已经作了三个多月了，现在发现SHARK的性能真的是个大问题，查找一个用户的任务要花30秒，我们的服务器性能已经是很好的了。用的也是SHARK自己的API，不知道大家有没有遇到同样的问题。<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：maybe </H4></a> 
+    <H5>Sat Jan 29 11:05:09 CST 2005　 
+            <a href="HTTP://" target="_blank"><img src="http://www.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">maybe you are wrong the usermanagement is open extensible,the mapping for user and role between your own and the result of flow model can deal with intergating<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：j2ee </H4></a> 
+    <H5>Wed Nov 17 14:35:13 CST 2004　 
+            <a href="HTTP://" target="_blank"><img src="http://www.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">即使在一个应用中，也得用CORBA么？开销是不是太大了<img src=/jsp/images/emot/em23.gif border=0 align=middle><br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：billistar </H4></a> 
+    <H5>Mon Sep 27 15:15:42 CST 2004　 
+            <a href="HTTP://" target="_blank"><img src="http://www.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">持久化肯定没问题。我移植到ms&nbsp;sql&nbsp;server了，非常轻松，一点问题都没有<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：匿名 </H4></a> 
+    <H5>Tue Sep 21 12:35:53 CST 2004　 
+            <a href="HTTP://" target="_blank"><img src="http://www.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">ddd<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：billistar </H4></a> 
+    <H5>Mon Sep 20 21:14:27 CST 2004　 
+        <a href="mailto:billistar@sina.com"><img src="http://www.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://www.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">os&nbsp;workflow&nbsp;太简单<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：BlueDavy </H4></a> 
+    <H5>Tue Apr 06 23:23:19 CST 2004　 
+        <a href="mailto:BlueDavy@hotmail.com"><img src="http://www.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+        </H5> 
+    <BR/>
+    <P class="comment">^_^.......gigix遇到的问题和我们差不多哦，政府行业的流程就是不一样，它更多需要的往往是人工干预的控制，而不象企业的流程更多需要的自动控制的功能，感觉严格按照WFMC实现的流程引擎在政府行业用来会有些麻烦，目前咱们政府需要的流程引擎反倒是简单的那种<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：Quake Wang </H4></a> 
+    <H5>Tue Apr 06 23:03:31 CST 2004　 
+        <a href="mailto:me@quake.3322.org"><img src="http://www.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+        </H5> 
+    <BR/>
+    <P class="comment">电子政务/ OA 如果要使用workflow engine的话, shark, jbpm之类的workflow engine有点杀鸡用牛刀的味道. shark 和 jbpm都强迫你使用它的用户模型, 怎样把企业现有的用户模型(包括组织结构)映射过来是很繁琐的事情, 比如常见的OA应用中, 申请者对应的部门负责人为下一个流程的人工参与者, 使用shark 或者 jbpm都得绕一圈, 通过现有的人力资源系统, 获得用户, 再对应过来. 这还仅仅是一个简单的需求, 更不用说国内企业千奇百怪的组织结构, 以及各种特殊流程, 用wfmc 或者其他所谓的workflow通用标准去做不怎么标准的事情, 吃力不讨好.用osworkflow这种基于状态机的workflow engine反而会轻松很多, 而且它也没有强迫你使用它的用户模型. 另外纠正一点: osworkflow不仅仅支持简单的BeanShell, 还支持java class, bsf, ejb. 如果做电子政务/ OA的话, 觉得目前osworkflow是最适用的opensource workflow engine.<br>
+      <br>
+    </P>
+ </div>
+  <div class="operation"> 
+    <table width="700" border="0" cellpadding="0" cellspacing="0" class="comment">
+      <form id="replyForm" method="POST">
+        <input type="hidden" name="blogID" value="18254">
+        <input type="hidden" name="diaryID" value="106028">
+        <input type="hidden" name="blogDomino" value="gigix">
+<script>
+if(getCookie('userID') == null){        
+document.write('<tr><td width="70">发布人：</td>');
+document.write('<td width="150"> <input name="remark.authorNameFUI" type="text" size="20" class="inputStyle" maxlength="20"></td>');
+document.write('<td width="70">邮箱：</td>');
+document.write('<td width="435"> <input name="remark.authorEmail" type="text" size="20" class="inputStyle" maxlength="40"></td>');
+document.write('</tr><tr><td>主　页：</td>');
+document.write('<td colspan="3"> <input name="remark.authorURL" type="text" class="inputStyle" value="HTTP://" size="63" maxlength="40"></td></tr>');
+}else{
+document.write('<input type="hidden" name="remark.authorNameFUI" value="Blogdriver">');
+}
+</script>        
+        <tr align="left"> 
+          <td colspan="4">评论内容：<br/> <textarea name="remark.remarkFUI" id="remark" cols="60" rows="8" class="textStyle" >
+          </textarea> 
+          </td> 
+        </tr>
+        <tr align="left"> 
+          <td colspan="4"> 　　　　　　 　　　　　　 
+            <input type="button" value="提交" onClick="reply()" >
+            　 
+            <input type="reset" value="重置" > </td>
+        </tr>
+      </form>
+    </table>
+  </div>
+</div>	
+<script type="text/javascript" src="http://gigix.blogdriver/gigix/extend3.js"></script> 
+<div id="footer"><a href="http://www.blogdriver.com/jsp/reg/register.jsp"><img class="logo" src="http://www.blogdriver.com/template/common/img/logo3.gif" border="0"></a><a href="http://www.blogdriver.com/">2003-2004 BLOGDRIVER.COM All rights reserved</a></div>
+</body>
+</html>

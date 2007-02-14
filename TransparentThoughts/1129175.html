@@ -1,0 +1,1356 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<title>Why Ruby Over Java--透明思考</title>
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache"> 
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache"> 
+<META HTTP-EQUIV="Expires" CONTENT="0"> 
+<META CONTENT="Hibernate EntityManager EventsWhy Ruby Over Java[zz]跳槽经验总结  博客 博客动力 blog blogdriver blogger 中国" NAME="description"> 
+<META NAME="keywords" CONTENT="透明思考 Hibernate EntityManager EventsWhy Ruby Over Java[zz]跳槽经验总结 博客 博客动力 blog blogdriver blogger 中国"> 
+<link href="diary.css" rel="stylesheet" type="text/css">
+<script language="JavaScript" src="http://statices.blogdriver.com/jsp/js/UBB.js"></script>
+<script type="text/javascript" src="http://statices.blogdriver.com/jsp/js/blog.js"></script>	
+</head>
+<body>
+  <div id="container">
+    <div id="header"><h1 class="title"><a href="index.html">透明思考</a></h1></div>
+	<div id="category">	<a href="1128229.html" title="上一篇">Hibernate EntityManager Events</a>- -|
+		<a href="index.html">回首页</a> | <a href="catalog_2006.html">2006年索引</a>
+	| - -<a href="1140678.html" title="下一篇">[zz]跳槽经验总结</a></div>
+ <div class="entity">
+			    <h2 class="diaryTitle">Why Ruby Over Java- -</h2> 
+				 <p/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				 <p>1、企业应用的契约不仅存在于各个程序模块之间，也存在于程序模块与外部系统之间。最常见的外部系统就是数据库。使用ORM的情况下，domain object的属性定义与数据库表的字段定义存在隐含的契约规定。这是一种语义契约。<br /><br />2、为了确保上述语义契约，采用了各种方法。譬如根据domain object生成表结构，或者根据表结构生成domain object，或者在domain object中动态映射表结构。第三种做法是ActiveRecord的做法，得益于Ruby的<a href="http://www.ntecs.de/old-hp/s-direktnet/rb/ruby.pdf">method-missing</a>。在动态代理的帮助下实现method-missing并不困难，但<span style="font-family: courier new,courier,monospace;">user.getName()</span>通不过Java的编译。<br /><br />3、Java的类型系统??如徐x在“<a href="http://www.blogjava.net/raimundox/archive/2005/12/21/24891.html">丧钟为谁鸣（3）</a>”所说??试图用类型契约代替（或者说，作为）语义契约。在不涉及外部系统的情况下，这一代替基本上有效；但在外部系统（数据库）出现之后，类型契约无法保证语义契约。（譬如说，<span style="font-family: courier new,courier,monospace;">user.getName()</span>可以是合法的调用，但不保证数据库有<span style="font-family: courier new,courier,monospace;">NAME</span>字段。）<br /><br />4、Ruby放弃静态类型契约，因此用最简的方式保持domain object与数据库的语义契约。失去静态类型检查的程序可能更多地受害于typo，但帮助Java减少这种损害的是IDE和单元测试，不是编译器。对于外部系统的语义契约，Java程序也只能求助于单元测试。如果有合适的IDE，Ruby并不比Java更容易出错。<br /><br />5、依靠ActiveRecord保持语义契约，使domain object无需重复数据库的字段信息。这是Rails优于J2EE的重要原因。<br />
+</p>				  
+             <p class="diaryFoot">- 作者： <a href="javascript:void(0);" onClick="window.open('http://publishblog.blogdriver.com/blog/postMessage.b?receiver=25249','发送短消息','width=520, height=455')">透明</a> 2006年02月8日, 星期三 13:42  </p>
+				</div>
+ <div class="operation"> 
+    <a name="trackback"><H3>Trackback</H3></a>
+      <p class="trackback">你可以使用这个链接引用该篇日志 http://publishblog.blogdriver.com/blog/tb.b?diaryID=1129175
+ </p>
+ </div>				
+ 
+ <div class="operation">
+   <a name="relatedDiary"><H3>博客手拉手</H3></a>
+   <table width=90%>
+          </table>
+ </div>
+ 
+<div class="operation">
+     <a name="comment"><H3>回复</H3></a>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：123 </H4></a> 
+    <H5>Thu Feb 08 15:23:55 CST 2007　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">〈A href="http://www.cnsjv.com/Product.asp?classid=37" 〉锻钢阀〈/A〉<br>〈A href="http://www.cnsjv.com/Product.asp?classid=38" 〉止回阀〈/A〉<br>〈A href="http://www.cnsjv.com/Product.asp?classid=39" 〉保温阀〈/A〉<br>〈A href="http://www.cnsjv.com/Product.asp?classid=40" 〉美标阀〈/A〉  <br><br>〈A href="http://www.cnsjv.com/Product.asp?classid=41" 〉截止阀〈/A〉<br>〈A href="http://www.cnsjv.com/Product.asp?classid=42" 〉隔膜阀〈/A〉<br>〈A href="http://www.cnsjv.com/Product.asp?classid=43" 〉呼吸阀〈/A〉<br>〈A href="http://www.cnsjv.com/Product.asp?classid=44" 〉浆料阀〈/A〉<br><br>〈A href="http://www.cnsjv.com/Product.asp?classid=45" 〉针型阀〈/A〉<br>〈A href="http://www.cnsjv.com/Product.asp?classid=46" 〉气动角座阀〈/A〉<br>〈A href="http://www.cnsjv.com/Product.asp?classid=30" 〉疏水阀〈/A〉<br>〈A href="http://www.cnsjv.com/Product.asp?classid=31" 〉柱塞阀〈/A〉<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：DD </H4></a> 
+    <H5>Thu Feb 08 13:12:20 CST 2007　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">[url=http://www.lanhaipumps.com/pinghengfa.html]平衡阀[/url]<br>[url=http://www.lanhaipumps.com/pinghengfa.html]过滤器[/url]<br><br><br>[url=http://www.hongdongpump.com]水泵[/url]<br>[url=http://www.hongdongpump.com/cili.html]磁力泵[/url] <br>[url=http://www.hongdongpump.com/gaoweng.html]高温泵[/url]<br>[url=http://www.hongdongpump.com/you.html]油泵[/url]<br>[url=http://www.hongdongpump.com/naifushi.html]耐腐蚀泵[/url]<br>[url=http://www.hongdongpump.com/lixin.html]离心泵[/url]<br>[url=http://www.hongdongpump.com/suliao.html]塑料泵[/url]<br>[url=http://www.hongdongpump.com/fusuliao.html]氟塑料泵[/url]<br>[url=http://www.hongdongpump.com/huagong.html]化工泵[/url]<br>[url=http://www.hongdongpump.com/duoji.html]多级泵[/url]<br>[url=http://www.hongdongpump.com/paiwu.html]排污泵[/url]<br>[url=http://www.hongdongpump.com/zixi.html]自吸泵[/url]<br>[url=http://www.hongdongpump.com/quanshui.html]潜水泵[/url]<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：DD </H4></a> 
+    <H5>Thu Feb 08 13:11:41 CST 2007　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">[url=http://www.lanhaipumps.com/diefa.html]蝶阀[/url]<br>[url=http://www.lanhaipumps.com/shuilikongzhifa.html]水力控制阀[/url]<br>[url=http://www.lanhaipumps.com/chenlifa.html]衬里阀[/url]<br>[url=http://www.lanhaipumps.com/anquanfa.html]安全阀[/url]<br>[url=http://www.lanhaipumps.com/xuansaifa.html]旋塞阀[/url]<br>[url=http://www.lanhaipumps.com/xuansaifa.html]液面汁[/url]<br>[url=http://www.lanhaipumps.com/jianyafa.html]减压阀[/url]<br>[url=http://www.lanhaipumps.com/zhihuifa.html]止回阀[/url]<br>[url=http://www.lanhaipumps.com/zhafa.html]闸阀[/url]<br>[url=http://www.lanhaipumps.com/qiufa.html]球阀[/url]<br>[url=http://www.lanhaipumps.com/jiezhifa.html]截止阀[/url]<br>[url=http://www.lanhaipumps.com/diancifa.html]电磁阀[/url]<br>[url=http://www.lanhaipumps.com/shushuifa.html]疏水阀[/url]<br>[url=http://www.lanhaipumps.com/zhenxingfa.html]针型阀[/url]<br>[url=http://www.lanhaipumps.com/yibiaotiaojiefa.html]仪表调节阀[/url]<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：DD </H4></a> 
+    <H5>Thu Feb 08 13:10:25 CST 2007　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">[url=http://www.lanhaipumps.com/sz.html]SZ真空泵[/url]<br>[url=http://www.lanhaipumps.com/sk.html]SK真空泵[/url]<br>[url=http://www.lanhaipumps.com/2sk.html]2SK真空泵[/url]<br>[url=http://www.lanhaipumps.com/2x.html]2X真空泵[/url]<br>[url=http://www.lanhaipumps.com/s.html]S中开泵[/url]<br>[url=http://www.lanhaipumps.com/sh.html]SH中开泵[/url]<br>[url=http://www.lanhaipumps.com/2xzzhi.html]2XZ直联式真空泵[/url]<br>[url=http://www.lanhaipumps.com/cyz.html]CYZ自吸离心油泵[/url]<br>[url=http://www.lanhaipumps.com/2cy.html]2CY齿轮油泵[/url]<br>[url=http://www.lanhaipumps.com/kcb.html]KCB齿轮油泵[/url]<br>[url=http://www.lanhaipumps.com/fsbo.html]FS型玻璃钢离心泵[/url]<br>[url=http://www.lanhaipumps.com/lqry.html]LQRY热油泵[/url]<br>[url=http://www.lanhaipumps.com/fy.html]FY液下泵[/url]<br>[url=http://www.lanhaipumps.com/wsy.html]WSY玻璃钢液下泵[/url]<br>[url=http://www.lanhaipumps.com/fzb.html]FZB氟塑料自吸泵[/url]<br>[url=http://www.lanhaipumps.com/scz.html]SCZ石油化工泵[/url]<br>[url=http://www.lanhaipumps.com/sza.html]SZA高温石油化工泵[/url]<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：DDD </H4></a> 
+    <H5>Thu Feb 08 13:08:34 CST 2007　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">[url=http://www.lanhaipumps.com/fsb.html]FSB氟塑料离心泵[/url]<br>[url=http://www.lanhaipumps.com/lg.html]LG多级给水泵[/url]<br>[url=http://www.lanhaipumps.com/dl.html]DL立式多级离心泵[/url]<br>[url=http://www.lanhaipumps.com/tswa.html]TSWA卧式多级泵[/url]<br>[url=http://www.lanhaipumps.com/gdl.html]GDL管道多级泵[/url]<br>[url=http://www.lanhaipumps.com/qby.html]QBY气动隔膜泵[/url]<br>[url=http://www.lanhaipumps.com/dxing.html]D型多级泵[/url]<br>[url=http://www.lanhaipumps.com/w.html]W旋涡泵[/url]<br>[url=http://www.lanhaipumps.com/is.html]IS单级单吸离心泵[/url]<br>[url=http://www.lanhaipumps.com/g.html]G型螺杆泵[/url]<br>[url=http://www.lanhaipumps.com/dby.html]DBY电动隔膜泵[/url]<br>[url=http://www.lanhaipumps.com/i-1b.html]I-1B螺杆泵[/url]<br>[url=http://www.lanhaipumps.com/qj.html]QJ井用潜水泵[/url]<br>[url=http://www.lanhaipumps.com/wshui.html]W水力喷射器[/url]<br>[url=http://www.lanhaipumps.com/zx.html]ZX自吸泵[/url]<br>[url=http://www.lanhaipumps.com/2xz.html]2XZ真空泵[/url]<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：DD </H4></a> 
+    <H5>Thu Feb 08 13:06:51 CST 2007　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">[url=http://www.lanhaipumps.com/wq.html]WQ潜水排污泵[/url]<br>[url=http://www.lanhaipumps.com/yw.html]YW液下排污泵[/url]<br>[url=http://www.lanhaipumps.com/lw.html]LW立式排污泵[/url]<br>[url=http://www.lanhaipumps.com/gw.html]GW管道排污泵[/url]<br>[url=http://www.lanhaipumps.com/pw.html]PW污水泵[/url]<br>[url=http://www.lanhaipumps.com/ih.html]IH不锈钢离心泵[/url]<br>[url=http://www.lanhaipumps.com/cq.html]CQ磁力泵[/url]<br>[url=http://www.lanhaipumps.com/zcq.html]ZCQ磁力泵[/url]<br>[url=http://www.lanhaipumps.com/zcqzixi.html]ZCQ自吸磁力泵[/url]<br>[url=http://www.lanhaipumps.com/cqb.html]CQB磁力驱动泵[/url]<br>[url=http://www.lanhaipumps.com/cqb-f.html]CQB-F氟塑料磁力泵[/url]<br>[url=http://www.lanhaipumps.com/cdw.html]CDW不锈钢多级泵[/url]<br>[url=http://www.lanhaipumps.com/fb.html]FB不锈钢耐腐蚀泵[/url]<br>[url=http://www.lanhaipumps.com/afb.html]AFB不锈钢耐腐蚀泵[/url]<br>[url=http://www.lanhaipumps.com/ihf.html]IHF氟塑料衬里离心泵[/url]<br>[url=http://www.lanhaipumps.com/pf.html]PF强耐腐蚀离心泵[/url]<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：DD </H4></a> 
+    <H5>Thu Feb 08 13:06:07 CST 2007　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">[url=http://www.lanhaipumps.com/ddgm.html]电动隔膜泵[/url]<br>[url=http://www.lanhaipumps.com/jyqs.html]井用潜水泵[/url]<br>[url=http://www.lanhaipumps.com/zqpsq.html]蒸气喷射器[/url]<br>[url=http://www.lanhaipumps.com/xpszk.html]旋片式真空泵[/url]<br>[url=http://www.lanhaipumps.com/glgs.html]锅炉给水泵[/url]<br>[url=http://www.lanhaipumps.com/zk.html]中开泵[/url]<br>[url=http://www.lanhaipumps.com/zlszk.html]直联式真空泵[/url]<br>[url=http://www.lanhaipumps.com/zxlxy.html]自吸离心油泵[/url]<br>[url=http://www.lanhaipumps.com/wfszk.html]往复式真空泵[/url]<br>[url=http://www.lanhaipumps.com/ry.html]热油泵[/url]<br>[url=http://www.lanhaipumps.com/fslzx.html]氟塑料自吸泵[/url]<br><br>[url=http://www.lanhaipumps.com/isg.html]ISG管道离心泵[/url] <br>[url=http://www.lanhaipumps.com/isw.html]ISW卧式离心泵[/url] <br>[url=http://www.lanhaipumps.com/zw.html]ZW自吸排污泵[/url] <br>[url=http://www.lanhaipumps.com/fs.html]FS塑料泵[/url] <br>[url=http://www.lanhaipumps.com/fp.html]FP塑料泵[/url]<br>[url=http://www.lanhaipumps.com/qw.html]QW潜水排污泵[/url]<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：DD </H4></a> 
+    <H5>Thu Feb 08 13:05:14 CST 2007　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">[url=http://www.lanhaipumps.com/gdlx.html]管道离心泵[/url]<br>[url=http://www.lanhaipumps.com/lsgdlx.html]立式管道离心泵[/url]<br>[url=http://www.lanhaipumps.com/wsgdlx.html]卧式管道离心泵[/url]<br>[url=http://www.lanhaipumps.com/zxpw.html]自吸排污泵[/url]<br>[url=http://www.lanhaipumps.com/ws.html]污水泵[/url]<br>[url=http://www.lanhaipumps.com/bxglx.html]不锈钢离心泵[/url]<br>[url=http://www.lanhaipumps.com/fslcl.html]氟塑料磁力泵[/url]<br>[url=http://www.lanhaipumps.com/bxgdj.html]不锈钢多级泵[/url]<br>[url=http://www.lanhaipumps.com/bxgnfs.html]不锈钢耐腐蚀泵[/url]<br>[url=http://www.lanhaipumps.com/fslcllx.html]氟塑料衬里离心泵[/url]<br>[url=http://www.lanhaipumps.com/qnfslx.html]强耐腐蚀离心泵[/url]<br>[url=http://www.lanhaipumps.com/djgs.html]多级给水泵[/url]<br>[url=http://www.lanhaipumps.com/wsdj.html]卧式多级泵[/url]<br>[url=http://www.lanhaipumps.com/gddj.html]管道多级泵[/url]<br>[url=http://www.lanhaipumps.com/qdgm.html]气动隔膜泵[/url]<br>[url=http://www.lanhaipumps.com/djdxlx.html]单级单吸离心泵[/url]<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：DD </H4></a> 
+    <H5>Thu Feb 08 13:04:50 CST 2007　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">[url=http://www.lanhaipumps.com/sbkzx.html]水泵控制箱[/url]<br>[url=http://www.lanhaipumps.com/ctsb.html]成套设备[/url]<br>[url=http://www.lanhaipumps.com/bpctsb.html]变频成套设备[/url]<br>[url=http://www.lanhaipumps.com/xfctsb.html]消防成套设备[/url]<br>[url=http://www.lanhaipumps.com/shctsb.html]生活成套设备[/url]<br>[url=http://www.lanhaipumps.com/shiyou.html]石油泵[/url]<br>[url=http://www.lanhaipumps.com/blglx.html]玻璃钢离心泵[/url]<br>[url=http://www.lanhaipumps.com/blgslps.html]玻璃钢水力喷射器[/url]<br>[url=http://www.lanhaipumps.com/suliaoyx.html]塑料液下泵[/url]<br>[url=http://www.lanhaipumps.com/bpkzx.html]变频控制箱[/url]<br>[url=http://www.lanhaipumps.com/slslps.html]塑料水力喷射器[/url]<br>[url=http://www.lanhaipumps.com/shuibengwang.html]水泵网[/url]<br>[url=http://www.lanhaipumps.com/shsbw.html]上海水泵网[/url] <br>[url=http://www.lanhaipumps.com/bfjyw.html]泵阀交易网[/url] <br>[url=http://www.lanhaipumps.com/bfw.html]泵阀网[/url] <br>[url=http://www.lanhaipumps.com/sitemap.html]产品导航[/url] <br>[url=http://www.lanhaipumps.com/link.html]友情链接[/url]<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：DD </H4></a> 
+    <H5>Thu Feb 08 13:03:46 CST 2007　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">[url=http://www.lanhaipumps.com/luogan.html]螺杆泵[/url]<br>[url=http://www.lanhaipumps.com/xuanwo.html]旋涡泵[/url]<br>[url=http://www.lanhaipumps.com/gwyou.html]高温油泵[/url]<br>[url=http://www.lanhaipumps.com/dryou.html]导热油泵[/url]<br>[url=http://www.lanhaipumps.com/guangdao.html]管道泵[/url]<br>[url=http://www.lanhaipumps.com/buxiugang.html]不锈钢泵[/url]<br>[url=http://www.lanhaipumps.com/gaoweng.html]高温泵[/url]<br>[url=http://www.lanhaipumps.com/shuilipenshe.html]水力喷射器[/url]<br>[url=http://www.lanhaipumps.com/boligang.html]玻璃钢泵[/url]<br>[url=http://www.lanhaipumps.com/boligangyx.html]玻璃钢液下泵[/url]<br>[url=http://www.lanhaipumps.com/suliaoyxfu.html]氟塑料液下泵[/url]<br>[url=http://www.lanhaipumps.com/gcsl.html]工程塑料泵[/url]<br>[url=http://www.lanhaipumps.com/fsllx.html]氟塑料离心泵[/url]<br>[url=http://www.lanhaipumps.com/djlx.html]单级离心泵[/url]<br>[url=http://www.lanhaipumps.com/hgsy.html]化工石油泵[/url]<br>[url=http://www.lanhaipumps.com/kongzhixiang.html]控制箱[/url]<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：DD </H4></a> 
+    <H5>Thu Feb 08 13:01:07 CST 2007　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">[url=http://www.lanhaipumps.com/]水泵[/url] <br>[url=http://www.lanhaipumps.com/beng.html]泵[/url] <br>[url=http://www.lanhaipumps.com/naifushi.html]耐腐蚀泵[/url]<br>[url=http://www.lanhaipumps.com/lixin.html]离心泵[/url]<br>[url=http://www.lanhaipumps.com/suliao.html]塑料泵[/url]<br>[url=http://www.lanhaipumps.com/fusuliao.html]氟塑料泵[/url]<br>[url=http://www.lanhaipumps.com/cili.html]磁力泵[/url]<br>[url=http://www.lanhaipumps.com/huagong.html]化工泵[/url]<br>[url=http://www.lanhaipumps.com/duoji.html]多级泵[/url]<br>[url=http://www.lanhaipumps.com/paiwu.html]排污泵[/url]<br>[url=http://www.lanhaipumps.com/zixi.html]自吸泵[/url]<br>[url=http://www.lanhaipumps.com/quanshui.html]潜水泵[/url]<br>[url=http://www.lanhaipumps.com/gemo.html]隔膜泵[/url]<br>[url=http://www.lanhaipumps.com/xiaofang.html]消防泵[/url]<br>[url=http://www.lanhaipumps.com/qnfs.html]强耐腐蚀泵[/url]<br>[url=http://www.lanhaipumps.com/clyou.html]齿轮油泵[/url]<br>[url=http://www.lanhaipumps.com/you.html]油泵[/url]<br>[url=http://www.lanhaipumps.com/zhenkong.html]真空泵[/url]<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：aaa </H4></a> 
+    <H5>Thu Feb 08 12:23:03 CST 2007　 
+            <a href="HTTP://www.skzb.com" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">[url=http://www.skzb.com/sk_pump.html]泵[/url]<br>[url=http://www.skzb.com/sk_shanghaipump.html]上海水泵[/url]<br>[url=http://www.skzb.com/index.asp]水泵[/url] <br>[url=http://www.skzb.com/自吸泵.htm]自吸泵[/url]<br>[url=http://www.skzb.com/Picture.asp?PicClassID=40]自吸泵[/url]<br>[url=http://www.skzb.com/pw-pumps.asp]排污泵[/url]<br>[url=http://www.skzb.com/Picture.asp?PicClassID=6]排污泵[/url]<br>[url=http://www.skzb.com/Picture.asp?PicClassID=11]化工泵[/url]<br>[url=http://www.skzb.com/Picture.asp?PicClassID=41]磁力泵[/url]<br>[url=http://www.skzb.com/Picture.asp?PicClassID=42]离心泵[/url]<br>[url=http://www.skzb.com/Picture.asp?PicClassID=22]油泵[/url]<br>[url=http://www.skzb.com/Picture.asp?PicClassID=43]多级泵[/url]<br>[url=http://www.skzb.com/Picture.asp?PicClassID=44]液下泵[/url]<br>[url=http://www.skzb.com/Picture.asp?PicClassID=16]真空泵[/url]<br>[url=http://www.skzb.com/Picture.asp?PicClassID=24]消防泵[/url]<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：上海依耐泵阀 </H4></a> 
+    <H5>Mon Feb 05 18:23:57 CST 2007　 
+        <a href="mailto:info@enine-pv.com"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://www.enine-pv.com" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">依耐简介<br><br>      上海依耐泵阀有限公司隶属中国开维喜集团，由上海标一、上海日泰及德国施耐得技术共同组建于 2001 年初，是一家集科研、生产、销售、技术服务于一体的高标准新兴企业，拥有一支高素质的专业队伍，目前公司雇员 237，其中高级技术人员占 15％。<br>公司地理位置和年营业额<br>公司以位于嘉定南翔的上日工业园区（占地 15,100 多平方）及青浦区菘泽标一工业园（占地 39,600 多平方）两个生产基地为依托，具有国内外先进的机械生产加工设备和完善的质量检测管理体系。2004 年公司总产值突破 8,700 万元人民币。<br>产品和应用范围<br>公司现已开发生产的泵类产品有 DL、GDL、S、SH、ISG、ZX、ZW、QW、GW、LW、YW、PW、IS、IH、CQB、ZCY 等清水泵、污水泵、化工泵、耐腐蚀泵、XBD 消防泵等；阀门类产品有闸阀、球阀、蝶阀、截止阀、呼吸阀、止回阀、旋塞阀、针型阀、调节阀、疏水阀、水力控制阀等和配套电控、变频恒压成套供水系统设备。产品广泛应用于城建、环保、化工、钢铁、冶金、市政等行业、公司已建立有三级质量监控保障体系，确保产品符合 ISO9001 国际质量体系认证标准，积极打造依耐品牌，力争国内泵阀一流企业。<br>上海依耐泵阀有限公司<br>http://www.enine-pv.com<br>E-mail:info@enine-pv.com<br>TEL:+86 (21)5291 4777<br>FAX:+86 (21)5290 0333<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：上海依耐泵阀 </H4></a> 
+    <H5>Mon Feb 05 18:23:13 CST 2007　 
+        <a href="mailto:info@enine-pv.com"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://www.enine-pv.com" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">[url=http://www.enine-pv.com/products/valve_tsf.htm]呼吸阀[/url]<br>[url=http://www.enine-pv.com/pdf/breath_valve_01.pdf ] QZF-89全天候防火防爆呼吸阀[/url]<br>[url=http://www.enine-pv.com/pdf/breath_valve_02.pdf ] QHXF-89全天候呼吸阀[/url]<br>[url=http://www.enine-pv.com/pdf/breath_valve_03.pdf] GFQ/ZFQ全天候（阻火）呼吸阀[/url]<br>[url=http://www.enine-pv.com/pdf/breath_valve_04.pdf]XVXA呼吸人孔[/url]<br>[url=http://www.enine-pv.com/pdf/breath_valve_05.pdf]ZGB波纹阻火器[/url]<br>[url=http://www.enine-pv.com/pdf/breath_valve_06.pdf]各类阻火器[/url]<br>[url=http://www.enine-pv.com/pdf/breath_valve_07.pdf]GZW管道阻火器[/url]<br>[url=http://www.enine-pv.com/pdf/breath_valve_08.pdf]各类人孔[/url]<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：上海依耐泵阀 </H4></a> 
+    <H5>Mon Feb 05 18:22:28 CST 2007　 
+        <a href="mailto:info@enine-pv.com"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://www.enine-pv.com" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">[url=http://www.enine-pv.com/products/valve_ssf.htm]疏水阀[/url]<br> [url=http://www.enine-pv.com/products/valve_aqf.htm]安全阀[/url]<br>[url=http://www.enine-pv.com/pdf/safety_valve_01.pdf]弹簧微启式安全阀[/url]<br> [url=http://www.enine-pv.com/pdf/safety_valve_10.pdf]真空负压安全阀[/url]<br> [url=http://www.enine-pv.com/products/valve_dcf.htm]电磁阀[/url]<br><br>[url=http://www.enine-pv.com/products/valve_tjf.htm]调节阀[/url]<br>[url=http://www.enine-pv.com/products/valve_ymj.htm]液面计[/url]<br>[url=http://www.enine-pv.com/products/valve_xsf.htm]旋塞阀[/url]<br> [url=http://www.enine-pv.com/products/valve_slkz.htm]水利控制阀[/url]<br> [url=http://www.enine-pv.com/products/valve_dwf.htm]低温阀门[/url]<br> [url=http://www.enine-pv.com/pdf/valve_lowtemp_12.pdf]低温三通阀[/url]<br>[url=http://www.enine-pv.com/products/valve_qdf.htm]切断阀[/url]<br>[url=http://www.enine-pv.com/products/valve_jyf.htm]减压阀[/url]<br>[url=http://www.enine-pv.com/products/valve_pqpn.htm]排泥阀[/url]<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：上海依耐泵阀 </H4></a> 
+    <H5>Mon Feb 05 18:21:39 CST 2007　 
+        <a href="mailto:info@enine-pv.com"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://www.enine-pv.com" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">[url=http://www.enine-pv.com/products/valve_zxf.htm]针型阀[/url]<br>[url=http://www.enine-pv.com/products/valve_ajzf.htm]氨截止阀[/url]<br>[url=http://www.enine-pv.com/products/valve_cjcf.htm]衬胶衬氟阀[/url]<br>[url=http://www.enine-pv.com/products/valve_zsf.htm]柱塞阀[/url]<br>[url=http://www.enine-pv.com/products/valve_qf.htm]球阀[/url]<br> [url=http://www.enine-pv.com/pdf/valve_ball_09.pdf]一片式球阀[/url]<br>[url=http://www.enine-pv.com/pdf/valve_ball_10.pdf]二片式球阀[/url]<br> [url=http://www.enine-pv.com/pdf/valve_ball_16.pdf]法兰球阀[/url]<br> [url=http://www.enine-pv.com/products/valve_zhf.htm]止回阀[/url]<br> [url=http://www.enine-pv.com/pdf/valve_check_08.pdf]橡胶瓣止回阀[/url]<br><br> [url=http://www.enine-pv.com/products/valve_df.htm]蝶阀[/url]<br> [url=http://www.enine-pv.com/pdf/valve_butterfly_12.pdf]液控止回蝶阀[/url]<br> [url=http://www.enine-pv.com/pdf/valve_butterfly_14.pdf]消防专用信号蝶阀[/url]<br> [url=http://www.enine-pv.com/pdf/valve_butterfly_20.pdf]伸缩蝶阀[/url]<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：上海依耐泵阀 </H4></a> 
+    <H5>Mon Feb 05 18:20:18 CST 2007　 
+        <a href="mailto:info@enine-pv.com"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://www.enine-pv.com" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">[url=http://www.enine-pv.com/products/pump_CQB.htm]氟塑料磁力泵[/url]<br>[url=http://www.enine-pv.com/products/pump_QBY.htm]气电动隔膜泵[/url]<br> [url=http://www.enine-pv.com/products/pump_W.htm]水冲泵[/url]<br>[url=http://www.enine-pv.com/products/pump_ZXZ.htm]旋片式真空泵[/url]<br>[url=http://www.enine-pv.com/products/pump_SK.htm]水环式真空泵[/url]<br> [url=http://www.enine-pv.com/products/pump_QZD.htm]控制柜[/url]<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：上海依耐泵阀 </H4></a> 
+    <H5>Mon Feb 05 18:19:29 CST 2007　 
+        <a href="mailto:info@enine-pv.com"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://www.enine-pv.com" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">[url=http://www.enine-pv.com/products/pump_GC.htm]锅炉给水泵[/url]<br> [url=http://www.enine-pv.com/products/pump_D.htm]D型多级泵[/url]<br> [url=http://www.enine-pv.com/products/pump_ZX.htm]自吸泵[/url]<br>[url=http://www.enine-pv.com/products/pump_FB.htm]耐腐蚀泵[/url]<br> [url=http://www.enine-pv.com/products/pump_PW.htm]污水泵[/url]<br><br>[url=http://www.enine-pv.com/products/pump_ZW.htm]自吸排污泵[/url]<br> [url=http://www.enine-pv.com/products/pump_GW.htm]排污泵[/url]<br> [url=http://www.enine-pv.com/products/pump_WQ.htm]潜水排污泵[/url]<br> [url=http://www.enine-pv.com/products/pump_AS.htm]带切割潜水排污泵[/url]<br> [url=http://www.enine-pv.com/products/pump_I-1B.htm]浓浆泵[/url]<br>[url=http://www.enine-pv.com/products/pump_WX.htm]漩涡泵[/url]<br> [url=http://www.enine-pv.com/products/pump_XWJ.htm]纸浆泵[/url]<br> [url=http://www.enine-pv.com/products/pump_CYZ.htm]自吸油泵[/url]<br>[url=http://www.enine-pv.com/products/pump_KCB.htm]齿轮油泵[/url]<br> [url=http://www.enine-pv.com/products/pump_ZCQ.htm]自吸磁力泵[/url]<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：上海依耐泵阀 </H4></a> 
+    <H5>Mon Feb 05 18:18:35 CST 2007　 
+        <a href="mailto:info@enine-pv.com"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://www.enine-pv.com" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">[url=http://www.enine-pv.com]依耐泵阀[/url]<br>[url=http://www.enine-pv.com/about.htm]上海依耐泵阀有限公司[/url]<br>[url=http://www.enine-pv.com/sitemap.htm]依耐泵阀网站地图[/url]<br>[url=http://www.enine-pv.com/links.htm]依耐泵阀网站链接[/url]<br>[url=http://www.enine-pv.com/products/pump_CQ.htm]磁力泵[/url]<br> [url=http://www.enine-pv.com/products/pump_DL.htmDL]离心泵[/url]<br> [url=http://www.enine-pv.com/products/pump_TSWA.htm]TSWA卧式离心泵[/url]<br> [url=http://www.enine-pv.com/products/pump_S.htm]中开泵[/url]<br> [url=http://www.enine-pv.com/products/pump_ISG.htm]ISG管道泵[/url]<br> [url=http://www.enine-pv.com/products/pump_IS.htm]IS/IH化工泵[/url]<br><br>[url=http://www.enine-pv.com/products/pump_FSB.htm]氟塑料合金离心泵[/url]<br> [url=http://www.enine-pv.com/products/pump_XBD.htm]消防泵[/url]<br>[url=http://www.enine-pv.com/products/pump_GDL.htm]GDL管道泵[/url]<br> [url=http://www.enine-pv.com/products/pump_SG.htm]SG管道泵[/url]<br> [url=http://www.enine-pv.com/products/pump_PBG.htm]PBG屏蔽式管道泵[/url]<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：w </H4></a> 
+    <H5>Thu Feb 01 09:18:22 CST 2007　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">〈a href="http://www.watesi.com/meibiao.htm"〉美标阀门〈/a〉 <br>〈a href="http://www.watesi.com/baowen.htm "〉保温阀门〈/a〉<br>〈a href="http://www.watesi.com/old/wendu.htm"〉温度调节阀〈/a〉 <br>〈a href="http://www.watesi.com/old/wendu.htm"〉自力式调节阀〈/a〉 <br>〈a href="http://www.watesi.com/project/zmaw.asp"〉上海调节阀〈/a〉<br>〈a href="http://www.watesi.com/project/ZHLS.asp"〉进口调节阀〈/a〉<br>〈a href="http://www.watesi.com/about.asp"〉调节阀厂〈/a〉<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：ate </H4></a> 
+    <H5>Thu Feb 01 09:17:56 CST 2007　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">〈a href="http://www.watesi.com/ckprod.asp"〉蝶阀〈/a〉<br>〈a href="http://www.watesi.com/ckprod.asp"〉美标阀门〈/a〉     <br>〈a href="http://www.watesi.com/ckprod.asp"〉调节阀〈/a〉<br>〈a href="http://www.watesi.com/ckprod.asp"〉浆液阀〈/a〉  <br>    <br>〈a href="http://www.watesi.com/ckprod.asp"〉刀型闸阀〈/a〉<br>〈a href="http://www.watesi.com/ckprod.asp"〉压力调节阀〈/a〉<br>〈a href="http://www.watesi.com/ckprod.asp"〉温度调节阀〈/a〉<br>〈a href="http://www.wsi.com/ckprod.asp"〉电动阀门〈/a〉<br><br>〈a href="http://www.watesi.com/ckprod.asp"〉气动阀门〈/a〉     <br>〈a href="http://www.watesi.com/ckprod.asp"〉自力式调节阀〈/a〉<br>〈a href="http://www.watesi.com/ckprod.asp"〉波纹管阀门〈/a〉 <br>〈a href="http://www.watesi.com/ckprod.asp"〉保温阀门〈/a〉<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：www </H4></a> 
+    <H5>Thu Feb 01 09:17:39 CST 2007　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">〈a href="http://www.lspump.com/duoji.htm"〉多级离心泵〈/a〉<br>〈a href="http://www.lspump.com/guolu.htm"〉锅炉给水泵〈/a〉<br>〈a href="http://www.lspump.com/huagong.htm"〉石油化工泵〈/a〉<br>〈a href="http://www.lspump.com/guandao.htm"〉便拆式管道泵〈/a〉<br><br>〈a href="http://www.lspump.com/lixin.htm"〉上海离心泵厂〈/a〉<br>〈a href="http://www.lspump.com/chilun.htm"〉热油泵〈/a〉<br>〈a href="http://.lspump.com/paiwu.htm"〉潜水排污泵〈/a〉<br>〈a href="http://www.lspump.com/wushui.htm"〉液下污水泵〈/a〉<br><br>〈a href="http://www.lspump.com/xiaofang.htm"〉柴油机消防泵〈/a〉<br>〈a href="http://www.lspump.com/yexia.htm"〉不锈钢液下泵〈/a〉<br>〈a href="http://www.lspump.com/guanli.htm"〉管道离心泵〈/a〉<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：pu </H4></a> 
+    <H5>Thu Feb 01 09:17:19 CST 2007　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">〈a href="http://www.lspump.com/ckprod.asp?id=545"〉管道泵〈/a〉 <br>〈a href="http://www.lspump.com/ckprod.asp?id=552"〉多级泵〈/a〉 <br>〈a href="http://www.lspump.com/ckprod.asp?id=559"〉浓浆泵〈/a〉 <br>〈a href="http://www.lspump.com/ckprod.asp?id=544"〉清水泵〈/a〉 <br><br>〈a href="http://www.lspump.com/ckprod.asp?id=562"〉液下泵〈/a〉 <br>〈a href="http://www.lspump.com/ckprod.asp?id=563"〉自吸泵〈/a〉 <br>〈a href="http://www.lspump.com/ckprod.asp?id=560"〉油泵〈/a〉 <br>〈a href="http://www.lsmp.com/ckprod.asp?id=560"〉齿轮泵〈/a〉 <br><br>〈a href="http://www.lspump.com/ckprod.asp?id=569"〉耐腐泵〈/a〉 <br>〈a href="http://www.lspump.com/ckprod.asp?id=569"〉耐腐蚀泵〈/a〉 <br>〈a href="http://www.lspump.com/ckprod.asp?id=558"〉螺杆泵〈/a〉 <br>〈a href="http://www.lspump.com/cili.htm"〉氟塑料磁力泵〈/a〉<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：ww </H4></a> 
+    <H5>Thu Feb 01 09:17:01 CST 2007　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">〈a href="http://www.kuerte.com/chanp.asp"〉导热油泵、潜水泵、塑料泵、屏蔽泵、不锈钢水泵〈/a〉<br>〈a href="http://www.kuerte.com/kedpump/ih.htm"〉化工泵〈/a〉<br>〈a href="http://w.kuerte.com/kedpump/qj.htm"〉潜水泵〈/a〉 <br>〈a href="http://www.kuerte.com/kedpump/pbg.htm"〉屏蔽泵〈/a〉 <br>〈a href="http://www.kuerte.com/kedpump/lq.htm"〉台湾式管道泵〈/a〉 <br><br>〈a href="http://www.kuerte.com/kedpump/zx.htm"〉自吸泵〈/a〉 <br>〈a href="http://www.kuerte.com/kedpump/xwj.htm"〉纸浆泵〈/a〉 <br>〈a href="http://www.kuerte.com/kedpump/fs.htm"〉玻璃钢泵〈/a〉 <br>〈a href="http://www.kuerte.com/kedpump/pf.htm"〉塑料泵〈/a〉<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：kuert </H4></a> 
+    <H5>Thu Feb 01 09:16:43 CST 2007　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">〈a href="http://www.021dfn.com/pro1.htm"〉温度调节器〈/a〉<br>〈a href="http://www.021dfn.com/pro2.htm"〉压力调节阀〈/a〉<br>〈a href="http://www.021dfn.com/pro2.htm"〉压力调节器〈/a〉<br>〈a href="http://www.021dfn.com/pro4.htm"〉调节阀产品导航〈/a〉<br><br>〈a href="http://www.kuerte.com/"〉真空泵、化工泵、排污泵、自吸泵、油泵〈/a〉<br>〈a href="http://www.kuerte.com/kedpump/kcb.htm"〉油泵〈/a〉<br>〈a href="http://www.kuerte.com/kedpump/lq3a.htm"〉不锈钢转子泵〈/a〉 <br>〈a href="http://www.kuerte.com/kedpump/lq3a.htm"〉不锈钢泵〈/a〉 <br>〈a href="http://www.kuerte.com/kedpump/lq3a.htm"〉不锈钢水泵〈/a〉 <br><br>〈a href="http://www.e.com/kedpump/lqry.htm"〉导热油泵〈/a〉<br>〈a href="http://www.kuerte.com/kedpump/lqg.htm"〉沥青泵〈/a〉 <br>〈a href="http://www.kuerte.com/kedpump/pwb.htm"〉排污泵〈/a〉 <br>〈a href="http://www.kuerte.com/kedpump/2xz.htm"〉真空泵〈/a〉<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：www </H4></a> 
+    <H5>Thu Feb 01 09:16:25 CST 2007　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">〈a href="http://www.bomanpump.com/ckpro.asp?id=401"〉污水泵〈/a〉<br>〈a href="http://www.bomanpump.com/ckpro.asp?id=378"〉双吸离心泵〈/a〉<br>〈a href="http://www.bomanpump.com/ckpro.asp?id=422"〉油泵〈/a〉<br>〈a href="http://www.piipii.com/dianzi2.htm"〉电子样本〈/a〉 <br><br>〈a href="http://www.piipii.com/dianzi2.htm"〉电子样本制作〈/a〉 <br>〈a href="http://www.piipii.com/product.htm"〉可打印光盘〈/a〉<br>〈a href="http://.51pv.com/"〉水泵〈/a〉 <br>〈a href="http://www.51pv.com/"〉阀门〈/a〉<br><br>〈a href="http://www.guote-valve.com/"〉气动阀门〈/a〉  <br>〈a href="http://www.021dfn.com/"〉自力式调节阀〈/a〉<br>〈a href="http://www.021dfn.com/"〉自力式调节器〈/a〉<br>〈a href="http://www.021dfn.com/pro1.htm"〉温度调节阀〈/a〉<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：w </H4></a> 
+    <H5>Thu Feb 01 09:16:03 CST 2007　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">〈a href="http://www.bomanpump.com/product.asp"〉上海水泵厂〈/a〉<br>〈a href="http://www.bomanpump.com/product.asp"〉水泵配件〈/a〉<br>〈a href="http://www.bomanpump.com/product.asp"〉船用水泵〈/a〉<br><br>〈a href="http://www.bomanpump.com/"〉上海水泵〈/a〉<br>〈a href="http://www.bomanpump.com/"〉上海水泵厂〈/a〉<br>〈a href="http://www.bomanpump.com/product.asp"〉船用泵〈/a〉<br>〈a href="http://ww.bomanpump.com/"〉手摇泵〈/a〉<br><br>〈a href="http://www.bomanpump.com/"〉海水泵〈/a〉<br>〈a href="http://www.bomanpump.com/"〉柴油机消防泵〈/a〉<br>〈a href="http://www.bomanpump.com/ckpro.asp?id=439"〉电站泵〈/a〉<br>〈a href="http://www.bomanpump.com/ckpro.asp?id=409"〉热水泵〈/a〉<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：w </H4></a> 
+    <H5>Thu Feb 01 09:15:38 CST 2007　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">〈A href="http://www.demeite.cn/product.asp?series=410" 〉闸阀〈/A〉<br>〈A href="http://www.demeite.cn/product.asp?series=409" 〉截止阀〈/A〉<br>〈A href="http://www.demeite.cn/product.asp?series=395" 〉电磁阀〈/A〉<br>〈A href="http://www.demeite.cn/product.asp?series=403" 〉水力控制阀〈/A〉<br><br>〈A href="http://www.demeite.cn/product.asp?series=401" 〉柱塞阀〈/A〉<br>〈A href="http://www.demeite.cn/product.asp?series=407" 〉止回阀〈/A〉<br>〈A href="http://www.demeite.cn/product.asp?series=408" 〉球阀〈/A〉<br>〈A href="http://www.demeite.cn/product.asp?series=402" 〉旋塞阀〈/A〉<br><br>〈A href="http://ww.demeite.cn/product.asp?series=394" 〉电动阀〈/A〉<br>〈A href="http://www.demeite.cn/product.asp?series=394" 〉电动阀门〈/A〉<br>〈A href="http://www.demeite.cn/product.asp?series=393" 〉气动阀〈/A〉<br>〈A href="http://www.demeite.cn/product.asp?series=393" 〉气动阀门〈/A〉<br>〈A href="http://www.demeite.cn/product.asp?series=411" 〉蝶阀〈/A〉<br><br>〈a href="http://www.bomanpump.com/product.asp"〉上海水泵〈/a〉<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：ww </H4></a> 
+    <H5>Thu Feb 01 09:15:18 CST 2007　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">〈A href="http://www.xlypump.com/ckprod.asp?id=281" 〉三相电泵〈/A〉<br>〈A href="http://www.xlypump.com/ckprod.asp?id=412" 〉不锈钢转子泵〈/A〉<br>〈A href="http://www.xlypump.com/ckprod.asp?id=407" 〉污水泵〈/A〉<br>〈A href="http://www.xlypump.com/ckprod.asp?id=256" 〉齿轮油泵〈/A〉<br><br>〈A href="http://www.xlypump.com/ckprod.asp?id=286" 〉泥浆泵、浓浆泵〈/A〉<br>〈A href="http://www.xlypump.com/ckprod.asp?id=301" 〉玻璃钢离心泵〈/A〉<br>〈A href="http://www.xlypump.com/products.asp?xl=71" 〉旋涡泵〈/A〉<br>〈A href="http://www.xlypump.com/ckprod.asp?id=367" 〉清水泵〈/A〉<br>〈A href="http://w.xlypump.com/ckprod.asp?id=390" 〉水力喷射器〈/A〉<br><br>〈A href="http://www.demeite.cn/product.asp?series=406" 〉安全阀〈/A〉<br>〈A href="http://www.demeite.cn/product.asp?series=405" 〉减压阀〈/A〉<br>〈A href="http://www.demeite.cn/product.asp?series=414" 〉调节阀〈/A〉<br>〈A href="http://www.demeite.cn/product.asp?series=400" 〉疏水阀〈/A〉<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：w </H4></a> 
+    <H5>Thu Feb 01 09:14:59 CST 2007　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">〈A href="http://www.xlypump.com/ckprod.asp?id=359" 〉管道离心泵〈/A〉<br>〈A href="http://www.xlypump.com/ckprod.asp?id=302" 〉螺杆泵〈/A〉<br>〈A href="http://www.xlypump.com/ckprod.asp?id=345" 〉耐腐蚀泵〈/A〉<br>〈A href="http://www.xlypump.com/ckprod.asp?id=333" 〉液下泵〈/A〉<br><br>〈A href="http://www.xlypump.com/ckprod.asp?id=413" 〉管道泵〈/A〉<br>〈A href="http://www.xlypump.com/products.asp?xl=64" 〉离心泵〈/A〉<br>〈A href="http://ww.xlypump.com/products.asp?xl=65" 〉排污泵〈/A〉<br>〈A href="http://www.xlypump.com/products.asp?xl=67" 〉化工泵〈/A〉<br><br>〈A href="http://www.xlypump.com/products.asp?xl=68" 〉磁力泵〈/A〉<br>〈A href="http://www.xlypump.com/ckprod.asp?id=283" 〉自吸泵〈/A〉<br>〈A href="http://www.xlypump.com/products.asp?xl=69" 〉隔膜泵〈/A〉<br>〈A href="http://www.xlypump.com/ckprod.asp?id=258" 〉液压油泵〈/A〉<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：sgdv </H4></a> 
+    <H5>Thu Feb 01 09:14:36 CST 2007　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">〈A href="http://www.sgdvalve.com/product.asp?xl=64" 〉波纹管阀门〈/A〉 <br>〈A href="http://www.sgdvalve.com/intro.asp" 〉高压阀门〈/A〉<br>〈A href="http://www.sgdvalve.com/intro.asp" 〉高压阀〈/A〉 <br>〈A href="http://www.sgdvalve.com/product.asp?xl=96" 〉日标阀门〈/A〉   <br>   <br>〈A href="http://www.sgdvalve.com/product.asp?xl=97" 〉平衡阀〈/A〉    <br>〈A href="http://www.sgdvalve.com/product.asp?xl=95" 〉高温阀门〈/A〉<br>〈A href="http://www.sgdvalve.com/product.asp?xl=95" 〉高温高压阀门〈/A〉      <br>〈A href="http://www.sgdvalve.com/product.asp?xl=84" 〉减温减压阀〈/A〉<br><br>〈A href="http://www.sgdvalve.com/product.asp?xl=84" 〉减温减压装置〈/A〉  <br>〈A href="http://www.sgdvalve.com/ckprod.asp?id=91" 〉硬密封蝶阀〈/A〉     <br>〈A href="http://www.alve.com/ckprod.asp?id=125" 〉橡胶瓣止回阀〈/A〉      <br>〈A href="http://www.sgdvalve.com/ckprod.asp?id=124" 〉快关蝶阀〈/A〉 <br>〈A href="http://www.sgdvalve.com/ckprod.asp?id=960" 〉缓闭止回蝶阀〈/A〉<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：w </H4></a> 
+    <H5>Thu Feb 01 09:13:45 CST 2007　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">〈A href="http://www.sgdvalve.com/product.asp?xl=87" 〉锻钢阀门〈/A〉  <br>〈A href="http://www.sgdvalve.com/product.asp?xl=57" 〉针型阀〈/A〉<br>〈A href="http://www.sgdvalve.com/product.asp?xl=57" 〉仪表阀〈/A〉 <br>〈A href="http://www.sgdvalve.com/product.asp?xl=88" 〉美标阀门〈/A〉 <br>   <br>〈A href="http://www.sgdvalve.com/product.asp?xl=62" 〉氧气阀〈/A〉 <br>〈A href="http://www.sgdvalve.com/product.asp?xl=62" 〉氧气专用阀〈/A〉 <br>〈A href="http://www.sgdvalve.com/product.asp?xl=41" 〉刀型闸阀〈/A〉<br>〈A href="http://ww.sgdvalve.com/product.asp?xl=41" 〉浆料阀〈/A〉  <br><br>〈A href="http://www.sgdvalve.com/product.asp?xl=56" 〉保温阀门〈/A〉<br>〈A href="http://www.sgdvalve.com/product.asp?xl=56" 〉保温阀〈/A〉  <br>〈A href="http://www.sgdvalve.com/product.asp?xl=85" 〉水力控制阀〈/A〉  <br>〈A href="http://www.sgdvalve.com/product.asp?xl=54" 〉柱塞阀〈/A〉<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：ww </H4></a> 
+    <H5>Thu Feb 01 09:13:30 CST 2007　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">〈A href="http://www.yaspump.com/ckprod.asp?id=52" 〉油泵〈/A〉        <br>〈A href="http://www.yaspump.com/ckprod.asp?id=6" 〉多级泵〈/A〉      <br>〈A href="http://www.yaspump.com/ckprod.asp?id=951" 〉叶片泵〈/A〉      <br>〈A href="http://www.yaspump.com/ckprod.asp?id=19" 〉氟塑料磁力泵〈/A〉    <br>  <br>〈A href="http://www.yaspump.com/ckprod.asp?id=947" 〉转子泵〈/A〉  <br>〈A href="http://www.yaspump.com/ckprod.asp?id=949" 〉沥青泵〈/A〉  <br>〈A href="http://www.yaspump.com/ckprod.asp?id=51" 〉高温泵〈/A〉  <br>〈A href="http://www.yaspump.com/ckprod.asp?id=15" 〉耐碱泵〈/A〉  <br>〈A href="http://w.yaspump.com/ckprod.asp?id=57" 〉潜水泵〈/A〉  <br><br>〈A href="http://www.sgdvalve.com/" 〉电站阀门〈/A〉  <br>〈A href="http://www.sgdvalve.com/" 〉电站阀〈/A〉 <br>〈A href="http://www.sgdvalve.com/intro.asp" 〉上海高压阀门〈/A〉 <br>〈A href="http://www.sgdvalve.com/intro.asp" 〉上海电站阀门〈/A〉<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：spu </H4></a> 
+    <H5>Thu Feb 01 09:13:07 CST 2007　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">〈A href="http://www.yaspump.com/ckprod.asp?id=17" 〉耐腐蚀泵〈/A〉 <br>〈A href="http://www.yaspump.com/ckprod.asp?id=950" 〉不锈钢泵〈/A〉 <br>〈A href="http://www.yaspump.com/ckprod.asp?id=950" 〉卫生泵〈/A〉   <br>〈A href="http://www.yaspump.com/ckprod.asp?id=10" 〉防腐泵〈/A〉 <br>     <br>〈A href="http://www.yaspump.com/ckprod.asp?id=14" 〉耐酸泵〈/A〉      <br>〈A href="http://www.yaspump.com/ckprod.asp?id=923" 〉自吸泵〈/A〉  <br>〈A href="http://www.yamp.com/ckprod.asp?id=946" 〉高压泵〈/A〉      <br>〈A href="http://www.yaspump.com/ckprod.asp?id=934" 〉磁力泵〈/A〉 <br>     <br>〈A href="http://www.yaspump.com/ckprod.asp?id=77" 〉隔膜泵〈/A〉      <br>〈A href="http://www.yaspump.com/ckprod.asp?id=67" 〉螺杆泵〈/A〉      <br>〈A href="http://www.yaspump.com/ckprod.asp?id=53" 〉齿轮泵〈/A〉   <br>〈A href="http://www.yaspump.com/ckprod.asp?id=924" 〉排污泵〈/A〉<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：下泵 </H4></a> 
+    <H5>Thu Feb 01 09:12:50 CST 2007　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">〈A href="http://www.021yj.com/pump/pai-7.htm" 〉污水泵〈/A〉 <br>〈A href="http://www.021yj.com/pump/pai-8.htm" 〉水力喷射器〈/A〉 <br>〈A href="http://www.021yj.com/pump/pai-9.htm" 〉耐腐泵〈/A〉 <br>〈A href="http://www.021yj.com/pump/pai-9.htm" 〉硫酸泵〈/A〉 <br>〈A href="http://www.021yj.com/pump/pai-9.htm" 〉耐腐蚀泵〈/A〉 <br><br>〈A href="http://www.021yj.com/" 〉管道泵、离心泵、无堵塞泵、隔膜泵、消防泵〈/A〉<br>〈A href="http://www.021yj.com/products.asp" 〉化工泵、多级泵、磁力泵、  排污泵、自吸泵〈/A〉<br>〈A href="http://www.021yj.com/pump/index.htm" 〉潜水泵、浓浆泵、泥浆泵、耐腐蚀泵、液〈/A〉<br><br>〈A href="http://www.yaspump.com/ckprod.asp?id=76" 〉氟塑料泵〈/A〉     <br>〈A href="http://www.yaspump.com/ckprod.asp?id=76" 〉塑料泵〈/A〉     <br>〈A href="http://www.yaspump.com/ckprod.asp?id=16" 〉化工泵〈/A〉     <br>〈A href="http://www.yaspump.com/ckprod.asp?id=17" 〉耐腐泵〈/A〉<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：ww </H4></a> 
+    <H5>Thu Feb 01 09:12:28 CST 2007　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">〈A href="http://www.021yj.com/pump/product-2.htm" 〉无堵塞泵〈/A〉 <br>〈A href="http://www.021yj.com/pump/product-2.htm" 〉排污泵〈/A〉 <br>〈A href="http://www.021yj.com/pump/product-3.htm" 〉化工泵〈/A〉 <br>〈A href="http://www.021yj.com/pump/product-4.htm" 〉消防泵〈/A〉 <br><br>〈A href="http://www.021yj.com/pump/product-5.htm" 〉隔膜泵〈/A〉 <br>〈A href="http://www.021yj.com/pump/product-7.htm" 〉多级泵〈/A〉 <br>〈A href="http://www.021yj.com/pump/product-9.htm" 〉磁力泵〈/A〉 <br>〈A href="http://w.021yj.com/pump/pai-1.htm" 〉液下泵〈/A〉 <br><br>〈A href="http://www.021yj.com/pump/pai-2.htm" 〉潜水泵〈/A〉 <br>〈A href="http://www.021yj.com/pump/pai-4.htm" 〉自吸泵〈/A〉 <br>〈A href="http://www.021yj.com/pump/pai-7.htm" 〉浓浆泵〈/A〉 <br>〈A href="http://www.021yj.com/pump/pai-7.htm" 〉泥浆泵〈/A〉<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：w </H4></a> 
+    <H5>Thu Feb 01 09:05:02 CST 2007　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">〈A href="http://www.021yj.com/pump/qi-1.htm" 〉不锈钢深井泵〈/A〉 <br>〈A href="http://www.021yj.com/pump/qi-1010.htm" 〉控制柜〈/A〉 <br>〈A href="http://www.021yj.com/pump/qi-1010.htm" 〉变频控制柜〈/A〉 <br>〈A href="http://www.021yj.com/pump/qi-1010.htm" 〉变频恒压供水设备〈/A〉 <br><br>〈A href="http://www.021yj.com/pump/you-1.htm" 〉油泵〈/A〉 <br>〈A href="http://www.021yj.com/pump/you-1.htm" 〉输油泵〈/A〉 <br>〈A href="http://www.021yj.com/pump/you-1.htm" 〉管道油泵〈/A〉 <br>〈A href="http://ww.021yj.com/pump/you-3.htm" 〉齿轮泵〈/A〉 <br><br>〈A href="http://www.021yj.com/pump/you-3.htm" 〉齿轮油泵〈/A〉 <br>〈A href="http://www.021yj.com/pump/you-3.htm" 〉导热油泵〈/A〉 <br>〈A href="http://www.021yj.com/pump/product-1.htm" 〉管道泵〈/A〉<br>〈A href="http://www.021yj.com/pump/product-1.htm" 〉离心泵〈/A〉<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：ww </H4></a> 
+    <H5>Thu Feb 01 09:04:14 CST 2007　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">〈A href="http://www.ad-pumps.com/ckpro.asp?id=31" 〉氟塑料磁力泵〈/A〉<br>〈A href="http://www.ad-pumps.com/ckpro.asp?id=67" 〉自吸油泵〈/A〉<br>〈A href="http://www.ad-pumps.com/ckpro.asp?id=152" 〉自吸排污泵〈/A〉<br>〈A href="http://www.ad-pumps.com/ckpro.asp?id=98" 〉氟塑料泵〈/A〉<br><br>〈A href="http://www.ad-pumps.com/ckpro.asp?id=29" 〉不锈钢泵〈/A〉<br>〈A href="http://www.ad-pumps.com/ckpro.asp?id=164" 〉防腐泵〈/A〉<br>〈A href="http://w.ad-pumps.com/ckpro.asp?id=103" 〉耐酸泵〈/A〉<br>〈A href="http://www.ad-pumps.com/ckpro.asp?id=71" 〉齿轮泵〈/A〉<br><br>〈A href="http://www.021yj.com/pump/duo-5.htm" 〉锅炉泵〈/A〉 <br>〈A href="http://www.021yj.com/pump/ci-4.htm" 〉氟塑料泵〈/A〉 <br>〈A href="http://www.021yj.com/pump/ci-5.htm" 〉高温泵〈/A〉 <br>〈A href="http://www.021yj.com/pump/qi-1.htm" 〉深井泵〈/A〉<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：ww </H4></a> 
+    <H5>Thu Feb 01 09:02:13 CST 2007　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">〈A href="http://w.ad-pumps.com/" 〉耐腐蚀泵〈/A〉<br>〈A href="http://www.ad-pumps.com/" 〉耐腐泵〈/A〉<br>〈A href="http://www.ad-pumps.com/product.asp?xl=111" 〉化工泵〈/A〉<br>〈A href="http://www.ad-pumps.com/product.asp?xl=112" 〉自吸泵〈/A〉<br><br>〈A href="http://www.ad-pumps.com/product.asp?xl=110" 〉磁力泵〈/A〉<br>〈A href="http://www.ad-pumps.com/product.asp?xl=113" 〉隔膜泵〈/A〉<br>〈A href="http://www.ad-pumps.com/product.asp?xl=116" 〉螺杆泵〈/A〉<br>〈A href="http://www.ad-pumps.com/product.asp?xl=114" 〉离心泵〈/A〉<br><br>〈A href="http://www.ad-pumps.com/product.asp?xl=115" 〉排污泵〈/A〉<br>〈A href="http://www.ad-pumps.com/product.asp?xl=117" 〉油泵〈/A〉<br>〈A href="http://www.ad-pumps.com/product.asp?xl=119" 〉多级泵〈/A〉<br>〈A href="http://www.ad-pumps.com/ckpro.asp?id=146" 〉叶片泵〈/A〉<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：arv </H4></a> 
+    <H5>Thu Feb 01 09:00:22 CST 2007　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">〈A href="http://www.hycarving.com/products.asp?xl=3" 〉中国工艺品〈/A〉<br>〈A href="http://www.hycarving.com/products.asp?xl=3" 〉木制工艺品〈/A〉<br>〈A href="http://www.hycarving.com/products.asp?xl=5" 〉佛像〈/A〉<br>〈A href="http://www.hycarving.com/products.asp?xl=5" 〉菩萨〈/A〉<br><br>〈A href="http://www.hycarving.com/products.asp?xl=6" 〉中国木雕〈/A〉<br>〈A href="http://www.hycarving.com/products.asp?xl=6" 〉中华木雕〈/A〉<br>〈A href="http://www.hycarving.com/products.asp?xl=9" 〉木雕佛像〈/A〉<br>〈A href="http://www.hycing.com/products.asp?xl=9" 〉佛像木雕〈/A〉<br><br>〈A href="http://www.hycarving.com/products.asp?xl=8" 〉精雕〈/A〉<br>〈A href="http://www.hycarving.com/products.asp?xl=8" 〉木雕刻〈/A〉<br>〈A href="http://www.hycarving.com/products.asp?xl=7" 〉木制工艺品厂〈/A〉<br>〈A href="http://www.hycarving.com/products.asp?xl=7" 〉工艺品厂〈/A〉<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：w </H4></a> 
+    <H5>Thu Feb 01 08:58:42 CST 2007　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">〈A href="http://www.hycarving.com/zoujin.asp" 〉黄杨木雕〈/A〉<br>〈A href="http://www.hycarving.com/zoujin.asp" 〉东阳木雕〈/A〉<br>〈A href="http://www.hycarving.com/zoujin.asp" 〉龙眼木雕〈/A〉<br>〈A href="http://www.hycarving.com/zoujin.asp" 〉金漆木雕〈/A〉<br><br>〈A href="http://www.hycarving.com/" 〉木雕〈/A〉<br>〈A href="http://www.hycarving.com/" 〉雕刻〈/A〉<br>〈A href="http://www.hycarving.com/" 〉木雕厂〈/A〉<br>〈A href="http://www.hycarving.com/" 〉雕刻厂〈/A〉<br>〈A href="http://ww.hycarving.com/sitemap.htm" 〉雕刻产品导航〈/A〉<br><br>〈A href="http://www.hycarving.com/products.asp?xl=1" 〉佛〈/A〉<br>〈A href="http://www.hycarving.com/products.asp?xl=1" 〉佛祖〈/A〉<br>〈A href="http://www.hycarving.com/products.asp?xl=2" 〉木雕工艺品〈/A〉<br>〈A href="http://www.hycarving.com/products.asp?xl=2" 〉木雕工艺〈/A〉<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：www </H4></a> 
+    <H5>Thu Feb 01 08:57:54 CST 2007　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">〈A href="http://www.jwvalve.com/zyf1.htm" 〉家庭增压泵〈/A〉<br>〈A href="http://www.jwvalve.com/zyf1.htm" 〉家用增压泵〈/A〉<br><br>〈A href="http://www.jwvalve.com/paiwufa.htm" 〉排污阀〈/A〉<br>〈A href="http://www.jwvalve.com/jie3.htm" 〉截止阀〈/A〉<br>〈A href="http://www.jwvalve.com/qiou3.htm" 〉球阀〈/A〉<br>〈A href="http://www.jwvalve.com/die3.htm"  〉蝶阀〈/A〉 <br>  <br>〈A href="http://www.jwvalve.com/jyb.htm" 〉浆液阀〈/A〉<br>〈A href="http://www.jwvalve.com/bwgfm.htm" 〉波纹管阀门〈/A〉<br>〈A href="http://www.jwvalve.com/prod579.htm" 〉电动调节阀〈/A〉<br>〈A href="http://.jwvalve.com/prod505.htm" 〉气动调节阀〈/A〉<br><br>〈A href="http://www.jwvalve.com/zdtjf03.htm" 〉压力调节阀〈/A〉<br>〈A href="http://www.jwvalve.com/zdtjf04.htm" 〉温度调节阀〈/A〉      <br>〈A href="http://www.jwvalve.com/jian001.htm" 〉空气减压阀〈/A〉<br>〈A href="http://www.jwvalve.com/jian002.htm" 〉池底排泥阀〈/A〉<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：调 </H4></a> 
+    <H5>Thu Feb 01 08:57:21 CST 2007　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">〈A href="http://www.jwvalve.com/anquan1.htm" 〉安全阀〈/A〉<br>〈A href="http://www.jwvalve.com/jian3.htm" 〉减压阀〈/A〉<br>〈A href="http://www.jwvalve.com/tiao3.htm" 〉调节阀〈/A〉<br>〈A href="http://www.jwvalve.com/shulifa.htm" 〉水力控制阀〈/A〉<br><br>〈A href="http://www.jwvalve.com/shu3.htm" 〉疏水阀〈/A〉<br>〈A href="http://www.jwvalve.com/dianci1.htm" 〉电磁阀〈/A〉<br>〈A href="http://www.jwvalve.com/yeweiji1.htm" 〉液位计〈/A〉<br>〈A href="http://www.jwvalve.com/huxifa1.htm" 〉呼吸阀〈/A〉<br><br>〈A href="http://www.jwvalve.com/valve1.htm" 〉气动阀、电动阀、安全阀、减压阀、节阀〈/A〉<br>〈A href="http://www.jwvalve.com/valve2.htm" 〉电磁阀、疏水阀、液位计、呼吸阀、闸阀〈/A〉<br><br>〈A href="http://www.jwvalve.com/valve3.htm" 〉蝶阀、止回阀、截止阀、隔膜阀、球阀〈/A〉<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：w </H4></a> 
+    <H5>Thu Feb 01 08:56:47 CST 2007　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">〈A href="http://www.cnsjv.com/Product.asp?classid=32" 〉旋塞阀〈/A〉<br>〈A href="http://www.cnsjv.com/Product.asp?classid=34" 〉水力控制阀〈/A〉<br>〈A href="http://www.cnsjv.com/Product.asp?classid=22" 〉安全阀〈/A〉<br>〈A href="http://www.cnsjv.com/Product.asp?classid=24" 〉减压阀〈/A〉 <br><br>〈A href="http://www.cnsjv.com/Product.asp?classid=25" 〉球阀〈/A〉  <br>〈A href="http://www.cnsjv.com/Product.asp?classid=26" 〉闸阀〈/A〉<br>〈A href="http://www.cnsjv.com/Product.asp?classid=27" 〉调节阀〈/A〉<br>〈A href="http://ww.cnsjv.com/Product.asp?classid=29" 〉电磁阀〈/A〉<br>〈A href="http://www.cnsjv.com/Product.asp?classid=36" 〉蝶阀〈/A〉<br><br>〈A href="http://www.jwvalve.com/" 〉阀门〈/A〉<br>〈A href="http://www.jwvalve.com/" 〉阀门厂〈/A〉<br>〈A href="http://www.jwvalve.com/zdtjf02.htm" 〉气动阀门〈/A〉<br>〈A href="http://www.jwvalve.com/zdtjf01.htm" 〉电动阀门〈/A〉<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：w </H4></a> 
+    <H5>Thu Feb 01 08:56:10 CST 2007　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">全力支持中国互联网经济的发展！免费为中国经济做贡献！<br><br>〈A href="http://www.cnsjv.com/Product.asp?classid=37" 〉锻钢阀〈/A〉<br>〈A href="http://www.cnsjv.com/Product.asp?classid=38" 〉止回阀〈/A〉<br>〈A href="http://www.cnsjv.com/Product.asp?classid=39" 〉保温阀〈/A〉<br>〈A href="http://www.cnsjv.com/Product.asp?classid=40" 〉美标阀〈/A〉  <br><br>〈A href="http://www.cnsjv.com/Product.asp?classid=41" 〉截止阀〈/A〉<br>〈A href="http://ww.cnsjv.com/Product.asp?classid=42" 〉隔膜阀〈/A〉<br>〈A href="http://www.cnsjv.com/Product.asp?classid=43" 〉呼吸阀〈/A〉<br>〈A href="http://www.cnsjv.com/Product.asp?classid=44" 〉浆料阀〈/A〉<br><br>〈A href="http://www.cnsjv.com/Product.asp?classid=45" 〉针型阀〈/A〉<br>〈A href="http://www.cnsjv.com/Product.asp?classid=46" 〉气动角座阀〈/A〉<br>〈A href="http://www.cnsjv.com/Product.asp?classid=30" 〉疏水阀〈/A〉<br>〈A href="http://www.cnsjv.com/Product.asp?classid=31" 〉柱塞阀〈/A〉<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：asd </H4></a> 
+    <H5>Wed Jan 31 15:17:39 CST 2007　 
+        <a href="mailto:asd@163.com"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://www.buy-valve.com" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">〈a href="http://www.buy-valve.com/index.asp"〉阀门〈/a〉<br>〈a href="http://www.buy-valve.com/Picture.asp?PicClassID=1"〉闸阀〈/a〉<br>〈a href="http://www.buy-valve.com/Picture.asp?PicClassID=2"〉截止阀〈/a〉<br>〈a href="http://www.buy-valve.com/Picture.asp?PicClassID=3"〉球阀〈/a〉<br>〈a href="http://www.buy-valve.com/Picture.asp?PicClassID=4"〉蝶阀〈/a〉<br>〈a href="http://www.nestworks.org"〉燕窝〈/a〉<br>〈a href="http://www.nestworks.org/home.html"〉燕窝〈/a〉<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：上海依耐泵阀 </H4></a> 
+    <H5>Mon Jan 29 13:09:50 CST 2007　 
+        <a href="mailto:info@enine-pv.com"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://www.enine-pv.com" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">依耐简介<br><br>      上海依耐泵阀有限公司隶属中国开维喜集团，由上海标一、上海日泰及德国施耐得技术共同组建于 2001 年初，是一家集科研、生产、销售、技术服务于一体的高标准新兴企业，拥有一支高素质的专业队伍，目前公司雇员 237，其中高级技术人员占 15％。<br>公司地理位置和年营业额<br>公司以位于嘉定南翔的上日工业园区（占地 15,100 多平方）及青浦区菘泽标一工业园（占地 39,600 多平方）两个生产基地为依托，具有国内外先进的机械生产加工设备和完善的质量检测管理体系。2004 年公司总产值突破 8,700 万元人民币。<br>产品和应用范围<br>公司现已开发生产的泵类产品有 DL、GDL、S、SH、ISG、ZX、ZW、QW、GW、LW、YW、PW、IS、IH、CQB、ZCY 等清水泵、污水泵、化工泵、耐腐蚀泵、XBD 消防泵等；阀门类产品有闸阀、球阀、蝶阀、截止阀、呼吸阀、止回阀、旋塞阀、针型阀、调节阀、疏水阀、水力控制阀等和配套电控、变频恒压成套供水系统设备。产品广泛应用于城建、环保、化工、钢铁、冶金、市政等行业、公司已建立有三级质量监控保障体系，确保产品符合 ISO9001 国际质量体系认证标准，积极打造依耐品牌，力争国内泵阀一流企业。<br>上海依耐泵阀有限公司<br>http://www.enine-pv.com<br>E-mail:info@enine-pv.com<br>TEL:+86 (21)5291 4777<br>FAX:+86 (21)5290 0333<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：上海依耐泵阀 </H4></a> 
+    <H5>Mon Jan 29 13:09:13 CST 2007　 
+        <a href="mailto:info@enine-pv.com"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://www.enine-pv.com" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">[url=http://www.enine-pv.com/products/valve_tsf.htm]呼吸阀[/url]<br>[url=http://www.enine-pv.com/pdf/breath_valve_01.pdf ] QZF-89全天候防火防爆呼吸阀[/url]<br>[url=http://www.enine-pv.com/pdf/breath_valve_02.pdf ] QHXF-89全天候呼吸阀[/url]<br>[url=http://www.enine-pv.com/pdf/breath_valve_03.pdf] GFQ/ZFQ全天候（阻火）呼吸阀[/url]<br>[url=http://www.enine-pv.com/pdf/breath_valve_04.pdf]XVXA呼吸人孔[/url]<br>[url=http://www.enine-pv.com/pdf/breath_valve_05.pdf]ZGB波纹阻火器[/url]<br>[url=http://www.enine-pv.com/pdf/breath_valve_06.pdf]各类阻火器[/url]<br>[url=http://www.enine-pv.com/pdf/breath_valve_07.pdf]GZW管道阻火器[/url]<br>[url=http://www.enine-pv.com/pdf/breath_valve_08.pdf]各类人孔[/url]<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：上海依耐泵阀 </H4></a> 
+    <H5>Mon Jan 29 13:08:32 CST 2007　 
+        <a href="mailto:info@enine-pv.com"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://www.enine-pv.com" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">[url=http://www.enine-pv.com/products/valve_tjf.htm]调节阀[/url]<br>[url=http://www.enine-pv.com/products/valve_ymj.htm]液面计[/url]<br>[url=http://www.enine-pv.com/products/valve_xsf.htm]旋塞阀[/url]<br> [url=http://www.enine-pv.com/products/valve_slkz.htm]水利控制阀[/url]<br> [url=http://www.enine-pv.com/products/valve_dwf.htm]低温阀门[/url]<br> [url=http://www.enine-pv.com/pdf/valve_lowtemp_12.pdf]低温三通阀[/url]<br>[url=http://www.enine-pv.com/products/valve_qdf.htm]切断阀[/url]<br>[url=http://www.enine-pv.com/products/valve_jyf.htm]减压阀[/url]<br>[url=http://www.enine-pv.com/products/valve_pqpn.htm]排泥阀[/url]<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：上海依耐泵阀 </H4></a> 
+    <H5>Mon Jan 29 13:08:00 CST 2007　 
+        <a href="mailto:info@enine-pv.com"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://www.enine-pv.com" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">[url=http://www.enine-pv.com/products/valve_df.htm]蝶阀[/url]<br> [url=http://www.enine-pv.com/pdf/valve_butterfly_12.pdf]液控止回蝶阀[/url]<br> [url=http://www.enine-pv.com/pdf/valve_butterfly_14.pdf]消防专用信号蝶阀[/url]<br> [url=http://www.enine-pv.com/pdf/valve_butterfly_20.pdf]伸缩蝶阀[/url]<br>[url=http://www.enine-pv.com/products/valve_ssf.htm]疏水阀[/url]<br> [url=http://www.enine-pv.com/products/valve_aqf.htm]安全阀[/url]<br>[url=http://www.enine-pv.com/pdf/safety_valve_01.pdf]弹簧微启式安全阀[/url]<br> [url=http://www.enine-pv.com/pdf/safety_valve_10.pdf]真空负压安全阀[/url]<br> [url=http://www.enine-pv.com/products/valve_dcf.htm]电磁阀[/url]<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：上海依耐泵阀 </H4></a> 
+    <H5>Mon Jan 29 13:07:30 CST 2007　 
+        <a href="mailto:info@enine-pv.com"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://www.enine-pv.com" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">[url=http://www.enine-pv.com/products/valve_cjcf.htm]衬胶衬氟阀[/url]<br>[url=http://www.enine-pv.com/products/valve_zsf.htm]柱塞阀[/url]<br>[url=http://www.enine-pv.com/products/valve_qf.htm]球阀[/url]<br> [url=http://www.enine-pv.com/pdf/valve_ball_09.pdf]一片式球阀[/url]<br>[url=http://www.enine-pv.com/pdf/valve_ball_10.pdf]二片式球阀[/url]<br> [url=http://www.enine-pv.com/pdf/valve_ball_16.pdf]法兰球阀[/url]<br> [url=http://www.enine-pv.com/products/valve_zhf.htm]止回阀[/url]<br> [url=http://www.enine-pv.com/pdf/valve_check_08.pdf]橡胶瓣止回阀[/url]<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：上海依耐泵阀 </H4></a> 
+    <H5>Mon Jan 29 13:06:51 CST 2007　 
+        <a href="mailto:info@enine-pv.com"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://www.enine-pv.com" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">[url=http://www.enine-pv.com/valves.htm]阀门[/url]<br> [url=http://www.enine-pv.com/products/valve_zf.htm]闸阀[/url]<br>[url=http://www.enine-pv.com/products/valve_kspw.htm]快速排污阀[/url]<br>[url=http://www.enine-pv.com/products/valve_jzf.htm]截止阀[/url]<br><br>[url=http://www.enine-pv.com/products/valve_zxf.htm]针型阀[/url]<br>[url=http://www.enine-pv.com/products/valve_ajzf.htm]氨截止阀[/url]<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：上海依耐泵阀 </H4></a> 
+    <H5>Mon Jan 29 13:06:21 CST 2007　 
+        <a href="mailto:info@enine-pv.com"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://www.enine-pv.com" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">[url=http://www.enine-pv.com/products/pump_CQB.htm]氟塑料磁力泵[/url]<br>[url=http://www.enine-pv.com/products/pump_QBY.htm]气电动隔膜泵[/url]<br> [url=http://www.enine-pv.com/products/pump_W.htm]水冲泵[/url]<br>[url=http://www.enine-pv.com/products/pump_ZXZ.htm]旋片式真空泵[/url]<br>[url=http://www.enine-pv.com/products/pump_SK.htm]水环式真空泵[/url]<br> [url=http://www.enine-pv.com/products/pump_QZD.htm]控制柜[/url]<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：上海依耐泵阀 </H4></a> 
+    <H5>Mon Jan 29 13:05:47 CST 2007　 
+        <a href="mailto:info@enine-pv.com"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://www.enine-pv.com" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">[url=http://www.enine-pv.com/products/pump_ZW.htm]自吸排污泵[/url]<br> [url=http://www.enine-pv.com/products/pump_GW.htm]排污泵[/url]<br> [url=http://www.enine-pv.com/products/pump_WQ.htm]潜水排污泵[/url]<br> [url=http://www.enine-pv.com/products/pump_AS.htm]带切割潜水排污泵[/url]<br> [url=http://www.enine-pv.com/products/pump_I-1B.htm]浓浆泵[/url]<br>[url=http://www.enine-pv.com/products/pump_WX.htm]漩涡泵[/url]<br> [url=http://www.enine-pv.com/products/pump_XWJ.htm]纸浆泵[/url]<br> [url=http://www.enine-pv.com/products/pump_CYZ.htm]自吸油泵[/url]<br>[url=http://www.enine-pv.com/products/pump_KCB.htm]齿轮油泵[/url]<br> [url=http://www.enine-pv.com/products/pump_ZCQ.htm]自吸磁力泵[/url]<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：上海依耐泵阀 </H4></a> 
+    <H5>Mon Jan 29 13:05:11 CST 2007　 
+        <a href="mailto:info@enine-pv.com"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://www.enine-pv.com" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">[url=http://www.enine-pv.com/products/pump_FSB.htm]氟塑料合金离心泵[/url]<br> [url=http://www.enine-pv.com/products/pump_XBD.htm]消防泵[/url]<br>[url=http://www.enine-pv.com/products/pump_GDL.htm]GDL管道泵[/url]<br> [url=http://www.enine-pv.com/products/pump_SG.htm]SG管道泵[/url]<br> [url=http://www.enine-pv.com/products/pump_PBG.htm]PBG屏蔽式管道泵[/url]<br>[url=http://www.enine-pv.com/products/pump_GC.htm]锅炉给水泵[/url]<br> [url=http://www.enine-pv.com/products/pump_D.htm]D型多级泵[/url]<br> [url=http://www.enine-pv.com/products/pump_ZX.htm]自吸泵[/url]<br>[url=http://www.enine-pv.com/products/pump_FB.htm]耐腐蚀泵[/url]<br> [url=http://www.enine-pv.com/products/pump_PW.htm]污水泵[/url]<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：上海依耐泵阀 </H4></a> 
+    <H5>Mon Jan 29 13:04:35 CST 2007　 
+        <a href="mailto:info@enine-pv.com"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://www.enine-pv.com" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">[url=http://www.enine-pv.com]依耐泵阀[/url]<br>[url=http://www.enine-pv.com/about.htm]上海依耐泵阀有限公司[/url]<br>[url=http://www.enine-pv.com/sitemap.htm]依耐泵阀网站地图[/url]<br>[url=http://www.enine-pv.com/links.htm]依耐泵阀网站链接[/url]<br>[url=http://www.enine-pv.com/products/pump_CQ.htm]磁力泵[/url]<br> [url=http://www.enine-pv.com/products/pump_DL.htmDL]离心泵[/url]<br> [url=http://www.enine-pv.com/products/pump_TSWA.htm]TSWA卧式离心泵[/url]<br> [url=http://www.enine-pv.com/products/pump_S.htm]中开泵[/url]<br> [url=http://www.enine-pv.com/products/pump_ISG.htm]ISG管道泵[/url]<br> [url=http://www.enine-pv.com/products/pump_IS.htm]IS/IH化工泵[/url]<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：FGHH </H4></a> 
+    <H5>Mon Jan 29 12:38:20 CST 2007　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">〈a href="http://www.it246.cn/baby/stc.htm"〉手推车〈/a〉<br>〈a href="http://www.it246.cn/baby/nk.htm"〉纸尿裤〈/a〉<br>〈a href="http://www.it246.cn/baby/cy.htm"〉儿童餐椅〈/a〉<br>〈a href="http://www.it246.cn/baby/dmz.htm"〉多美滋奶粉〈/a〉<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：sdfsdf </H4></a> 
+    <H5>Sat Jan 27 22:32:12 CST 2007　 
+        <a href="mailto:sales@hhpump.com"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://www.hhpump.com" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">[url=http://www.hhpump.com/isg.htm]管道离心泵[/url]<br>〈a href=http://www.hhpump.com/isg.htm〉管道离心泵〈/a〉<br>〈a href=http://www.hhpumps.com/ckprod.asp?id=128〉管道离心泵〈/a〉 <br>[http://www.hhpump.com/isg.htm 管道离心泵][http://www.hhpumps.com/ckprod.asp?id=128 管道离心泵]<br>ISG型立式管道离心泵，供输送清水及物理化学性质类似于清水的其他液体之用，<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：SAFSAF </H4></a> 
+    <H5>Sat Jan 27 14:05:01 CST 2007　 
+        <a href="mailto:SAFASF@126.COM"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">[url=http://www.bjtcyz.com]商标注册[/url]<br>[url=http://www.bjtcyz.com/news/hy/2007127130907.htm]商标注册[/url]<br>[url=http://www.bjtcyz.com/news/hy/2007127130847.htm]商标注册[/url]<br>[url=http://www.bjtcyz.com/news/hy/2007127130830.htm]商标注册[/url]<br>[url=http://www.bjtcyz.com/news/hy/2007127130752.htm]商标注册[/url]<br>[url=http://www.bjtcyz.com/news/hy/2007127130703.htm]商标注册[/url]<br>[url=http://www.bjtcyz.com/news/hy/2007127125829.htm]商标注册[/url]<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：song </H4></a> 
+    <H5>Sat Jan 27 10:42:14 CST 2007　 
+        <a href="mailto:lvyongxinhao@126.com"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://www.eing.com" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">[url=http://www.eing.com]Wow Gold[/url]World of warcraft gold (wow gold)?If you are looking for WoW gold,welcome to our website.sell Sup-cheapest WOW gold,If you want to buy cheap wow gold,please review our website for more information. If you are also looking for wow gold … [url=http://www.eing.com]World of Warcraft Gold[/url]You are viewing World of Warcraft Gold on Euro servers, click here for WoW Gold US?BFarming for World of Warcraft gold is not easy, but you can buy cheap WoW gold, power leveling, world of warcraft accounts, items & guides on sale.<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：weweweewew </H4></a> 
+    <H5>Fri Jan 26 15:09:35 CST 2007　 
+        <a href="mailto:weewwewewe@163.com"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">[url=http://www.iso9000-sh.com/]iso9000认证[/url]<br>[url=http://doormen.net/]演示动画[/url]<br>[url=http://www.vitals.cn/]电池[/url]<br>[url=http://www.ds.com.cn/]苹果汁[/url]<br>[url=http://www.ds.com.cn/ds/]浓缩苹果汁[/url]<br>[url=http://www.shouduweixiu.com/]打印机维修培训[/url]<br>[url=http://www.datacatv.com/<br>[url=http://www.alllike.net/] 翻译公司[/url]<br>[url=http://www.alllik.obm.cn/] 翻译公司[/url]<br>[url=http://www.cembed.com/] 单片机仿真器[/url]<br>[url=http://www.scchunhui.com/]红豆杉[/url]<br>http://www.scchunhui.obm.cn/<br>[url=http://www.blackland.cn/]深圳广告设计[/url]<br>[url=http://www.wyzx.com.cn/]北京整形[/url]<br>[url=http://www.chagerof.com/]美白[/url]<br>[url=http://www.aiffil.com/]美容[/url]<br>[url=http://www.ytks.com.cn/]效果图[/url]<br>[url=http://www.zcdiet.com//]食堂承包[/url]<br>[url=http://www.jingchangsheng.com/]彩钢[/url]<br>[url=http://www.jiatongpack.com.cn/]捆扎机[/url]<br>[url=http://www.haigeer.com/]数控切割机[/url] <br>[url=http://www.qtechinternational.com.cn/]质量管理软件 [/url]<br>[url=http://www.sinocome.com/]人脸识别[/url]<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：高一阀门 </H4></a> 
+    <H5>Thu Jan 25 13:45:44 CST 2007　 
+        <a href="mailto:123@126.com"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">[url=http://www.0086valve.com/cn/products/27_0_1.htm]蝶阀[/url]<br>[url=http://www.0086valve.com/cn/products/27_0_1.htm]电动蝶阀[/url]<br>[url=http://www.0086valve.com/cn/products/27_0_1.htm]气动蝶阀[/url]<br>[url=http://www.0086valve.com/cn/products/27_0_1.htm]手动蝶阀[/url]<br>[url=http://www.0086valve.com/cn/products/27_0_1.htm]衬氟蝶阀[/url]<br>[url=http://www.0086valve.com/cn/products/27_0_1.htm]气动调节蝶阀[/url]<br>[url=http://www.0086valve.com/cn/products/27_0_1.htm]信号蝶阀[/url]<br>[url=http://www.0086valve.com/cn/products/27_0_1.htm]不锈钢蝶阀[/url]<br>[url=http://www.0086valve.com/cn/products/27_0_1.htm]硬密封蝶阀[/url]<br>[url=http://www.0086valve.com/cn/products/27_0_1.htm]三偏心蝶阀[/url]<br>[url=http://www.0086valve.com/cn/products/27_0_1.htm]中线蝶阀[/url]<br>[url=http://www.0086valve.com/cn/products/27_0_1.htm]夹套蝶阀[/url]<br>[url=http://www.0086valve.com/cn/products/73.htm]伸缩蝶阀[/url]<br>[url=http://www.0086valve.com/cn/products/72.htm]硬密封蝶阀[/url]<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：sdgshg </H4></a> 
+    <H5>Thu Jan 25 13:35:27 CST 2007　 
+        <a href="mailto:sfhsh@dsg.com"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">北京[url=http://www.zguowx.com]热水器维修[/url]中心网是京城著名的综合[url=http://www.zguowx.com]热水器维修[/url]中心。中心拥有严格的管理制度，一流的服务质量，专业的维修技师，先进的检测设备，良好的至诚信誉。十年磨砺造就了一批批技术过硬，经验丰富的优秀技师他们至诚的微笑和优质的服务温暖着北京的千家万户！<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：jhjhh </H4></a> 
+    <H5>Thu Jan 25 10:25:44 CST 2007　 
+        <a href="mailto:jjhh@126.com"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">[url=http://www.qxly.net/bjhq.asp]北京婚庆[/url]<br>[url=http://www.qxly.net/bjhq.asp]婚庆[/url]<br>[url=http://www.qxly.net/bjhq.asp]北京婚庆公司[/url]<br>[url=http://www.qxly.net/bjhq.asp]婚庆公司[/url]<br>[url=http://www.qxly.net/seo/hqjj/200712595307.htm]北京婚庆[/url]<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：hghgk </H4></a> 
+    <H5>Thu Jan 25 10:20:45 CST 2007　 
+        <a href="mailto:bvk@163.com"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">[url=http://www.wkmodel.com/index1.asp]模型[/url]<br>[url=http://www.wkmodel.com/news/hy/200712594505.htm]模型[/url]<br>[url=http://www.wkmodel.com/news/hy/200712594427.htm]模型[/url]<br>[url=http://www.wkmodel.com/news/hy/200712594222.htm]模型[/url]<br>[url=http://www.wkmodel.com/news/hy/200712594118.htm]模型[/url]<br>[url=http://www.wkmodel.com/news/hy/200712594058.htm]模型[/url]<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：safa </H4></a> 
+    <H5>Mon Jan 22 10:30:15 CST 2007　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">[url=http://www.wkmodel.com/index1.asp]模型[/url]<br>[url=http://www.wkmodel.com/news/hy/200712001620.htm]模型[/url]<br>[url=http://www.wkmodel.com/news/hy/200712001553.htm]模型[/url]<br>[url=http://www.wkmodel.com/news/hy/200712001432.htm]模型[/url]<br>[url=http://www.wkmodel.com/news/hy/200712001210.htm]模型[/url]<br>[url=http://www.wkmodel.com/news/hy/200712000949.htm]模型[/url]<br>[url=http://www.wkmodel.com/news/cw/200712001759.htm]模型[/url]<br>[url=http://www.wkmodel.com/news/cw/200712001510.htm]模型[/url]<br>[url=http://www.wkmodel.com/news/cw/200712001233.htm]模型[/url]<br>[url=http://www.wkmodel.com/news/cw/200712001135.htm]模型[/url]<br>[url=http://www.wkmodel.com/news/cw/200712000915.htm]模型[/url]<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：safa </H4></a> 
+    <H5>Mon Jan 22 10:29:09 CST 2007　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">[url=http://www.mgf100.com/wj.asp]围巾[/url]<br>[url=http://www.mgf100.com/news/hy/200712292015.htm]围巾[/url]<br>[url=http://www.mgf100.com/news/hy/200712291956.htm]围巾[/url]<br>[url=http://www.mgf100.com/news/hy/200712291939.htm]围巾[/url]<br>[url=http://www.mgf100.com/news/hy/200712291858.htm]围巾[/url]<br>[url=http://www.mgf100.com/news/hy/200712291818.htm]围巾[/url]<br>[url=http://www.mgf100.com/news/hy/200712291731.htm]围巾[/url]<br>[url=http://www.mgf100.com/news/hy/200712291705.htm]围巾[/url]<br>[url=http://www.mgf100.com/news/hy/200712291645.htm]围巾[/url]<br>[url=http://www.mgf100.com/news/cw/200712292036.htm]围巾[/url]<br>[url=http://www.mgf100.com/news/cw/200712291915.htm]围巾[/url]<br>[url=http://www.mgf100.com/news/cw/200712291457.htm]围巾[/url]<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：safa </H4></a> 
+    <H5>Mon Jan 22 10:27:09 CST 2007　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">[url=http://www.900house.com]租房[/url]<br>[url=http://www.900house.com/seo/hqjj/200712290716.htm]租房[/url]<br>[url=http://www.900house.com/seo/hqjj/200712290626.htm]租房[/url]<br>[url=http://www.900house.com/seo/hqjj/200712290612.htm]租房[/url]<br>[url=http://www.900house.com/seo/hqjj/200712290556.htm]租房[/url]<br>[url=http://www.900house.com/seo/hqjj/200712290433.htm]租房[/url]<br>[url=http://www.900house.com/seo/hqjj/200712290414.htm]租房[/url]<br>[url=http://www.900house.com/seo/hqjj/200712290357.htm]租房[/url]<br>[url=http://www.900house.com/seo/hqjj/2007119162021.htm]租房[/url]<br>[url=http://www.900house.com/seo/cjzh/200712290330.htm]租房[/url]<br>[url=http://www.900house.com/seo/cjzh/200712290312.htm]租房[/url]<br>[url=http://www.900house.com/seo/cjzh/200712290250.htm]租房[/url]<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：safa </H4></a> 
+    <H5>Mon Jan 22 10:26:51 CST 2007　 
+        <a href="mailto:safasf@163.com"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">[url=http://www.900house.com]租房[/url]<br>[url=http://www.900house.com/seo/hqjj/200712290716.htm]租房[/url]<br>[url=http://www.900house.com/seo/hqjj/200712290626.htm]租房[/url]<br>[url=http://www.900house.com/seo/hqjj/200712290612.htm]租房[/url]<br>[url=http://www.900house.com/seo/hqjj/200712290556.htm]租房[/url]<br>[url=http://www.900house.com/seo/hqjj/200712290433.htm]租房[/url]<br>[url=http://www.900house.com/seo/hqjj/200712290414.htm]租房[/url]<br>[url=http://www.900house.com/seo/hqjj/200712290357.htm]租房[/url]<br>[url=http://www.900house.com/seo/hqjj/2007119162021.htm]租房[/url]<br>[url=http://www.900house.com/seo/cjzh/200712290330.htm]租房[/url]<br>[url=http://www.900house.com/seo/cjzh/200712290312.htm]租房[/url]<br>[url=http://www.900house.com/seo/cjzh/200712290250.htm]租房[/url]<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：safsafa </H4></a> 
+    <H5>Wed Jan 17 17:17:08 CST 2007　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">[url=http://www.justmark.com.cn/twyy.asp]液压[/url]<br>[url=http://www.justmark.com.cn/twyy.asp]台湾液压[/url]<br>[url=http://www.justmark.com.cn/news/hy/200711595757.htm]台湾液压[/url]<br>[url=http://www.justmark.com.cn/news/hy/200711595720.htm]台湾液压[/url]<br>[url=http://www.justmark.com.cn/news/hy/200711595620.htm]台湾液压[/url]<br>[url=http://www.justmark.com.cn/news/hy/200711595540.htm]台湾液压[/url]<br>[url=http://www.justmark.com.cn/news/hy/200711595431.htm]台湾液压[/url]<br>[url=http://www.justmark.com.cn/news/hy/200711595315.htm]台湾液压[/url]<br>[url=http://www.justmark.com.cn/news/hy/200711595257.htm]台湾液压[/url]<br>[url=http://www.justmark.com.cn/news/hy/200711595233.htm]台湾液压[/url]<br>[url=http://www.justmark.com.cn/news/cw/200711595145.htm]液压[/url]<br>[url=http://www.justmark.com.cn/news/cw/200711595127.htm]液压[/url]<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：sfafa </H4></a> 
+    <H5>Wed Jan 17 17:14:59 CST 2007　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">[url=http://www.900house.com]租房[/url]<br>[url=http://www.900house.com/seo/hqjj/2007115161031.htm]租房[/url]<br>[url=http://www.900house.com/seo/hqjj/2007115161010.htm]租房[/url]<br>[url=http://www.900house.com/seo/hqjj/2007115160951.htm]租房[/url]<br>[url=http://www.900house.com/seo/hqjj/2007115104828.htm]租房[/url]<br>[url=http://www.900house.com/seo/hqjj/2007115104807.htm]租房[/url]<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：safaf </H4></a> 
+    <H5>Wed Jan 17 17:12:08 CST 2007　 
+        <a href="mailto:sfafs@163.com"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">[url=http://www.81994529.com/kfj.asp]咖啡机[/url]<br>[url=http://www.81994529.com/xw/hy/200711593714.htm]咖啡机[/url]<br>[url=http://www.81994529.com/xw/hy/200711593438.htm]咖啡机[/url]<br>[url=http://www.81994529.com/xw/hy/200711593419.htm]咖啡机[/url]<br>[url=http://www.81994529.com/xw/hy/200711593235.htm]咖啡机[/url]<br>[url=http://www.81994529.com/xw/hy/200711593214.htm]咖啡机[/url]<br>[url=http://www.81994529.com/xw/hy/200711593156.htm]咖啡机[/url]<br>[url=http://www.81994529.com/xw/hy/200711593142.htm]咖啡机[/url]<br>[url=http://www.81994529.com/xw/hy/200711593024.htm]咖啡机[/url]<br>[url=http://www.81994529.com/xw/hy/200711593013.htm]咖啡机[/url]<br>[url=http://www.81994529.com/xw/hy/200711593002.htm]咖啡机[/url]<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：safaf </H4></a> 
+    <H5>Wed Jan 17 17:12:08 CST 2007　 
+        <a href="mailto:sfafs@163.com"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">[url=http://www.81994529.com/kfj.asp]咖啡机[/url]<br>[url=http://www.81994529.com/xw/hy/200711593714.htm]咖啡机[/url]<br>[url=http://www.81994529.com/xw/hy/200711593438.htm]咖啡机[/url]<br>[url=http://www.81994529.com/xw/hy/200711593419.htm]咖啡机[/url]<br>[url=http://www.81994529.com/xw/hy/200711593235.htm]咖啡机[/url]<br>[url=http://www.81994529.com/xw/hy/200711593214.htm]咖啡机[/url]<br>[url=http://www.81994529.com/xw/hy/200711593156.htm]咖啡机[/url]<br>[url=http://www.81994529.com/xw/hy/200711593142.htm]咖啡机[/url]<br>[url=http://www.81994529.com/xw/hy/200711593024.htm]咖啡机[/url]<br>[url=http://www.81994529.com/xw/hy/200711593013.htm]咖啡机[/url]<br>[url=http://www.81994529.com/xw/hy/200711593002.htm]咖啡机[/url]<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：safa </H4></a> 
+    <H5>Wed Jan 17 17:09:37 CST 2007　 
+        <a href="mailto:affaf@163.com"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">[url=http://www.yiwang68.com.cn]注塑[/url]<br>[url=http://www.yiwang68.com.cn]吸塑[/url]<br>[url=http://www.yiwang68.com.cn/news/hy/200711794826.htm]吸塑[/url]<br>[url=http://www.yiwang68.com.cn/news/hy/200711794811.htm]吸塑[/url]<br>[url=http://www.yiwang68.com.cn/news/hy/200711794756.htm]吸塑[/url]<br>[url=http://www.yiwang68.com.cn/news/hy/200711794741.htm]吸塑[/url]<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：asfafa </H4></a> 
+    <H5>Wed Jan 17 17:06:01 CST 2007　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">[url=http://www.bjtcyz.com]商标注册[/url]<br>[url=http://www.bjtcyz.com/news/hy/200711793239.htm]商标注册[/url]<br>[url=http://www.bjtcyz.com/news/hy/200711793219.htm]商标注册[/url]<br>[url=http://www.bjtcyz.com/news/hy/200711793204.htm]商标注册[/url]<br>[url=http://www.bjtcyz.com/news/hy/200711793150.htm]商标注册[/url]<br>[url=http://www.bjtcyz.com/news/hy/200711793044.htm]商标注册[/url]<br>[url=http://www.bjtcyz.com/news/hy/200711793032.htm]商标注册[/url]<br>[url=http://www.bjtcyz.com/news/hy/200711793019.htm]商标注册[/url]<br>[url=http://www.bjtcyz.com/news/hy/200711793003.htm]商标注册[/url]<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：afafa </H4></a> 
+    <H5>Wed Jan 17 17:04:14 CST 2007　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">[url=http://www.bjtcyz.com]商标注册[/url]<br>[url=http://www.bjtcyz.com/news/hy/200711793239.htm]商标注册[/url]<br>[url=http://www.bjtcyz.com/news/hy/200711793219.htm]商标注册[/url]<br>[url=http://www.bjtcyz.com/news/hy/200711793204.htm]商标注册[/url]<br>[url=http://www.bjtcyz.com/news/hy/200711793150.htm]商标注册[/url]<br>[url=http://www.bjtcyz.com/news/hy/200711793044.htm]商标注册[/url]<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：gfdfgdsgds </H4></a> 
+    <H5>Wed Jan 17 15:24:33 CST 2007　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">[url=http://www.bjtcyz.com/news/hy/200711793019.htm]商标注册[/url]<br>[url=http://www.bjtcyz.com/news/hy/200711793003.htm]商标注册[/url]<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：dfhdhgdf </H4></a> 
+    <H5>Wed Jan 17 15:22:37 CST 2007　 
+        <a href="mailto:dfhfgh@21.com"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">[url=http://www.reachsun.net/news/cw/2007116104644.htm]包装设计[/url]<br>[url=http://www.reachsun.net/news/cw/2007116104630.htm]包装设计[/url]<br>[url=http://www.reachsun.net/news/cw/2007116104605.htm]包装设计[/url]<br>[url=http://www.reachsun.net/news/cw/2007116104550.htm]包装设计[/url]<br>[url=http://www.reachsun.net/news/cw/2007116104535.htm]包装设计[/url]<br>[url=http://www.reachsun.net/news/cw/2007116104511.htm]包装设计[/url]<br>[url=http://www.reachsun.net/news1/hy/2007116112512.htm]标志设计[/url]<br>[url=http://www.reachsun.net/news1/hy/2007116112457.htm]标志设计[/url]<br>[url=http://www.reachsun.net/news1/hy/2007116112442.htm]标志设计[/url]<br>[url=http://www.reachsun.net/news1/hy/2007116112429.htm]标志设计[/url]<br>[url=http://www.reachsun.net/news1/hy/2007116112415.htm]标志设计[/url]<br>[url=http://www.reachsun.net/news1/hy/2007116112352.htm]标志设计[/url]<br>[url=http://www.reachsun.net/news1/cw/2007116112228.htm]设计公司[/url]<br>[url=http://www.reachsun.net/news1/cw/2007116112215.htm]设计公司[/url]<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：sfdgr </H4></a> 
+    <H5>Wed Jan 17 14:07:03 CST 2007　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">〈a href="http://www.lp369.com/jgbi.asp"〉激光笔〈/a〉<br>〈a href="〉 <br>[url=http://www.oa18.cn/class.asp?aid=93&nid=555]复印纸[/url]<br>[url=http://www.oa18.cn/class.asp?aid=92&nid=675]封口机[/url]<br>[url=http://www.oa18.cn/class.asp?aid=92&nid=585]感应考勤机[/url]<br>[url=http://www.oa18.cn/class.asp?aid=97&nid=655]木制文具[/url]<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：sdfsadasd </H4></a> 
+    <H5>Fri Jan 12 16:11:53 CST 2007　 
+        <a href="mailto:a@efdfsd.com"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">[url=http://sexdy.blogrox.com]品色堂[/url]<br>[url=http://blog.360.yahoo.com/blog-RxBc_ncieqgl9Sgt_PBp.6M-?cq=1]毛片[/url]<br>[url=http://blog.360.yahoo.com/blog-RxBc_ncieqgl9Sgt_PBp.6M-?cq=1]三级片[/url]<br>[url=http://blog.360.yahoo.com/blog-exzBHBQ5bqcOAwDaDNPtHA--?cq=1]三级片[/url]<br>[url=http://blog.360.yahoo.com/blog-TCTp8Ns5bqfoLMp2DpKK4w--?cq=1]成人电影[/url]<br>[url=http://blog.360.yahoo.com/blog-QjkeM8s5bqcPT6VXGLwAvQ--?cq=1]黄色电影[/url]<br>[url=http://blog.360.yahoo.com/blog-gjPBJTA5bqfCJWv1t5ID9g--?cq=1]成人网站[/url]<br>[url=http://blog.360.yahoo.com/blog-4k6HT7Y5bqdWENTs1UPATA--?cq=1]a片[/url]<br>[url=http://blog.360.yahoo.com/blog-7Z5Ja6w5bqeVgtZ4egKWQQ--?cq=1]毛片[/url]<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：撒旦洒 </H4></a> 
+    <H5>Tue Jan 09 15:34:02 CST 2007　 
+        <a href="mailto:980407@gamil.com"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">[url=http://www.greatrans.com]翻译公司[/url] <br>[url=http://www.greatrans.com]翻译[/url] <br>[url=http://www.greatrans.com]北京翻译[/url] <br>[url=http://www.greatrans.com]南京翻译[/url] <br>〈a href="http://www.greatrans.com/"〉翻译〈/a〉 <br>〈a href="http://www.greatrans.com/"〉标书翻译〈/a〉 <br>〈a href="http://www.greatrans.com/"〉北京翻译公司〈/a〉 <br>〈a href="http://www.greatrans.com/"〉上海翻译公司〈/a〉 <br>〈a href="http://www.greatrans.com/"〉南京翻译公司〈/a〉 <br>〈a href="http://www.greatrans.com/"〉翻译公司〈/a〉<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：sda </H4></a> 
+    <H5>Tue Jan 09 15:10:23 CST 2007　 
+        <a href="mailto:980407@gmai.lcom"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">[url=http://www.greatrans.com]翻译公司[/url] <br>[url=http://www.greatrans.com]翻译[/url] <br>[url=http://www.greatrans.com]北京翻译[/url] <br>[url=http://www.greatrans.com]南京翻译[/url] <br>〈a href="http://www.greatrans.com/"〉翻译〈/a〉 <br>〈a href="http://www.greatrans.com/"〉标书翻译〈/a〉 <br>〈a href="http://www.greatrans.com/"〉北京翻译公司〈/a〉 <br>〈a href="http://www.greatrans.com/"〉上海翻译公司〈/a〉 <br>〈a href="http://www.greatrans.com/"〉南京翻译公司〈/a〉 <br>〈a href="http://www.greatrans.com/"〉翻译公司〈/a〉<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：jl,kl </H4></a> 
+    <H5>Tue Jan 09 14:26:59 CST 2007　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">[url=http://www.lp369.com/sport/jsche.asp]健身车[/url]<br>[url=http://www.lp369.com/sport/hcji.asp]划船机[/url]<br>[url=http://www.oa18.cn/class.asp?aid=92&nid=675]封口机[/url]<br>[url=http://www.oa18.cn/class.asp?aid=92&nid=585]感应考勤机[/url]<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：翻译 </H4></a> 
+    <H5>Mon Jan 08 16:29:39 CST 2007　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">〈a href="http://www.jiayinte.com" target="_blank"〉翻译〈/a〉<br>〈a href="http://www.jiayinte.com" target="_blank"〉翻译公司〈/a〉<br>〈a href="http://www.jiayinte.com" target="_blank"〉北京翻译公司〈/a〉<br>〈a href="http://www.jiayinte.com" target="_blank"〉上海翻译公司〈/a〉<br>〈a href="http://www.jiayinte.cn" target="_blank"〉翻译〈/a〉<br>〈a href="http://www.jiayinte.cn" target="_blank"〉翻译公司〈/a〉<br>〈a href="http://www.jiayinte.cn" target="_blank"〉北京翻译公司〈/a〉<br>〈a href="http://www.jiayinte.cn" target="_blank"〉上海翻译公司〈/a〉<br>〈a href="http://www.jiayinte.net/sn1/bbs/" target="_blank"〉翻译公司〈/a〉<br>〈a href="http://www.jiayinte.net/sn1/bbs/" target="_blank"〉翻译论坛〈/a〉<br>〈a href="http://www.jiayinte.net/sn1/" target="_blank"〉翻译公司〈/a〉<br>〈a href="http://jiayinte.blog.hexun.com/" target="_blank"〉上海翻译公司〈/a〉<br>〈a href="http://jiayinte1.blog.hexun.com/" target="_blank"〉北京翻译公司〈/a〉<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：翻译 </H4></a> 
+    <H5>Mon Jan 08 16:29:04 CST 2007　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">url=http://www.jiayinte.com]翻译[/url] [url=http://www.jiayinte.com]翻译公司[/url]     <br>[url=http://www.jiayinte.com]北京翻译公司[/url] [url=http://www.jiayinte.com]上海翻译公司[/url]<br>[url=http://www.jiayinte.cn]翻译[/url]  [url=http://www.jiayinte.cn]翻译公司[/url]     <br>[url=http://www.jiayinte.cn]北京翻译公司[/url]  [url=http://www.jiayinte.cn]上海翻译公司[/url] <br>[url=http://www.jiayinte.net/sn1/]翻译公司[/url]  [url=http://www.jiayinte.net/sn1/bbs/]翻译公司[/url]  <br>[url=http://www.jiayinte.net/sn1/bbs/]翻译论坛[/url]  [url=http://jiayinte.blog.hexun.com/]上海翻译公司[/url]  [url=http://jiayinte1.blog.hexun.com/]北京翻译公司[/url]  [url=http://blog.yesky.com/blog/jiayinte/]上海翻译公司[/url]   [url=http://www.jiayinte.net/fygs/]翻译公司[/url]  [url=http://www.jiayinte.net/fygs/]翻译[/url]<br>[url=http://jiayinte1.blogbus.com/index.html]上海翻译公司[/url]  [url=http://www.jiayinte.net/fyjd/]翻译[/url]<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：翻译 </H4></a> 
+    <H5>Mon Jan 08 16:28:08 CST 2007　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">〈a href="http://www.jiayinte.com" target="_blank"〉翻译〈/a〉<br>〈a href="http://www.jiayinte.com" target="_blank"〉翻译公司〈/a〉<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：1 </H4></a> 
+    <H5>Mon Jan 08 11:50:57 CST 2007　 
+        <a href="mailto:1"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">〈a href="http://www.watesi.com/meibiao.htm"〉美标阀门〈/a〉 <br>〈a href="http://www.watesi.com/baowen.htm "〉保温阀门〈/a〉<br>〈a href="http://www.watesi.com/old/wendu.htm"〉温度调节阀〈/a〉 <br>〈a href="http://www.watesi.com/old/wendu.htm"〉自力式调节阀〈/a〉 <br><br>〈a href="http://www.watesi.com/old/boweng.htm"〉波纹管阀门〈/a〉<br>〈a href="http://www.watesi.com/old/diandong.htm"〉电动阀门〈/a〉 <br>〈a href="http://www.watesi.com/old/qidong.htm"〉气动阀门〈/a〉<br>〈a href="http://www.watesi.com/old/yali.htm"〉压力调节阀〈/a〉 <br><br>〈a href="http://www.watesi.com/old/daoxing.htm"〉刀型闸阀〈/a〉<br>〈a href="http://www.watesi.com/old/jiangye.htm"〉浆液阀〈/a〉 <br>〈a href="http://www.watesi.com/old/diefa.htm"〉蝶阀〈/a〉<br>〈a href="http://www.watesi.com/old/wendu.htm"〉温度调节阀〈/a〉 <br>〈a href="http://www.watesi.com/old/tiaoji.htm"〉调节阀〈/a〉<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：1 </H4></a> 
+    <H5>Mon Jan 08 11:50:45 CST 2007　 
+        <a href="mailto:1"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">〈a href="http://www.watesi.com/ckprod.asp"〉蝶阀〈/a〉<br>〈a href="http://www.watesi.com/ckprod.asp"〉美标阀门〈/a〉     <br>〈a href="http://www.watesi.com/ckprod.asp"〉调节阀〈/a〉<br>〈a href="http://www.watesi.com/ckprod.asp"〉浆液阀〈/a〉  <br>    <br>〈a href="http://www.watesi.com/ckprod.asp"〉刀型闸阀〈/a〉<br>〈a href="http://www.watesi.com/ckprod.asp"〉压力调节阀〈/a〉<br>〈a href="http://www.watesi.com/ckprod.asp"〉温度调节阀〈/a〉<br>〈a href="http://www.watesi.com/ckprod.asp"〉电动阀门〈/a〉<br><br>〈a href="http://www.watesi.com/ckprod.asp"〉气动阀门〈/a〉     <br>〈a href="http://www.watesi.com/ckprod.asp"〉自力式调节阀〈/a〉<br>〈a href="http://www.watesi.com/ckprod.asp"〉波纹管阀门〈/a〉 <br>〈a href="http://www.watesi.com/ckprod.asp"〉保温阀门〈/a〉<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：1 </H4></a> 
+    <H5>Mon Jan 08 11:50:34 CST 2007　 
+        <a href="mailto:1"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">〈a href="http://www.lspump.com/duoji.htm"〉多级离心泵〈/a〉<br>〈a href="http://www.lspump.com/guolu.htm"〉锅炉给水泵〈/a〉<br>〈a href="http://www.lspump.com/huagong.htm"〉石油化工泵〈/a〉<br>〈a href="http://www.lspump.com/guandao.htm"〉便拆式管道泵〈/a〉<br><br>〈a href="http://www.lspump.com/lixin.htm"〉上海离心泵厂〈/a〉<br>〈a href="http://www.lspump.com/chilun.htm"〉热油泵〈/a〉<br>〈a href="http://www.lspump.com/paiwu.htm"〉潜水排污泵〈/a〉<br>〈a href="http://www.lspump.com/wushui.htm"〉液下污水泵〈/a〉<br><br>〈a href="http://www.lspump.com/xiaofang.htm"〉柴油机消防泵〈/a〉<br>〈a href="http://www.lspump.com/yexia.htm"〉不锈钢液下泵〈/a〉<br>〈a href="http://www.lspump.com/guanli.htm"〉管道离心泵〈/a〉<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：1 </H4></a> 
+    <H5>Mon Jan 08 11:50:20 CST 2007　 
+        <a href="mailto:1"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">〈a href="http://www.lspump.com/ckprod.asp?id=545"〉管道泵〈/a〉 <br>〈a href="http://www.lspump.com/ckprod.asp?id=552"〉多级泵〈/a〉 <br>〈a href="http://www.lspump.com/ckprod.asp?id=559"〉浓浆泵〈/a〉 <br>〈a href="http://www.lspump.com/ckprod.asp?id=544"〉清水泵〈/a〉 <br><br>〈a href="http://www.lspump.com/ckprod.asp?id=562"〉液下泵〈/a〉 <br>〈a href="http://www.lspump.com/ckprod.asp?id=563"〉自吸泵〈/a〉 <br>〈a href="http://www.lspump.com/ckprod.asp?id=560"〉油泵〈/a〉 <br>〈a href="http://www.lspump.com/ckprod.asp?id=560"〉齿轮泵〈/a〉 <br><br>〈a href="http://www.lspump.com/ckprod.asp?id=569"〉耐腐泵〈/a〉 <br>〈a href="http://www.lspump.com/ckprod.asp?id=569"〉耐腐蚀泵〈/a〉 <br>〈a href="http://www.lspump.com/ckprod.asp?id=558"〉螺杆泵〈/a〉 <br>〈a href="http://www.lspump.com/cili.htm"〉氟塑料磁力泵〈/a〉<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：2 </H4></a> 
+    <H5>Mon Jan 08 11:50:06 CST 2007　 
+        <a href="mailto:2"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">〈a href="http://www.kuerte.com/kedpump/lqry.htm"〉导热油泵〈/a〉<br>〈a href="http://www.kuerte.com/kedpump/lqg.htm"〉沥青泵〈/a〉 <br>〈a href="http://www.kuerte.com/kedpump/pwb.htm"〉排污泵〈/a〉 <br>〈a href="http://www.kuerte.com/kedpump/2xz.htm"〉真空泵〈/a〉<br><br>〈a href="http://www.kuerte.com/chanp.asp"〉导热油泵、潜水泵、塑料泵、屏蔽泵、不锈钢水泵〈/a〉<br>〈a href="http://www.kuerte.com/kedpump/ih.htm"〉化工泵〈/a〉<br>〈a href="http://www.kuerte.com/kedpump/qj.htm"〉潜水泵〈/a〉 <br>〈a href="http://www.kuerte.com/kedpump/pbg.htm"〉屏蔽泵〈/a〉 <br>〈a href="http://www.kuerte.com/kedpump/lq.htm"〉台湾式管道泵〈/a〉 <br><br>〈a href="http://www.kuerte.com/kedpump/zx.htm"〉自吸泵〈/a〉 <br>〈a href="http://www.kuerte.com/kedpump/xwj.htm"〉纸浆泵〈/a〉 <br>〈a href="http://www.kuerte.com/kedpump/fs.htm"〉玻璃钢泵〈/a〉 <br>〈a href="http://www.kuerte.com/kedpump/pf.htm"〉塑料泵〈/a〉<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：1 </H4></a> 
+    <H5>Mon Jan 08 11:49:53 CST 2007　 
+        <a href="mailto:1"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">〈a href="http://www.guote-valve.com/"〉气动阀门〈/a〉  <br>〈a href="http://www.021dfn.com/"〉自力式调节阀〈/a〉<br>〈a href="http://www.021dfn.com/"〉自力式调节器〈/a〉<br>〈a href="http://www.021dfn.com/pro1.htm"〉温度调节阀〈/a〉<br><br>〈a href="http://www.021dfn.com/pro1.htm"〉温度调节器〈/a〉<br>〈a href="http://www.021dfn.com/pro2.htm"〉压力调节阀〈/a〉<br>〈a href="http://www.021dfn.com/pro2.htm"〉压力调节器〈/a〉<br>〈a href="http://www.021dfn.com/pro4.htm"〉调节阀产品导航〈/a〉<br><br>〈a href="http://www.kuerte.com/"〉真空泵、化工泵、排污泵、自吸泵、油泵〈/a〉<br>〈a href="http://www.kuerte.com/kedpump/kcb.htm"〉油泵〈/a〉<br>〈a href="http://www.kuerte.com/kedpump/lq3a.htm"〉不锈钢转子泵〈/a〉 <br>〈a href="http://www.kuerte.com/kedpump/lq3a.htm"〉不锈钢泵〈/a〉 <br>〈a href="http://www.kuerte.com/kedpump/lq3a.htm"〉不锈钢水泵〈/a〉<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：Q </H4></a> 
+    <H5>Mon Jan 08 11:49:41 CST 2007　 
+        <a href="mailto:Q"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">〈a href="http://www.bomanpump.com/"〉海水泵〈/a〉<br>〈a href="http://www.bomanpump.com/"〉柴油机消防泵〈/a〉<br>〈a href="http://www.bomanpump.com/ckpro.asp?id=439"〉电站泵〈/a〉<br>〈a href="http://www.bomanpump.com/ckpro.asp?id=409"〉热水泵〈/a〉<br><br>〈a href="http://www.bomanpump.com/ckpro.asp?id=401"〉污水泵〈/a〉<br>〈a href="http://www.bomanpump.com/ckpro.asp?id=378"〉双吸离心泵〈/a〉<br>〈a href="http://www.bomanpump.com/ckpro.asp?id=422"〉油泵〈/a〉<br>〈a href="http://www.piipii.com/dianzi2.htm"〉电子样本〈/a〉 <br><br>〈a href="http://www.piipii.com/dianzi2.htm"〉电子样本制作〈/a〉 <br>〈a href="http://www.piipii.com/product.htm"〉可打印光盘〈/a〉<br>〈a href="http://www.51pv.com/"〉水泵〈/a〉 <br>〈a href="http://www.51pv.com/"〉阀门〈/a〉<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：Q </H4></a> 
+    <H5>Mon Jan 08 11:49:31 CST 2007　 
+        <a href="mailto:21"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">〈A href="http://www.demeite.cn/product.asp?series=394" 〉电动阀〈/A〉<br>〈A href="http://www.demeite.cn/product.asp?series=394" 〉电动阀门〈/A〉<br>〈A href="http://www.demeite.cn/product.asp?series=393" 〉气动阀〈/A〉<br>〈A href="http://www.demeite.cn/product.asp?series=393" 〉气动阀门〈/A〉<br>〈A href="http://www.demeite.cn/product.asp?series=411" 〉蝶阀〈/A〉<br><br>〈a href="http://www.bomanpump.com/product.asp"〉上海水泵〈/a〉<br>〈a href="http://www.bomanpump.com/product.asp"〉上海水泵厂〈/a〉<br>〈a href="http://www.bomanpump.com/product.asp"〉水泵配件〈/a〉<br>〈a href="http://www.bomanpump.com/product.asp"〉船用水泵〈/a〉<br><br>〈a href="http://www.bomanpump.com/"〉上海水泵〈/a〉<br>〈a href="http://www.bomanpump.com/"〉上海水泵厂〈/a〉<br>〈a href="http://www.bomanpump.com/product.asp"〉船用泵〈/a〉<br>〈a href="http://www.bomanpump.com/"〉手摇泵〈/a〉<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：Q </H4></a> 
+    <H5>Mon Jan 08 11:49:14 CST 2007　 
+        <a href="mailto:Q"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">〈A href="http://www.demeite.cn/product.asp?series=406" 〉安全阀〈/A〉<br>〈A href="http://www.demeite.cn/product.asp?series=405" 〉减压阀〈/A〉<br>〈A href="http://www.demeite.cn/product.asp?series=414" 〉调节阀〈/A〉<br>〈A href="http://www.demeite.cn/product.asp?series=400" 〉疏水阀〈/A〉<br><br>〈A href="http://www.demeite.cn/product.asp?series=410" 〉闸阀〈/A〉<br>〈A href="http://www.demeite.cn/product.asp?series=409" 〉截止阀〈/A〉<br>〈A href="http://www.demeite.cn/product.asp?series=395" 〉电磁阀〈/A〉<br>〈A href="http://www.demeite.cn/product.asp?series=403" 〉水力控制阀〈/A〉<br><br>〈A href="http://www.demeite.cn/product.asp?series=401" 〉柱塞阀〈/A〉<br>〈A href="http://www.demeite.cn/product.asp?series=407" 〉止回阀〈/A〉<br>〈A href="http://www.demeite.cn/product.asp?series=408" 〉球阀〈/A〉<br>〈A href="http://www.demeite.cn/product.asp?series=402" 〉旋塞阀〈/A〉<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：Q </H4></a> 
+    <H5>Mon Jan 08 11:49:03 CST 2007　 
+        <a href="mailto:Q"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">〈A href="http://www.xlypump.com/products.asp?xl=68" 〉磁力泵〈/A〉<br>〈A href="http://www.xlypump.com/ckprod.asp?id=283" 〉自吸泵〈/A〉<br>〈A href="http://www.xlypump.com/products.asp?xl=69" 〉隔膜泵〈/A〉<br>〈A href="http://www.xlypump.com/ckprod.asp?id=258" 〉液压油泵〈/A〉<br><br>〈A href="http://www.xlypump.com/ckprod.asp?id=281" 〉三相电泵〈/A〉<br>〈A href="http://www.xlypump.com/ckprod.asp?id=412" 〉不锈钢转子泵〈/A〉<br>〈A href="http://www.xlypump.com/ckprod.asp?id=407" 〉污水泵〈/A〉<br>〈A href="http://www.xlypump.com/ckprod.asp?id=256" 〉齿轮油泵〈/A〉<br><br>〈A href="http://www.xlypump.com/ckprod.asp?id=286" 〉泥浆泵、浓浆泵〈/A〉<br>〈A href="http://www.xlypump.com/ckprod.asp?id=301" 〉玻璃钢离心泵〈/A〉<br>〈A href="http://www.xlypump.com/products.asp?xl=71" 〉旋涡泵〈/A〉<br>〈A href="http://www.xlypump.com/ckprod.asp?id=367" 〉清水泵〈/A〉<br>〈A href="http://www.xlypump.com/ckprod.asp?id=390" 〉水力喷射器〈/A〉<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：Q </H4></a> 
+    <H5>Mon Jan 08 11:48:50 CST 2007　 
+        <a href="mailto:Q"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">〈A href="http://www.sgdvalve.com/product.asp?xl=84" 〉减温减压装置〈/A〉  <br>〈A href="http://www.sgdvalve.com/ckprod.asp?id=91" 〉硬密封蝶阀〈/A〉     <br>〈A href="http://www.sgdvalve.com/ckprod.asp?id=125" 〉橡胶瓣止回阀〈/A〉      <br>〈A href="http://www.sgdvalve.com/ckprod.asp?id=124" 〉快关蝶阀〈/A〉 <br>〈A href="http://www.sgdvalve.com/ckprod.asp?id=960" 〉缓闭止回蝶阀〈/A〉<br><br>〈A href="http://www.xlypump.com/ckprod.asp?id=359" 〉管道离心泵〈/A〉<br>〈A href="http://www.xlypump.com/ckprod.asp?id=302" 〉螺杆泵〈/A〉<br>〈A href="http://www.xlypump.com/ckprod.asp?id=345" 〉耐腐蚀泵〈/A〉<br>〈A href="http://www.xlypump.com/ckprod.asp?id=333" 〉液下泵〈/A〉<br><br>〈A href="http://www.xlypump.com/ckprod.asp?id=413" 〉管道泵〈/A〉<br>〈A href="http://www.xlypump.com/products.asp?xl=64" 〉离心泵〈/A〉<br>〈A href="http://www.xlypump.com/products.asp?xl=65" 〉排污泵〈/A〉<br>〈A href="http://www.xlypump.com/products.asp?xl=67" 〉化工泵〈/A〉<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：Q </H4></a> 
+    <H5>Mon Jan 08 11:48:39 CST 2007　 
+        <a href="mailto:Q"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">〈A href="http://www.sgdvalve.com/product.asp?xl=56" 〉保温阀门〈/A〉<br>〈A href="http://www.sgdvalve.com/product.asp?xl=56" 〉保温阀〈/A〉  <br>〈A href="http://www.sgdvalve.com/product.asp?xl=85" 〉水力控制阀〈/A〉  <br>〈A href="http://www.sgdvalve.com/product.asp?xl=54" 〉柱塞阀〈/A〉   <br><br>〈A href="http://www.sgdvalve.com/product.asp?xl=64" 〉波纹管阀门〈/A〉 <br>〈A href="http://www.sgdvalve.com/intro.asp" 〉高压阀门〈/A〉<br>〈A href="http://www.sgdvalve.com/intro.asp" 〉高压阀〈/A〉 <br>〈A href="http://www.sgdvalve.com/product.asp?xl=96" 〉日标阀门〈/A〉   <br>   <br>〈A href="http://www.sgdvalve.com/product.asp?xl=97" 〉平衡阀〈/A〉    <br>〈A href="http://www.sgdvalve.com/product.asp?xl=95" 〉高温阀门〈/A〉<br>〈A href="http://www.sgdvalve.com/product.asp?xl=95" 〉高温高压阀门〈/A〉      <br>〈A href="http://www.sgdvalve.com/product.asp?xl=84" 〉减温减压阀〈/A〉<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：Q </H4></a> 
+    <H5>Mon Jan 08 11:48:27 CST 2007　 
+        <a href="mailto:Q"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">〈A href="http://www.sgdvalve.com/" 〉电站阀门〈/A〉  <br>〈A href="http://www.sgdvalve.com/" 〉电站阀〈/A〉 <br>〈A href="http://www.sgdvalve.com/intro.asp" 〉上海高压阀门〈/A〉 <br>〈A href="http://www.sgdvalve.com/intro.asp" 〉上海电站阀门〈/A〉<br> <br>〈A href="http://www.sgdvalve.com/product.asp?xl=87" 〉锻钢阀门〈/A〉  <br>〈A href="http://www.sgdvalve.com/product.asp?xl=57" 〉针型阀〈/A〉<br>〈A href="http://www.sgdvalve.com/product.asp?xl=57" 〉仪表阀〈/A〉 <br>〈A href="http://www.sgdvalve.com/product.asp?xl=88" 〉美标阀门〈/A〉 <br>   <br>〈A href="http://www.sgdvalve.com/product.asp?xl=62" 〉氧气阀〈/A〉 <br>〈A href="http://www.sgdvalve.com/product.asp?xl=62" 〉氧气专用阀〈/A〉 <br>〈A href="http://www.sgdvalve.com/product.asp?xl=41" 〉刀型闸阀〈/A〉<br>〈A href="http://www.sgdvalve.com/product.asp?xl=41" 〉浆料阀〈/A〉<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：1 </H4></a> 
+    <H5>Mon Jan 08 11:48:16 CST 2007　 
+        <a href="mailto:1"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">〈A href="http://www.yaspump.com/ckprod.asp?id=77" 〉隔膜泵〈/A〉      <br>〈A href="http://www.yaspump.com/ckprod.asp?id=67" 〉螺杆泵〈/A〉      <br>〈A href="http://www.yaspump.com/ckprod.asp?id=53" 〉齿轮泵〈/A〉   <br>〈A href="http://www.yaspump.com/ckprod.asp?id=924" 〉排污泵〈/A〉 <br>   <br>〈A href="http://www.yaspump.com/ckprod.asp?id=52" 〉油泵〈/A〉        <br>〈A href="http://www.yaspump.com/ckprod.asp?id=6" 〉多级泵〈/A〉      <br>〈A href="http://www.yaspump.com/ckprod.asp?id=951" 〉叶片泵〈/A〉      <br>〈A href="http://www.yaspump.com/ckprod.asp?id=19" 〉氟塑料磁力泵〈/A〉    <br>  <br>〈A href="http://www.yaspump.com/ckprod.asp?id=947" 〉转子泵〈/A〉  <br>〈A href="http://www.yaspump.com/ckprod.asp?id=949" 〉沥青泵〈/A〉  <br>〈A href="http://www.yaspump.com/ckprod.asp?id=51" 〉高温泵〈/A〉  <br>〈A href="http://www.yaspump.com/ckprod.asp?id=15" 〉耐碱泵〈/A〉  <br>〈A href="http://www.yaspump.com/ckprod.asp?id=57" 〉潜水泵〈/A〉<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：1 </H4></a> 
+    <H5>Mon Jan 08 11:48:06 CST 2007　 
+        <a href="mailto:1"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">〈A href="http://www.yaspump.com/ckprod.asp?id=76" 〉氟塑料泵〈/A〉     <br>〈A href="http://www.yaspump.com/ckprod.asp?id=76" 〉塑料泵〈/A〉     <br>〈A href="http://www.yaspump.com/ckprod.asp?id=16" 〉化工泵〈/A〉     <br>〈A href="http://www.yaspump.com/ckprod.asp?id=17" 〉耐腐泵〈/A〉<br><br>〈A href="http://www.yaspump.com/ckprod.asp?id=17" 〉耐腐蚀泵〈/A〉 <br>〈A href="http://www.yaspump.com/ckprod.asp?id=950" 〉不锈钢泵〈/A〉 <br>〈A href="http://www.yaspump.com/ckprod.asp?id=950" 〉卫生泵〈/A〉   <br>〈A href="http://www.yaspump.com/ckprod.asp?id=10" 〉防腐泵〈/A〉 <br>     <br>〈A href="http://www.yaspump.com/ckprod.asp?id=14" 〉耐酸泵〈/A〉      <br>〈A href="http://www.yaspump.com/ckprod.asp?id=923" 〉自吸泵〈/A〉  <br>〈A href="http://www.yaspump.com/ckprod.asp?id=946" 〉高压泵〈/A〉      <br>〈A href="http://www.yaspump.com/ckprod.asp?id=934" 〉磁力泵〈/A〉<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：1 </H4></a> 
+    <H5>Mon Jan 08 11:47:54 CST 2007　 
+        <a href="mailto:1"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">〈A href="http://www.021yj.com/pump/pai-2.htm" 〉潜水泵〈/A〉 <br>〈A href="http://www.021yj.com/pump/pai-4.htm" 〉自吸泵〈/A〉 <br>〈A href="http://www.021yj.com/pump/pai-7.htm" 〉浓浆泵〈/A〉 <br>〈A href="http://www.021yj.com/pump/pai-7.htm" 〉泥浆泵〈/A〉 <br><br>〈A href="http://www.021yj.com/pump/pai-7.htm" 〉污水泵〈/A〉 <br>〈A href="http://www.021yj.com/pump/pai-8.htm" 〉水力喷射器〈/A〉 <br>〈A href="http://www.021yj.com/pump/pai-9.htm" 〉耐腐泵〈/A〉 <br>〈A href="http://www.021yj.com/pump/pai-9.htm" 〉硫酸泵〈/A〉 <br>〈A href="http://www.021yj.com/pump/pai-9.htm" 〉耐腐蚀泵〈/A〉 <br><br>〈A href="http://www.021yj.com/" 〉管道泵、离心泵、无堵塞泵、隔膜泵、消防泵〈/A〉<br>〈A href="http://www.021yj.com/products.asp" 〉化工泵、多级泵、磁力泵、  排污泵、自吸泵〈/A〉<br>〈A href="http://www.021yj.com/pump/index.htm" 〉潜水泵、浓浆泵、泥浆泵、耐腐蚀泵、液下泵〈/A〉<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：1 </H4></a> 
+    <H5>Mon Jan 08 11:47:40 CST 2007　 
+        <a href="mailto:1"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">〈A href="http://www.021yj.com/pump/you-3.htm" 〉齿轮油泵〈/A〉 <br>〈A href="http://www.021yj.com/pump/you-3.htm" 〉导热油泵〈/A〉 <br>〈A href="http://www.021yj.com/pump/product-1.htm" 〉管道泵〈/A〉<br>〈A href="http://www.021yj.com/pump/product-1.htm" 〉离心泵〈/A〉 <br><br>〈A href="http://www.021yj.com/pump/product-2.htm" 〉无堵塞泵〈/A〉 <br>〈A href="http://www.021yj.com/pump/product-2.htm" 〉排污泵〈/A〉 <br>〈A href="http://www.021yj.com/pump/product-3.htm" 〉化工泵〈/A〉 <br>〈A href="http://www.021yj.com/pump/product-4.htm" 〉消防泵〈/A〉 <br><br>〈A href="http://www.021yj.com/pump/product-5.htm" 〉隔膜泵〈/A〉 <br>〈A href="http://www.021yj.com/pump/product-7.htm" 〉多级泵〈/A〉 <br>〈A href="http://www.021yj.com/pump/product-9.htm" 〉磁力泵〈/A〉 <br>〈A href="http://www.021yj.com/pump/pai-1.htm" 〉液下泵〈/A〉<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：1 </H4></a> 
+    <H5>Mon Jan 08 11:47:29 CST 2007　 
+        <a href="mailto:1"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">〈A href="http://www.021yj.com/pump/duo-5.htm" 〉锅炉泵〈/A〉 <br>〈A href="http://www.021yj.com/pump/ci-4.htm" 〉氟塑料泵〈/A〉 <br>〈A href="http://www.021yj.com/pump/ci-5.htm" 〉高温泵〈/A〉 <br>〈A href="http://www.021yj.com/pump/qi-1.htm" 〉深井泵〈/A〉 <br><br>〈A href="http://www.021yj.com/pump/qi-1.htm" 〉不锈钢深井泵〈/A〉 <br>〈A href="http://www.021yj.com/pump/qi-1010.htm" 〉控制柜〈/A〉 <br>〈A href="http://www.021yj.com/pump/qi-1010.htm" 〉变频控制柜〈/A〉 <br>〈A href="http://www.021yj.com/pump/qi-1010.htm" 〉变频恒压供水设备〈/A〉 <br><br>〈A href="http://www.021yj.com/pump/you-1.htm" 〉油泵〈/A〉 <br>〈A href="http://www.021yj.com/pump/you-1.htm" 〉输油泵〈/A〉 <br>〈A href="http://www.021yj.com/pump/you-1.htm" 〉管道油泵〈/A〉 <br>〈A href="http://www.021yj.com/pump/you-3.htm" 〉齿轮泵〈/A〉<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：Q </H4></a> 
+    <H5>Mon Jan 08 11:47:17 CST 2007　 
+        <a href="mailto:Q"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">〈A href="http://www.ad-pumps.com/product.asp?xl=115" 〉排污泵〈/A〉<br>〈A href="http://www.ad-pumps.com/product.asp?xl=117" 〉油泵〈/A〉<br>〈A href="http://www.ad-pumps.com/product.asp?xl=119" 〉多级泵〈/A〉<br>〈A href="http://www.ad-pumps.com/ckpro.asp?id=146" 〉叶片泵〈/A〉<br><br>〈A href="http://www.ad-pumps.com/ckpro.asp?id=31" 〉氟塑料磁力泵〈/A〉<br>〈A href="http://www.ad-pumps.com/ckpro.asp?id=67" 〉自吸油泵〈/A〉<br>〈A href="http://www.ad-pumps.com/ckpro.asp?id=152" 〉自吸排污泵〈/A〉<br>〈A href="http://www.ad-pumps.com/ckpro.asp?id=98" 〉氟塑料泵〈/A〉<br><br>〈A href="http://www.ad-pumps.com/ckpro.asp?id=29" 〉不锈钢泵〈/A〉<br>〈A href="http://www.ad-pumps.com/ckpro.asp?id=164" 〉防腐泵〈/A〉<br>〈A href="http://www.ad-pumps.com/ckpro.asp?id=103" 〉耐酸泵〈/A〉<br>〈A href="http://www.ad-pumps.com/ckpro.asp?id=71" 〉齿轮泵〈/A〉<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：Q </H4></a> 
+    <H5>Mon Jan 08 11:47:06 CST 2007　 
+        <a href="mailto:Q"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">〈A href="http://www.hycarving.com/products.asp?xl=8" 〉精雕〈/A〉<br>〈A href="http://www.hycarving.com/products.asp?xl=8" 〉木雕刻〈/A〉<br>〈A href="http://www.hycarving.com/products.asp?xl=7" 〉木制工艺品厂〈/A〉<br>〈A href="http://www.hycarving.com/products.asp?xl=7" 〉工艺品厂〈/A〉<br><br>〈A href="http://www.ad-pumps.com/" 〉耐腐蚀泵〈/A〉<br>〈A href="http://www.ad-pumps.com/" 〉耐腐泵〈/A〉<br>〈A href="http://www.ad-pumps.com/product.asp?xl=111" 〉化工泵〈/A〉<br>〈A href="http://www.ad-pumps.com/product.asp?xl=112" 〉自吸泵〈/A〉<br><br>〈A href="http://www.ad-pumps.com/product.asp?xl=110" 〉磁力泵〈/A〉<br>〈A href="http://www.ad-pumps.com/product.asp?xl=113" 〉隔膜泵〈/A〉<br>〈A href="http://www.ad-pumps.com/product.asp?xl=116" 〉螺杆泵〈/A〉<br>〈A href="http://www.ad-pumps.com/product.asp?xl=114" 〉离心泵〈/A〉<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：Q </H4></a> 
+    <H5>Mon Jan 08 11:46:53 CST 2007　 
+        <a href="mailto:S"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">〈A href="http://www.hycarving.com/products.asp?xl=1" 〉佛〈/A〉<br>〈A href="http://www.hycarving.com/products.asp?xl=1" 〉佛祖〈/A〉<br>〈A href="http://www.hycarving.com/products.asp?xl=2" 〉木雕工艺品〈/A〉<br>〈A href="http://www.hycarving.com/products.asp?xl=2" 〉木雕工艺〈/A〉<br><br>〈A href="http://www.hycarving.com/products.asp?xl=3" 〉中国工艺品〈/A〉<br>〈A href="http://www.hycarving.com/products.asp?xl=3" 〉木制工艺品〈/A〉<br>〈A href="http://www.hycarving.com/products.asp?xl=5" 〉佛像〈/A〉<br>〈A href="http://www.hycarving.com/products.asp?xl=5" 〉菩萨〈/A〉<br><br>〈A href="http://www.hycarving.com/products.asp?xl=6" 〉中国木雕〈/A〉<br>〈A href="http://www.hycarving.com/products.asp?xl=6" 〉中华木雕〈/A〉<br>〈A href="http://www.hycarving.com/products.asp?xl=9" 〉木雕佛像〈/A〉<br>〈A href="http://www.hycarving.com/products.asp?xl=9" 〉佛像木雕〈/A〉<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：Q </H4></a> 
+    <H5>Mon Jan 08 11:46:37 CST 2007　 
+        <a href="mailto:W"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">〈A href="http://www.jwvalve.com/zdtjf03.htm" 〉压力调节阀〈/A〉<br>〈A href="http://www.jwvalve.com/zdtjf04.htm" 〉温度调节阀〈/A〉      <br>〈A href="http://www.jwvalve.com/jian001.htm" 〉空气减压阀〈/A〉<br>〈A href="http://www.jwvalve.com/jian002.htm" 〉池底排泥阀〈/A〉<br><br>〈A href="http://www.hycarving.com/zoujin.asp" 〉黄杨木雕〈/A〉<br>〈A href="http://www.hycarving.com/zoujin.asp" 〉东阳木雕〈/A〉<br>〈A href="http://www.hycarving.com/zoujin.asp" 〉龙眼木雕〈/A〉<br>〈A href="http://www.hycarving.com/zoujin.asp" 〉金漆木雕〈/A〉<br><br>〈A href="http://www.hycarving.com/" 〉木雕〈/A〉<br>〈A href="http://www.hycarving.com/" 〉雕刻〈/A〉<br>〈A href="http://www.hycarving.com/" 〉木雕厂〈/A〉<br>〈A href="http://www.hycarving.com/" 〉雕刻厂〈/A〉<br>〈A href="http://www.hycarving.com/sitemap.htm" 〉雕刻产品导航〈/A〉<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：C </H4></a> 
+    <H5>Mon Jan 08 11:46:22 CST 2007　 
+        <a href="mailto:G"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">〈A href="http://www.jwvalve.com/valve3.htm" 〉蝶阀、止回阀、截止阀、隔膜阀、球阀〈/A〉<br>〈A href="http://www.jwvalve.com/zyf1.htm" 〉家庭增压泵〈/A〉<br>〈A href="http://www.jwvalve.com/zyf1.htm" 〉家用增压泵〈/A〉<br><br>〈A href="http://www.jwvalve.com/paiwufa.htm" 〉排污阀〈/A〉<br>〈A href="http://www.jwvalve.com/jie3.htm" 〉截止阀〈/A〉<br>〈A href="http://www.jwvalve.com/qiou3.htm" 〉球阀〈/A〉<br>〈A href="http://www.jwvalve.com/die3.htm"  〉蝶阀〈/A〉 <br>  <br>〈A href="http://www.jwvalve.com/jyb.htm" 〉浆液阀〈/A〉<br>〈A href="http://www.jwvalve.com/bwgfm.htm" 〉波纹管阀门〈/A〉<br>〈A href="http://www.jwvalve.com/prod579.htm" 〉电动调节阀〈/A〉<br>〈A href="http://www.jwvalve.com/prod505.htm" 〉气动调节阀〈/A〉<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：VC </H4></a> 
+    <H5>Mon Jan 08 11:46:00 CST 2007　 
+        <a href="mailto:〈A href="><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">〈A href="http://www.jwvalve.com/anquan1.htm" 〉安全阀〈/A〉<br>〈A href="http://www.jwvalve.com/jian3.htm" 〉减压阀〈/A〉<br>〈A href="http://www.jwvalve.com/tiao3.htm" 〉调节阀〈/A〉<br>〈A href="http://www.jwvalve.com/shulifa.htm" 〉水力控制阀〈/A〉<br><br>〈A href="http://www.jwvalve.com/shu3.htm" 〉疏水阀〈/A〉<br>〈A href="http://www.jwvalve.com/dianci1.htm" 〉电磁阀〈/A〉<br>〈A href="http://www.jwvalve.com/yeweiji1.htm" 〉液位计〈/A〉<br>〈A href="http://www.jwvalve.com/huxifa1.htm" 〉呼吸阀〈/A〉<br><br>〈A href="http://www.jwvalve.com/valve1.htm" 〉气动阀、电动阀、安全阀、减压阀、调节阀〈/A〉<br>〈A href="http://www.jwvalve.com/valve2.htm" 〉电磁阀、疏水阀、液位计、呼吸阀、闸阀〈/A〉<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：V </H4></a> 
+    <H5>Mon Jan 08 11:45:35 CST 2007　 
+        <a href="mailto:〈A href="http://www.cnsjv.com/Product.as"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">〈A href="http://www.cnsjv.com/Product.asp?classid=32" 〉旋塞阀〈/A〉<br>〈A href="http://www.cnsjv.com/Product.asp?classid=34" 〉水力控制阀〈/A〉<br>〈A href="http://www.cnsjv.com/Product.asp?classid=22" 〉安全阀〈/A〉<br>〈A href="http://www.cnsjv.com/Product.asp?classid=24" 〉减压阀〈/A〉 <br><br>〈A href="http://www.cnsjv.com/Product.asp?classid=25" 〉球阀〈/A〉  <br>〈A href="http://www.cnsjv.com/Product.asp?classid=26" 〉闸阀〈/A〉<br>〈A href="http://www.cnsjv.com/Product.asp?classid=27" 〉调节阀〈/A〉<br>〈A href="http://www.cnsjv.com/Product.asp?classid=29" 〉电磁阀〈/A〉<br>〈A href="http://www.cnsjv.com/Product.asp?classid=36" 〉蝶阀〈/A〉<br><br>〈A href="http://www.jwvalve.com/" 〉阀门〈/A〉<br>〈A href="http://www.jwvalve.com/" 〉阀门厂〈/A〉<br>〈A href="http://www.jwvalve.com/zdtjf02.htm" 〉气动阀门〈/A〉<br>〈A href="http://www.jwvalve.com/zdtjf01.htm" 〉电动阀门〈/A〉<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：AA </H4></a> 
+    <H5>Mon Jan 08 11:44:55 CST 2007　 
+        <a href="mailto:EE"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">全力支持中国互联网经济的发展！免费为中国经济做贡献！<br><br>〈A href="http://www.cnsjv.com/Product.asp?classid=37" 〉锻钢阀〈/A〉<br>〈A href="http://www.cnsjv.com/Product.asp?classid=38" 〉止回阀〈/A〉<br>〈A href="http://www.cnsjv.com/Product.asp?classid=39" 〉保温阀〈/A〉<br>〈A href="http://www.cnsjv.com/Product.asp?classid=40" 〉美标阀〈/A〉  <br><br>〈A href="http://www.cnsjv.com/Product.asp?classid=41" 〉截止阀〈/A〉<br>〈A href="http://www.cnsjv.com/Product.asp?classid=42" 〉隔膜阀〈/A〉<br>〈A href="http://www.cnsjv.com/Product.asp?classid=43" 〉呼吸阀〈/A〉<br>〈A href="http://www.cnsjv.com/Product.asp?classid=44" 〉浆料阀〈/A〉<br><br>〈A href="http://www.cnsjv.com/Product.asp?classid=45" 〉针型阀〈/A〉<br>〈A href="http://www.cnsjv.com/Product.asp?classid=46" 〉气动角座阀〈/A〉<br>〈A href="http://www.cnsjv.com/Product.asp?classid=30" 〉疏水阀〈/A〉<br>〈A href="http://www.cnsjv.com/Product.asp?classid=31" 〉柱塞阀〈/A〉<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：safsaf </H4></a> 
+    <H5>Mon Jan 08 09:50:48 CST 2007　 
+        <a href="mailto:safsaf@163.com"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">[url=http://www.900house.com租房[/url]<br>[url=http://www.81994529.com/kf.asp]咖啡机[/url]<br>[url=http://www.yiwang68.com.cn]注塑[/url]<br>[url=http://www.yiwang68.com.cn]吸塑[/url]<br>[url=http://www.reachsun.net]设计公司[/url]<br>[url=http://www.reachsun.net]标志设计[/url]<br>[url=http://www.reachsun.net/bzsj.asp]包装设计[/url]<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：O9 </H4></a> 
+    <H5>Thu Jan 04 14:26:09 CST 2007　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">[url=http://www.021valve.com/cn/products/163.htm]排渣闸阀[/url]<br>[url=http://www.021valve.com/cn/products/162.htm]美标闸阀[/url]<br>[url=http://www.021valve.com/cn/products/25_0_1.htm]美标闸阀[/url]<br>[url=http://www.021valve.com/cn/products/161.htm]真空闸阀[/url]<br>[url=http://www.021valve.com/cn/products/160.htm]真空闸阀[/url]<br>[url=http://www.021valve.com/cn/products/159.htm]电动不锈钢闸阀[/url]<br>[url=http://www.021valve.com/cn/products/159.htm]不锈钢闸阀[/url]<br>[url=http://www.021valve.com/cn/products/159.htm]电动闸阀[/url]<br>[url=http://www.021valve.com/cn/products/158.htm]丝口闸阀[/url]<br>[url=http://www.021valve.com/cn/products/45.htm]锻钢闸阀[/url]<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：sdfg </H4></a> 
+    <H5>Sun Dec 31 16:06:29 CST 2006　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">[url=http://www.lp369.com/sport/jsche.asp]健身车[/url]<br>[url=http://www.lp369.com/sport/hcji.asp]划船机[/url]<br>[url=http://www.oa18.cn/class.asp?aid=92&nid=675]封口机[/url]<br>[url=http://www.oa18.cn/class.asp?aid=92&nid=585]感应考勤机[/url]<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：r5 </H4></a> 
+    <H5>Sat Dec 30 12:56:56 CST 2006　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">[url=http://www.gaoyivalve.com]api plunger valve[/url]<br>[url=http://www.gaoyivalve.com]api needle valve[/url]<br>[url=http://www.gaoyivalve.com]api plug valve[/url]<br>[url=http://www.gaoyivalve.com]api diaphragm valve[/url]<br>[url=http://www.gaoyivalve.com]api steam valve[/url]<br>[url=http://www.gaoyivalve.com]api relief valve[/url]<br>[url=http://www.gaoyivalve.com]api safety valve[/url]<br>[url=http://www.gaoyivalve.com]api blowdown valve[/url]<br>[url=http://www.gaoyivalve.com]api solenoid valve[/url]<br>[url=http://www.gaoyivalve.com]api application valve[/url]<br>[url=http://www.gaoyivalve.com]api electric station valve[/url]<br>[url=http://www.gaoyivalve.com]api power valve[/url]<br>[url=http://www.gaoyivalve.com]api steam jacket valve[/url]<br>[url=http://www.gaoyivalve.com]api ammonia valve[/url]<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：asas </H4></a> 
+    <H5>Sat Dec 30 12:56:31 CST 2006　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">[url=http://www.gaoyivalve.com]valve[/url]<br>[url=http://www.gaoyivalve.com]ball valve[/url]<br>[url=http://www.gaoyivalve.com]butterfly valve[/url]<br>[url=http://www.gaoyivalve.com]gate valve[/url]<br>[url=http://www.gaoyivalve.com]global valve[/url]<br>[url=http://www.gaoyivalve.com]adjusting valve[/url]<br>[url=http://www.gaoyivalve.com]Reducing pressure valve[/url]<br>[url=http://www.gaoyivalve.com]check valve[/url]<br>[url=http://www.gaoyivalve.com]plunger valve[/url]<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：sdfsf </H4></a> 
+    <H5>Thu Dec 28 17:20:44 CST 2006　 
+        <a href="mailto:ssdf.163@.com"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">[url=http://www.blackland.cn/]深圳广告设计[/url]<br>[url=http://www.wyzx.com.cn/]北京整形[/url]<br>[url=http://www.chagerof.com/]美白[/url]<br>[url=http://www.aiffil.com/]美容[/url]<br>[url=http://www.ytks.com.cn/]效果图[/url]<br>[url=http://www.zcdiet.com//]食堂承包[/url]<br>[url=http://www.jingchangsheng.com/]彩钢[/url]<br>[url=http://www.jiatongpack.com.cn/]捆扎机[/url]<br>[url=http://www.haigeer.com/]数控切割机[/url] <br>[url=http://www.qtechinternational.com.cn/]质量管理软件 [/url]<br>[url=http://www.sinocome.com/]人脸识别[/url]<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：dfgf </H4></a> 
+    <H5>Thu Dec 28 11:07:27 CST 2006　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">[url=http://www.lp369.com/sport/zh.asp"〉健身器材〈/a〉 <br>[url=http://www.lp369.com/sport/jsche.asp]健身车[/url]<br>[url=http://www.lp369.com/sport/hcji.asp]划船机[/url]<br>[url=http://www.oa18.cn/class.asp?aid=92&nid=675]封口机[/url]<br>[url=http://www.oa18.cn/class.asp?aid=92&nid=585]感应考勤机[/url]<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：xcsd </H4></a> 
+    <H5>Wed Dec 27 11:52:13 CST 2006　 
+        <a href="mailto:s@chunxilu.cn"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://www.chunxilu.cn" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">〈a href="http://www.zjj-cts.net"〉张家界〈/a〉 <br>〈a href="http://www.zjj-cts.net"〉张家界〈/a〉<br>〈a href="http://www.sc666.com/daocheng"〉稻城〈/a〉 <br>〈a href="http://www.sc666.com/daocheng"〉稻城〈/a〉<br>〈a href="http://www.tripsun.com"〉北京机票〈/a〉 <br>〈a href="http://www.tripsun.com"〉北京机票〈/a〉<br>〈a href="http://www.tripsun.com"〉打折机票〈/a〉 <br>〈a href="http://www.tripsun.com"〉打折机票〈/a〉<br>〈a href="http://www.tripsun.com"〉机票预定〈/a〉 <br>〈a href="http://www.tripsun.com"〉机票预定〈/a〉<br>〈a href="http://www.tripsun.com"〉机票查询〈/a〉 <br>〈a href="http://www.tripsun.com"〉机票查询〈/a〉<br>〈a href="http://www.tripsun.com/plane/G_index.asp"〉国际机票〈/a〉 <br>〈a href="http://www.tripsun.com/plane/G_index.asp"〉国际机票〈/a〉<br>〈a href="http://www.my1dy.com"〉性用品〈/a〉 <br>〈a href="http://www.my1dy.com"〉性用品〈/a〉<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：EverQuest2_gold </H4></a> 
+    <H5>Tue Dec 26 17:43:25 CST 2006　 
+            <a href="http://www.game4bids.com/" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">〈a href="http://www.game4bids.com/EverQuest2_gold.aspx";〉 EQ2 gold 〈/a〉<br>〈a href="http://www.game4bids.com/DDo_Platinum_us.aspx";〉 DDO Platinum 〈/a〉<br>[url=http://www.game4bids.com/EverQuest2_gold.aspx]EQ2 gold EQ2 powerlevel[/url]<br>[url=http://www.game4bids.com/DDo_Platinum_us.aspx]DDO Platinum DDO powerlevel[/url]<br>http://www.game4bids.com/<br>http://www.game4bids.com/EverQuest2_gold.aspx<br>http://www.game4bids.com/DDo_Platinum_us.aspx<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：dfgdg </H4></a> 
+    <H5>Tue Dec 26 08:44:30 CST 2006　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">〈a href="http://www.lp369.com/sport/zh.asp"〉健身器材〈/a〉 <br>[url=http://www.lp369.com/sport/jsche.asp]健身车[/url]<br>[url=http://www.lp369.com/sport/hcji.asp]划船机[/url]<br>[url=http://www.lp369.com/sport/zh.asp]健身器材[/url]<br>[url=http://www.lp369.com/bban.asp]白板[/url]<br>[url=http://www.lp369.com/bxx.asp]保险箱[/url]<br>[url=http://www.lp369.com/kqji.asp]考勤机[/url]<br>[url=http://www.lp369.com/kqjizw.asp]指纹考勤机[/url]<br>[url=http://www.lp369.com/szji.asp]碎纸机[/url]<br>[url=http://www.lp369.com/sport/index.asp]乒乓球台[/url] <br>[url=http://www.lp369.com/sport/bbqp1.asp]乒乓球拍[/url]<br>〈a href="http://www.lp369.com/sport/bbqp1.asp"〉乒乓球拍〈/a〉<br>[url=http://www.trip18.com/bqj.asp]标签机[/url]<br>〈a href="http://www.trip18.com/bqj.asp"〉标签机〈/a〉<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：dfgdg </H4></a> 
+    <H5>Tue Dec 26 08:44:30 CST 2006　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">〈a href="http://www.lp369.com/sport/zh.asp"〉健身器材〈/a〉 <br>[url=http://www.lp369.com/sport/jsche.asp]健身车[/url]<br>[url=http://www.lp369.com/sport/hcji.asp]划船机[/url]<br>[url=http://www.lp369.com/sport/zh.asp]健身器材[/url]<br>[url=http://www.lp369.com/bban.asp]白板[/url]<br>[url=http://www.lp369.com/bxx.asp]保险箱[/url]<br>[url=http://www.lp369.com/kqji.asp]考勤机[/url]<br>[url=http://www.lp369.com/kqjizw.asp]指纹考勤机[/url]<br>[url=http://www.lp369.com/szji.asp]碎纸机[/url]<br>[url=http://www.lp369.com/sport/index.asp]乒乓球台[/url] <br>[url=http://www.lp369.com/sport/bbqp1.asp]乒乓球拍[/url]<br>〈a href="http://www.lp369.com/sport/bbqp1.asp"〉乒乓球拍〈/a〉<br>[url=http://www.trip18.com/bqj.asp]标签机[/url]<br>〈a href="http://www.trip18.com/bqj.asp"〉标签机〈/a〉<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：dfgdg </H4></a> 
+    <H5>Tue Dec 26 08:44:30 CST 2006　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">〈a href="http://www.lp369.com/sport/zh.asp"〉健身器材〈/a〉 <br>[url=http://www.lp369.com/sport/jsche.asp]健身车[/url]<br>[url=http://www.lp369.com/sport/hcji.asp]划船机[/url]<br>[url=http://www.lp369.com/sport/zh.asp]健身器材[/url]<br>[url=http://www.lp369.com/bban.asp]白板[/url]<br>[url=http://www.lp369.com/bxx.asp]保险箱[/url]<br>[url=http://www.lp369.com/kqji.asp]考勤机[/url]<br>[url=http://www.lp369.com/kqjizw.asp]指纹考勤机[/url]<br>[url=http://www.lp369.com/szji.asp]碎纸机[/url]<br>[url=http://www.lp369.com/sport/index.asp]乒乓球台[/url] <br>[url=http://www.lp369.com/sport/bbqp1.asp]乒乓球拍[/url]<br>〈a href="http://www.lp369.com/sport/bbqp1.asp"〉乒乓球拍〈/a〉<br>[url=http://www.trip18.com/bqj.asp]标签机[/url]<br>〈a href="http://www.trip18.com/bqj.asp"〉标签机〈/a〉<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：dgfg </H4></a> 
+    <H5>Wed Dec 20 17:58:27 CST 2006　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">〈a href="http://www.shhx.cn"〉白板〈/a〉<br>[url=http://www.shhx.cn]白板[/url]<br>〈a href="http://www.shhx.cn"〉上海白板〈/a〉<br>[url=http://www.shhx.cn]上海白板[/url]<br>〈a href="http://www.oa18.cn/"〉办公设备〈/a〉<br>〈a href="http://www.oa18.cn/discount.asp"〉特价办公用品〈/a〉<br>〈a href="http://www.oa18.cn/cat.asp?catid=99"〉财务用品〈/a〉<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：sfdg </H4></a> 
+    <H5>Thu Dec 14 14:47:10 CST 2006　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">〈a href="http://www.home369.com/Shop/hwyy/hxss/Index.html"〉滑雪用品〈/a〉<br>〈a href="http://www.home369.com/Shop/jsqc/emy/Index.html"〉按摩椅〈/a〉<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：daa </H4></a> 
+    <H5>Wed Dec 06 13:26:34 CST 2006　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">[url=http://www.gt369.com/js/tbj.htm]踏步机[/url]<br>[url=http://www.gt369.com/ws/ws.htm]舞狮用品[/url]<br>[url=http://www.gt369.com/jx/lbx.htm]溜冰鞋[/url]<br>[url=http://www.gt369.com/fz/hj.htm]运动护具[/url]<br>[url=http://www.gt369.com/qiu/fqj.htm]发球机[/url]<br>[url=http://www.gt369.com/js/dsq.htm]登山器[/url]<br>[url=http://www.gt369.com/qiu/cpz.htm]裁判椅[/url]<br>[url=http://www.gt369.com/qiu/sq.htm]水球[/url]<br>[url=http://www.gt369.com/js/ymy.htm]按摩椅[/url]<br>[url=http://www.bady18.com/wqj.htm]网球架[/url]<br>[url=http://www.bady369.com/sale/list_606_1.htm]乒乓球桌[/url]<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：daa </H4></a> 
+    <H5>Wed Dec 06 13:26:34 CST 2006　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">[url=http://www.gt369.com/js/tbj.htm]踏步机[/url]<br>[url=http://www.gt369.com/ws/ws.htm]舞狮用品[/url]<br>[url=http://www.gt369.com/jx/lbx.htm]溜冰鞋[/url]<br>[url=http://www.gt369.com/fz/hj.htm]运动护具[/url]<br>[url=http://www.gt369.com/qiu/fqj.htm]发球机[/url]<br>[url=http://www.gt369.com/js/dsq.htm]登山器[/url]<br>[url=http://www.gt369.com/qiu/cpz.htm]裁判椅[/url]<br>[url=http://www.gt369.com/qiu/sq.htm]水球[/url]<br>[url=http://www.gt369.com/js/ymy.htm]按摩椅[/url]<br>[url=http://www.bady18.com/wqj.htm]网球架[/url]<br>[url=http://www.bady369.com/sale/list_606_1.htm]乒乓球桌[/url]<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：daa </H4></a> 
+    <H5>Wed Dec 06 13:26:33 CST 2006　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">[url=http://www.gt369.com/js/tbj.htm]踏步机[/url]<br>[url=http://www.gt369.com/ws/ws.htm]舞狮用品[/url]<br>[url=http://www.gt369.com/jx/lbx.htm]溜冰鞋[/url]<br>[url=http://www.gt369.com/fz/hj.htm]运动护具[/url]<br>[url=http://www.gt369.com/qiu/fqj.htm]发球机[/url]<br>[url=http://www.gt369.com/js/dsq.htm]登山器[/url]<br>[url=http://www.gt369.com/qiu/cpz.htm]裁判椅[/url]<br>[url=http://www.gt369.com/qiu/sq.htm]水球[/url]<br>[url=http://www.gt369.com/js/ymy.htm]按摩椅[/url]<br>[url=http://www.bady18.com/wqj.htm]网球架[/url]<br>[url=http://www.bady369.com/sale/list_606_1.htm]乒乓球桌[/url]<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：FRS </H4></a> 
+    <H5>Tue Dec 05 11:07:20 CST 2006　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">[url=http://www.oash.cn/dkj.html]打孔机[/url]<br>[url=http://www.oash.cn/bxx/bxx.html]保险箱[/url]<br>[url=http://www.oash.cn/dnbqj.html]标签机[/url]<br>[url=http://www.oash.cn/mphxl.html]名片册[/url]<br>[url=http://www.oash.cn/biaoqian.html]打印标签[/url]<br>[url=http://www.oash.cn/hpdyj.html]惠普打印机[/url]<br>[url=http://www.oash.cn/zzyp.html]复印纸[/url]<br>[url=http://www.oash.cn/zwkqj.html]考勤机[/url]<br>[url=http://wwww.oash.cn/szj.html]碎纸机[/url]<br>[url=http://www.oash.cn/dzbb.html]电子白板[/url]<br>[url=http://www.oash.cn/dzj.html]打字机[/url]<br>[url=http://www.trip18.com/dyj.asp]打印机[/url]<br>[url=http://www.trip18.com/bqj.asp]标签机[/url]<br>[url=http://www.trip18.com/dcj.asp]点钞机[/url]<br>[url=http://www.trip18.com/bxx.asp]保险箱[/url]<br>[url=http://www.trip18.com/bb.asp]白板[/url]<br>[url=http://www.trip18.com/dkj.asp]打孔机[/url]<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：frerr </H4></a> 
+    <H5>Mon Dec 04 17:39:51 CST 2006　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">〈a href="http://www.it246.cn/bxx_js.htm"〉保险柜〈/a〉<br>〈a href="http://www.it246.cn/sb/dhj.htm"〉电话机〈/a〉<br>〈a href="http://bbs.of18.com/lqj.htm"〉篮球架〈/a〉<br>〈a href="http://bbs.of18.com/sqqc.htm"〉社区健身器材〈/a〉<br>〈a href="http://bbs.of18.com/jsqc.htm"〉健身车〈/a〉<br>〈a href="http://bbs.of18.com/ppqt.htm"〉乒乓球桌〈/a〉<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：sadf </H4></a> 
+    <H5>Fri Dec 01 00:05:27 CST 2006　 
+        <a href="mailto:ad@af.com"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="http://h" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">[url=http://www.adultxposure.com/sexdy/]伦理片[/url]<br>[url=http://sexdy.blogs.ie]成人网站[/url]<br>[url=http://www.bbmao.com/collection/view_fav_link.jsp?viewid=111882]黄色电影[/url]<br>[url=http://www.bbmao.com/collection/view_fav_link.jsp?viewid=111882]黄片[/url]<br>[url=http://www.blogg.org/blog-52094-themes-105109.html]做爱电影[/url]<br>[url=http://sexdy.livejournal.com/691.html]品色堂[/url]<br>[url=http://sexdy.livejournal.com/1095.html]18dy[/url]<br>[url=http://sexdy.livejournal.com/1403.html]98bb[/url]<br>[url=http://sexdy.livejournal.com/691.html]色狼网[/url]<br>[url=http://sexdy.livejournal.com/1095.html]xiao77[/url]<br>[url=http://sexdy.livejournal.com/1403.html]x365x[/url]<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：asdf </H4></a> 
+    <H5>Fri Dec 01 00:04:58 CST 2006　 
+        <a href="mailto:ad@fgg.m"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">[url=http://www.blogg.org/blog-54433.html]黄色电影[/url]<br>[url=http://www.blogg.org/blog-54433.html]三级片[/url]<br>[url=http://www.blogg.org/blog-54431.html]黄色电影[/url]<br>[url=http://www.blogg.org/blog-54431.html]成人电影[/url]<br>[url=http://www.blogg.org/blog-54431.html]成人网站[/url]<br>[url=http://sexdy.livejournal.com/818.html]成人电影[/url]<br>[url=http://sexdy.livejournal.com/1995.html]黄色电影[/url]<br>[url=http://sexdy.livejournal.com/818.html]毛片[/url]<br><br>[url=http://sexdy.livejournal.com/1721.html]黄片[/url]<br>[url=http://sexdy.livejournal.com/1995.html]成人网站[/url]<br>[url=http://sexdy.livejournal.com/2084.html]三级片[/url]<br>[url=http://sexdy.livejournal.com/2359.html]性交电影[/url]<br>[url=http://sexdy.livejournal.com/2671.html]性爱电影[/url]<br>[url=http://sexdy.livejournal.com/2084.html]a片[/url]<br>[url=http://sexdy.livejournal.com/2359.html]做爱电影[/url]<br>[url=http://sexdy.livejournal.com/1721.html]黄网[/url]<br>[url=http://sexdy.livejournal.com/2671.html]性教育片[/url]<br>[url=http://www.adultxposure.com/sexdy/]成人片[/url]<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：lyx </H4></a> 
+    <H5>Tue Nov 28 10:35:56 CST 2006　 
+        <a href="mailto:lvyongxinhao@126.com"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://www.oforu.com" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">〈a href="http://www.eing.com"〉〈b〉〈font size="24"〉wow gold〈/font〉〈/b〉〈/a〉<br>〈a href="http://us.eing.com/wow_gold/eu/index.html"〉〈b〉〈font size="24"〉wow powerleveling  gold〈/font〉〈/b〉〈/a〉<br>〈a href="http://us.eing.com/wow_gold/us/Aerie_Peak_alliance.html"〉〈b〉〈font size="24"〉world of warcraft power leveling gold〈/font〉〈/b〉〈/a〉<br>〈a href="http://www.rs4sale.com/listtype.asp?id=34&sid=320"〉〈b〉〈font size="24"〉wow gold〈/font〉〈/b〉〈/a〉<br>〈a href="http://www.eing.com"〉〈b〉cheap wow gold〈/b〉〈/a〉<br>〈a href="http://www.eing.com"〉〈b size=24〉wow gold〈/b〉〈/a〉<br>〈a href="http://www.mygamestock.com"〉〈b〉guild war gold〈/b〉〈/a〉<br>url=http://www.eing.com wow gold/url里的故<br>url=http://www.mygamestock.com gold/url事是一本<br>[url="http://www.oforu.com wow gold"]〈font size="24"〉Purchase wow gold〈/font〉[/url]没有写<br>[url="http://www.eing.com eq2 gold"]〈b〉〈font size="24"〉wow gold〈/font〉〈/b〉[/url]完的书<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：lyx </H4></a> 
+    <H5>Mon Nov 27 11:59:28 CST 2006　 
+        <a href="mailto:lvyongxinhao@126.com"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://www.oforu.com" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">url]<br>[url=http://us.eing.com/wow_gold/eu/index.html]wow gold[/url]<br>[url=http://us.eing.com/wow_gold/us/index.html]wow gold[/url]<br>[url=http://www.oforu.com/listtype.asp?id=31]wow Gold[/url]<br><br>[url=http://www.mygamestock.com/listtype.asp?id=31]Guild Wars gold[/url]<br>[url=http://www.mygamestock.com/listtype.asp?id=34]Guild Wars gold[/url]<br>[url=http://us.eing.com/eq2/gold/index.html]eq2 gold[/url]<br><br><br>[url=http://www.rs4sale.com/listtype.asp?id=38]Auto Assault gold[/url]<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：翻译 </H4></a> 
+    <H5>Wed Nov 22 18:00:21 CST 2006　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">〈a href="http://www.jiayinte.cn" target="_blank"〉翻译公司〈/a〉<br>〈a href="http://www.jiayinte.net/sn1/bbs/" target="_blank"〉翻译公司〈/a〉<br>〈a href="http://www.jiayinte.net/sn1/bbs/" target="_blank"〉翻译论坛〈/a〉<br>〈a href="http://www.jiayinte.net/sn1/" target="_blank"〉翻译公司〈/a〉<br>〈a href="http://jiayinte.blog.hexun.com/" target="_blank"〉上海翻译公司〈/a〉<br>〈a href="http://jiayinte1.blog.hexun.com/" target="_blank"〉北京翻译公司〈/a〉<br>〈a href="http://blog.yesky.com/blog/jiayinte/" target="_blank"〉上海翻译公司〈/a〉<br>〈a href="http://jiayinte1.blogbus.com/index.html" target="_blank"〉上海翻译公司〈/a〉<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：翻译 </H4></a> 
+    <H5>Wed Nov 22 18:00:01 CST 2006　 
+        <a href="mailto:??l"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">[url=http://www.jiayinte.cn]翻译公司[/url]     [url=http://www.jiayinte.cn]北京翻译公司[/url]<br>[url=http://www.jiayinte.cn]上海翻译公司[/url]  [url=http://www.jiayinte.net/sn1/]翻译公司[/url]<br>[url=http://www.jiayinte.com]翻译公司[/url]  [url=http://www.jiayinte.com]上海翻译公司[/url] <br>[url=http://www.jiayinte.net/sn1/bbs/]翻译公司[/url]  [url=http://www.jiayinte.net/sn1/bbs/]翻译论坛[/url]<br>[url=http://jiayinte.blog.hexun.com/]上海翻译公司[/url]  [url=http://jiayinte1.blog.hexun.com/]北京翻译公司[/url]<br>[url=http://blog.yesky.com/blog/jiayinte/]上海翻译公司[/url]   [url=http://www.jiayinte.net/fygs/]翻译公司[/url]<br>[url=http://jiayinte1.blogbus.com/index.html]上海翻译公司[/url]   [url=http://www.jiayinte.net/fygs/]翻译[/url]   <br>[url=http://hexun.com/suzhenning2003/default.html]房屋出租[/url]   [url=http://www.jiayinte.cn]翻译[/url]<br>[url= http://www.blogcn.com/u/60/43/jiayinte/index.html]上海翻译公司[/url]  [url=http://www.jiayinte.net/fyjd/]翻译[/url]<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：lyx </H4></a> 
+    <H5>Sun Nov 19 13:45:28 CST 2006　 
+        <a href="mailto:lvyongxinhao@126.com"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://www.oforu.com" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">〈a href="http://www.oforu.com"〉Farming for Guild Wars GW gold 〈/a〉 isn't easy, but you can <br>〈b〉buy cheap GW gold, guides, accounts & items on sale.〈/b〉 We have revolutionized the exchange of money to Guild Wars gold with fast instant delivery.http://www.eing.com<br>[url="http://www.mygamestock.com"]Purchase Guild Wars gold online[url] <br>http://www.eing.com <br>power up your character ot the next level. <br>〈a href="http://www.oforu.com"〉Our world  GW class customer service will make sure you are more than satisfied with every purchase.〈/a〉 <br>www.oforu.com<br>www.mygamestock.com <br>www.eing.com  <br>[url=http://us.eing.com]wow gold[/url]<br>[url=http://fr.eing.com]guild wars gold[/url]<br>[url=http://de.eing.com]eq2 gold[/url]<br>[url=http://uk.eing.com]ffxi gil[/url]<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：asd </H4></a> 
+    <H5>Fri Nov 17 08:55:33 CST 2006　 
+        <a href="mailto:asd@126.com"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://www.skzb.com" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">[url=http://www.skzb.com/index.asp]水泵[/url] <br>[url=http://www.skzb.com/index.asp]泵[/url] <br>[url=http://www.skzb.com/zx-pumps.asp]自吸泵[/url]<br>[url=http://www.skzb.com/Picture.asp?PicClassID=41]磁力泵[/url]<br>[url=http://www.skzb.com/Picture.asp?PicClassID=42]离心泵[/url]<br>[url=http://www.skzb.com/Picture.asp?PicClassID=45]隔膜泵[/url]<br>[url=http://www.skzb.com/Picture.asp?PicClassID=46]螺杆泵[/url]<br>[url=http://www.skzb.com/sp-pumps.asp]高温泵[/url]<br>[url=http://www.skzb.com/Picture.asp?PicClassID=48]计量泵[/url]<br>[url=http://www.skzb.com/y-pumps.asp]油泵[/url]<br>[url=http://www.skzb.com/zk-pumps.asp]真空泵[/url]<br>[url=http://www.skzb.com/hg-pumps.asp]化工泵[/url]<br>]<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：翻译 </H4></a> 
+    <H5>Sat Nov 04 16:41:59 CST 2006　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">〈a href="http://www.jiayinte.net/fygs/" target="_blank"〉翻译〈/a〉<br>〈a href="http://www.jiayinte.net/fygs/" target="_blank"〉翻译公司〈/a〉<br>〈a href="http://www.jiayinte.net/fyjd/" target="_blank"〉翻译〈/a〉<br>〈a href="http://www.jiayinte.net/fyjd/" target="_blank"〉翻译公司〈/a〉<br>〈a href="http://www.jiayinte.net/sn/="_blank"〉 翻译公司〈/a〉	<br>〈a href="http://www.jiayinte.cn" target="_blank"〉北京翻译公司〈/a〉<br>〈a href="http://www.jiayinte.cn" target="_blank"〉 上海翻译公司 〈/a〉<br>〈a href="http://www.jiayinte.com" target="_blank"〉上海翻译公司〈/a〉<br>〈a href="http://www.jiayinte.com" target="_blank"〉翻译公司〈/a〉<br>〈a href="http://jiayinte.blogbus.com/index.html" target="_blank"〉翻译公司〈/a〉<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：翻译 </H4></a> 
+    <H5>Sat Nov 04 16:41:42 CST 2006　 
+        <a href="mailto:112@163.com"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">〈a href="http://jiayinte1.blogbus.com/index.html" target="_blank"〉上海翻译公司〈/a〉<br>〈a href="http://hexun.com/suzhenning2003/default.html" target="_blank"〉房屋出租〈/a〉<br>〈a href="http://suzhenning2003.blog.hexun.com/" target="_blank"〉房屋出租〈/a〉<br>〈a href="http://hexun.com/suzhenning2004/default.html " target="_blank"〉招聘〈/a〉<br>〈a href="http://www.blogcn.com/u/60/43/jiayinte/index.html" target="_blank"〉上海翻译公司〈/a〉<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：翻译 </H4></a> 
+    <H5>Sat Nov 04 16:41:11 CST 2006　 
+        <a href="mailto:www.112@163.com"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">〈a href="http://www.jiayinte.cn" target="_blank"〉翻译公司〈/a〉<br>〈a href="http://www.jiayinte.net/sn1/bbs/" target="_blank"〉翻译公司〈/a〉<br>〈a href="http://www.jiayinte.net/sn1/bbs/" target="_blank"〉翻译论坛〈/a〉<br>〈a href="http://www.jiayinte.net/sn1/" target="_blank"〉翻译公司〈/a〉<br>〈a href="http://jiayinte.blog.hexun.com/" target="_blank"〉上海翻译公司〈/a〉<br>〈a href="http://jiayinte1.blog.hexun.com/" target="_blank"〉北京翻译公司〈/a〉<br>〈a href="http://blog.yesky.com/blog/jiayinte/" target="_blank"〉上海翻译公司〈/a〉<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：rdvadbhp </H4></a> 
+    <H5>Thu Oct 12 05:28:00 CST 2006　 
+        <a href="mailto:qaxwxwmebg@163.com"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="http://www.iuvod.com" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">sixwxwmexf[url=http://www.koolpages.com/kkjlehl/index.html]推广技巧[/url][url=http://www.koolpages.com/kkjlehl/26198047.htm]网站建设策划方案[/url][url=http://www.koolpages.com/kkjlehl/47348973.htm]引擎排名[/url][url=http://www.koolpages.com/kkjlehl/00157846.htm]网站推广mail[/url][url=http://www.koolpages.com/kkjlehl/95187597.htm]网站推广工具下载[/url][url=http://www.powow.com/oxvhseh/index.html]网站推广的方法[/url][url=http://www.powow.com/oxvhseh/80303016.htm]网站推广群发软件[/url][url=http://www.powow.com/oxvhseh/63576814.htm]网站排名榜[/url][url=http://www.powow.com/oxvhseh/46504715.htm]电子邮件群发[/url][url=http://www.powow.com/oxvhseh/90790388.htm]qq无限群发器[/url][url=http://www.pagerealm.com/qoitojq/index.html]如何建立网站[/url][url=http://www.pagerealm.com/qoitojq/40480876.htm]什么网站赚钱[/url][url=http://www.pagerealm.com/qoitojq/93765714.htm]qq消息群发工具[/url][url=http://www.pagerealm.com/qoitojq/13671137.htm]论坛自动发帖工具[/url][url=http://www.pagerealm.com/qoitojq/45301112.htm]进出口企业名录[/url]<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：luofei </H4></a> 
+    <H5>Tue Jun 06 16:41:05 CST 2006　 
+        <a href="mailto:luofei@aol.com"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">回看射雕处[url=http://www.mygamestock.com/news/world_of_warcraft_powerleveling.html](wow powerleveling)[/url]，千里暮云平[url=http://www.mygamestock.com/news/world_of_warcraft_powerleveling.html](world of warcraft powerleveling)[/url]。熙熙攘攘，人生总是如梦。<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：刘江 </H4></a> 
+    <H5>Fri Feb 17 10:47:00 CST 2006　 
+        <a href="mailto:liuj at turingbook.com"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://www.turingbook.com" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">Hi gigix!<br>我是刘江，有一些书方面的事情要找你，请尽快与我联系。<br>我的MSN：liuj_hz at msn.com<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：XC </H4></a> 
+    <H5>Sun Feb 12 12:24:07 CST 2006　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">说话就行了，不要放屁。<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：Kappa </H4></a> 
+    <H5>Fri Feb 10 16:32:09 CST 2006　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">lol， 难怪熊生经常被人骂， 偷梁换柱颠倒黑白的功夫还真是一流！ROR和JAVA不是一个重量级的， JAVA所统治的领域有多少ROR可以实现并达到令人满意的水平？！ROR比JAVA晚出现了多少年？对JAVA现有的不足进行改进不是很正常的事吗？你敢说RUBY OVER JAVA，挤了半天就出来这么几条，那MS的东西岂不是要OVER INDONESIA了？！建议熊生多修点学问， 别再乱作翻译误人子弟， 还跑去CHINAPUB跟人嘴仗， 可怜我的午饭啊， 又被恶心出来了。<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：1 </H4></a> 
+    <H5>Fri Feb 10 16:19:09 CST 2006　 
+        <a href="mailto:1"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="http://1" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">牙科觉得人只有牙齿<br>眼科觉得人只有眼睛<br>骨科觉得人只有骨头<br>... ...<br><br>××觉得java只有××<br><br>ruby和java没有可比性，java已经做的事情，ruby还差的很远很远，不要拿ruby来比较java的你只知道的××领域，java还有很多&&、！！、@@、￥￥方方面面<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：piggy </H4></a> 
+    <H5>Thu Feb 09 21:45:48 CST 2006　 
+            <a href="http://spaces.msn.com/members/skyincooko" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">问题在于动态类型语言的IDE检查都是很困难的，比如refactoring，很多特性都要“运行时”才能确定，除非像smalltalk那样runtime既是IDE也是debugger。<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：青梅 </H4></a> 
+    <H5>Wed Feb 08 17:10:35 CST 2006　 
+        <a href="mailto:icecofee@gmail.com"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">我不确定你是不是我见过的熊jie，如果是，连一下我的gtalk好吗？我的gtalk是icecofee@gmail.com<br>
+      <br>
+    </P>
+ </div>
+  <div class="operation"> 
+    <table width="700" border="0" cellpadding="0" cellspacing="0" class="comment">
+      <form id="replyForm" method="POST">
+        <input type="hidden" name="blogID" value="18254">
+        <input type="hidden" name="diaryID" value="1129175">
+        <input type="hidden" name="blogDomino" value="gigix">
+<script>
+if(getCookie('userID') == null){        
+document.write('<tr><td width="70">发布人：</td>');
+document.write('<td width="150"> <input name="remark.authorNameFUI" type="text" size="20" class="inputStyle" maxlength="20"></td>');
+document.write('<td width="70">邮箱：</td>');
+document.write('<td width="435"> <input name="remark.authorEmail" type="text" size="20" class="inputStyle" maxlength="40"></td>');
+document.write('</tr><tr><td>主　页：</td>');
+document.write('<td colspan="3"> <input name="remark.authorURL" type="text" class="inputStyle" value="HTTP://" size="63" maxlength="40"></td></tr>');
+}else{
+document.write('<input type="hidden" name="remark.authorNameFUI" value="Blogdriver">');
+}
+</script>        
+        <tr align="left"> 
+          <td colspan="4">评论内容：<br/> <textarea name="remark.remarkFUI" id="remark" cols="60" rows="8" class="textStyle" >
+          </textarea> 
+          </td> 
+        </tr>
+        <tr align="left"> 
+          <td colspan="4"> 　　　　　　 　　　　　　 
+            <input type="button" value="提交" onClick="reply()" >
+            　 
+            <input type="reset" value="重置" > </td>
+        </tr>
+      </form>
+    </table>
+  </div>
+</div>	
+<script type="text/javascript" src="http://gigix.blogdriver/gigix/extend3.js"></script> 
+<div id="footer"><a href="http://statices.blogdriver.com/jsp/reg/register.jsp"><img class="logo" src="http://statices.blogdriver.com/template/common/img/logo3.gif" border="0"></a><a href="http://www.blogdriver.com/">2003-2004 BLOGDRIVER.COM All rights reserved</a></div>
+</body>
+</html>

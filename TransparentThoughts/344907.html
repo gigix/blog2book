@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<title>基本的序列操作（续）--透明思考</title>
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache"> 
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache"> 
+<META HTTP-EQUIV="Expires" CONTENT="0"> 
+<META CONTENT="赚钱之道基本的序列操作（续）在北京  博客 博客动力 blog blogdriver blogger 中国" NAME="description"> 
+<META NAME="keywords" CONTENT="透明思考 赚钱之道基本的序列操作（续）在北京 博客 博客动力 blog blogdriver blogger 中国"> 
+<link href="diary.css" rel="stylesheet" type="text/css">
+<script language="JavaScript" src="/jsp/js/UBB.js"></script>
+<script type="text/javascript" src="/jsp/js/blog.js"></script>	
+</head>
+<body>
+  <div id="container">
+    <div id="header"><h1 class="title"><a href="index.html">透明思考</a></h1></div>
+	<div id="category">	<a href="344568.html" title="上一篇">赚钱之道</a>- -|
+		<a href="index.html">回首页</a> | <a href="catalog_2004.html">2004年索引</a>
+	| - -<a href="349084.html" title="下一篇">在北京</a></div>
+ <div class="entity">
+			    <h2 class="diaryTitle">基本的序列操作（续）- -</h2> 
+				 <p/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				 <p><DIV>
+<DIV>映射变换（map）：将某种操作（<FONT face="Courier New,Courier,Monospace">UnaryFunction</FONT>）作用于一个序列的每个元素，结果是另一个序列。后一序列的元素数目等于前一序列，两者的对应位置上的元素具有某种逻辑上的对应关系。譬如：</DIV>
+<DIV>&nbsp;</DIV>
+<DIV><FONT face="Courier New,Courier,Monospace">LIST 1:&nbsp;&nbsp;&nbsp; Person1,&nbsp;&nbsp;&nbsp; Person2,&nbsp;&nbsp;&nbsp; Person3,&nbsp;&nbsp;&nbsp; Person4</FONT></DIV>
+<DIV><FONT face="Courier New,Courier,Monospace">LIST 2:&nbsp;&nbsp;&nbsp; 1500,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4000,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5000,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8000</FONT></DIV>
+<DIV><FONT face="Courier New,Courier,Monospace">对应关系：LIST2中每个元素（Integer）是LIST1中对应元素（Person）的salary属性。</FONT></DIV>
+<DIV>&nbsp;</DIV>
+<DIV>过滤（filter）：将某种判断条件（<FONT face="Courier New,Courier,Monospace">UnaryPredicate</FONT>）作用于一个序列中的每个元素，结果是另一个序列。后一序列的元素少于或等于前一序列，后一序列包含的是前一序列中符合该判断条件的那些元素。譬如：</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>
+<DIV><FONT face="Courier New,Courier,Monospace">LIST 1:&nbsp;&nbsp;&nbsp; Person1,&nbsp;&nbsp;&nbsp; Person2,&nbsp;&nbsp;&nbsp; Person3,&nbsp;&nbsp;&nbsp; Person4</FONT></DIV>
+<DIV><FONT face="Courier New,Courier,Monospace">LIST 2:&nbsp;&nbsp;&nbsp; Person1,&nbsp;&nbsp;&nbsp;&nbsp;Person4</FONT></DIV>
+<DIV><FONT face="Courier New,Courier,Monospace">判断条件：LIST2中每个元素（Person）都来自LIST1，并且gender属性等于"Male"。</FONT></DIV></DIV>
+<DIV>&nbsp;</DIV>
+<DIV>累加（accumulate）：给定一个初始值及一个操作（<FONT face="Courier New,Courier,Monospace">BinaryFunction</FONT>），将该操作逐一作用于序列的每个元素，结果是一个值。结果值代表遍历该序列之后的总值，包括序列中的最大（最小）值、序列总和（总乘积）等等。譬如：</DIV>
+<DIV>&nbsp;</DIV>
+<DIV><FONT face="Courier New,Courier,Monospace">LIST 1:&nbsp;&nbsp;&nbsp; 1,&nbsp;&nbsp;&nbsp; 2,&nbsp;&nbsp;&nbsp; 3,&nbsp;&nbsp;&nbsp; 4</FONT></DIV>
+<DIV><FONT face="Courier New,Courier,Monospace">RESULT:&nbsp;&nbsp;&nbsp; 12<BR>累加操作：求两个元素的和。<BR>初始值：0。</FONT></DIV>
+<DIV><FONT face="Courier New,Courier,Monospace">意义：求一个序列的总和。</FONT></DIV>
+<DIV>&nbsp;</DIV>
+<DIV>大部分循环、判断的程序结构都是在做这几件事。我把它们封装成Functor，并且写了一段没有<FONT face="Courier New,Courier,Monospace">for</FONT>循环、没有<FONT face="Courier New,Courier,Monospace">if</FONT>判断的程序。这样做的好处是：（1）分离流程控制与流程中的操作；（2）流程与操作都不需要局部状态。缺点是：用Java的语法写出来太不自然，而且很多地方损失了编译期类型检查。</DIV></DIV></p>				  
+             <p class="diaryFoot">- 作者： <a href="javascript:void(0);" onClick="window.open('/control/postMessage.b?receiverName=gigix&receiver=25249','发送短消息','width=310,height=265')" title="gigix">gigix</a>  2004年09月29日, 星期三 16:00  </p>
+				</div>
+ <div class="operation"> 
+    <a name="trackback"><H3>Trackback</H3></a>
+      <p class="trackback">你可以使用这个链接引用该篇日志 http://publishblog.blogdriver.com/blog/tb.b?diaryID=344907
+ </p>
+ </div>				
+<div class="operation">
+     <a name="comment"><H3>回复</H3></a>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：匿名 </H4></a> 
+    <H5>Fri Oct 01 08:49:43 CST 2004　 
+            <a href="HTTP://" target="_blank"><img src="http://www.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">这年头，大家都看SICP了<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：匿名 </H4></a> 
+    <H5>Thu Sep 30 08:53:37 CST 2004　 
+            <a href="HTTP://" target="_blank"><img src="http://www.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">累加（accumulate)这种模式在Functional&nbsp;Programming中惯用的称谓是：reduce<BR><br>
+      <br>
+    </P>
+ </div>
+  <div class="operation"> 
+    <table width="700" border="0" cellpadding="0" cellspacing="0" class="comment">
+      <form id="replyForm" method="POST">
+        <input type="hidden" name="blogID" value="18254">
+        <input type="hidden" name="diaryID" value="344907">
+        <input type="hidden" name="blogDomino" value="gigix">
+<script>
+if(getCookie('userID') == null){        
+document.write('<tr><td width="70">发布人：</td>');
+document.write('<td width="150"> <input name="remark.authorNameFUI" type="text" size="20" class="inputStyle" maxlength="20"></td>');
+document.write('<td width="70">邮箱：</td>');
+document.write('<td width="435"> <input name="remark.authorEmail" type="text" size="20" class="inputStyle" maxlength="40"></td>');
+document.write('</tr><tr><td>主　页：</td>');
+document.write('<td colspan="3"> <input name="remark.authorURL" type="text" class="inputStyle" value="HTTP://" size="63" maxlength="40"></td></tr>');
+}else{
+document.write('<input type="hidden" name="remark.authorNameFUI" value="Blogdriver">');
+}
+</script>        
+        <tr align="left"> 
+          <td colspan="4">评论内容：<br/> <textarea name="remark.remarkFUI" id="remark" cols="60" rows="8" class="textStyle" >
+          </textarea> 
+          </td> 
+        </tr>
+        <tr align="left"> 
+          <td colspan="4"> 　　　　　　 　　　　　　 
+            <input type="button" value="提交" onClick="reply()" >
+            　 
+            <input type="reset" value="重置" > </td>
+        </tr>
+      </form>
+    </table>
+  </div>
+</div>	
+<script type="text/javascript" src="http://gigix.blogdriver/gigix/extend3.js"></script> 
+<div id="footer"><a href="http://www.blogdriver.com/jsp/reg/register.jsp"><img class="logo" src="http://www.blogdriver.com/template/common/img/logo3.gif" border="0"></a><a href="http://www.blogdriver.com/">2003-2004 BLOGDRIVER.COM All rights reserved</a></div>
+</body>
+</html>
