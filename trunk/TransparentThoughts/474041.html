@@ -1,0 +1,447 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<title>JdonFramework架构分析--透明思考</title>
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache"> 
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache"> 
+<META HTTP-EQUIV="Expires" CONTENT="0"> 
+<META CONTENT="JavaOne in ChinaJdonFramework架构分析你早晚会读到苏珊?桑塔格  博客 博客动力 blog blogdriver blogger 中国" NAME="description"> 
+<META NAME="keywords" CONTENT="透明思考 JavaOne in ChinaJdonFramework架构分析你早晚会读到苏珊?桑塔格 博客 博客动力 blog blogdriver blogger 中国"> 
+<link href="diary.css" rel="stylesheet" type="text/css">
+<script language="JavaScript" src="http://statices.blogdriver.com/jsp/js/UBB.js"></script>
+<script type="text/javascript" src="http://statices.blogdriver.com/jsp/js/blog.js"></script>	
+</head>
+<body>
+  <div id="container">
+    <div id="header"><h1 class="title"><a href="index.html">透明思考</a></h1></div>
+	<div id="category">	<a href="470194.html" title="上一篇">JavaOne in China</a>- -|
+		<a href="index.html">回首页</a> | <a href="catalog_2004.html">2004年索引</a>
+	| - -<a href="480005.html" title="下一篇">你早晚会读到苏珊?桑塔格</a></div>
+ <div class="entity">
+			    <h2 class="diaryTitle">JdonFramework架构分析- -</h2> 
+				 <p/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				 <p><DIV>JdonFramework架构图（<A href="http://www.jdon.com/jdonframework/" target=_blank><U>http://www.jdon.com/jdonframework/</U></A>）：</DIV>
+<DIV><IMG src="http://www.jdon.com/product/images/jdonsd.jpg" onload="javascript: img_auto_size(this,450,true);"></DIV>
+<DIV>让我们先回想一下，使用EJB的理由是什么？常见的答案有：可分布的业务对象；声明性的基础设施服务（例如事务管理）。那么，如果在EJB的上面再加上一层POJO的facade，显然你不能再使用EJB的基础设施了，因为完整的业务操作（也就是事务边界）将位于POJO facade的方法这里，所以你必须重新??以声明性的方式??实现事务管理、安全性管理、remoting、缓存等基础设施服务。换句话说，你失去了session bean的一半好处。另一方面，“可分布的业务对象”也不复存在，因为POJO本身是不能??像EJB那样??分布的，这样你又失去了session bean的另一半好处。</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>既然session bean的一切好处已经不复存在了，Robbin认为，在这个架构里可以把entity bean作为O/R mapping来使用。但众所周知，在EJB的各个部分中，entity bean是最糟糕的部分。它的描述能力太差，以至于它无法成为一个合格的O/R mapping（如果谁对此论断有反对意见，请用entity bean建模Party分析模式）。也就是说，即使是往最好的方面来说，这个架构仅仅利用了EJB中最糟糕的部分，损失了EJB中较好的部分（即session bean，尤其是无状态session bean）。</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>继续回想，使用基于POJO的轻量级架构的理由是什么？常见的答案有：易于测试；便于移植；“开发-发布”周期短。而如果仅仅把POJO作为一层facade，把业务逻辑放在下面的EJB，那么你仍然无法轻易地测试业务逻辑，移植自然也无从谈起了，并且每次修改EJB之后必须忍受漫长的发布周期。即便是??像Robbin猜测的那样??仅仅把EJB作为O/R mapping，而不是业务逻辑的居所，你最多只能通过DAO封装获得比较好的业务可测性，但“修改-发布”的周期仍然很长，因为仍然有entity bean存在。也就是说，即使是往最好的方面来说，这个架构至少损失了轻量级架构的一半优点。</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>作为一个总结，JdonFramework即便是在使用得最恰当的情况下，它仍然不具备轻量级架构（例如<A href="http://raibledesigns.com/wiki/Wiki.jsp?page=AppFuse" target=_blank><U>AppFuse</U></A>和<A href="http://www.springframework.org/" target=_blank><U>JPetStore</U></A>）的全部优点，至少会对小步前进的敏捷开发造成损害（因为EJB的存在），并且没有Spring框架已经实现的基础设施（例如事务管理、remoting等），必须重新发明这些轮子；另一方面，它也不具备EJB的任何优点，EJB的声明性基础设施、可分布业务对象等能力它全都不能利用。因此，可以简单地总结说，JdonFramework是一个这样的架构：<STRONG>它结合了EJB和轻量级架构两者各自的短处，却抛弃了两者各自的长处</STRONG>。</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>说实话，我非常希望我这次的判断是彻底错误的，我非常希望有人能够向我证明：JdonFramework实际上是一个出色的架构。原因是，我不愿意相信，一个做了好几年J2EE架构师和咨询师的中国程序员会做出这样一个彻底错误的架构来。</DIV></p>				  
+             <p class="diaryFoot">- 作者： <a href="javascript:void(0);" onClick="window.open('http://publishblog.blogdriver.com/blog/postMessage.b?receiver=25249','发送短消息','width=520, height=455')">gigix</a> 2004年12月27日, 星期一 18:21  </p>
+				</div>
+ <div class="operation"> 
+    <a name="trackback"><H3>Trackback</H3></a>
+      <p class="trackback">你可以使用这个链接引用该篇日志 http://publishblog.blogdriver.com/blog/tb.b?diaryID=474041
+ </p>
+ </div>				
+ 
+ <div class="operation">
+   <a name="relatedDiary"><H3>博客手拉手</H3></a>
+   <table width=90%>
+          </table>
+ </div>
+ 
+<div class="operation">
+     <a name="comment"><H3>回复</H3></a>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：kmkt </H4></a> 
+    <H5>Sun Jan 15 15:19:41 CST 2006　 
+        <a href="mailto:wdong@mega-info.cn"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">从前有一个人说自己很牛,,然后大家把他骂了一通,然后说不知羞耻,自己怎么怎么牛,最后来了一个,请原来那个原谅自己,唉!<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：sure </H4></a> 
+    <H5>Wed Mar 02 15:18:53 CST 2005　 
+        <a href="mailto:ahxiao_2008@tom.com"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">我想大家都太主观看一个问题了，对也不对。jdonwframework应该是国内首发开源J2EE框架，当然可能还有更好的 只是没有公开而已。我看了一上午，其核心思想来自于springframework，但是简单易学。大家都说不好，那就必须指出哪里不好，你可以改进啊。我对jdonframework提出一点意见：<br>1，构件不齐全。根本就没有dependences版本。<br>2，文档缺少了些，不管是英语还是中文。<br>3，想问一下，在jdonframework中借鉴于sun core design pattern中的servicelocator在ejb包下改成了单例 的理由是什么？<br>4，不知道jdonTree构件是否属于jdonframework，我想不属于因为找不到这个构件 在internet上面。<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：panqr </H4></a> 
+    <H5>Wed Feb 23 13:21:31 CST 2005　 
+        <a href="mailto:panqr@gmail.com"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">to gigix:<br>         我在javaeye.com上http://forum.javaeye.com/viewtopic.php?t=9856看到了你的如下论调：“另外补充一句，既然技术上不是强项，您有权选择沉默。”  <br>         那么我想问一下，gigix是否有开源项目的成功经验（请不要跟我提你在javaeye.com上的那个半吊子项目），如果没有，那我可否有你上面的那句论调，对你也说一句：“既然你没有成功的开源经验，您有权选择沉默。” <br>         呵呵，你在中国的java界也算是小有名气，我也是通过你翻译的那几本书认识你的，谈谈我对你的印象：<br>          1 文笔不错，英语水平也不错<br>          2  技术上比较拘泥于书本，实践经验很不足，但对于一个IT媒体的编辑来说，应该是够用了<br>          3 思想比较偏激，言语比较刻薄<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：zq </H4></a> 
+    <H5>Wed Feb 23 09:43:55 CST 2005　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">彭先生编程水平不高不是错。<br>彭先生X框架架构不好不是错。<br>彭先生大肆吹嘘，露出浓重的商业化味道也不是错。<br>三者加起来就是错！<br>哪里有人象他那样急功近利的做开源？！<br>用我心中高尚的sourceforge项目来达到个人某些商业目的，已经是有辱学术尊严了。<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：zq </H4></a> 
+    <H5>Mon Feb 21 15:54:53 CST 2005　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">接上一篇，彭先生的英文很糟糕，大概就是在初三到高一的水平。http://sourceforge.net/projects/jdon/   上关于jdon的Description，惨不忍睹。个把月前我曾写信去指正，并且改正些基本错误。比如 a-->an, it's -->its，可惜彭先生太粗心，每次都把我改正的重新写错。最后我不得不重基本的语法告诉他哪里写错了。<br>彭先生对这个开源项目很看重，一天之内改了3次description，改动很大。这时候我很怀疑他是不是欺世盗名之辈，最后他又发了一次大的改动过后的初稿给我过目，我已经懒得看了。不过还是告诉他 interceptor plugin 用得不对。后来他也没有改正。<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：zq </H4></a> 
+    <H5>Mon Feb 21 15:35:08 CST 2005　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">关于彭先生到处吹嘘jdon框架，我想无非是为了钱。以下基于不复责任的猜测：<br>1。一个人独立经营一个咨询公司，需要名声来讲课收费。<br>2。卖学习教材。50元/vip用户，需要名声来骗小程序员。<br>3。接XX出版社的书稿。需要别人帮忙写书。<br>4。私下接单转手做中介，需要名声。<br>名声哪里来？<br>说技术有多牛，别人可能看不见。那最好的吹嘘就是 sourceforge的项目。每个论坛回复的签名，email的签名。都在吹jdon。自己吹就好了，还打着什么民族最高水平....<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：过客 </H4></a> 
+    <H5>Sun Feb 20 07:23:06 CST 2005　 
+            <a href="http://3" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">在剃熊节之前,先剃一下<<程序员>>刊物:<br><br>.发文章的时候,要多注重一下社会影响;作媒体要有社会责任感.<br>.错误的文字不过让读者笑一下,错误的技术或许也能促使读者思考,错误的选稿观念会灭刊物;<br>.既然都能把熊节踢出杂志社,也要有胆识压迫编辑不要选用熊节的文章;<br><br>现在该剃熊节了,在剃熊节之前,先表明作者的态势:<br>我就是来剃你这个人的,根本不是就事论事,而是就来剃你这个人的.<br><br>希望能够剃出以下的头发:<br><br>.熊节,不仅只有你会愤怒.中国人口很多,会愤怒的人也不少.<br>.适度地幻想是没有什么问题的,陷入幻想狂的作者会让读者至少看出神经质来.<br>.汉语是最优美的语言之一.你可以用她来承载你的宣泄,但不要把宣泄到处给人看.<br>.作人要社会责任感.<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：过客 </H4></a> 
+    <H5>Sun Feb 20 07:22:28 CST 2005　 
+            <a href="http://2" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">促使我写本文的源是2005年2月号的<<程序员>>杂志上的"前车之覆,后车之鉴"之熊节文.下面我把我全部的批注抄写下来,表明我的一些态度:<br><br>.熊文第一页(此刊第89页)篇题下:<br>虽然行文很刻薄,确是少见好文章.<br><br>.熊文第一页底缝:<br>在新经济时代,厚道不再是一种美德,而是一种必须!<br><br>.熊文第一页右块第4行处:<br>Ant & unit是一个Java项目不可缺少的东西!<br><br>.熊文第一页右块蓝底框结束处:<br>没有必要写得这么刻薄的.<br><br>.熊文第二页左块篮底框左骑缝:<br>其实什么经济形式都是官僚的,开源进入官僚也是很正常的事情.某项目作得这么成功,就是因为我认真第去了解他们的官僚,包括了解某某哥哥这个人.<br><br>.熊文第二页右块第一个篮底框上:<br>故曰:软件的质量评审是一个非常重要的工作.<br>(这里熊节说到深入到X框架内部,看看它的技术水平.)<br><br>.熊文第三页左块第二个篮底框下:<br>还有一份嘲讽来自熊节.<br>(这里熊节说道X框架之反之,恐怕你就只能得到无尽的嘲讽了.)<br><br>.熊文第三页右块第七行处:<br>标准之框架概念已经被异化.现在都认为框架本来就应该是IoC的;依赖注入仅仅是实现IoC的一种方式.<br>(熊节在这里论述框架和IoC的一些东西.)<br><br>.熊文第四页左块第一个淡红框处:<br>其实并无必要将任何实例都交给容器来创建.这设计到框架与应用的界限问题.<br>(熊节在这里引用下框架new出一个用于工厂行为的实例.)<br><br>.熊文第四页第一个篮底框结束处:<br>这亦太牵强了写!又不是二进制的.<br>(熊节在这里阐述"开放封闭原则")<br><br>.熊文第五页"长得丑不是你的错..."处<br>!!!<br><br>.熊文第五页底缝:<br>按素质,技能,素养来评判:彭生缺少素养,熊节缺少素质;两人都不缺少技能.<br><br>这些批注中的一些,表明,我是能够读懂熊文的;如果读者更细节第研读我的批注,也可以得出我可以读得懂熊节的技术的;我"长得丑溜出来的说"我能够读懂这个人的.<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：过客 </H4></a> 
+    <H5>Sun Feb 20 07:21:40 CST 2005　 
+            <a href="http://1" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">客观上,我是一个<<程序员>>的忠实读者;事实上,我并不觉得<<程序员>>办得好.阅读这本刊物的同时,我会作很多的批注.这些批注给了我很多娱乐:作者与编者的错漏,有些时候的井中观天,还有些时候的那种自以为的慷慨激昂;还有屈指可数的好文章,好技术动向,好思想.<br><br>熊节这个人我见过,在<<程序员>>上也阅读到过他的很多文章.此刊太多出现此人的作品,以至于我都怀疑此刊办不下去了.在我的感觉中,一本月刊就算是出现同一个人的两篇文章,都是稿源缺乏的表现.进而深入地了解此刊发行的数量,计算刊物可能获得的产值以及利润.得到的结论是:办刊物,未必如<<程序员>>创业人士想象和力图影响别人知的那么赚钱.<br><br>客观地说,熊节是一个有才气的青年,也是很刻苦.在我的感觉中,他太愤怒了.他的才气与刻苦,都是受到其愤怒驱动.个人的愤怒本是无可厚非,但是,试图把这种愤怒渲染到大量的年青人身上,就不对了.年青人是这个国家的未来,他们更加脆弱,且找不到方向.让熊节的愤怒影响到了他们,可以说是犯罪;他们可能会认为人生本来就应该是这个样子.<br><br>熊节出生于何地我不知道,我知道他读的大学是京工,也就是北京理工大学.在舆论中,京工是北京一所一流中的二流大学.熊节对这所大学有比较深入的仇恨,或许是他报考别的更好大学没有成功的缘故.他把愤怒表现为尽量不说自己的大学出身,留下猜测"熊节是出身清华"这样的悬念;他把愤怒另外表现得更为长远:期待自己的努力加上运气,在不远的未来承担"二流大学也可以培养出超一流的人才"这样的美誉而谦虚的微笑.<br><br>其实这些都是徒劳.有一个人生的原则是:你想怎么样,肯定不会这样.这是历史的经验.人们总是很少相信历史的经验,总是幻想自己是独特;等到年老色衰的时候,方才后悔不已.熊节幻想过自己被大洋彼岸的美国鬼子追捧着授予至高的计算类科学奖(不要都不行的那种,或者说别人跪拜着送到他的鼻子下),也经常幻想自己写一本什么书就成为中国首富,现在幻想着自己的软件(公司)能够成为压倒华为产值.他现在还在幻想中...<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：xiajj </H4></a> 
+    <H5>Wed Feb 16 00:10:06 CST 2005　 
+        <a href="mailto:xiajj@vip.bj1860.net"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">hi，看到程序员上的文章，顺便找到这个地方。本来想给你发mail的，不过找了半天，没有找到，就简单说两句。<br>咱们先抛开模式不谈，先看看要解决什么事情？说穿了，就cache service的功能。无论用那种方式实现。我们先不考虑aop cache放在那里，就算他放在ejb  container的里面。ok，考虑cluster的情况，一个ejb container对应一个cache service，多个container对应多个cache。先不考虑如何更新缓存的机制（其实无非几种，event或者timestamp），先考虑cache如何同步的问题？UDP广播？还是ejb container + cache agent + cache service的方式？还是基于DB？实现起来都很复杂。我们再回头看aop cache service的解决方案，可以做成cache service对应多个ejb container的实现。这种方案在技术难度、实现上都是比较简单的。<br>其实，就我而言，并不推崇container层次的cache service前置的方案（web层次另说），还是推荐cache agent + cache service的方案。在此基础上进行容错扩展也很容易。<br>单就aop cache解决方案来说，只是一种适用范围比较简单的cache service解决方案，并不适合cluster环境。<br>一家之言，仅供参考。<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：可笑 </H4></a> 
+    <H5>Mon Feb 14 09:53:55 CST 2005　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">楼主算个什么东西。<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：kent </H4></a> 
+    <H5>Thu Feb 03 15:37:35 CST 2005　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">不管怎样，一定要对使用者负责，发布稳定可用的开源软件， 好像Hibernate那样，否则真是害人不浅啊！<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：巅峰 </H4></a> 
+    <H5>Wed Feb 02 09:08:45 CST 2005　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">向来鄙视jdon 小人！<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：路人辛 </H4></a> 
+    <H5>Wed Jan 12 02:40:48 CST 2005　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">大家看看serverside上的评论吧，有名不一定就是等于明白。<BR>估计老外对中国人的构架水平……至少src包里可以干净一些，cvs的目录不要放在里面了，jbx也不要放在里面<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：agile_boy </H4></a> 
+    <H5>Sun Jan 02 00:38:25 CST 2005　 
+        <a href="mailto:ghq7613@163.com"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://software.blogchina.com" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">JdonFramework我没有资格说话,不过我对spring等轻量级比较推崇,正打算把我们系统的当前标准j2ee框架移植到spring+hibernate这样的轻量级容器上呢,如今这个&quot;曳光弹&quot;已经有点规模了,确实体会到了这些轻量级的好处.在此我只想说得是:适合自己的东西才是好的,虽然流行的不一定都是好的,但是如果作出来的东西,没有人去用,我想最后还是要失败的.<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：tar </H4></a> 
+    <H5>Fri Dec 31 10:48:46 CST 2004　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">各位不知道有没有仔细看过这个jdonframework<BR>在tss上看到这个东西，真是吓了一跳<BR>&quot;It&nbsp;has&nbsp;a&nbsp;MDA&nbsp;rapid&nbsp;development&nbsp;tool&quot;<BR>虽然作者在后面又谦虚的讲<BR>&quot;Jdonframework&nbsp;is&nbsp;not&nbsp;MDA&nbsp;Tools,&nbsp;I&nbsp;don&#39;t&nbsp;truely&nbsp;believe&nbsp;in&nbsp;MDA,&nbsp;Jdonframework&nbsp;just&nbsp;<P>introduces&nbsp;abstract&nbsp;data&nbsp;concept:Model,&nbsp;it&nbsp;is&nbsp;beginning&nbsp;to&nbsp;MDA.&quot;<P>接着跑到他主页一看，&quot;开发总体步骤只需要四步(only&nbsp;need&nbsp;4&nbsp;step&nbsp;based&nbsp;in&nbsp;JdonFramework)&quot;<BR>&quot;1.&nbsp;创建user模型类(&nbsp;create&nbsp;a&nbsp;User&nbsp;Model)：&quot;<BR>&quot;2.&nbsp;建立业务对象Business&nbsp;Object类,以EJB的有态Bean为例子，如下(&nbsp;create&nbsp;a&nbsp;business&nbsp;<P><br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：calvinxiu </H4></a> 
+    <H5>Thu Dec 30 18:39:00 CST 2004　 
+            <a href="HTTP://calvinxiu.blogdriver.com" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">banq大叔的脾气和心胸在业内已经很著名了，gigix根本不必痴心妄想能和他讨论什么事情。<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：路人甲 </H4></a> 
+    <H5>Thu Dec 30 17:33:57 CST 2004　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">沽名钓誉之徒<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：路人甲 </H4></a> 
+    <H5>Thu Dec 30 17:33:16 CST 2004　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">向来鄙视jdon<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：xiaohanne </H4></a> 
+    <H5>Thu Dec 30 13:45:27 CST 2004　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">to&nbsp;hello<BR>您和板叔有得拼呀，他看相你看信？<BR>不喜欢“做人不行，做事肯定也不行！”这样的话，你有多了解一个人？<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：hello </H4></a> 
+    <H5>Thu Dec 30 11:35:31 CST 2004　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">说实话，看了banq的一些言辞，我认为gigix以后就别再去jdon留言了！<BR>有句名言：做事先得会做人！不管是我们是普通的程序员还是大师，我们都是人，做人都做不好，我想他做的事也不会好的那去！海纳百川，有容乃大！gigix,robbin,banq我都和他们发过emai，感觉人品的好坏和这排序一样：不是递增，而递减！sorry，我说些这样的话，但我真的这样认为：做人不行，做事肯定也不行！<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：重剑无锋 </H4></a> 
+    <H5>Wed Dec 29 20:43:05 CST 2004　 
+            <a href="HTTP://blogger.org.cn" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">建议大家看看PoEAA,再下结论,看看分析模式,一切就明白了<img src=/jsp/images/emot/em01.gif border=0 align=middle><br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：重剑无锋 </H4></a> 
+    <H5>Wed Dec 29 20:42:53 CST 2004　 
+            <a href="HTTP://blogger.org.cn" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">建议大家看看PoEAA,再下结论,看看分析模式,一切就明白了<img src=/jsp/images/emot/em01.gif border=0 align=middle><br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：重剑无锋 </H4></a> 
+    <H5>Wed Dec 29 20:42:53 CST 2004　 
+            <a href="HTTP://blogger.org.cn" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">建议大家看看PoEAA,再下结论,看看分析模式,一切就明白了<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：重剑无锋 </H4></a> 
+    <H5>Wed Dec 29 20:42:39 CST 2004　 
+            <a href="HTTP://blogger.org.cn" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">建议大家看看PoEAA,再下结论,看看分析模式,一切就明白了<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：透明 </H4></a> 
+    <H5>Wed Dec 29 13:16:35 CST 2004　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">to&nbsp;oo：<BR>做一盘煎鸡蛋需要5分钟，但是要尝出一盘煎鸡蛋盐放得太多，你只要吃一口就够了。<BR>这话说得可能有点狠，不过整个事实我们很快就可以看到。我对自己的直觉有信心，更何况，直到目前也没有证据来推翻我的直觉。<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：moxie </H4></a> 
+    <H5>Wed Dec 29 12:51:44 CST 2004　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">JdonFramework的推出当然有其道理，但说道理也要看你站在什么样的角度。ejb是有价值的，但要求开发者能正确使用发挥它的价值，当然，如果用的不当就变成无价值了。<BR>我再次申明，大家讨论可以，只是针对事情，不要针对个人。<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：oo </H4></a> 
+    <H5>Wed Dec 29 11:52:08 CST 2004　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">首先说明一下，我同gigix一样是对事不对人的。<BR>gigix译的书我不比各位买的少，并且都非常喜欢．gigix最新《Contributing&nbsp;to&nbsp;Eclipse》我也已经邮购了，并且非常期待javaeye共同译的《J2EE&nbsp;Development&nbsp;without&nbsp;EJB》由此可见我对gigix没有任何偏见，事实上恰恰相反。<BR>其次，我也是非常推崇像spring，PicoContainer，Tapestry，webwork等等轻量级框架。但EJB也是有非常大的价值的，每个做过j2ee的程序员们都应该有体会。<BR>对于JdonFramework的推出必定有其中的道理。banq和其它开发人员之所以做出这样的设计必定有他们的原因和考虑。我们不要随随便便就将别人辛辛苦苦的工作全盘否定。我想，就凭一天的研究和学习，就否定某框架是不是太武断？难道以你一人一天的研究会比一个团队几个月的工作要强出这么多？<BR>至于那些没有自己主见的人，请你们不要总跟在别人后面瞎叫，拿出点自己的东西来。不要认为你吹捧gigix几句你也就成高手了。这种人不光我看不起，恐怕就连gigix也如此吧！<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：moxie </H4></a> 
+    <H5>Wed Dec 29 10:35:14 CST 2004　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">to:oo<BR>gigix绝对是针对这个框架，对bang个人绝对不会有任何主观偏见。他也曾教育过我“针对事情，但不要针对个人！大家都是来做事情的”。<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：TyraelTong </H4></a> 
+    <H5>Wed Dec 29 10:16:10 CST 2004　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">很高兴看到这篇文章！一直觉得国内的业界太过浮躁。就算gigix的评论有欠偏颇，他的这种注重实际，敢于说话的作风也很值得称赞。我想banq老师也不会是受不起批评的人。理不辩不明，gigix发表这篇文章的本意并不是想要否定什么、得到什么吧，只不过是说他自己觉得有道理的话罢了。如果其他人觉得gigix说的有什么不对的，也可以摆事实，讲道理，没必要去空谈些什么其他的话吧？<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：notfish </H4></a> 
+    <H5>Tue Dec 28 19:38:10 CST 2004　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">to&nbsp;oo<BR>其实，是你太偏激，作者从头至尾都没有表达过他对bang有什么不满，他只是针对这个框架，提出了他的不同意见，它是希望有人能够告诉他，他说的是错的，你需要有个合理的反驳他的理由，不是在这儿因为这是bang研究很就可能有其一定的价值就忘记了科学的真实性<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：aoaoao </H4></a> 
+    <H5>Tue Dec 28 13:01:14 CST 2004　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment"><img src=/jsp/images/emot/em17.gif border=0 align=middle><BR>很高兴看到gigix这样的回复，这才是专业精神，而且发现你比以前谦虚了很多，有大将风范，加油~~<img src=/jsp/images/emot/em24.gif border=0 align=middle><br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：透明 </H4></a> 
+    <H5>Tue Dec 28 11:03:21 CST 2004　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">to&nbsp;oo：<BR>我正在向他讨教<BR>http://www.jdon.com/jive/thread.jsp?forum=62&amp;thread=18423<BR>希望你也能关注和参与讨论<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：oo </H4></a> 
+    <H5>Tue Dec 28 10:54:10 CST 2004　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">我说过了，该框架好与坏待认真研究后才能下结论．你一直反复强调真理，为什么不去问问banq？这个框架由他设计与制做，想必没有人比他更清楚其中的好处．<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：透明 </H4></a> 
+    <H5>Tue Dec 28 10:47:48 CST 2004　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">to&nbsp;aoaoao：<BR>你弄错了，banq不是与我齐名，他是我的老师之一。我的经验和造诣比他差得远。<BR>不过很遗憾，吾爱吾师，吾更爱真理。至少目前依我的浅薄眼光，我尚未看出这个框架有任何可取之处。我说过N遍了，我在热切盼望任何一位高人来指教我，告诉我这个框架的可取之处在哪里。可惜，我还没有等到。如果没有人能告诉我它好在哪里，我只有抄起奥卡姆剃刀，认为它根本就没有好处。<BR>我想，你也应该是程序员，你也应该是受过工科训练的科技工作者，你应该比我更懂得“不可因人立言”的道理。<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：aoaoao </H4></a> 
+    <H5>Tue Dec 28 10:01:34 CST 2004　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment"><img src=/jsp/images/emot/em08.gif border=0 align=middle><BR>你太偏激了，banq什么时候得罪你了，说出这么狠的话？我看你是有主观上的偏见吧~~<BR>banq这个framework难道真的没有可取之处？那banq在业内与老大你齐名不就是一个笑话？<img src=/jsp/images/emot/em06.gif border=0 align=middle><br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：透明 </H4></a> 
+    <H5>Tue Dec 28 09:42:36 CST 2004　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">to&nbsp;oo：<BR>我已经说得很清楚了，这一次，我真心希望我是错的，我真心希望JdonFramework是一个好东西，是我的判断错了。但是我这个人有个特点，就是从来不会自欺欺人。如果你能向我证明它的好处，我会欣然接受；如果你做不到，sorry，我只好痛心地说，这个架构确实就是一无是处，尽管我很不愿意承认。<BR>做开源大家都做过，几乎每个够格的J2EE程序员都或多或少参与过开源。做得不好的开源，还不如不要做，因为那除了给自己锻炼之外，对别人毫无帮助。所以我现在已经不再发展G-Roller开源项目，就是这个原因。<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：hippopotamus </H4></a> 
+    <H5>Mon Dec 27 23:27:51 CST 2004　 
+            <a href="HTTP://znjqolf.blogdirver.com" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">利益得驱动而已～<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：oo </H4></a> 
+    <H5>Mon Dec 27 22:23:19 CST 2004　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">我想这个框架的出现，决不是一时兴起而做出来的东西，就根据一个例子，一天的研究，就全盘否定，被你扁的一无是处，未免太武断了吧．不管怎么说，我很欣赏banq，至少为开源做了一些事情。至少做了这么一个东西出来，不管它有没有价值，也不管它好与坏，这些须深入研究后才能下的结论，毕竟这不是1+1=2的问题。<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：hiswing </H4></a> 
+    <H5>Mon Dec 27 22:09:29 CST 2004　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">粗略的看了一下该框架的说明用例，不敢对其妄下结论，只是觉得该框架仍然拥有着一组侵略性的API，测试仍然困难！不过banq说“JdonFramework明显优点是：性能的成熟性，例如缓存无所不在，这是区别一些概念性开源项目的明显特征，使用JdonFramework开发，开发者无需关注太多性能缓存问题。”也许该框架真有一定的好处，就像banq所说的在缓存方面的成熟性。待日后学习吧！<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：dreamhead </H4></a> 
+    <H5>Mon Dec 27 22:03:18 CST 2004　 
+        <a href="mailto:dreamhead.cn@gmail.com"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://dreamhead.blogbus.com" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">一针见血！EJB可以用，但决不可盲目。<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：jasonzhang </H4></a> 
+    <H5>Mon Dec 27 19:37:26 CST 2004　 
+        <a href="mailto:z_jordon@163.com"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">板桥看了得气坏了，呵呵，弄了这么久的东东。<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：匿名 </H4></a> 
+    <H5>Mon Dec 27 19:36:13 CST 2004　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">板桥看了得气坏了，呵呵，弄了这么久的东东。<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：firebody </H4></a> 
+    <H5>Mon Dec 27 18:53:49 CST 2004　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">搞不好，那个微容器就是照搬spring的一个仿spring&nbsp;容器哦！<br>
+      <br>
+    </P>
+ </div>
+  <div class="operation"> 
+    <table width="700" border="0" cellpadding="0" cellspacing="0" class="comment">
+      <form id="replyForm" method="POST">
+        <input type="hidden" name="blogID" value="18254">
+        <input type="hidden" name="diaryID" value="474041">
+        <input type="hidden" name="blogDomino" value="gigix">
+<script>
+if(getCookie('userID') == null){        
+document.write('<tr><td width="70">发布人：</td>');
+document.write('<td width="150"> <input name="remark.authorNameFUI" type="text" size="20" class="inputStyle" maxlength="20"></td>');
+document.write('<td width="70">邮箱：</td>');
+document.write('<td width="435"> <input name="remark.authorEmail" type="text" size="20" class="inputStyle" maxlength="40"></td>');
+document.write('</tr><tr><td>主　页：</td>');
+document.write('<td colspan="3"> <input name="remark.authorURL" type="text" class="inputStyle" value="HTTP://" size="63" maxlength="40"></td></tr>');
+}else{
+document.write('<input type="hidden" name="remark.authorNameFUI" value="Blogdriver">');
+}
+</script>        
+        <tr align="left"> 
+          <td colspan="4">评论内容：<br/> <textarea name="remark.remarkFUI" id="remark" cols="60" rows="8" class="textStyle" >
+          </textarea> 
+          </td> 
+        </tr>
+        <tr align="left"> 
+          <td colspan="4"> 　　　　　　 　　　　　　 
+            <input type="button" value="提交" onClick="reply()" >
+            　 
+            <input type="reset" value="重置" > </td>
+        </tr>
+      </form>
+    </table>
+  </div>
+</div>	
+<script type="text/javascript" src="http://gigix.blogdriver/gigix/extend3.js"></script> 
+<div id="footer"><a href="http://statices.blogdriver.com/jsp/reg/register.jsp"><img class="logo" src="http://statices.blogdriver.com/template/common/img/logo3.gif" border="0"></a><a href="http://www.blogdriver.com/">2003-2004 BLOGDRIVER.COM All rights reserved</a></div>
+</body>
+</html>

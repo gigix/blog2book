@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<title>XSLT View--透明思考</title>
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache"> 
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache"> 
+<META HTTP-EQUIV="Expires" CONTENT="0"> 
+<META CONTENT="魔法数XSLT ViewContributing to Eclipse翻译进度  博客 博客动力 blog blogdriver blogger 中国" NAME="description"> 
+<META NAME="keywords" CONTENT="透明思考 魔法数XSLT ViewContributing to Eclipse翻译进度 博客 博客动力 blog blogdriver blogger 中国"> 
+<link href="diary.css" rel="stylesheet" type="text/css">
+<script language="JavaScript" src="/jsp/js/UBB.js"></script>
+<script type="text/javascript" src="/jsp/js/blog.js"></script>	
+</head>
+<body>
+  <div id="container">
+    <div id="header"><h1 class="title"><a href="index.html">透明思考</a></h1></div>
+	<div id="category">	<a href="239902.html" title="上一篇">魔法数</a>- -|
+		<a href="index.html">回首页</a> | <a href="catalog_2004.html">2004年索引</a>
+	| - -<a href="243470.html" title="下一篇">Contributing to Eclipse翻译进度</a></div>
+ <div class="entity">
+			    <h2 class="diaryTitle">XSLT View- -</h2> 
+				 <p/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				 <p><DIV>JSR 170规定了一个灵活的内容结构——实际上它只规定了Node和Property，Node既可以做枝节点也可以做叶子节点，Property只能做叶子节点。内容Node可能有哪些Property，不知道；展示时怎么用这些Property，不知道——连文章的内容（甚至包括标题）都是放在一个Property里的。我把这棵内容树平整成一个XML文档，就像这样：</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>
+<DIV class=e><SPAN class=b><STRONG><FONT face="Courier New" color=#ff0000>&nbsp;</FONT></STRONG></SPAN> <FONT color=#0000ff><SPAN class=m>&lt;?</SPAN><SPAN class=pi>xml version="1.0" encoding="GBK" </SPAN><SPAN class=m>?&gt;</SPAN></FONT> </DIV>
+<DIV class=e>
+<DIV class=c style="MARGIN-LEFT: 1em; TEXT-INDENT: -2em"><A class=b onfocus=h() onclick="return false" href="file:///E:/Eclipse/workspace/CMS/WEB-INF/conf/xsl/column.xml#"><STRONG><FONT face="Courier New" color=#ff0000>-</FONT></STRONG></A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <SPAN class=m><FONT color=#0000ff>&lt;</FONT></SPAN><FONT color=#990000><SPAN class=t>column</SPAN><SPAN class=t> id</SPAN></FONT><SPAN class=m><FONT color=#0000ff>="</FONT></SPAN><B>8</B><SPAN class=m><FONT color=#0000ff>"</FONT></SPAN><SPAN class=t><FONT color=#990000> title</FONT></SPAN><SPAN class=m><FONT color=#0000ff>="</FONT></SPAN><B>政策公告</B><FONT color=#0000ff><SPAN class=m>"</SPAN><SPAN class=m>&gt;</SPAN></FONT></DIV>
+<DIV>
+<DIV class=e>
+<DIV class=c style="MARGIN-LEFT: 1em; TEXT-INDENT: -2em"><A class=b onfocus=h() onclick="return false" href="file:///E:/Eclipse/workspace/CMS/WEB-INF/conf/xsl/column.xml#"><STRONG><FONT face="Courier New" color=#ff0000>-</FONT></STRONG></A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <SPAN class=m><FONT color=#0000ff>&lt;</FONT></SPAN><FONT color=#990000><SPAN class=t>article</SPAN><SPAN class=t> id</SPAN></FONT><SPAN class=m><FONT color=#0000ff>="</FONT></SPAN><B>10</B><SPAN class=m><FONT color=#0000ff>"</FONT></SPAN><SPAN class=t><FONT color=#990000> title</FONT></SPAN><SPAN class=m><FONT color=#0000ff>="</FONT></SPAN><B>关于调整有关企业信息查询费通知</B><FONT color=#0000ff><SPAN class=m>"</SPAN><SPAN class=m>&gt;</SPAN></FONT></DIV>
+<DIV>
+<DIV class=e>
+<DIV style="MARGIN-LEFT: 1em; TEXT-INDENT: -2em"><SPAN class=b><STRONG><FONT face="Courier New" color=#ff0000>&nbsp;</FONT></STRONG></SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <SPAN class=m><FONT color=#0000ff>&lt;</FONT></SPAN><SPAN class=t><FONT color=#990000>property</FONT></SPAN> <SPAN class=t><FONT color=#990000>id</FONT></SPAN><SPAN class=m><FONT color=#0000ff>="</FONT></SPAN><B>11</B><SPAN class=m><FONT color=#0000ff>"</FONT></SPAN><SPAN class=t><FONT color=#990000> key</FONT></SPAN><SPAN class=m><FONT color=#0000ff>="</FONT></SPAN><B>content</B><SPAN class=m><FONT color=#0000ff>"</FONT></SPAN><SPAN class=t><FONT color=#990000> value</FONT></SPAN><SPAN class=m><FONT color=#0000ff>="</FONT></SPAN><B>aaa</B><FONT color=#0000ff><SPAN class=m>"</SPAN><SPAN class=m> /&gt;</SPAN></FONT> </DIV></DIV>
+<DIV><SPAN class=b><STRONG><FONT face="Courier New" color=#ff0000>&nbsp;</FONT></STRONG></SPAN>&nbsp;&nbsp;&nbsp;&nbsp; <SPAN class=m><FONT color=#0000ff>&lt;/</FONT></SPAN><SPAN class=t><FONT color=#990000>article</FONT></SPAN><SPAN class=m><FONT color=#0000ff>&gt;</FONT></SPAN></DIV></DIV></DIV>
+<DIV class=e>
+<DIV class=c style="MARGIN-LEFT: 1em; TEXT-INDENT: -2em"><A class=b onfocus=h() onclick="return false" href="file:///E:/Eclipse/workspace/CMS/WEB-INF/conf/xsl/column.xml#"><STRONG><FONT face="Courier New" color=#ff0000>-</FONT></STRONG></A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <SPAN class=m><FONT color=#0000ff>&lt;</FONT></SPAN><FONT color=#990000><SPAN class=t>article</SPAN><SPAN class=t> id</SPAN></FONT><SPAN class=m><FONT color=#0000ff>="</FONT></SPAN><B>12</B><SPAN class=m><FONT color=#0000ff>"</FONT></SPAN><SPAN class=t><FONT color=#990000> title</FONT></SPAN><SPAN class=m><FONT color=#0000ff>="</FONT></SPAN><B>国家工商总局发布《企业登记程序规定》</B><FONT color=#0000ff><SPAN class=m>"</SPAN><SPAN class=m>&gt;</SPAN></FONT></DIV>
+<DIV>
+<DIV class=e>
+<DIV style="MARGIN-LEFT: 1em; TEXT-INDENT: -2em"><SPAN class=b><STRONG><FONT face="Courier New" color=#ff0000>&nbsp;</FONT></STRONG></SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <SPAN class=m><FONT color=#0000ff>&lt;</FONT></SPAN><SPAN class=t><FONT color=#990000>property</FONT></SPAN> <SPAN class=t><FONT color=#990000>id</FONT></SPAN><SPAN class=m><FONT color=#0000ff>="</FONT></SPAN><B>13</B><SPAN class=m><FONT color=#0000ff>"</FONT></SPAN><SPAN class=t><FONT color=#990000> key</FONT></SPAN><SPAN class=m><FONT color=#0000ff>="</FONT></SPAN><B>content</B><SPAN class=m><FONT color=#0000ff>"</FONT></SPAN><SPAN class=t><FONT color=#990000> value</FONT></SPAN><SPAN class=m><FONT color=#0000ff>="</FONT></SPAN><B>bbb</B><FONT color=#0000ff><SPAN class=m>"</SPAN><SPAN class=m> /&gt;</SPAN></FONT> </DIV></DIV>
+<DIV><SPAN class=b><STRONG><FONT face="Courier New" color=#ff0000>&nbsp;</FONT></STRONG></SPAN>&nbsp;&nbsp;&nbsp;&nbsp; <SPAN class=m><FONT color=#0000ff>&lt;/</FONT></SPAN><SPAN class=t><FONT color=#990000>article</FONT></SPAN><SPAN class=m><FONT color=#0000ff>&gt;</FONT></SPAN></DIV></DIV></DIV>
+<DIV class=e>
+<DIV style="MARGIN-LEFT: 1em; TEXT-INDENT: -2em"><SPAN class=b><STRONG><FONT face="Courier New" color=#ff0000>&nbsp;</FONT></STRONG></SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <SPAN class=m><FONT color=#0000ff>&lt;</FONT></SPAN><SPAN class=t><FONT color=#990000>property</FONT></SPAN> <SPAN class=t><FONT color=#990000>id</FONT></SPAN><SPAN class=m><FONT color=#0000ff>="</FONT></SPAN><B>14</B><SPAN class=m><FONT color=#0000ff>"</FONT></SPAN><SPAN class=t><FONT color=#990000> key</FONT></SPAN><SPAN class=m><FONT color=#0000ff>="</FONT></SPAN><B>属性B</B><SPAN class=m><FONT color=#0000ff>"</FONT></SPAN><SPAN class=t><FONT color=#990000> value</FONT></SPAN><SPAN class=m><FONT color=#0000ff>="</FONT></SPAN><B>值B</B><FONT color=#0000ff><SPAN class=m>"</SPAN><SPAN class=m> /&gt;</SPAN></FONT> </DIV></DIV>
+<DIV class=e>
+<DIV style="MARGIN-LEFT: 1em; TEXT-INDENT: -2em"><SPAN class=b><STRONG><FONT face="Courier New" color=#ff0000>&nbsp;</FONT></STRONG></SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <SPAN class=m><FONT color=#0000ff>&lt;</FONT></SPAN><SPAN class=t><FONT color=#990000>property</FONT></SPAN> <SPAN class=t><FONT color=#990000>id</FONT></SPAN><SPAN class=m><FONT color=#0000ff>="</FONT></SPAN><B>15</B><SPAN class=m><FONT color=#0000ff>"</FONT></SPAN><SPAN class=t><FONT color=#990000> key</FONT></SPAN><SPAN class=m><FONT color=#0000ff>="</FONT></SPAN><B>属性A</B><SPAN class=m><FONT color=#0000ff>"</FONT></SPAN><SPAN class=t><FONT color=#990000> value</FONT></SPAN><SPAN class=m><FONT color=#0000ff>="</FONT></SPAN><B>值A</B><FONT color=#0000ff><SPAN class=m>"</SPAN><SPAN class=m> /&gt;</SPAN></FONT></DIV>
+<DIV style="MARGIN-LEFT: 1em; TEXT-INDENT: -2em"><FONT color=#0000ff><SPAN class=m><SPAN class=m><FONT color=#0000ff>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;</FONT></SPAN><SPAN class=t><FONT color=#990000>property</FONT></SPAN><FONT color=#000000> </FONT><SPAN class=t><FONT color=#990000>id</FONT></SPAN><SPAN class=m><FONT color=#0000ff>="</FONT></SPAN><B><FONT color=#000000>16</FONT></B><SPAN class=m><FONT color=#0000ff>"</FONT></SPAN><SPAN class=t><FONT color=#990000> key</FONT></SPAN><SPAN class=m><FONT color=#0000ff>="</FONT></SPAN><B><FONT color=#000000>description</FONT></B><SPAN class=m><FONT color=#0000ff>"</FONT></SPAN><SPAN class=t><FONT color=#990000> value</FONT></SPAN><SPAN class=m><FONT color=#0000ff>="</FONT></SPAN><FONT color=#000000><B>政策公告栏目，用于发布公商政策</B></FONT><SPAN class=m><FONT color=#0000ff>"</SPAN><SPAN class=m> /&gt;</SPAN></FONT></SPAN></FONT>&nbsp;</DIV></DIV>
+<DIV><SPAN class=b><STRONG><FONT face="Courier New" color=#ff0000>&nbsp;</FONT></STRONG></SPAN> <SPAN class=m><FONT color=#0000ff>&lt;/</FONT></SPAN><SPAN class=t><FONT color=#990000>column</FONT></SPAN><SPAN class=m><FONT color=#0000ff>&gt;</FONT></SPAN></DIV></DIV></DIV></DIV>
+<DIV>&nbsp;</DIV>
+<DIV>需要哪个Property，就在XSLT中用XPath去定位获取：</DIV>
+<DIV>&nbsp;</DIV>
+<DIV><FONT face="Courier New,Courier,Monospace">栏目描述：&lt;xsl:value-of select="property[@key='description']/@value" /&gt;</FONT></DIV>
+<DIV>&nbsp;</DIV>
+<DIV>如果是用Java的话，我就得每次去遍历DTO的树型结构，找到名字匹配的Property，才能取到它的值。在这种属性极度不确定的时候，XSLT View确实是挺灵活的。</DIV></p>				  
+             <p class="diaryFoot">- 作者： <a href="javascript:void(0);" onClick="window.open('/control/postMessage.b?receiverName=gigix&receiver=25249','发送短消息','width=310,height=265')" title="gigix">gigix</a>  2004年07月14日, 星期三 16:26  </p>
+				</div>
+ <div class="operation"> 
+    <a name="trackback"><H3>Trackback</H3></a>
+      <p class="trackback">你可以使用这个链接引用该篇日志 http://publishblog.blogdriver.com/blog/tb.b?diaryID=240516
+ </p>
+ </div>				
+<div class="operation">
+     <a name="comment"><H3>回复</H3></a>
+ </div>
+  <div class="operation"> 
+    <table width="700" border="0" cellpadding="0" cellspacing="0" class="comment">
+      <form id="replyForm" method="POST">
+        <input type="hidden" name="blogID" value="18254">
+        <input type="hidden" name="diaryID" value="240516">
+        <input type="hidden" name="blogDomino" value="gigix">
+<script>
+if(getCookie('userID') == null){        
+document.write('<tr><td width="70">发布人：</td>');
+document.write('<td width="150"> <input name="remark.authorNameFUI" type="text" size="20" class="inputStyle" maxlength="20"></td>');
+document.write('<td width="70">邮箱：</td>');
+document.write('<td width="435"> <input name="remark.authorEmail" type="text" size="20" class="inputStyle" maxlength="40"></td>');
+document.write('</tr><tr><td>主　页：</td>');
+document.write('<td colspan="3"> <input name="remark.authorURL" type="text" class="inputStyle" value="HTTP://" size="63" maxlength="40"></td></tr>');
+}else{
+document.write('<input type="hidden" name="remark.authorNameFUI" value="Blogdriver">');
+}
+</script>        
+        <tr align="left"> 
+          <td colspan="4">评论内容：<br/> <textarea name="remark.remarkFUI" id="remark" cols="60" rows="8" class="textStyle" >
+          </textarea> 
+          </td> 
+        </tr>
+        <tr align="left"> 
+          <td colspan="4"> 　　　　　　 　　　　　　 
+            <input type="button" value="提交" onClick="reply()" >
+            　 
+            <input type="reset" value="重置" > </td>
+        </tr>
+      </form>
+    </table>
+  </div>
+</div>	
+<script type="text/javascript" src="http://gigix.blogdriver/gigix/extend3.js"></script> 
+<div id="footer"><a href="http://www.blogdriver.com/jsp/reg/register.jsp"><img class="logo" src="http://www.blogdriver.com/template/common/img/logo3.gif" border="0"></a><a href="http://www.blogdriver.com/">2003-2004 BLOGDRIVER.COM All rights reserved</a></div>
+</body>
+</html>

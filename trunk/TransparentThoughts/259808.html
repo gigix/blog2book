@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<title>Why WebWork Differences--透明思考</title>
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache"> 
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache"> 
+<META HTTP-EQUIV="Expires" CONTENT="0"> 
+<META CONTENT="WebWork OGNL一个小问题Why WebWork DifferencesWhat's New in Spring 1.1  博客 博客动力 blog blogdriver blogger 中国" NAME="description"> 
+<META NAME="keywords" CONTENT="透明思考 WebWork OGNL一个小问题Why WebWork DifferencesWhat's New in Spring 1.1 博客 博客动力 blog blogdriver blogger 中国"> 
+<link href="diary.css" rel="stylesheet" type="text/css">
+<script language="JavaScript" src="/jsp/js/UBB.js"></script>
+<script type="text/javascript" src="/jsp/js/blog.js"></script>	
+</head>
+<body>
+  <div id="container">
+    <div id="header"><h1 class="title"><a href="index.html">透明思考</a></h1></div>
+	<div id="category">	<a href="257682.html" title="上一篇">WebWork OGNL一个小问题</a>- -|
+		<a href="index.html">回首页</a> | <a href="catalog_2004.html">2004年索引</a>
+	| - -<a href="260454.html" title="下一篇">What's New in Spring 1.1</a></div>
+ <div class="entity">
+			    <h2 class="diaryTitle">Why WebWork Differences- -</h2> 
+				 <p/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				 <p><DIV>按照我们现在的架构（参考<A href="http://cosoft.org.cn/projects/groller">G-Roller</A>），service组件应该是一个<STRONG>功能模块</STRONG>：每个service方法做且仅做一件事。去年做某市工商年检业务系统时，我们把太多的事情揉到一个service方法中去做（例如驱动工作流、权限控制），导致transaction script冗长且不可复用、不便移植。实际上，在功能模块的上面还应该有一层<STRONG>用例模块</STRONG>，它们仍然与表现无关，只是组合多个service组件（功能模块）实现一个用例——也不应该说这些用例模块与表现无关，它们直接对应表现的需求，但不应该绑定特定的表现技术（例如web）。</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>这些用例模块，就应该是表现层的action。例如“user!register”，还有比这更贴切的用例名吗？而且，组合多个service的功能，也没有比action更合适的地方了。但Struts的action并不适合做这种用例模块，因为它与web的绑定太紧密了，<FONT face="Courier New,Courier,Monospace">HttpServletXxx</FONT>这种东西随处可见。一旦使用了Struts，除非是在浏览器上做Rich Client、通过web service与服务器端交互，否则界面无法移植，而必须重新实现用例模块。因此，我们不敢在Struts action里放更多的逻辑，只好把service的transaction script臃肿起来了。</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>WebWork的好处就在这里：它的actions——实际上是xWork的actions——不绑定表现技术，任何一种界面都可以使用它。所以即便需要支持多种客户端，action这一部分仍然是完全可复用的。因此我们可以在这里实现用例。甚至可以把G-Roller的一些拦截器取消，在action这里用拦截器来管理事务和资源释放。</DIV></p>				  
+             <p class="diaryFoot">- 作者： <a href="javascript:void(0);" onClick="window.open('/control/postMessage.b?receiverName=gigix&receiver=25249','发送短消息','width=310,height=265')" title="gigix">gigix</a>  2004年07月28日, 星期三 19:30  </p>
+				</div>
+ <div class="operation"> 
+    <a name="trackback"><H3>Trackback</H3></a>
+      <p class="trackback">你可以使用这个链接引用该篇日志 http://publishblog.blogdriver.com/blog/tb.b?diaryID=259808
+ </p>
+ </div>				
+<div class="operation">
+     <a name="comment"><H3>回复</H3></a>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：匿名 </H4></a> 
+    <H5>Tue Aug 10 17:14:03 CST 2004　 
+        </H5> 
+    <BR/>
+    <P class="comment">其实是client&nbsp;--&nbsp;request&nbsp;handle&nbsp;－Command（Action）--&nbsp;Services,这是一个很久以前久用的很广泛的模式了<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：boool </H4></a> 
+    <H5>Wed Jul 28 22:13:33 CST 2004　 
+        <a href="mailto:boool@sohu.com"><img src="http://www.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+        </H5> 
+    <BR/>
+    <P class="comment">旦使用了Struts，除非是在浏览器上做Rich&nbsp;Client、通过web&nbsp;service与服务器端交互，否则界面无法移植，而必须重新实现用例模块。&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;不敢苟同，即使是struts的框架，你仍然可以2次开发，使用扩展它de&nbsp;ationservlet，细化你的应用逻辑，把逻辑分层，把action和逻辑层隔离，用一种数据结构来实现其间的转化<br>
+      <br>
+    </P>
+ </div>
+  <div class="operation"> 
+    <table width="700" border="0" cellpadding="0" cellspacing="0" class="comment">
+      <form id="replyForm" method="POST">
+        <input type="hidden" name="blogID" value="18254">
+        <input type="hidden" name="diaryID" value="259808">
+        <input type="hidden" name="blogDomino" value="gigix">
+<script>
+if(getCookie('userID') == null){        
+document.write('<tr><td width="70">发布人：</td>');
+document.write('<td width="150"> <input name="remark.authorNameFUI" type="text" size="20" class="inputStyle" maxlength="20"></td>');
+document.write('<td width="70">邮箱：</td>');
+document.write('<td width="435"> <input name="remark.authorEmail" type="text" size="20" class="inputStyle" maxlength="40"></td>');
+document.write('</tr><tr><td>主　页：</td>');
+document.write('<td colspan="3"> <input name="remark.authorURL" type="text" class="inputStyle" value="HTTP://" size="63" maxlength="40"></td></tr>');
+}else{
+document.write('<input type="hidden" name="remark.authorNameFUI" value="Blogdriver">');
+}
+</script>        
+        <tr align="left"> 
+          <td colspan="4">评论内容：<br/> <textarea name="remark.remarkFUI" id="remark" cols="60" rows="8" class="textStyle" >
+          </textarea> 
+          </td> 
+        </tr>
+        <tr align="left"> 
+          <td colspan="4"> 　　　　　　 　　　　　　 
+            <input type="button" value="提交" onClick="reply()" >
+            　 
+            <input type="reset" value="重置" > </td>
+        </tr>
+      </form>
+    </table>
+  </div>
+</div>	
+<script type="text/javascript" src="http://gigix.blogdriver/gigix/extend3.js"></script> 
+<div id="footer"><a href="http://www.blogdriver.com/jsp/reg/register.jsp"><img class="logo" src="http://www.blogdriver.com/template/common/img/logo3.gif" border="0"></a><a href="http://www.blogdriver.com/">2003-2004 BLOGDRIVER.COM All rights reserved</a></div>
+</body>
+</html>

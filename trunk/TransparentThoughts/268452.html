@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<title>轻量级的JMS消费者--透明思考</title>
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache"> 
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache"> 
+<META HTTP-EQUIV="Expires" CONTENT="0"> 
+<META CONTENT="《机械公敌》观后感轻量级的JMS消费者超越阐释  博客 博客动力 blog blogdriver blogger 中国" NAME="description"> 
+<META NAME="keywords" CONTENT="透明思考 《机械公敌》观后感轻量级的JMS消费者超越阐释 博客 博客动力 blog blogdriver blogger 中国"> 
+<link href="diary.css" rel="stylesheet" type="text/css">
+<script language="JavaScript" src="/jsp/js/UBB.js"></script>
+<script type="text/javascript" src="/jsp/js/blog.js"></script>	
+</head>
+<body>
+  <div id="container">
+    <div id="header"><h1 class="title"><a href="index.html">透明思考</a></h1></div>
+	<div id="category">	<a href="266837.html" title="上一篇">《机械公敌》观后感</a>- -|
+		<a href="index.html">回首页</a> | <a href="catalog_2004.html">2004年索引</a>
+	| - -<a href="272329.html" title="下一篇">超越阐释</a></div>
+ <div class="entity">
+			    <h2 class="diaryTitle">轻量级的JMS消费者- -</h2> 
+				 <p/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				 <p><DIV>在《剖析EJB》里我曾经说过，Message Driven Bean是一种理想的JMS消费者，因为它让你不必自己去考虑轮询、线程之类的麻烦事情。Jakarta Commons-Messenger是一个轻量级的JMS消费者框架，它用一个servlet来轮询、分发JMS消息，并用MDO（Message Driven Object）实际处理消息。实际上Commons-Messenger也包含了对“发送JMS消息”的封装，不过相比之下消费者框架这部分更有价值一些。</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>首先在web.xml中声明轮询JMS的servlet：</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>&nbsp; <FONT face="Courier New,Courier,Monospace">&lt;servlet&gt;<BR>&nbsp;&nbsp;&nbsp; &lt;servlet-name&gt;managerServlet&lt;/servlet-name&gt;<BR>&nbsp;&nbsp;&nbsp; &lt;servlet-class&gt;org.apache.commons.messagelet.ManagerServlet&lt;/servlet-class&gt;<BR>&nbsp;&nbsp;&nbsp; &lt;init-param&gt;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;param-name&gt;connections&lt;/param-name&gt;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;param-value&gt;/WEB-INF/Messenger.xml&lt;/param-value&gt;<BR>&nbsp;&nbsp;&nbsp; &lt;/init-param&gt; <BR>&nbsp;&nbsp;&nbsp; &lt;init-param&gt;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;param-name&gt;subscriptions&lt;/param-name&gt;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;param-value&gt;/WEB-INF/subscriptions.xml&lt;/param-value&gt;<BR>&nbsp;&nbsp;&nbsp; &lt;/init-param&gt; <BR>&nbsp;&nbsp;&nbsp; &lt;load-on-startup&gt;1&lt;/load-on-startup&gt; <BR>&nbsp; &lt;/servlet&gt;</FONT><BR></DIV>
+<DIV>&nbsp;</DIV>
+<DIV>Commons-Messenger用到两个配置文件。Messenger.xml指定获得<FONT face="Courier New,Courier,Monospace">ConnectionFactory</FONT>对象的JNDI配置：</DIV>
+<DIV>&nbsp;</DIV>
+<DIV><FONT face="Courier New,Courier,Monospace">&lt;manager&gt;</FONT></DIV>
+<DIV><FONT face="Courier New,Courier,Monospace">&nbsp;&nbsp; &lt;messenger name="topic" jndiDestinations="false" persistentDelivery="true"&gt;<BR>&nbsp;&nbsp;&nbsp; &lt;jndi lookupName="JmsTopicConnectionFactory" topic="true" acknowledge="auto"&gt;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;property&gt;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;name&gt;java.naming.factory.initial&lt;/name&gt;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;value&gt;org.exolab.jms.jndi.InitialContextFactory&lt;/value&gt;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/property&gt;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;property&gt;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&lt;name&gt;java.naming.provider.url&lt;/name&gt;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&lt;value&gt;rmi://localhost:1099/&lt;/value&gt;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/property&gt;<BR>&nbsp;&nbsp;&nbsp; &lt;/jndi&gt;<BR>&nbsp; &lt;/messenger&gt;</FONT></DIV>
+<DIV><FONT face="Courier New,Courier,Monospace">&lt;/manager&gt;</FONT><BR></DIV>
+<DIV>&nbsp;</DIV>
+<DIV>subscriptions.xml指定要监听的频道（Queue或者Topic）以及用于处理消息的MDO：</DIV>
+<DIV>&nbsp;</DIV>
+<DIV><FONT face="Courier New,Courier,Monospace">&lt;subscriptions&gt;</FONT></DIV>
+<DIV><FONT face="Courier New,Courier,Monospace">&nbsp; &lt;subscription connection="topic" subject="topic1"&gt;<BR>&nbsp;&nbsp;&nbsp; &lt;listener className="com.jbbis.cms.jms.UserMDO"/&gt;<BR>&nbsp; &lt;/subscription&gt;</FONT></DIV>
+<DIV><FONT face="Courier New,Courier,Monospace">&lt;/subscriptions&gt;</FONT></DIV>
+<DIV><FONT face="Courier New"></FONT>&nbsp;</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>MDO继承<FONT face="Courier New,Courier,Monospace">MessengerMDO</FONT>类，并实现<FONT face="Courier New,Courier,Monospace">onMessage</FONT>方法：</DIV>
+<DIV>&nbsp;</DIV>
+<DIV><FONT face="Courier New,Courier,Monospace">public class UserMDO extends MessengerMDO {<BR>&nbsp;public void onMessage(Message arg0) {</FONT></DIV>
+<DIV><FONT face="Courier New">&nbsp;&nbsp;&nbsp; ...&nbsp; // 处理消息</FONT><BR></DIV>
+<DIV>&nbsp;</DIV>
+<DIV>Commons-Messenger项目现在仍在sandbox阶段，异常处理非常糟糕，几乎无法得到有用的错误信息。在读取配置文件的地方（<FONT face="Courier New,Courier,Monospace">ManagerServlet.getResourceURL</FONT>方法）也有错误，需要对代码做些修改。除此之外，我认为Commons-Messenger是一个很好的JMS消费者框架。</DIV></p>				  
+             <p class="diaryFoot">- 作者： <a href="javascript:void(0);" onClick="window.open('/control/postMessage.b?receiverName=gigix&receiver=25249','发送短消息','width=310,height=265')" title="gigix">gigix</a>  2004年08月3日, 星期二 21:18  </p>
+				</div>
+ <div class="operation"> 
+    <a name="trackback"><H3>Trackback</H3></a>
+      <p class="trackback">你可以使用这个链接引用该篇日志 http://publishblog.blogdriver.com/blog/tb.b?diaryID=268452
+ </p>
+ </div>				
+<div class="operation">
+     <a name="comment"><H3>回复</H3></a>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：还在想 </H4></a> 
+    <H5>Wed Aug 04 15:10:17 CST 2004　 
+        </H5> 
+    <BR/>
+    <P class="comment">能干吗，举个应用的例子好不好？<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：wang jun </H4></a> 
+    <H5>Wed Aug 04 08:52:48 CST 2004　 
+        <a href="mailto:wangj@dfsoft.cc"><img src="http://www.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="http://befresh.blogbus.com" target="_blank"><img src="http://www.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">真是一个不错的项目，可以和activeMQ配合，就可以生成一套轻量级JMS解决方案。<P>我现在正在做fs&nbsp;jndi的jms&nbsp;consumer，是实现jms&nbsp;messageListener，这样就不需要应用服务器了。<br>
+      <br>
+    </P>
+ </div>
+  <div class="operation"> 
+    <table width="700" border="0" cellpadding="0" cellspacing="0" class="comment">
+      <form id="replyForm" method="POST">
+        <input type="hidden" name="blogID" value="18254">
+        <input type="hidden" name="diaryID" value="268452">
+        <input type="hidden" name="blogDomino" value="gigix">
+<script>
+if(getCookie('userID') == null){        
+document.write('<tr><td width="70">发布人：</td>');
+document.write('<td width="150"> <input name="remark.authorNameFUI" type="text" size="20" class="inputStyle" maxlength="20"></td>');
+document.write('<td width="70">邮箱：</td>');
+document.write('<td width="435"> <input name="remark.authorEmail" type="text" size="20" class="inputStyle" maxlength="40"></td>');
+document.write('</tr><tr><td>主　页：</td>');
+document.write('<td colspan="3"> <input name="remark.authorURL" type="text" class="inputStyle" value="HTTP://" size="63" maxlength="40"></td></tr>');
+}else{
+document.write('<input type="hidden" name="remark.authorNameFUI" value="Blogdriver">');
+}
+</script>        
+        <tr align="left"> 
+          <td colspan="4">评论内容：<br/> <textarea name="remark.remarkFUI" id="remark" cols="60" rows="8" class="textStyle" >
+          </textarea> 
+          </td> 
+        </tr>
+        <tr align="left"> 
+          <td colspan="4"> 　　　　　　 　　　　　　 
+            <input type="button" value="提交" onClick="reply()" >
+            　 
+            <input type="reset" value="重置" > </td>
+        </tr>
+      </form>
+    </table>
+  </div>
+</div>	
+<script type="text/javascript" src="http://gigix.blogdriver/gigix/extend3.js"></script> 
+<div id="footer"><a href="http://www.blogdriver.com/jsp/reg/register.jsp"><img class="logo" src="http://www.blogdriver.com/template/common/img/logo3.gif" border="0"></a><a href="http://www.blogdriver.com/">2003-2004 BLOGDRIVER.COM All rights reserved</a></div>
+</body>
+</html>

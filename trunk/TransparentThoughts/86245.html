@@ -1,0 +1,164 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<title>AOP的困境--透明思考</title>
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache"> 
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache"> 
+<META HTTP-EQUIV="Expires" CONTENT="0"> 
+<META CONTENT="直接调用ProxyFactoryBeanAOP的困境JSR 241：Groovy语言  博客 博客动力 blog blogdriver blogger 中国" NAME="description"> 
+<META NAME="keywords" CONTENT="透明思考 直接调用ProxyFactoryBeanAOP的困境JSR 241：Groovy语言 博客 博客动力 blog blogdriver blogger 中国"> 
+<link href="diary.css" rel="stylesheet" type="text/css">
+<script language="JavaScript" src="http://statices.blogdriver.com/jsp/js/UBB.js"></script>
+<script type="text/javascript" src="http://statices.blogdriver.com/jsp/js/blog.js"></script>	
+</head>
+<body>
+  <div id="container">
+    <div id="header"><h1 class="title"><a href="index.html">透明思考</a></h1></div>
+	<div id="category">	<a href="85309.html" title="上一篇">直接调用ProxyFactoryBean</a>- -|
+		<a href="index.html">回首页</a> | <a href="catalog_2004.html">2004年索引</a>
+	| - -<a href="86813.html" title="下一篇">JSR 241：Groovy语言</a></div>
+ <div class="entity">
+			    <h2 class="diaryTitle">AOP的困境- -</h2> 
+				 <p/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				 <p><DIV>遇到一个权限验证的问题。就是说，对于任何一个操作，需要判断这个人对于这份资源是否有权进行这项操作。这是一个典型的AOP场景，但是试图横切的时候遇到了困难。</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>“权限验证”这个aspect需要三项信息：<STRONG>操作者</STRONG>（userId）、<STRONG>被操作对象</STRONG>（departmentId、resourceFamilyId……）、<STRONG>操作</STRONG>（组件名+方法名）。“操作”的信息是可以在aspect中直接获得的；“操作者”的信息无法直接获得，但也可以在web层先用filter做一次拦截，将userId放进ThreadLocal，然后在aspect中取出。最麻烦的就是“被操作对象”的信息。譬如“删除部门”操作，被操作对象就是部门的ID；“修改portlet”操作，被操作对象就是portlet的注册ID。对于各种各样不同的service方法，如何在aspect中拦截出被操作对象的信息？</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>一种办法是约定将被操作对象ID放在参数列表的特定位置，譬如每个service方法的第一个参数就是被操作对象的ID，然后aspect始终到这个位置去拿到这个ID，判断是否有权限进行此操作。但这就等于给service方法加上了另一层约束，而且这种约束还无法在类型系统中体现出来，一则容易犯错（譬如忘了这个约定，把ID放到第二个参数了），二则多个aspect的约定还有可能冲突或者混淆。</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>有没有办法清晰地描述这种“aspect对组件的约束”？或者还有没有更好的办法？要不然，还真是不太敢多用AOP。</DIV></p>				  
+             <p class="diaryFoot">- 作者： <a href="javascript:void(0);" onClick="window.open('http://publishblog.blogdriver.com/blog/postMessage.b?receiver=25249','发送短消息','width=520, height=455')">gigix</a> 2004年03月17日, 星期三 19:52  </p>
+				</div>
+ <div class="operation"> 
+    <a name="trackback"><H3>Trackback</H3></a>
+      <p class="trackback">你可以使用这个链接引用该篇日志 http://publishblog.blogdriver.com/blog/tb.b?diaryID=86245
+ </p>
+ </div>				
+ 
+ <div class="operation">
+   <a name="relatedDiary"><H3>博客手拉手</H3></a>
+   <table width=90%>
+          </table>
+ </div>
+ 
+<div class="operation">
+     <a name="comment"><H3>回复</H3></a>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：gyjbgjhn </H4></a> 
+    <H5>Thu Oct 12 04:19:02 CST 2006　 
+        <a href="mailto:vdxwxwmehh@163.com"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="http://www.iuvod.com" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">myxwxwmevk[url=http://www.koolpages.com/kkjlehl/index.html]推广技巧[/url][url=http://www.koolpages.com/kkjlehl/26198047.htm]网站建设策划方案[/url][url=http://www.koolpages.com/kkjlehl/47348973.htm]引擎排名[/url][url=http://www.koolpages.com/kkjlehl/00157846.htm]网站推广mail[/url][url=http://www.koolpages.com/kkjlehl/95187597.htm]网站推广工具下载[/url][url=http://www.powow.com/oxvhseh/index.html]网站推广的方法[/url][url=http://www.powow.com/oxvhseh/80303016.htm]网站推广群发软件[/url][url=http://www.powow.com/oxvhseh/63576814.htm]网站排名榜[/url][url=http://www.powow.com/oxvhseh/46504715.htm]电子邮件群发[/url][url=http://www.powow.com/oxvhseh/90790388.htm]qq无限群发器[/url][url=http://www.pagerealm.com/qoitojq/index.html]如何建立网站[/url][url=http://www.pagerealm.com/qoitojq/40480876.htm]什么网站赚钱[/url][url=http://www.pagerealm.com/qoitojq/93765714.htm]qq消息群发工具[/url][url=http://www.pagerealm.com/qoitojq/13671137.htm]论坛自动发帖工具[/url][url=http://www.pagerealm.com/qoitojq/45301112.htm]进出口企业名录[/url]<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：yangzhongbin </H4></a> 
+    <H5>Sun Feb 06 18:15:22 CST 2005　 
+        <a href="mailto:yangzhongbin@yahoo.com"><img src="http://statices.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">将userId放进ThreadLocal，然后在aspect中取出<br><br>这个怎么实现啊，老大！<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：chinafax </H4></a> 
+    <H5>Thu Jan 20 17:50:54 CST 2005　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">很多文章都提到aop可以用来log。 aop对方法是beforeProcess和afterProcess.  但是我们一般都在方法内纪录log, 也就遇到如何用aop纪录方法内局部变量的问题？<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：road </H4></a> 
+    <H5>Thu Jan 20 11:08:46 CST 2005　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">另外的一点看法就是如同caoxg 所说Access Control是业务逻辑相关，那么就是业务编码的一部分，没有必要一定用AOP来实现。否则可能会反而把代码搞乱吧。因为对资源做什么操作只有实现的方法自己才知道，很难拆出来。<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：road </H4></a> 
+    <H5>Thu Jan 20 11:02:53 CST 2005　 
+            <a href="HTTP://" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">参考一下Windows操作系统的权限控制，就可以发现其实我们通常所说的“权限检查”包含了两个方面的内容，一方面是privilege，也就是是否可以执行某种操作如关机；另外一方面是access control，也就是是否可以访问某个资源如文件。系统中的Privilege数目是固定的，而资源的数目则不定。AOP适合于处理privilege，而不擅长于处理Access control。<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：youcai </H4></a> 
+    <H5>Tue Mar 23 14:52:05 CST 2004　 
+            <a href="http://alot." target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">“横切，竖切”听着怪怪的：）赞同你的观点。<br>aop的使用，受制于advise所关联部分的设计，比如，这个例子会受到权限系统设计的影响，gigix的权限系统没有说明，但看给出的例子，是不适合aop。<br>在做方面的设计时，比如缓存，事务，也需要很好设计，才有可能和aop结合，以方便应用。<br>比如事务处理，要做到类似于j2ee的可以针对方法进行事务定义，这就对事务管理的设计提出很高的要求，而且能不能用到aop上，还要看设计的结果。<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：caoxg </H4></a> 
+    <H5>Tue Mar 23 14:11:07 CST 2004　 
+            <a href="http://caoxg.blogone.net" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">你这里有一个误解。<br>ACL中，其实有两层切割关系，一次是横切，一次是竖切。（我自己的定义名词）<br>横切是系统模块资源的权限，而竖切是业务逻辑的权限.<br>比如说，某角色A对公司一科的订单有修改权限，而对公司二科订单无修改权限<br>那么：<br>角色A对“resource.order.purchaseOrder.edit”具有写权限，这是横切；<br>而此订单是一科还是二科的，这就是我所谓的竖切。<br>竖切基本上没有办法由底层的权限系统过问。<br><br>AOP织入的逻辑不应该与业务逻辑直接相关，这应该是一个必要的规则，我能想到的方法就是：<br>传入的order在ACL的横切逻辑之外再进行判断。<br>方法一：使用一个proxy类，再进行一次集中验证；<br>方法二：若使用AOP,传入的参数中，对所有某个对象扩展了PermissionRequired 接口；<br>则使用另外的一套规则对domain rule进行验证<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：youcai </H4></a> 
+    <H5>Tue Mar 23 11:25:16 CST 2004　 
+            <a href="http://alot.blogdriver.com" target="_blank"><img src="http://statices.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">深入的想一下，其实不是aop的困境，是权限管理的设计问题，对于权限管理会有一个资源和权限的对照，这里的资源定义决定了你会在aop采用什么样的方式处理。<br>采用aop所选定的方面要有共性才有价值，比如log，普通使用仅仅打印输入输出参数，这个共性不错。但我需要精确打印，比如打印某个资源的名字，打印某个权限编号，极端情况下每个可能用到log的位置所要打印的信息都不一样，这就导致方面没有共性了，虽然还都是log。<br>如果没有必要非要分离，干脆不使用aop，如果要使用aop，<br>也许利用配置的方式可以解决。<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：charon </H4></a> 
+    <H5>Thu Mar 18 09:48:20 CST 2004　 
+        </H5> 
+    <BR/>
+    <P class="comment">faint,发错地方了，怎么回事<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：charon </H4></a> 
+    <H5>Thu Mar 18 09:33:42 CST 2004　 
+        </H5> 
+    <BR/>
+    <P class="comment">这个groovy看起来比jython好多了。jython的一个最大特点是已经不再维护了(发起者已经撤了，但是好像还有人在升级，只不过几乎没有活动迹象)，而且位置在python和java之间有点尴尬(cpython早就升了好几个版本了，在语法上也有重要的新特性，这些jython都不灵)，还要自己写ant的task(我写了一个，后来没怎么用)，后来看到groovy，对jython基本失去兴趣。<br>btw,spring里面自动aop的东西在autoproxy 下面，可以指定需要搞的bean。<br>
+      <br>
+    </P>
+ </div>
+  <div class="operation"> 
+    <table width="700" border="0" cellpadding="0" cellspacing="0" class="comment">
+      <form id="replyForm" method="POST">
+        <input type="hidden" name="blogID" value="18254">
+        <input type="hidden" name="diaryID" value="86245">
+        <input type="hidden" name="blogDomino" value="gigix">
+<script>
+if(getCookie('userID') == null){        
+document.write('<tr><td width="70">发布人：</td>');
+document.write('<td width="150"> <input name="remark.authorNameFUI" type="text" size="20" class="inputStyle" maxlength="20"></td>');
+document.write('<td width="70">邮箱：</td>');
+document.write('<td width="435"> <input name="remark.authorEmail" type="text" size="20" class="inputStyle" maxlength="40"></td>');
+document.write('</tr><tr><td>主　页：</td>');
+document.write('<td colspan="3"> <input name="remark.authorURL" type="text" class="inputStyle" value="HTTP://" size="63" maxlength="40"></td></tr>');
+}else{
+document.write('<input type="hidden" name="remark.authorNameFUI" value="Blogdriver">');
+}
+</script>        
+        <tr align="left"> 
+          <td colspan="4">评论内容：<br/> <textarea name="remark.remarkFUI" id="remark" cols="60" rows="8" class="textStyle" >
+          </textarea> 
+          </td> 
+        </tr>
+        <tr align="left"> 
+          <td colspan="4"> 　　　　　　 　　　　　　 
+            <input type="button" value="提交" onClick="reply()" >
+            　 
+            <input type="reset" value="重置" > </td>
+        </tr>
+      </form>
+    </table>
+  </div>
+</div>	
+<script type="text/javascript" src="http://gigix.blogdriver/gigix/extend3.js"></script> 
+<div id="footer"><a href="http://statices.blogdriver.com/jsp/reg/register.jsp"><img class="logo" src="http://statices.blogdriver.com/template/common/img/logo3.gif" border="0"></a><a href="http://www.blogdriver.com/">2003-2004 BLOGDRIVER.COM All rights reserved</a></div>
+</body>
+</html>

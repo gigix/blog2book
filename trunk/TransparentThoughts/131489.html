@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<title>Service Oriented Architecture--透明思考</title>
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache"> 
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache"> 
+<META HTTP-EQUIV="Expires" CONTENT="0"> 
+<META CONTENT="第一步：SCMService Oriented Architecture培训提纲  博客 博客动力 blog blogdriver blogger 中国" NAME="description"> 
+<META NAME="keywords" CONTENT="透明思考 第一步：SCMService Oriented Architecture培训提纲 博客 博客动力 blog blogdriver blogger 中国"> 
+<link href="diary.css" rel="stylesheet" type="text/css">
+<script language="JavaScript" src="/jsp/js/UBB.js"></script>
+<script type="text/javascript" src="/jsp/js/blog.js"></script>	
+</head>
+<body>
+  <div id="container">
+    <div id="header"><h1 class="title"><a href="index.html">透明思考</a></h1></div>
+	<div id="category">	<a href="131144.html" title="上一篇">第一步：SCM</a>- -|
+		<a href="index.html">回首页</a> | <a href="catalog_2004.html">2004年索引</a>
+	| - -<a href="131568.html" title="下一篇">培训提纲</a></div>
+ <div class="entity">
+			    <h2 class="diaryTitle">Service Oriented Architecture- -</h2> 
+				 <p/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				 <p><DIV>当应用程序需要通过远程接口向（可能是）异质客户端提供服务时，必须采用面向服务的体系结构（SOA）。不管你的remoting是RMI、JAX-RPC还是Hessian，这一点是相同的。</DIV>
+<DIV><A href="http://www-106.ibm.com/developerworks/library/ws-soaintro.html" target=_blank>http://www-106.ibm.com/developerworks/library/ws-soaintro.html</A></DIV>
+<DIV>&nbsp;</DIV>
+<DIV>一个“服务”代表相对独立、大粒度的系统功能，服务彼此之间、服务与客户端之间松散耦合，服务具有精心定义的接口，服务理应是无状态的。在OO的体系结构里，你可能使用一些回调、出参数之类的技巧，在SOA这里这一切都是被禁止使用的。</DIV></p>				  
+             <p class="diaryFoot">- 作者： <a href="javascript:void(0);" onClick="window.open('/control/postMessage.b?receiverName=gigix&receiver=25249','发送短消息','width=310,height=265')" title="gigix">gigix</a>  2004年04月27日, 星期二 08:39  </p>
+				</div>
+ <div class="operation"> 
+    <a name="trackback"><H3>Trackback</H3></a>
+      <p class="trackback">你可以使用这个链接引用该篇日志 http://publishblog.blogdriver.com/blog/tb.b?diaryID=131489
+ </p>
+ </div>				
+<div class="operation">
+     <a name="comment"><H3>回复</H3></a>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：flyisland </H4></a> 
+    <H5>Wed Apr 28 17:52:18 CST 2004　 
+        <a href="mailto:islandchen@vip.sina.com"><img src="http://www.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="http://flyisland.blogbus.com" target="_blank"><img src="http://www.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">看过一些SOA相关的资料，还是第一次发现IBM提到的这个Stateless service design，不知道这是作者的个人看法还是IBM的看法。<br><br>我认为完全的stateless在世纪业务中是不现实的，总会有各种状态信息的需求，例如安全（难道每次调用都要重新认证）；或者是异步调用一个长时间服务，怎么获得结果，callback是很方便的手段，如果采用轮询也要依赖于状态信息。<br><br>好像stateful web services的协议还没有正式出来，不过ibm、bea都有自己这方面的实现。<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：透明 </H4></a> 
+    <H5>Tue Apr 27 20:16:37 CST 2004　 
+        </H5> 
+    <BR/>
+    <P class="comment">是功能的调用，但粒度很粗，尽量减少调用的次数。<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：taowen </H4></a> 
+    <H5>Tue Apr 27 18:51:38 CST 2004　 
+        <a href="mailto:mo2mo@163.com"><img src="http://www.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="http://taowen.blogdriver.com" target="_blank"><img src="http://www.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">服务是信息的传递还是功能的调用呢？<br>
+      <br>
+    </P>
+ </div>
+  <div class="operation"> 
+    <table width="700" border="0" cellpadding="0" cellspacing="0" class="comment">
+      <form id="replyForm" method="POST">
+        <input type="hidden" name="blogID" value="18254">
+        <input type="hidden" name="diaryID" value="131489">
+        <input type="hidden" name="blogDomino" value="gigix">
+<script>
+if(getCookie('userID') == null){        
+document.write('<tr><td width="70">发布人：</td>');
+document.write('<td width="150"> <input name="remark.authorNameFUI" type="text" size="20" class="inputStyle" maxlength="20"></td>');
+document.write('<td width="70">邮箱：</td>');
+document.write('<td width="435"> <input name="remark.authorEmail" type="text" size="20" class="inputStyle" maxlength="40"></td>');
+document.write('</tr><tr><td>主　页：</td>');
+document.write('<td colspan="3"> <input name="remark.authorURL" type="text" class="inputStyle" value="HTTP://" size="63" maxlength="40"></td></tr>');
+}else{
+document.write('<input type="hidden" name="remark.authorNameFUI" value="Blogdriver">');
+}
+</script>        
+        <tr align="left"> 
+          <td colspan="4">评论内容：<br/> <textarea name="remark.remarkFUI" id="remark" cols="60" rows="8" class="textStyle" >
+          </textarea> 
+          </td> 
+        </tr>
+        <tr align="left"> 
+          <td colspan="4"> 　　　　　　 　　　　　　 
+            <input type="button" value="提交" onClick="reply()" >
+            　 
+            <input type="reset" value="重置" > </td>
+        </tr>
+      </form>
+    </table>
+  </div>
+</div>	
+<script type="text/javascript" src="http://gigix.blogdriver/gigix/extend3.js"></script> 
+<div id="footer"><a href="http://www.blogdriver.com/jsp/reg/register.jsp"><img class="logo" src="http://www.blogdriver.com/template/common/img/logo3.gif" border="0"></a><a href="http://www.blogdriver.com/">2003-2004 BLOGDRIVER.COM All rights reserved</a></div>
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<title>设计模式是不是每天要用--透明思考</title>
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache"> 
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache"> 
+<META HTTP-EQUIV="Expires" CONTENT="0"> 
+<META CONTENT="那个最恶心的家伙去了设计模式是不是每天要用伏尔加河上的纤夫  博客 博客动力 blog blogdriver blogger 中国" NAME="description"> 
+<META NAME="keywords" CONTENT="透明思考 那个最恶心的家伙去了设计模式是不是每天要用伏尔加河上的纤夫 博客 博客动力 blog blogdriver blogger 中国"> 
+<link href="diary.css" rel="stylesheet" type="text/css">
+<script language="JavaScript" src="/jsp/js/UBB.js"></script>
+<script type="text/javascript" src="/jsp/js/blog.js"></script>	
+</head>
+<body>
+  <div id="container">
+    <div id="header"><h1 class="title"><a href="index.html">透明思考</a></h1></div>
+	<div id="category">	<a href="654097.html" title="上一篇">那个最恶心的家伙去了</a>- -|
+		<a href="index.html">回首页</a> | <a href="catalog_2005.html">2005年索引</a>
+	| - -<a href="674435.html" title="下一篇">伏尔加河上的纤夫</a></div>
+ <div class="entity">
+			    <h2 class="diaryTitle">设计模式是不是每天要用- -</h2> 
+				 <p/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				 <p>
+<h3>场景1</h3><br /><span style="font-weight: bold;">第一天</span><br />程序员A：用户组织这块怎么设计？<br />架构师（画类图）：Department和Person继承Party接口，Department可以包含Department，也可以包含Person——或者说，Department可以包含Party。Person不可以再包含。<br />程序员A（迷惑）：……<br />架构师（画示意图）：就好象一棵树的结构，“部门”是枝节点，“人员”是叶节点，每个枝可以再有N个子节点，叶子节点不可以再有子节点。<br />程序员A：计算部门薪资总数怎么做呢？<br />架构师（写伪码）：Party接口有getSalary()方法，Person类返回自己的工资，Department类返回所有子节点的工资之和。<br />程序员A：哦，明白了。<br /><br /><span style="font-weight: bold;">第二天</span><br />项目经理：昨天讨论了，用户组织这块怎么设计？<br />程序员A（画类图）：Department和Person继承Party接口……<br />项目经理：计算部门薪资总数怎么做？<br />程序员A（写伪码）：Party接口有getSalary()方法……<br /><br /><span style="font-weight: bold;">第三天</span><br />程序员B（新来的）：请问用户组织这块怎么设计？<br />项目经理（画类图）：……<br />程序员B：……<br />项目经理：……<br /><br /><h3>场景2</h3>
+<br />
+<span style="font-weight: bold;">第一天</span><br />
+程序员A：用户组织这块怎么设计？<br />
+架构师：用一个Composite模式。<br />
+程序员A：哦，明白了。<br />
+<br />
+<span style="font-weight: bold;">第二天</span><br />
+项目经理：昨天讨论了，用户组织这块怎么设计？<br />
+程序员A：用一个Composite模式。<br />
+<br />
+<span style="font-weight: bold;">第三天</span><br />
+程序员B（新来的）：请问用户组织这块怎么设计？<br />
+项目经理：用一个Composite模式。<br /><br /><a href="http://gigix.blogdriver.com/gigix/653657.html#comment405922">设计模式是不是每天要用</a>？自己想想就知道。<br />
+</p>				  
+             <p class="diaryFoot">- 作者： <a href="javascript:void(0);" onClick="window.open('http://publishblog.blogdriver.com/blog/postMessage.b?receiver=25249','发送短消息','width=520, height=455')">透明</a> 2005年04月28日, 星期四 15:53  </p>
+				</div>
+ <div class="operation"> 
+    <a name="trackback"><H3>Trackback</H3></a>
+      <p class="trackback">你可以使用这个链接引用该篇日志 http://publishblog.blogdriver.com/blog/tb.b?diaryID=656695
+ </p>
+ </div>				
+<div class="operation">
+     <a name="comment"><H3>回复</H3></a>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：bs </H4></a> 
+    <H5>Mon May 30 12:40:14 CST 2005　 
+            <a href="HTTP://" target="_blank"><img src="http://www.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">to incredible boy:<br>牛，呵呵，看样子你可以总结自己的模式，没必要跟他说，他又没给你咨询费。<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：bishi </H4></a> 
+    <H5>Thu May 26 14:16:49 CST 2005　 
+            <a href="HTTP://" target="_blank"><img src="http://www.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">啥时候把CSDN的那个破博客弄好了，再在这里教训人。<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：andijo </H4></a> 
+    <H5>Mon May 16 23:40:25 CST 2005　 
+            <a href="HTTP://" target="_blank"><img src="http://www.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">项目经理就对DP不懂，知道有个工厂模式，其他不知道，说没什么用，如果你用了什么什么，说你过度设计。<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：偶然路过 </H4></a> 
+    <H5>Thu May 12 15:41:19 CST 2005　 
+            <a href="HTTP://" target="_blank"><img src="http://www.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">模式是好的，但gigix过于夸大了它的作用，不愧IT娱记，最喜假大空。<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：zzttkk </H4></a> 
+    <H5>Tue May 10 21:24:18 CST 2005　 
+            <a href="HTTP://zzttkk.blogchina.com/" target="_blank"><img src="http://www.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">精辟地描述了项目经理传话筒的角色<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：模特 </H4></a> 
+    <H5>Thu May 05 23:20:42 CST 2005　 
+        <a href="mailto:oomm5@tom.com"><img src="http://www.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="http://motee.blogdriver.com/" target="_blank"><img src="http://www.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">http://www.6gan.com<br>http://www.281c.com<br>http://www.pi9.net<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：模特 </H4></a> 
+    <H5>Wed May 04 23:31:03 CST 2005　 
+        <a href="mailto:oomm5@tom.com"><img src="http://www.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="http://motee.blogdriver.com/" target="_blank"><img src="http://www.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment"><a href="http://shipinwww.blogdriver.com"><font color="#F3F1F5">视频MM</font></a><font color="#F3F1F5"><br></font><br><a href="http://freewenxue.blogdriver.com"><font color="#F3F1F5">文学小说</font></a><font color="#F3F1F5"><br></font><br><a href="http://xinqingshijie.blogdriver.com"><font color="#F3F1F5">心情故事</font></a><font color="#F3F1F5"><br></font><br><a href="http://mingxingyanjiu.blogdriver.com"><font color="#F3F1F5">明星写真</font></a><font color="#F3F1F5"><br></font><br><a href="http://motee.blogdriver.com"><font color="#F3F1F5">模特网</font></a><font color="#F3F1F5"><br></font><br><a href="http://zhuyinrenti.blogdriver.com"><font color="#F3F1F5">1</font></a><br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：透明 </H4></a> 
+    <H5>Tue May 03 12:51:12 CST 2005　 
+        </H5> 
+    <BR/>
+    <P class="comment">to incredible boy：<br>为什么我知道“组织机构建模”这件事一定要用composite模式来做？这里有个东西叫做“经验”。如果你连这点经验都还没有，不妨先学习学习、锻炼锻炼，过几年再指点江山不迟。圣人曰“知之为知之不知为不知”，承认自己经验少并不是什么丢脸的事。<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：固体海洋 </H4></a> 
+    <H5>Mon May 02 01:22:38 CST 2005　 
+        <a href="mailto:dqyf1314@yahoo.com.cn"><img src="http://www.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="http://gutihaiyang.blogdriver.com/" target="_blank"><img src="http://www.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">上面的那个免费电影大王怎么回事啊？你的被放木马了，告诉一声不就可以了吗？干吗还大费周折啊？<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：incredible boy </H4></a> 
+    <H5>Sat Apr 30 12:04:56 CST 2005　 
+            <a href="HTTP://" target="_blank"><img src="http://www.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">哦，原来这就是每天你用的所谓的“模式”，说白了就是多态特性的应用么。我不会每天都用到这些的，为了最快最直接的实现，dep. & employee的<br>getSalary方法都是单个写的，如果哪一天真正需要抽象出些接口出来，我才<br>会重新整理出接口和类的。 我可没时间事先抽象出共同点，定义些接口。<br>  设计模式，俺还真不懂太多，可是Gof好像在Design Pattern 前言中说过，<br> “只有这些代码真正起到。。。作用时，模式才能起作用”俺还是挺认可的。<br>    你说天天用模式，我不知道你是天天修改旧程序，还是天天在讲同样的课，如果你是遇到新的问题，新的领域，一上去就能抽象出一大堆所谓的模式<br>，我很怀疑这些就口和类有没有作用？？？？？？？？？？？<br>    说到底，哥么，你还是太夸大你的“DP”的作用了，<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：chelsea </H4></a> 
+    <H5>Fri Apr 29 13:01:04 CST 2005　 
+            <a href="HTTP://blog.csdn.net/chelsea" target="_blank"><img src="http://www.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">葫芦是原型模式<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：王者之剑 </H4></a> 
+    <H5>Fri Apr 29 11:53:27 CST 2005　 
+            <a href="HTTP://www.albertsong.com" target="_blank"><img src="http://www.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">哈哈！<br>如果B听得懂，给B讲<br>如果B听不懂，不用给B讲，<br>如果B这样的人很多，做demo让他们去依葫芦画瓢。<br>突然想到一句话：葫芦，最古老最实用的模式？各位以为然否？<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：aoaoao </H4></a> 
+    <H5>Fri Apr 29 10:32:22 CST 2005　 
+            <a href="HTTP://" target="_blank"><img src="http://www.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">我们公司一般是这样：A用composite模式，B接手，让A讲，B不懂，去看设计模式书，仍然不懂，然后B自己在程序中写了一大堆if，A的代码作废，极度郁闷中~~<br>
+      <br>
+    </P>
+ </div>
+  <div class="operation"> 
+    <table width="700" border="0" cellpadding="0" cellspacing="0" class="comment">
+      <form id="replyForm" method="POST">
+        <input type="hidden" name="blogID" value="18254">
+        <input type="hidden" name="diaryID" value="656695">
+        <input type="hidden" name="blogDomino" value="gigix">
+<script>
+if(getCookie('userID') == null){        
+document.write('<tr><td width="70">发布人：</td>');
+document.write('<td width="150"> <input name="remark.authorNameFUI" type="text" size="20" class="inputStyle" maxlength="20"></td>');
+document.write('<td width="70">邮箱：</td>');
+document.write('<td width="435"> <input name="remark.authorEmail" type="text" size="20" class="inputStyle" maxlength="40"></td>');
+document.write('</tr><tr><td>主　页：</td>');
+document.write('<td colspan="3"> <input name="remark.authorURL" type="text" class="inputStyle" value="HTTP://" size="63" maxlength="40"></td></tr>');
+}else{
+document.write('<input type="hidden" name="remark.authorNameFUI" value="Blogdriver">');
+}
+</script>        
+        <tr align="left"> 
+          <td colspan="4">评论内容：<br/> <textarea name="remark.remarkFUI" id="remark" cols="60" rows="8" class="textStyle" >
+          </textarea> 
+          </td> 
+        </tr>
+        <tr align="left"> 
+          <td colspan="4"> 　　　　　　 　　　　　　 
+            <input type="button" value="提交" onClick="reply()" >
+            　 
+            <input type="reset" value="重置" > </td>
+        </tr>
+      </form>
+    </table>
+  </div>
+</div>	
+<script type="text/javascript" src="http://gigix.blogdriver/gigix/extend3.js"></script> 
+<div id="footer"><a href="http://www.blogdriver.com/jsp/reg/register.jsp"><img class="logo" src="http://www.blogdriver.com/template/common/img/logo3.gif" border="0"></a><a href="http://www.blogdriver.com/">2003-2004 BLOGDRIVER.COM All rights reserved</a></div>
+</body>
+</html>

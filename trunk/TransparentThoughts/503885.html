@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<title>Arrays.asList(), huh?--透明思考</title>
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache"> 
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache"> 
+<META HTTP-EQUIV="Expires" CONTENT="0"> 
+<META CONTENT="变态是一种生活态度Arrays.asList(), huh?学会了用TrackBack  博客 博客动力 blog blogdriver blogger 中国" NAME="description"> 
+<META NAME="keywords" CONTENT="透明思考 变态是一种生活态度Arrays.asList(), huh?学会了用TrackBack 博客 博客动力 blog blogdriver blogger 中国"> 
+<link href="diary.css" rel="stylesheet" type="text/css">
+<script language="JavaScript" src="/jsp/js/UBB.js"></script>
+<script type="text/javascript" src="/jsp/js/blog.js"></script>	
+</head>
+<body>
+  <div id="container">
+    <div id="header"><h1 class="title"><a href="index.html">透明思考</a></h1></div>
+	<div id="category">	<a href="502793.html" title="上一篇">变态是一种生活态度</a>- -|
+		<a href="index.html">回首页</a> | <a href="catalog_2005.html">2005年索引</a>
+	| - -<a href="503904.html" title="下一篇">学会了用TrackBack</a></div>
+ <div class="entity">
+			    <h2 class="diaryTitle">Arrays.asList(), huh?- -</h2> 
+				 <p/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				 <p>
+Dion says (<a href="http://www.almaer.com/blog/archives/000639.html">http://www.almaer.com/blog/archives/000639.html</a>):<br /><br /><span style="font-style: italic;">I think that the Arrays.* methods are not that well known among Java developers</span>.<br /><br />But it's not true. If your application involved with any remoting ... in fact, any customized serialization (such as <span style="font-family: courier new,courier,monospace;">XMLEncoder</span>/<span style="font-family: courier new,courier,monospace;">XMLDecoder</span>), <span style="font-family: courier new,courier,monospace;">Arrays.asList()</span> can be an error prone. Its result is of type <span style="font-family: courier new,courier,monospace;">java.util.Arrays$ArrayList</span>, a private type, so serialization framework cannot instantiate it. And so...<br /><br />For example, you can run the following JUnit test case:<br /><br /><span style="font-family: courier new,courier,monospace;">    public void testXmlSerialize() throws Exception {</span><br style="font-family: courier new,courier,monospace;" /><span style="font-family: courier new,courier,monospace;">  Object[] anArray = new Object[]{&quot;Jeff&quot;};</span><br style="font-family: courier new,courier,monospace;" /><span style="font-family: courier new,courier,monospace;">  List aList = Arrays.asList(anArray);</span><br style="font-family: courier new,courier,monospace;" /><span style="font-family: courier new,courier,monospace;">        </span><br style="font-family: courier new,courier,monospace;" /><span style="font-family: courier new,courier,monospace;">  ByteArrayOutputStream baos = new ByteArrayOutputStream();</span><br style="font-family: courier new,courier,monospace;" /><span style="font-family: courier new,courier,monospace;">  XMLEncoder encoder = new XMLEncoder(baos);</span><br style="font-family: courier new,courier,monospace;" /><span style="font-family: courier new,courier,monospace;">  encoder.writeObject(aList);</span><br style="font-family: courier new,courier,monospace;" /><span style="font-family: courier new,courier,monospace;">  encoder.close();</span><br style="font-family: courier new,courier,monospace;" /><span style="font-family: courier new,courier,monospace;">  byte[] someBytes = baos.toByteArray();</span><br style="font-family: courier new,courier,monospace;" /><br style="font-family: courier new,courier,monospace;" /><span style="font-family: courier new,courier,monospace;">  String result = new String(someBytes);</span><br style="font-family: courier new,courier,monospace;" /><span style="font-family: courier new,courier,monospace;">  System.out.println(result);</span><br style="font-family: courier new,courier,monospace;" /><span style="font-family: courier new,courier,monospace;">  // huh, our content is missed</span><br style="font-family: courier new,courier,monospace;" /><span style="font-family: courier new,courier,monospace;">  assertTrue(result.indexOf(&quot;Jeff&quot;) == -1);</span><br style="font-family: courier new,courier,monospace;" /><span style="font-family: courier new,courier,monospace;">    }</span><br /><br />I found this bug when using Hessian remoting. If you want some simplified syntax for <span style="font-family: courier new,courier,monospace;">List </span>initialization, try this:<br /><br /><span style="font-family: courier new,courier,monospace;">List aList = new ArrayList() {</span><br style="font-family: courier new,courier,monospace;" /><span style="font-family: courier new,courier,monospace;">  {</span><br style="font-family: courier new,courier,monospace;" /><span style="font-family: courier new,courier,monospace;">    add(&quot;Jeff&quot;);</span><br style="font-family: courier new,courier,monospace;" /><span style="font-family: courier new,courier,monospace;">    add(&quot;Gigix&quot;);</span><br style="font-family: courier new,courier,monospace;" /><span style="font-family: courier new,courier,monospace;">  }</span><br style="font-family: courier new,courier,monospace;" /><span style="font-family: courier new,courier,monospace;">};</span><br /></p>				  
+             <p class="diaryFoot">- 作者： <a href="javascript:void(0);" onClick="window.open('/control/postMessage.b?receiverName=透明&receiver=25249','发送短消息','width=310,height=265')" title="透明">透明</a>  2005年01月18日, 星期二 17:41  </p>
+				</div>
+ <div class="operation"> 
+    <a name="trackback"><H3>Trackback</H3></a>
+      <p class="trackback">你可以使用这个链接引用该篇日志 http://publishblog.blogdriver.com/blog/tb.b?diaryID=503885
+ </p>
+ </div>				
+<div class="operation">
+     <a name="comment"><H3>回复</H3></a>
+ </div>
+  <div class="operation"> 
+    <table width="700" border="0" cellpadding="0" cellspacing="0" class="comment">
+      <form id="replyForm" method="POST">
+        <input type="hidden" name="blogID" value="18254">
+        <input type="hidden" name="diaryID" value="503885">
+        <input type="hidden" name="blogDomino" value="gigix">
+<script>
+if(getCookie('userID') == null){        
+document.write('<tr><td width="70">发布人：</td>');
+document.write('<td width="150"> <input name="remark.authorNameFUI" type="text" size="20" class="inputStyle" maxlength="20"></td>');
+document.write('<td width="70">邮箱：</td>');
+document.write('<td width="435"> <input name="remark.authorEmail" type="text" size="20" class="inputStyle" maxlength="40"></td>');
+document.write('</tr><tr><td>主　页：</td>');
+document.write('<td colspan="3"> <input name="remark.authorURL" type="text" class="inputStyle" value="HTTP://" size="63" maxlength="40"></td></tr>');
+}else{
+document.write('<input type="hidden" name="remark.authorNameFUI" value="Blogdriver">');
+}
+</script>        
+        <tr align="left"> 
+          <td colspan="4">评论内容：<br/> <textarea name="remark.remarkFUI" id="remark" cols="60" rows="8" class="textStyle" >
+          </textarea> 
+          </td> 
+        </tr>
+        <tr align="left"> 
+          <td colspan="4"> 　　　　　　 　　　　　　 
+            <input type="button" value="提交" onClick="reply()" >
+            　 
+            <input type="reset" value="重置" > </td>
+        </tr>
+      </form>
+    </table>
+  </div>
+</div>	
+<script type="text/javascript" src="http://gigix.blogdriver/gigix/extend3.js"></script> 
+<div id="footer"><a href="http://www.blogdriver.com/jsp/reg/register.jsp"><img class="logo" src="http://www.blogdriver.com/template/common/img/logo3.gif" border="0"></a><a href="http://www.blogdriver.com/">2003-2004 BLOGDRIVER.COM All rights reserved</a></div>
+</body>
+</html>

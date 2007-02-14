@@ -1,0 +1,149 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<title>NHibernate实体配置自动生成--透明思考</title>
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache"> 
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache"> 
+<META HTTP-EQUIV="Expires" CONTENT="0"> 
+<META CONTENT="NHibernate AttributesNHibernate实体配置自动生成从“OO的价值”说起  博客 博客动力 blog blogdriver blogger 中国" NAME="description"> 
+<META NAME="keywords" CONTENT="透明思考 NHibernate AttributesNHibernate实体配置自动生成从“OO的价值”说起 博客 博客动力 blog blogdriver blogger 中国"> 
+<link href="diary.css" rel="stylesheet" type="text/css">
+<script language="JavaScript" src="/jsp/js/UBB.js"></script>
+<script type="text/javascript" src="/jsp/js/blog.js"></script>	
+</head>
+<body>
+  <div id="container">
+    <div id="header"><h1 class="title"><a href="index.html">透明思考</a></h1></div>
+	<div id="category">	<a href="214518.html" title="上一篇">NHibernate Attributes</a>- -|
+		<a href="index.html">回首页</a> | <a href="catalog_2004.html">2004年索引</a>
+	| - -<a href="217255.html" title="下一篇">从“OO的价值”说起</a></div>
+ <div class="entity">
+			    <h2 class="diaryTitle">NHibernate实体配置自动生成- -</h2> 
+				 <p/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				 <p><DIV>写了一段小程序，用来自动生成NHibernate实体配置文件（.hbm.xml文件）。非常简陋，使用了System.Reflection和System.xml命名空间的一些东西，仅仅能够保证Quick Start Guide的例子使用而已，还需要改进和重构。但是思路就可以这样定下来了。现在一个NHibernate实体类大概写成这样：</DIV>
+<DIV>&nbsp;</DIV>
+<DIV><FONT face="Courier New,Courier,Monospace">&nbsp;[NHibernateClass(Table = "TBL_USERS")]<BR>&nbsp;public class User&nbsp;{<BR>&nbsp;&nbsp;[NHibernateId(GeneratorClass = "assigned")]<BR>&nbsp;&nbsp;public string Id&nbsp;{<BR>&nbsp;&nbsp;&nbsp;get { return id; }<BR>&nbsp;&nbsp;&nbsp;set { id = value; }<BR>&nbsp;&nbsp;}</FONT></DIV>
+<DIV><FONT face="Courier New,Courier,Monospace">&nbsp;&nbsp;[NHibernateProperty(Column = "Name")]<BR>&nbsp;&nbsp;public string UserName&nbsp;{<BR>&nbsp;&nbsp;&nbsp;get { return userName; }<BR>&nbsp;&nbsp;&nbsp;set { userName = value; }<BR>&nbsp;&nbsp;}</FONT></DIV>
+<DIV><FONT face="Courier New,Courier,Monospace">&nbsp;&nbsp;[NHibernateProperty]<BR>&nbsp;&nbsp;public DateTime LastLogon&nbsp;{<BR>&nbsp;&nbsp;&nbsp;get { return lastLogon; }<BR>&nbsp;&nbsp;&nbsp;set { lastLogon = value; }<BR>&nbsp;&nbsp;}<BR>&nbsp;}<BR></FONT></DIV>
+<DIV>&nbsp;</DIV>
+<DIV>可以用NAnt一次性自动生成N个assembly中的所有实体配置文件。但是还有个问题：如何把生成之后的配置文件放进已经打包好的assembly里面？换句话说，如何把资源文件插入assembly？如果做不到，就只好先编译打包assembly，再生成配置文件，再打包一次。</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>请在下列地址下载现有的源码（C#）：</DIV>
+<DIV><A href="http://gigix.blogdriver.com/diary/gigix/inc/NHibernateAttributes.pdf" target=_blank>http://gigix.blogdriver.com/diary/gigix/inc/NHibernateAttributes.pdf</A></DIV>
+<DIV>BlogDriver不允许上传zip文件，请下载此文件后改名为.zip即可打开。</DIV></p>				  
+             <p class="diaryFoot">- 作者： <a href="javascript:void(0);" onClick="window.open('http://publishblog.blogdriver.com/blog/postMessage.b?receiver=25249','发送短消息','width=520, height=455')">gigix</a> 2004年06月25日, 星期五 16:06  </p>
+				</div>
+ <div class="operation"> 
+    <a name="trackback"><H3>Trackback</H3></a>
+      <p class="trackback">你可以使用这个链接引用该篇日志 http://publishblog.blogdriver.com/blog/tb.b?diaryID=215723
+ </p>
+ </div>				
+<div class="operation">
+     <a name="comment"><H3>回复</H3></a>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：lkk </H4></a> 
+    <H5>Fri Jul 15 16:15:43 CST 2005　 
+            <a href="HTTP://" target="_blank"><img src="http://www.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">透明的这个思路不错，不知道有没有开发完成？<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：toolizese </H4></a> 
+    <H5>Thu Jul 14 18:38:45 CST 2005　 
+            <a href="HTTP://toolizese.blogdriver.com" target="_blank"><img src="http://www.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">NHibernateAttributes的下载链接已经无效。不知道透明的最后实现怎么样？我想，既然可以生成.hbm.xml，而且实体类代码也已经写就，那么数据表也就不需要手动去建立了，直接new SchemaExport (cfg).Create(true,true);就搞定了。<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：新手上路多多指点 </H4></a> 
+    <H5>Sat Jun 04 17:37:38 CST 2005　 
+        <a href="mailto:xiazhirong12@126.com"><img src="http://www.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://www.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">最近接触NHibernate这个东东，在使用时觉得很不爽，特别是它的配置文件，本来使用生成器生成的在改了一点之后就一老是出错，又不知是什么错，查不出来，出现如下的错误信息：<br>         A ManifestResourceStream could not be created for the resource WellDell.BM.User.DataAccess.Cfg.xml in Assembly WellDell.BM.User, Version=1.0.1981.31050, Culture=neutral, PublicKeyToken=null <br>请那位大虾指点指点，这是什么原因呢？难道在配置文档里还有注意些什么吗？在此多谢啦！拜托！<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：wngwz </H4></a> 
+    <H5>Fri Apr 29 13:08:34 CST 2005　 
+        <a href="mailto:wngwz at msn.com"><img src="http://www.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://www.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">谢谢！可以给我发一份吗！<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：DaveCai </H4></a> 
+    <H5>Thu Jan 27 15:12:09 CST 2005　 
+        <a href="mailto:cai_dehui@haihuisoft.com.cn"><img src="http://www.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://www.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">自动生成Nhibernate配置，安装文件下载地址：<br>http://www.cnblogs.com/Files/caidehui/SetupGenerate.rar<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：Dave </H4></a> 
+    <H5>Thu Oct 21 15:19:33 CST 2004　 
+        <a href="mailto:cai_dehui@haihuisoft.com.cn"><img src="http://www.blogdriver.com/template/common/img/letter.gif" width="16" height="12" border="0" align="absmiddle" class="imgStyle" alt="作者邮箱"></a>　
+            <a href="HTTP://" target="_blank"><img src="http://www.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">我已经完成了一个自动生成NHibernate配置文件的工具，支持NHibernateClass，NHibernateID，NHibernateProperty，NHibernateOne-One&nbsp;Nhibernate&nbsp;One-Many&nbsp;Many-One&nbsp;Many-Many的自动生成，有需要的请使用：cai_dehui@haihuisoft.com.cn&nbsp;或者QQ：19646007与我联系<P>&nbsp;该工具我已经发布到CSDN的共享软件区，不知道什么时候能用，如果哪位知道有哪个地方比较适合发布，请使用Email告诉我一声<br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：匿名 </H4></a> 
+    <H5>Sat Oct 09 08:41:40 CST 2004　 
+            <a href="HTTP://" target="_blank"><img src="http://www.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment"><marquee width=90% behavior=alternate scrollamount=3>文字</marquee><br>
+      <br>
+    </P>
+     <a name="comment$(remark.remarkID)"><H4> - 评论人：Binzy Wu </H4></a> 
+    <H5>Sat Jun 26 00:49:12 CST 2004　 
+            <a href="http://0926.Net" target="_blank"><img src="http://www.blogdriver.com/template/common/img/blog_2.gif" width="16" height="14" border="0" align="texttop"  class="imgStyle" alt="作者Blog"></a>
+	</H5> 
+    <BR/>
+    <P class="comment">说做就做呀<BR>不过为什么一定要放进Assembly中呢?Nhibernate支持放在外面呀。<BR>据我所知放进Assembly可以这样<BR>1.&nbsp;编译资源文件<BR>2.&nbsp;通过ILMerge合并2个Dll,&nbsp<img align=absmiddle src=pic/url.gif><a target=_blank href=http://research.microsoft.com/%7Embarnett/ilmerge.aspx>http://research.microsoft.com/%7Embarnett/ilmerge.aspx</a><BR>没有尝试过，不知是否确实可行<br>
+      <br>
+    </P>
+ </div>
+  <div class="operation"> 
+    <table width="700" border="0" cellpadding="0" cellspacing="0" class="comment">
+      <form id="replyForm" method="POST">
+        <input type="hidden" name="blogID" value="18254">
+        <input type="hidden" name="diaryID" value="215723">
+        <input type="hidden" name="blogDomino" value="gigix">
+<script>
+if(getCookie('userID') == null){        
+document.write('<tr><td width="70">发布人：</td>');
+document.write('<td width="150"> <input name="remark.authorNameFUI" type="text" size="20" class="inputStyle" maxlength="20"></td>');
+document.write('<td width="70">邮箱：</td>');
+document.write('<td width="435"> <input name="remark.authorEmail" type="text" size="20" class="inputStyle" maxlength="40"></td>');
+document.write('</tr><tr><td>主　页：</td>');
+document.write('<td colspan="3"> <input name="remark.authorURL" type="text" class="inputStyle" value="HTTP://" size="63" maxlength="40"></td></tr>');
+}else{
+document.write('<input type="hidden" name="remark.authorNameFUI" value="Blogdriver">');
+}
+</script>        
+        <tr align="left"> 
+          <td colspan="4">评论内容：<br/> <textarea name="remark.remarkFUI" id="remark" cols="60" rows="8" class="textStyle" >
+          </textarea> 
+          </td> 
+        </tr>
+        <tr align="left"> 
+          <td colspan="4"> 　　　　　　 　　　　　　 
+            <input type="button" value="提交" onClick="reply()" >
+            　 
+            <input type="reset" value="重置" > </td>
+        </tr>
+      </form>
+    </table>
+  </div>
+</div>	
+<script type="text/javascript" src="http://gigix.blogdriver/gigix/extend3.js"></script> 
+<div id="footer"><a href="http://www.blogdriver.com/jsp/reg/register.jsp"><img class="logo" src="http://www.blogdriver.com/template/common/img/logo3.gif" border="0"></a><a href="http://www.blogdriver.com/">2003-2004 BLOGDRIVER.COM All rights reserved</a></div>
+</body>
+</html>
