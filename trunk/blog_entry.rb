@@ -26,18 +26,34 @@ class BlogEntry
     @doc.search("//div[@class='entity']/p[2]").inner_html.gsub(/<img.+>/, "(there's an image)")
   end
   
-  def date
-    @doc.search("//p[@class='diaryFoot']").inner_text.strip
+  def link
+    "<a href=#{@file_path}>#{title}</a>"
   end
   
-  def to_html
+  def date
+    @doc.search("//p[@class='diaryFoot']").inner_text.strip.gsub(/.+200/, "200")
+  end
+  
+  def to_div
     p "washing blog entry: ##{id}"
     builder = Builder::XmlMarkup.new
     xml = builder.div(:id => "main") do |c|
       c.p(:style => "margin-bottom: 0in; page-break-before: always")
       c.h1{|h|h << title}
       c << content
-      c.div(:class => "date"){|div|div << date}
+      c.div(:class => "date"){|div|div << "#{date} (#{id})"}
+    end
+    xml
+  end
+  
+  def to_tr
+    p "washing blog entry to table: ##{id}"
+    builder = Builder::XmlMarkup.new
+    xml = builder.tr do |tr|
+      tr.td(id)
+      tr.td{|td| td << link}
+      tr.td{|td| td << date}
+      tr.td("NotSelected")
     end
     xml
   end

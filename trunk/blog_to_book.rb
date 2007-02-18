@@ -6,4 +6,4 @@ require File.dirname(__FILE__) + "/" + "blog_entry.rb"
 
 src_dir = "TransparentThoughts"
 #src_dir = "test-src"
-BlogEntries.new(src_dir).to_html
+BlogEntries.new(src_dir).to_calc
