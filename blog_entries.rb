@@ -13,25 +13,41 @@ class BlogEntries
   end
   
   def to_html
-    dest_path = absolute_path("book.html")
+    wash_to_html do |body|
+      @entries.each do |entry|
+        body << entry.to_div
+      end
+    end
+  end
+  
+  def to_calc
+    wash_to_html("book_calc.html") do |body|
+      body.p("edit here...")
+      body.table do |table|
+        table << "<COL WIDTH=44><COL WIDTH=387><COL WIDTH=269><COL WIDTH=108>"
+        @entries.each do |entry|
+          table << entry.to_tr
+        end
+      end
+    end
+  end
+  
+  private
+  def wash_to_html(dest = "book.html")
+    dest_path = absolute_path(dest)
     rm_rf dest_path
-    
     builder = Builder::XmlMarkup.new
-    builder.instruct! :xml, :encoding => "gb2312"
     xml = builder.html do |html|
       html.head do |head|
-        head.link :rel => "stylesheet", :href => "style.css", :type => "text/css"
+        head.meta "HTTP-EQUIV" => "CONTENT-TYPE", "CONTENT" => "text/html; charset=gb2312"
       end
       html.body do |body|
-        @entries.each do |entry|
-          body << entry.to_html
-        end
+        yield body
       end
     end
     File.open(dest_path, "w"){|file|file.write xml}
   end
   
-  private
   def absolute_path(path)
     File.dirname(__FILE__) + "/" + path
   end
