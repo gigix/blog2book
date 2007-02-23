@@ -4,6 +4,8 @@ class BlogEntries
   require 'fileutils'
   include FileUtils
 
+  attr_reader :entries
+
   def initialize(src_dir_path)
     src_dir = Dir.new(absolute_path(src_dir_path))
     file_names = src_dir.entries.reject{|entry|entry.index(".")==0}
@@ -33,22 +35,5 @@ class BlogEntries
   end
   
   private
-  def wash_to_html(dest = "book.html")
-    dest_path = absolute_path(dest)
-    rm_rf dest_path
-    builder = Builder::XmlMarkup.new
-    xml = builder.html do |html|
-      html.head do |head|
-        head.meta "HTTP-EQUIV" => "CONTENT-TYPE", "CONTENT" => "text/html; charset=gb2312"
-      end
-      html.body do |body|
-        yield body
-      end
-    end
-    File.open(dest_path, "w"){|file|file.write xml}
-  end
-  
-  def absolute_path(path)
-    File.dirname(__FILE__) + "/" + path
-  end
+  require 'utils'
 end

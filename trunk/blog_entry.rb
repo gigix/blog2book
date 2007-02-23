@@ -3,17 +3,16 @@ require 'hpricot'
 require 'iconv'
 
 class BlogEntry
+  attr_reader :id
+
   def initialize(file_path)
     @file_path = file_path
+    @id = @file_path.split("/").last.split(".").first.to_i
     p "creating blog entry : #{file_path}"
     content = File.new(file_path).read
     @doc = Hpricot.parse(content)
   end
   
-  def id
-    @file_path.split("/").last.split(".").first.to_i
-  end
-
   def filename
     Iconv.conv("utf-8", "gb2312", title + ".html")
   end
