@@ -1,0 +1,1 @@
+transform my blog (html pages) to a book, probably use DocBook
